@@ -15,10 +15,28 @@ Même si en pratique, rien ne l'y oblige, pour le cours de LFSAB1401/SINF1101, l
 
 Ce manuel abordera des bonnes pratiques en Java pour écrire des classes de tests ainsi que la façon d'intégrer ces classes de Test avec INGInious. En effet, pour que le travail soit le plus simple possible, il sera important de respecter certaines conventions, par exemple pour le nom des fichiers, pour les valeurs de retour de certaines fonctions ou encore pour l'affichage des erreurs sur INGInious. Personne n'est obligé de suivre ces conventions, mais nous les avons établies pour que vous ayiez plus facile à publier de nouveaux exercices.
 
-Installer Junit
+Installer JUnit
 ---------------
 
-Pour installer ``Junit``, il vous faudra télécharger les deux fichiers JAR contenant la librairie : ``hamcrest-core.jar
+``JUnit`` est déjà intégré dans ``BlueJ`` et ``Eclipse``. Les notes du cours expliquent déjà comment utiliser JUnit sur ``BlueJ``. Les explications suivantes vous intéresseront si vous compilez vos programme avec le terminal (ce qui est un bon entraînement et vous permettra de comprendre comment fonctionne le container).
+
+Pour installer ``Junit``, il vous faudra télécharger les deux fichiers JAR contenant la librairie : ``hamcrest-core.jar`` et ``junit.jar``, disponibles sur le site de Junit_.
+
+.. _Junit: https://github.com/junit-team/junit/wiki/Download-and-Install
+
+Une fois ces deux fichiers téléchargés, il vous suffira de les ajouter à votre classpath. Pour ce faire, il suffira d'ajouter l'option ``-cp`` lors de la compilation et de l'exécution du programme, avec comme argument l'emplacement des deux fichiers. Par exemple, si vous avez placés ces deux fichiers dans le répertoire ``/usr/share/java/`` (location standard), il vous suffit de compiler vos fichiers comme ceci :
+
+.. code-block:: bash
+	
+	javac -cp .:/usr/share/java/junit.jar:/usr/share/hamcrest-core.jar MonFichier1.java MonFichier2.java
+	
+Vous pourrez ensuite exécuter votre programme comme ceci : 
+
+.. code-block:: bash
+
+	java -cp .:/usr/share/java/junit.jar:/usr/share/hamcrest-core.jar MonFichier1
+	
+*Notez que les ":" dans les chemins des fichiers .jar permettent d'indiquer à l'option -cp que l'on donne le chemin d'un nouveau fichiers .jar contenant une librairie Java.*
 
 Une classe de tests en Java
 ---------------------------
