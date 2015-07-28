@@ -36,7 +36,7 @@ Vous pourrez ensuite exécuter votre programme comme ceci :
 
 	java -cp .:/usr/share/java/junit.jar:/usr/share/hamcrest-core.jar MonFichier1
 	
-*Notez que les ":" dans les chemins des fichiers .jar permettent d'indiquer à l'option ``cp`` que l'on donne le chemin d'un nouveau fichiers .jar contenant une librairie Java.*
+*Notez que les ":" dans les chemins des fichiers .jar permettent d'indiquer à l'option -cp que l'on donne le chemin d'un nouveau fichiers .jar contenant une librairie Java.*
 
 Une classe de tests en Java
 ---------------------------
