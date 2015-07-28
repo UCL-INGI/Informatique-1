@@ -15,6 +15,11 @@ Même si en pratique, rien ne l'y oblige, pour le cours de LFSAB1401/SINF1101, l
 
 Ce manuel abordera des bonnes pratiques en Java pour écrire des classes de tests ainsi que la façon d'intégrer ces classes de Test avec INGInious. En effet, pour que le travail soit le plus simple possible, il sera important de respecter certaines conventions, par exemple pour le nom des fichiers, pour les valeurs de retour de certaines fonctions ou encore pour l'affichage des erreurs sur INGInious. Personne n'est obligé de suivre ces conventions, mais nous les avons établies pour que vous ayiez plus facile à publier de nouveaux exercices.
 
+Installer Junit
+---------------
+
+Pour installer ``Junit``, il vous faudra télécharger les deux fichiers JAR contenant la librairie : ``hamcrest-core.jar
+
 Une classe de tests en Java
 ---------------------------
 
@@ -22,5 +27,26 @@ Lorsque les exercices ne sont pas trop conséquents (une seule ou quelques quest
 
 Avant de publier vos exercices, vous remplirez vous-même la classe du code de l'étudiant pour pouvoir exécuter vos tests sur votre ordinateur et de vérifier s'il n'y a pas d'erreur de compilation et si les tests fonctionnent correctement. Le fait de séparer le code de l'étudiant des codes de test permet d'éviter que des erreurs de compilation du code de l'étudiant n'affiche une partie des tests exécutés pour le tester. 
 
-Pour ce qui est de la classe de tests, c'est elle qui contiendrala méthode main que le container exécutera. En général, la classe de tests utilisera ``JUnit``.
+Pour ce qui est de la classe de tests, c'est elle qui contiendra la méthode main que le container exécutera. En général, la classe de tests utilisera ``JUnit``. Pour se faciliter la tâche, la méthode ``main`` aura toujours la même forme. Vous pourrez donc la copier-coller directement dans votre classe de test : 
+
+.. code-block:: java
+
+	public static void main(String[] args){
+    		// On lance toutes les méthodes de test de la classe.
+		Result result = JUnitCore.runClasses(M4Q7.class);
+		// Pour toutes les erreurs survenues
+		for (Failure failure : result.getFailures()) {
+			// On affiche l'erreur sur la sortie standard
+			System.err.println(failure.toString());
+		}
+		// Si aucune erreur n'est survenue
+		if(result.wasSuccessful()){
+			System.out.println("Tous les tests se sont passés sans encombre");
+			// On quitte en retournant 127 (il est important de bien retourner 127) 
+			System.exit(127);
+		}
+	}
+	
+.. pas fini
+
 
