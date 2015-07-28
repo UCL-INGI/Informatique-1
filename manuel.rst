@@ -2,7 +2,7 @@
 Publier des exercices sur INGInious
 ===================================
 
-.. contents::
+.. contents:: Table des matières
 
 Introduction
 --------------
