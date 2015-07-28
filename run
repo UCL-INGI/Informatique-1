@@ -1,6 +1,0 @@
-#! /bin/bash
-
-touch complete.rst
-sudo rm complete.rst
- 
-pandoc -s -t rst --toc *.rst -o complete.rst
