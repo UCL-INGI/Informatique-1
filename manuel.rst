@@ -15,6 +15,11 @@ Même si en pratique, rien ne l'y oblige, pour le cours de LFSAB1401/SINF1101, l
 
 Ce manuel abordera des bonnes pratiques en Java pour écrire des classes de tests ainsi que la façon d'intégrer ces classes de Test avec INGInious. En effet, pour que le travail soit le plus simple possible, il sera important de respecter certaines conventions, par exemple pour le nom des fichiers, pour les valeurs de retour de certaines fonctions ou encore pour l'affichage des erreurs sur INGInious. Personne n'est obligé de suivre ces conventions, mais nous les avons établies pour que vous ayiez plus facile à publier de nouveaux exercices.
 
+Installer Junit
+---------------
+
+Pour installer ``Junit``, il vous faudra télécharger les deux fichiers JAR contenant la librairie : ``hamcrest-core.jar
+
 Une classe de tests en Java
 ---------------------------
 
@@ -27,11 +32,11 @@ Pour ce qui est de la classe de tests, c'est elle qui contiendra la méthode mai
 .. code-block:: java
 
 	public static void main(String[] args){
-    	// On lance toutes les méthodes de test de la classe.
+    		// On lance toutes les méthodes de test de la classe.
 		Result result = JUnitCore.runClasses(M4Q7.class);
 		// Pour toutes les erreurs survenues
 		for (Failure failure : result.getFailures()) {
-		  // On affiche l'erreur sur la sortie standard
+			// On affiche l'erreur sur la sortie standard
 			System.err.println(failure.toString());
 		}
 		// Si aucune erreur n'est survenue
@@ -41,4 +46,7 @@ Pour ce qui est de la classe de tests, c'est elle qui contiendra la méthode mai
 			System.exit(127);
 		}
 	}
+	
+.. pas fini
+
 
