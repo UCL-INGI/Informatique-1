@@ -1,10 +1,10 @@
-Conventons utilisées
+Conventions utilisées
 ====================
 
 Nous nous sommes servis d'un certain nombre de conventions dans la structure de nos classes de test...
 
 Une classe de tests en Java
-===========================
+---------------------------
 
 Lorsque les exercices ne sont pas trop conséquents (une seule ou quelques questions seulement), on retrouvera souvent une classe Java qui contient tous les tests à exécuter par le container et une classe séparée qui contiendra le code de l'étudiant. 
 
