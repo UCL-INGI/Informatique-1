@@ -1,4 +1,5 @@
-.
+Utilisation de JUnit
+====================
 
 Introduction à JUnit
 --------------------
