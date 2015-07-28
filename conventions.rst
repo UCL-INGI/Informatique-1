@@ -52,8 +52,8 @@ Comme nous utilisons JUnit pour les méthodes de Test, la manière la plus simpl
 			for(int i = 0 ; i < 20 ; i++){
 				sum += i*2;
 				int res = M1Q7Stu.sumFirstEvenIntegers(i);
-				assertEquals(str + "pour les "+i+" premiers entiers pairs, la somme devrait donner "
-					     +sum+" mais le résultat obtenu est "+res+".",
+				assertEquals(str + "pour les "+i+" premiers entiers pairs, la somme devrait "+ 
+					     "donner+" +sum+" mais le résultat obtenu est "+res+".",
 					     sum, res);
 			}
 		}catch (ArithmeticException e){
@@ -78,6 +78,14 @@ Comme nous utilisons JUnit pour les méthodes de Test, la manière la plus simpl
 			e.printStackTrace();
 		}
 	}
+	
+On peut constater plusieurs choses :
+
+- Tout d'abord, le préfixe ``@Test`` est bien sur la ligne précédant la signature de la méthode. 
+- Ensuite, la méthode est de type ``void`` et ne prend aucun argument. 
+- Finalement, la méthode n'est pas ``static``. 
+
+Toutes les méthodes de test devront avoir ces caractéristiques.
 
 
 .. pas fini
