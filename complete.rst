@@ -121,13 +121,14 @@ Suivez le guide
 Je voudrais écrire un exercice que mes camarades pourront s'amuser à
 faire etc
 
-Conventions utilisées ====================
+Conventions utilisées
+=====================
 
 Nous nous sommes servis d'un certain nombre de conventions dans la
-structure de nos classes de test...
+structure de nos classes de test etc
 
 Une classe de tests en Java
-===========================
+---------------------------
 
 Lorsque les exercices ne sont pas trop conséquents (une seule ou
 quelques questions seulement), on retrouvera souvent une classe Java qui
@@ -146,7 +147,7 @@ méthode main que le container exécutera. En général, la classe de tests
 utilisera ``JUnit``.
 
 La méthode main
----------------
+~~~~~~~~~~~~~~~
 
 Pour se faciliter la tâche, la méthode ``main`` aura toujours la même
 forme. Vous pourrez donc la copier-coller directement dans votre classe
@@ -182,7 +183,7 @@ débugger vos tests. La méthode ``JUnitCore.runClasses`` est la méthode
 qui lancera toutes les méthodes de tests que vous aurez rédigées.
 
 Les méthodes de test
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 Comme nous utilisons JUnit pour les méthodes de Test, la manière la plus
 simple de rédiger les tests est de faire une méthode par test unitaire.
@@ -242,10 +243,10 @@ Best practices
 Un certain nombre de bonnes pratiques sont importantes etc
 
 Utilisation de JUnit
-~~~~~~~~~~~~~~~~~~~~
+====================
 
 Installer JUnit
-===============
+---------------
 
 ``JUnit`` est déjà intégré dans ``BlueJ`` et ``Eclipse``. Les notes du
 cours expliquent déjà comment utiliser JUnit sur ``BlueJ``. Les
@@ -279,18 +280,3 @@ Vous pourrez ensuite exécuter votre programme comme ceci :
 *Notez que les ":" dans les chemins des fichiers .jar permettent
 d'indiquer à l'option -cp que l'on donne le chemin d'un nouveau fichiers
 .jar contenant une librairie Java.*
-
-A propos du yaml
-================
-
-yaml c'est etc
-
-Description du script d'exécuton des test
-=========================================
-
-Nous vous fournissions un script qui etc
-
-Démarrage rapide avec git
-=========================
-
-Avec très peu de commandes il est déjà possible de etc

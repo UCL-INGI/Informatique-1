@@ -1,8 +1,8 @@
 Utilisation de JUnit
-====================
+--------------------
 
 Installer JUnit
----------------
+~~~~~~~~~~~~~~~
 
 ``JUnit`` est déjà intégré dans ``BlueJ`` et ``Eclipse``. Les notes du cours expliquent déjà comment utiliser JUnit sur ``BlueJ``. Les explications suivantes vous intéresseront si vous compilez vos programme avec le terminal (ce qui est un bon entraînement et vous permettra de comprendre comment fonctionne le container).
 

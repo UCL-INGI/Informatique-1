@@ -1,6 +1,6 @@
 #! /bin/bash
 
-FILES="intro.rst exemples.rst conventions.rst bestpractices.rst junit.rst yaml.rst script.rst git.rst"
+FILES="intro.rst exemples.rst conventions.rst bestpractices.rst junit.rst" # yaml.rst script.rst git.rst"
 touch complete.rst
 rm complete.rst
 pandoc -s -t rst --toc $FILES -o complete.rst
