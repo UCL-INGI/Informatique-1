@@ -1,11 +1,6 @@
 Utilisation de JUnit
 ====================
 
-Introduction à JUnit
---------------------
-
-JUnit est ...
-
 Installer JUnit
 ---------------
 

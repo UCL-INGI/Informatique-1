@@ -115,13 +115,13 @@ directement dans votre classe de test :
         }
     }
 
-.
-
 Suivez le guide
 ===============
 
 Je voudrais écrire un exercice que mes camarades pourront s'amuser à
-faire. Conventions utilisées ====================
+faire etc
+
+Conventions utilisées ====================
 
 Nous nous sommes servis d'un certain nombre de conventions dans la
 structure de nos classes de test...
@@ -236,18 +236,13 @@ On peut constater plusieurs choses :
 
 Toutes les méthodes de test devront avoir ces caractéristiques.
 
-.
-
 Best practices
 ==============
 
-Un certain nombre de bonnes pratiques sont importantes... Utilisation de
-JUnit ====================
+Un certain nombre de bonnes pratiques sont importantes etc
 
-Introduction à JUnit
-====================
-
-JUnit est ...
+Utilisation de JUnit
+~~~~~~~~~~~~~~~~~~~~
 
 Installer JUnit
 ===============
@@ -285,19 +280,17 @@ Vous pourrez ensuite exécuter votre programme comme ceci :
 d'indiquer à l'option -cp que l'on donne le chemin d'un nouveau fichiers
 .jar contenant une librairie Java.*
 
-.
-
 A propos du yaml
 ================
 
-.
+yaml c'est etc
 
 Description du script d'exécuton des test
 =========================================
 
-Nous vous fournissions un script qui ... .
+Nous vous fournissions un script qui etc
 
 Démarrage rapide avec git
 =========================
 
-Avec très peu de commandes il est déjà possible de ...
+Avec très peu de commandes il est déjà possible de etc
