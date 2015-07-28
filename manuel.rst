@@ -26,8 +26,8 @@ Pour ce qui est de la classe de tests, c'est elle qui contiendra la méthode mai
 
 .. code-block:: java
 
-  public static void main(String[] args){
-    // On lance toutes les méthodes de test de la classe.
+	public static void main(String[] args){
+    	// On lance toutes les méthodes de test de la classe.
 		Result result = JUnitCore.runClasses(M4Q7.class);
 		// Pour toutes les erreurs survenues
 		for (Failure failure : result.getFailures()) {
