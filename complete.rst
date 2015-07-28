@@ -121,7 +121,8 @@ Suivez le guide
 Je voudrais écrire un exercice que mes camarades pourront s'amuser à
 faire etc
 
-Conventions utilisées ====================
+Conventions utilisées 
+====================
 
 Nous nous sommes servis d'un certain nombre de conventions dans la
 structure de nos classes de test...
