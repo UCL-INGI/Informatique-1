@@ -48,13 +48,22 @@ Comme nous utilisons JUnit pour les méthodes de Test, la manière la plus simpl
 	
 	private static String str = "Le code semble comporter des erreurs : ";
 
+	/**
+	 * 	@pre	-
+	 * 	@post	Teste le code de l'étudiant avec un n positif valant de 0 à 20
+	 * 			Lance une AssertionError lorsque le code est incorrect.
+	 */
 	@Test
 	public void testPos(){
 		try{
 			int sum = 0;
 			for(int i = 0 ; i < 20 ; i++){
+				// À chaque itération, on calcule sum, qui contient la réponse que devrait fournir
+				// la méthode de l'étudiant
 				sum += i*2;
+				// On récupère le résultat fourni par la méthode de l'étudiant
 				int res = M1Q7Stu.sumFirstEvenIntegers(i);
+				// On vérifie que le résultat est bien égal à sum, sinon, AssertionError.
 				assertEquals(str + "pour les "+i+" premiers entiers pairs, la somme devrait "+ 
 					     "donner+" +sum+" mais le résultat obtenu est "+res+".",
 					     sum, res);
