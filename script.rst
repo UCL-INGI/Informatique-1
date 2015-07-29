@@ -1,6 +1,6 @@
 
 
-Description du script d'exécuton des test
+Description du script d'exécution des test
 -----------------------------------------
 
 Pour qu'INGInious puisse lancer les exercices, il faut lui fournir un script écrit en ``bash`` qui lui donnera les instructions sur comment compiler, exécuter et traiter les valeurs de retour des classes java.
