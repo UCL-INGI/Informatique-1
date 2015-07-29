@@ -127,7 +127,7 @@ Idéalement, les classes de test seront décomposées en trois fichiers distinct
 
 	@	@q1@@
 
-Vous remplacerez q1 par l'id de la sous-question de l'exercice. Si l'exercice n'a qu'une seule sous-question (cas idéal), laissez ``q1``. S'il y a plusieurs endroits où l'étudiant doit répondre, et donc plusieurs sous-questions, mettez la même ligne avec ``q1`` pour la première sous-question, ``q2`` pour la deuxième, etc.
+Vous remplacerez ``q1`` par l'id de la sous-question de l'exercice. Si l'exercice n'a qu'une seule sous-question (cas idéal), laissez ``q1``. S'il y a plusieurs endroits où l'étudiant doit répondre, et donc plusieurs sous-questions, mettez la même ligne avec ``q1`` pour la première sous-question, ``q2`` pour la deuxième, etc.
 
 Voici un exemple des fichiers à fournir :
 
@@ -136,5 +136,5 @@ Voici un exemple des fichiers à fournir :
 - Fichier M1Q7Vide.java, trouvable **ICI** *insérer lien*
 
 
-Le template du script prévoir encore l'ajout éventuel d'un troisième fichier java, au cas où vous voudriez par exemple exécuter une méthode contenant la version correcte de la réponse à l'exercice, pour comparer avec celle que l'étudiant à écrite. Cette troisième classe aura le même nom que la classe principale, mais avec le suffixe "``Corr``". La classe s'appellera donc ``ClasseInginiousCorr`` et le fichier du code source devra alors s'appeler ``ClasseInginiousCorr.java``.
+Le template du script prévoir encore l'ajout éventuel d'un quatrième fichier java, au cas où vous voudriez par exemple exécuter une méthode contenant la version correcte de la réponse à l'exercice, pour comparer avec celle que l'étudiant à écrite. Cette troisième classe aura le même nom que la classe principale, mais avec le suffixe "``Corr``". La classe s'appellera donc ``ClasseInginiousCorr`` et le fichier du code source devra alors s'appeler ``ClasseInginiousCorr.java``.
 
