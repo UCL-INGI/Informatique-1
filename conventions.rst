@@ -1,7 +1,7 @@
 Conventions utilisées
 ---------------------
 
-Nous nous sommes servis d'un certain nombre de conventions dans la structure de nos classes de test etc
+Dans cette section, nous abordons un bon nombre de conventions que nous avons utilisées lors de la création des tests sur INGInious. Nous vous recommandons de les respecter car cela vous facilitera la création des tests ainsi que leur mise en place sur INGInious.
 
 Une classe de tests en Java
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -124,4 +124,3 @@ Idéalement, les classes de test seront décomposées en deux fichiers distincts
 
 Le template du script prévoir encore l'ajout éventuel d'un troisième fichier java, au cas où vous voudriez par exemple exécuter une méthode contenant la version correcte de la réponse à l'exercice, pour comparer avec celle que l'étudiant à écrite. Cette troisième classe aura le même nom que la classe principale, mais avec le suffixe "``Corr``". La classe s'appellera donc ``ClasseInginiousCorr`` et le fichier du code source devra alors s'appeler ``ClasseInginiousCorr.java``.
 
-.. pas fini
