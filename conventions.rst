@@ -44,6 +44,9 @@ Les méthodes de test
 Comme nous utilisons JUnit pour les méthodes de Test, la manière la plus simple de rédiger les tests est de faire une méthode par test unitaire. Pour que la méthode ``JUnitCore.runClasses`` sache quelle méthode exécuter pour les tests, la signature de chaque méthode de Test doit avoir le label ``@Test`` sur la ligne au-dessus. Prenons un exemple d'une courte méthode de test : 
 
 .. code-block:: java
+	
+	
+	private static String str = "Le code semble comporter des erreurs : ";
 
 	@Test
 	public void testPos(){
@@ -83,7 +86,7 @@ Toutes les méthodes de test devront avoir ces caractéristiques.
 
 Le principe de base est qu'une méthode de test devra lancer une ``AssertionError`` lorsque l'étudiant a fourni une réponse incorrecte sur INGInious. Le but n'est pas de lancer directement une ``AssertionError`` avec l'instruction ``throw`` mais d'utiliser les méthodes de ``JUnit`` comme ``AssertEquals`` qui lanceront une ``AssertionError`` lorsque la réponse reçue ne correspond pas à ce qui est attendu.
 
-La méthode ``runClasses`` qui lance les classes de test ``catch`` automatiquement les exceptions survenues dans les méthodes de test. Le souci est que le message diffusé sur System.err n'est pas clair du tout et pas forcément compréhensible par un étudiant de BAC1, surtout en début d'année. Par convention, on s'occupera d'entourer les tests dans les méthodes de test par un ``try ...catch`` pour fournir un message d'erreur plus clair pour l'étudiant.  En général, il vous suffira de nouveau de copier/coller le ``try ...catch`` de la méthode de test ci-dessus pour l'intégrer à vos méthodes de test. Encore une fois, il n'est pas obligatoire d'utiliser des ``try ...catch`` dans les méthodes de test mais c'est important pour faciliter la compréhension des étudiants.
+La méthode ``runClasses`` qui lance les classes de test ``catch`` automatiquement les exceptions survenues dans les méthodes de test. Le souci est que le message diffusé sur System.err n'est pas clair du tout et pas forcément compréhensible par un étudiant de BAC1, surtout en début d'année. Par convention, on s'occupera d'entourer les tests dans les méthodes de test par un ``try ...catch`` pour fournir un message d'erreur plus clair pour l'étudiant.  En général, il vous suffira de nouveau de copier/coller le ``try ...catch`` de la méthode de test ci-dessus pour l'intégrer à vos méthodes de test. Encore une fois, il n'est pas obligatoire d'utiliser des ``try ...catch`` dans les méthodes de test mais c'est important pour faciliter la compréhension des étudiants. Dans les clauses ``catch``, l'instruction ``fail`` de JUnit suffira à indiquer qu'une erreur est survenue, mais, cette fois, avec un message d'erreur plus clair.
 
 
 
