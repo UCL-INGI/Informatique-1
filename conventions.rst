@@ -133,7 +133,7 @@ Cette ligne indiquera à INGInious d'insérer la réponse de l'étudiant à la s
 
 Ce fichier aura comme nom le nom du fichier principal, avec le suffixe "``Vide``", par exemple ``ClasseInginiousVide.java``. Le nom de la **classe** , lui, doit être le même que le fichier "``Stu``", à savoir ``ClasseInginiousStu``
 
-Voici un exemple des fichiers à fournir :
+Voici un exemple des fichiers à fournir, pour que vous compreniez mieux :
 
 - Fichier M1Q7.java, trouvable **ICI** *insérer lien*
 - Fichier M1Q7Stu.java, trouvable **ICI** *insérer lien*
