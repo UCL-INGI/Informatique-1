@@ -58,24 +58,18 @@ Comme nous utilisons JUnit pour les méthodes de Test, la manière la plus simpl
 			}
 		}catch (ArithmeticException e){
 			fail(str + "Le code est incorrect : il est interdit de diviser par zéro.");
-			e.printStackTrace();
 		}catch(ClassCastException e){
 			fail(str + "Attention, certaines variables ont été mal castées	!");
-			e.printStackTrace();
 		}catch(StringIndexOutOfBoundsException e){
-			e.printStackTrace();
 			fail(str + "Attention, vous tentez de lire en dehors des limites d'un String ! (StringIndexOutOfBoundsException)");
-			e.printStackTrace();
 		}catch(ArrayIndexOutOfBoundsException e){
 			e.printStackTrace();
 			fail(str + "Attention, vous tentez de lire en dehors des limites d'un tableau ! (ArrayIndexOutOfBoundsException)");
-			e.printStackTrace();
 		}catch(NullPointerException e){
 			fail(str + "Attention, vous faites une opération sur un objet qui vaut null ! Veillez à bien gérer ce cas.");
 			e.printStackTrace();
 		}catch(Exception e){
 			fail(str + "\n" + e.getMessage());
-			e.printStackTrace();
 		}
 	}
 	
@@ -86,6 +80,12 @@ On peut constater plusieurs choses :
 - Finalement, la méthode n'est pas ``static``. 
 
 Toutes les méthodes de test devront avoir ces caractéristiques.
+
+Le principe de base est qu'une méthode de test devra lancer une ``AssertionError`` lorsque l'étudiant a fourni une réponse incorrecte sur INGInious. Le but n'est pas de lancer directement une ``AssertionError`` avec l'instruction ``throw`` mais d'utiliser les méthodes de ``JUnit`` comme ``AssertEquals`` qui lanceront une ``AssertionError`` lorsque la réponse reçue ne correspond pas à ce qui est attendu.
+
+La méthode ``runClasses`` qui lance les classes de test ``catch`` automatiquement les exceptions survenues dans les méthodes de test. Le souci est que le message diffusé sur System.err n'est pas clair du tout et pas forcément compréhensible par un étudiant de BAC1, surtout en début d'année. Par convention, on s'occupera d'entourer les tests dans les méthodes de test par un ``try ...catch`` pour fournir un message d'erreur plus clair pour l'étudiant.  En général, il vous suffira de nouveau de copier/coller le ``try ...catch`` de la méthode de test ci-dessus pour l'intégrer à vos méthodes de test. Encore une fois, il n'est pas obligatoire d'utiliser des ``try ...catch`` dans les méthodes de test mais c'est important pour faciliter la compréhension des étudiants.
+
+
 
 
 .. pas fini
