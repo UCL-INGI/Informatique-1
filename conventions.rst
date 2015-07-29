@@ -120,14 +120,18 @@ Une fois vos classes écrites, il faut ensuite pouvoir les porter sur INGInious.
 Idéalement, les classes de test seront décomposées en trois fichiers distincts :
 
 - La classe principale, qui contient la méthode ``main`` ainsi que les classes de test. C'est cette classe qui sera exécutée par INGInious. Vous pouvez choisir son nom, prenons par exemple ``ClasseInginious``. Le fichier du code source devra alors s'appeler ``ClasseInginious.java``.
-- La classe contenant la réponse correcte à l'exercice, séparée de la classe principale pour ne pas qu'une erreur mal placée puisse afficher le code des méthodes de test lors de la compilation. Cette classe aura le même nom que la classe principale, mais avec le suffixe "``Stu``", pour indiquer qu'il s'agit de la classe contenant le code de l'étudiant, mais vide car sans ce dernier. La classe s'appellera donc ``ClasseInginiousStu`` et le fichier du code source devra alors s'appeler ``ClasseInginiousStu.java``.
-- Une copie du fichier "``Stu``" mais vous enleverez la réponse à l'exercice que l'étudiant doit écrire lui-même et vous la remplacez par cette ligne-là : 
+- La classe contenant la réponse correcte à l'exercice, séparée de la classe principale pour ne pas qu'une erreur mal placée puisse afficher le code des méthodes de test lors de la compilation. Cette classe aura le même nom que la classe principale, mais avec le suffixe "``Stu``", pour indiquer qu'il s'agit de la classe contenant le code de l'étudiant, mais vide car sans ce dernier. La classe s'appellera donc ``ClasseInginiousStu`` et le fichier du code source devra alors s'appeler ``ClasseInginiousStu.java``. Ce fichier ne sera pas utile en tant que tel à INGInious mais il sera utile pour exécuter vos tests sur votre ordinateur. Écrivez vos tests comme si c'était une vraie réponse d'étudiant.
+- Une copie du fichier "``Stu``", à l'identique ( **La classe doit aussi avoir le suffixe Stu** ), mais vous enleverez la réponse à l'exercice que l'étudiant doit écrire lui-même et vous la remplacez par cette ligne-là : 
 
 .. code-block:: bash
 
 	@	@q1@@
 
 Vous remplacerez ``q1`` par l'id de la sous-question de l'exercice. Si l'exercice n'a qu'une seule sous-question (cas idéal), laissez ``q1``. S'il y a plusieurs endroits où l'étudiant doit répondre, et donc plusieurs sous-questions, mettez la même ligne avec ``q1`` pour la première sous-question, ``q2`` pour la deuxième, etc.
+
+Cette ligne indiquera à INGInious d'insérer la réponse de l'étudiant à la sous-question ``q1`` à cet endroit précis.
+
+Ce fichier aura comme nom le nom du fichier principal, avec le suffixe "``Vide``", par exemple ``ClasseInginiousVide.java``. Le nom de la **classe** , lui, doit être le même que le fichier "``Stu``", à savoir ``ClasseInginiousStu``
 
 Voici un exemple des fichiers à fournir :
 
