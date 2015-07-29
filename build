@@ -1,15 +1,20 @@
 #! /bin/bash
 
 
-#for file in *.rst
-#do
-#    NAME=${file%%.rst}
-#    pandoc -s -t markdown_github --toc "$file" -o "$NAME".md 
-#
-#done
+
+for file in *.rst
+do
+    
+    NAME=${file%%.rst}
+    pandoc -s -t markdown_github --toc "$file" -o "$NAME".md 
+    
+done
 
 
-#FILES="intro.rst exemples.rst conventions.rst bestpractices.rst junit.rst" # yaml.rst script.rst git.rst"
 #touch complete.rst
 #rm complete.rst
 #pandoc -s -t rst --toc $FILES -o complete.rst
+
+
+pandoc -s -t markdown_github --toc intro.rst junit.rst bestpractices.rst conventions.rst git.rst script.rst yaml.rst exemples.rst -o all.md 
+

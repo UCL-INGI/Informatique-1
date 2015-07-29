@@ -2,10 +2,6 @@
 Publier des exercices sur INGInious
 ===================================
 
-.. contents::
-   :depth: 3
-..
-
 Introduction
 ============
 
