@@ -6,6 +6,8 @@ Nous nous sommes servis d'un certain nombre de conventions dans la structure de 
 Une classe de tests en Java
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Tout d'abord, et c'est important, toutes vos classes de test devront se retrouver dans le package ``student``, c'est impératif pour qu'INGInious puisse lancer le code de l'étudiant de manière plus sécurisée pour qu'il ne puisse pas interférer avec vos fichiers.
+
 Lorsque les exercices ne sont pas trop conséquents (une seule ou quelques questions seulement), on retrouvera souvent une classe Java qui contient tous les tests à exécuter par le container et une classe séparée qui contiendra le code de l'étudiant. 
 
 Avant de publier vos exercices, vous remplirez vous-même la classe du code de l'étudiant pour pouvoir exécuter vos tests sur votre ordinateur et de vérifier s'il n'y a pas d'erreur de compilation et si les tests fonctionnent correctement. Le fait de séparer le code de l'étudiant des codes de test permet d'éviter que des erreurs de compilation du code de l'étudiant n'affiche une partie des tests exécutés pour le tester. 
@@ -97,7 +99,14 @@ Le principe de base est qu'une méthode de test devra lancer une ``AssertionErro
 
 La méthode ``runClasses`` qui lance les classes de test ``catch`` automatiquement les exceptions survenues dans les méthodes de test. Le souci est que le message diffusé sur System.err n'est pas clair du tout et pas forcément compréhensible par un étudiant de BAC1, surtout en début d'année. Par convention, on s'occupera d'entourer les tests dans les méthodes de test par un ``try ...catch`` pour fournir un message d'erreur plus clair pour l'étudiant.  En général, il vous suffira de nouveau de copier/coller le ``try ...catch`` de la méthode de test ci-dessus pour l'intégrer à vos méthodes de test. Encore une fois, il n'est pas obligatoire d'utiliser des ``try ...catch`` dans les méthodes de test mais c'est important pour faciliter la compréhension des étudiants. Dans les clauses ``catch``, l'instruction ``fail`` de JUnit suffira à indiquer qu'une erreur est survenue, mais, cette fois, avec un message d'erreur plus clair.
 
+Nommage des fichiers classes Java
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Une fois vos classes écrites, il faut ensuite pouvoir les porter sur INGInious. Pour cela, nous avons écrit un template d'un script écrit en ``bash``. Le but est que vous puissiez l'utiliser sans pour autant avoir des connaissances en ``bash`` qui est un langage qui peut s'avérer désagréable à utiliser et que vous n'êtes pas forcément sensé connaître en fin de 1ère BAC. Si vous respectez les conventions énoncées plus bas, vous ne devrez modifier qu'une ou deux variables dans l'entête du script, ce qui vous facilitera grandement la tâche. Vous pouvez aussi ne pas du tout les respecter et modifier le template pour qu'il convienne à vos exigeances, c'est un bon entraînement mais aussi un vecteur d'erreurs, nous vous recommandons vivement de respecter les conventions de nommages des fichiers ci-dessous.
 
+Idéalement, les classes de test seront décomposées en deux fichiers distincts :
+
+- La classe principale, qui contient la méthode ``main`` ainsi que les classes de test. C'est cette classe qui sera exécutée par INGInious. Vous pouvez choisir son nom, prenons par exemple ``ClasseInginious``. Le fichier du code source devra alors s'appeler ``ClasseInginious.java``.
+- La classe contenant le code de l'étudiant, séparée de la classe principale pour ne pas qu'une erreur mal placée puisse afficher le code des méthodes de test lors de la compilation. Cette classe aura le même nom que la classe principale, mais avec le suffixe "``Stu``", pour indiquer qu'il s'agit de la classe contenant le code de l'étudiant. La classe s'appellera donc ``ClasseInginiousStu`` et le fichier du code source devra alors s'appeler ``ClasseInginiousStu.java``.
 
 .. pas fini
