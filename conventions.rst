@@ -12,7 +12,20 @@ Lorsque les exercices ne sont pas trop conséquents (une seule ou quelques quest
 
 Avant de publier vos exercices, vous remplirez vous-même la classe du code de l'étudiant pour pouvoir exécuter vos tests sur votre ordinateur et de vérifier s'il n'y a pas d'erreur de compilation et si les tests fonctionnent correctement. Le fait de séparer le code de l'étudiant des codes de test permet d'éviter que des erreurs de compilation du code de l'étudiant n'affiche une partie des tests exécutés pour le tester. 
 
-Pour ce qui est de la classe de tests, c'est elle qui contiendra la méthode main que le container exécutera. En général, la classe de tests utilisera ``JUnit``. 
+Pour ce qui est de la classe de tests, c'est elle qui contiendra la méthode main que le container exécutera. En général, la classe de tests utilisera ``JUnit``.
+
+N'oubliez pas d'importer les packages nécessaires de JUnit pour lancer vos tests. Vous pouvez copier-coller les imports que nous avons faits dans la plupart de nos fichiers tests, c'est à dire : 
+
+.. code-block:: java
+
+	import static org.junit.Assert.*;
+	
+	import org.junit.runner.JUnitCore;
+	import org.junit.runner.Result;
+	import org.junit.Test;
+	import org.junit.runner.notification.Failure;
+	
+
 
 La méthode main
 ^^^^^^^^^^^^^^^
