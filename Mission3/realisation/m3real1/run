@@ -1,0 +1,33 @@
+#!/usr/bin/python2
+
+from os import listdir, system
+import zipfile 
+import inginiousUtils
+
+# Verify the file content
+system('getinput "q1" > basicSubmission.zip')
+
+#totalPoints = 0
+#maxPoints = 5
+
+output = ".. role:: bash(code)\n\t:language: bash\n\n"
+
+title1 = "Testing content of archive"
+output += inginiousUtils.get_rst_title(title1) + "\n\n"
+
+expectedFiles = ['LibMath.java', 'README.TXT']
+
+unzipOutput = inginiousUtils.extract_zip_content('basicSubmission.zip', expectedFiles)
+
+if (unzipOutput):
+    output += unzipOutput
+    output += "\n**Archive Content: 0/1**"
+    system('archive -a build.manifest')
+    system('feedback --result failed --feedback "' + output + '"')
+    exit(0)
+else:
+    output += "Your archive has the correct content.\n"
+    output += "\n**Archive content: 1/1**"
+    system('sh run.sh')
+    # system('feedback --result success --feedback "' + output + '"')
+    # exit(0)
