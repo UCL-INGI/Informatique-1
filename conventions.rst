@@ -117,10 +117,24 @@ Nommage des fichiers classes Java
 
 Une fois vos classes écrites, il faut ensuite pouvoir les porter sur INGInious. Pour cela, nous avons écrit un template d'un script écrit en ``bash``. Le but est que vous puissiez l'utiliser sans pour autant avoir des connaissances en ``bash`` qui est un langage qui peut s'avérer désagréable à utiliser et que vous n'êtes pas forcément sensé connaître en fin de 1ère BAC. Si vous respectez les conventions énoncées plus bas, vous ne devrez modifier qu'une ou deux variables dans l'entête du script, ce qui vous facilitera grandement la tâche. Vous pouvez aussi ne pas du tout les respecter et modifier le template pour qu'il convienne à vos exigeances, c'est un bon entraînement mais aussi un vecteur d'erreurs, nous vous recommandons vivement de respecter les conventions de nommages des fichiers ci-dessous si vous ne vous y connaissez pas ou peu en ``bash``.
 
-Idéalement, les classes de test seront décomposées en deux fichiers distincts :
+Idéalement, les classes de test seront décomposées en trois fichiers distincts :
 
 - La classe principale, qui contient la méthode ``main`` ainsi que les classes de test. C'est cette classe qui sera exécutée par INGInious. Vous pouvez choisir son nom, prenons par exemple ``ClasseInginious``. Le fichier du code source devra alors s'appeler ``ClasseInginious.java``.
-- La classe sensée contenir le code de l'étudiant, séparée de la classe principale pour ne pas qu'une erreur mal placée puisse afficher le code des méthodes de test lors de la compilation. Cette classe aura le même nom que la classe principale, mais avec le suffixe "``Vide``", pour indiquer qu'il s'agit de la classe contenant le code de l'étudiant, mais vide car sans ce dernier. La classe s'appellera donc ``ClasseInginiousVide`` et le fichier du code source devra alors s'appeler ``ClasseInginiousVide.java``.
+- La classe contenant la réponse correcte à l'exercice, séparée de la classe principale pour ne pas qu'une erreur mal placée puisse afficher le code des méthodes de test lors de la compilation. Cette classe aura le même nom que la classe principale, mais avec le suffixe "``Stu``", pour indiquer qu'il s'agit de la classe contenant le code de l'étudiant, mais vide car sans ce dernier. La classe s'appellera donc ``ClasseInginiousStu`` et le fichier du code source devra alors s'appeler ``ClasseInginiousStu.java``.
+- Une copie du fichier "``Stu``" mais vous enleverez la réponse à l'exercice que l'étudiant doit écrire lui-même et vous la remplacez par cette ligne-là : 
+
+.. code-block:: bash
+
+	@	@q1@@
+
+Vous remplacerez q1 par l'id de la sous-question de l'exercice. Si l'exercice n'a qu'une seule sous-question (cas idéal), laissez ``q1``. S'il y a plusieurs endroits où l'étudiant doit répondre, et donc plusieurs sous-questions, mettez la même ligne avec ``q1`` pour la première sous-question, ``q2`` pour la deuxième, etc.
+
+Voici un exemple des fichiers à fournir :
+
+- Fichier M1Q7.java, trouvable **ICI** *insérer lien*
+- Fichier M1Q7Stu.java, trouvable **ICI** *insérer lien*
+- Fichier M1Q7Vide.java, trouvable **ICI** *insérer lien*
+
 
 Le template du script prévoir encore l'ajout éventuel d'un troisième fichier java, au cas où vous voudriez par exemple exécuter une méthode contenant la version correcte de la réponse à l'exercice, pour comparer avec celle que l'étudiant à écrite. Cette troisième classe aura le même nom que la classe principale, mais avec le suffixe "``Corr``". La classe s'appellera donc ``ClasseInginiousCorr`` et le fichier du code source devra alors s'appeler ``ClasseInginiousCorr.java``.
 
