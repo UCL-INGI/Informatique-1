@@ -20,7 +20,7 @@
 # Sous la balise "q1", complétez les balises nécessaires ("name" correspond au titre de la sous-question, "header" à un court énoncé de celle-ci).  
 # Inutile de toucher aux autres balises.
 # Le texte de l'énoncé de l'exercice (sous la balise "context") est écrit en langage reStructuredText (rst) :
-# "::" permet d'afficher un bloc de code. Le code doit  être séparé de "::" d'une ligne vide et être indenté par rapport à "::"
+# "::" permet d'afficher un bloc de code. Le code doit  être séparé de "::" par une ligne vide et être indenté par rapport à "::"
 # ".. code-block:: java correspond à "::" mais avec la précision qu'il doit le mettre en couleur en fonction de la syntaxe java
 
 
