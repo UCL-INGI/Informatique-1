@@ -1,0 +1,63 @@
+#   Copyright (c) 2015 Olivier Bonaventure, François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+accessible: true
+author: 'Clémentine Munyabarenzi (ressource : Syllabus d''exercices  LSINF1101)'
+context: |-
+    Un étudiant utilise des tableaux de réels pour représenter des vecteurs mathématiques. Ces tableaux sont définis comme suit :
+
+    .. code-block :: java
+
+        double[] t1={1.0, 2.0, -3.0};
+        double[] t2={1.0, 3.0, 9.0};
+
+    L'étudiant propose la méthode suivante pour tester que deux vecteurs sont
+    identiques :
+
+    .. code-block :: java
+
+        /**
+         * @pre t1!=null, t2!=null
+         * @post retourne true si t1 et t2 sont les mêmes vecteurs, false sinon
+         */
+        public static boolean egal(double[] t1, double[] t2) {
+         return t1==t2;
+        }
+
+    Il teste sa méthode sur les deux tableaux ci-dessus et conclut que sa
+    méthode est correcte. Qu'en pensez-vous ?
+environment: java7
+limits:
+    memory: '100'
+    output: '2'
+    time: '20'
+name: 'Mission 5: Question de démarrage 2: Compararer des tableaux'
+problems:
+    q1:
+        name: ''
+        header: |-
+            Les tableaux ``t1`` et ``t2`` étants définis comme plus haut, pouvez-vous faire en sorte que l'expression ``t1 == t2`` renvoie à coup sûr ``true``? Ecrivez du code permettant d'obtenir ce résultat.
+
+            Considérez que vous écrivez une méthode sans signature et que *t1* et *t2* sont déjà initialisés comme ci-dessus (Par contre toutes les autres ressources dont vous estimerez avoir besoin devront être déclarées par vous).
+        language: java
+        type: code
+    q2:
+        name: ''
+        type: code
+        language: java
+        header: Proposez une implémentation correcte du *corps* de la méthode ``egal``
+            ci-dessus (Vous ne devez pas écrire la signature de la méthode).
+weight: 1.0

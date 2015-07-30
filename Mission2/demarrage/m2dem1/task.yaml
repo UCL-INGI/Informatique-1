@@ -1,0 +1,58 @@
+#   Copyright (c) 2015 Olivier Bonaventure, François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+accessible: false
+author: François MICHEL
+context: Voici quelques questions QCM pour vérifier votre compréhension de la Mission
+    2 du cours, après lecture du livre de référence.
+environment: java7
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: 'Mission 2: Question de démarrage 1: Les bases'
+problems:
+    q1:
+        choices:
+        -   text: Une partie de la mémoire réservée pour contenir des données
+            valid: true
+        -   text: Un morceau d'information qui peut être manipulé par un programme
+        -   text: Un ensemble de valeurs contigues dans la mémoire auxquelles on peut
+                accéder en fonction de leur position dans la mémoire
+        -   text: Une entité abstraite qui possède un ensemble d'attributs et d'opérations
+                qui lui sont propres.
+        -   text: Une liste d'entités qui disposent chacune de la référence vers l'entité
+                suivante de la liste
+        -   text: Une chaine de caractères, dans le code du programme, qui se situe
+                devant le caractère "="
+        name: Choix multiple
+        type: multiple-choice
+        header: Quelle est la définition la plus appropriée pour une variable ?
+        limit: 3
+    q2:
+        choices:
+        -   text: Une partie de la mémoire réservée pour contenir des données
+        -   text: Un morceau d'information qui peut être manipulé par un programme
+            valid: true
+        -   text: Une entité abstraite qui possède un ensemble d'attributs et d'opérations
+                qui lui sont propres.
+        -   text: Une suite d'instructions exécutables ou non par un programme
+        -   text: Un entier ou un caractère
+        name: Choix multiple
+        limit: 3
+        header: Quelle est la définition la plus appropriée pour une valeur ?
+        type: multiple-choice
+weight: 1.0

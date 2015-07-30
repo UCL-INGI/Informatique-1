@@ -1,0 +1,70 @@
+#   Copyright (c) 2015 Olivier Bonaventure, François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+accessible: true
+author: ''
+context: |+
+    Un étudiant montre à son tuteur la méthode main ci-dessous :
+
+    .. code-block :: java
+
+         /**
+          *public static void main(String[] args){
+          *    int hauteur;
+          * int largeur;
+          *    char c = 'X';
+          *    System.out.println("Hauteur du L");
+          *    hauteur = TextIO.getInt();
+          *    System.out.println();
+          *    System.out.println("largeur du L ");
+          *    largeur = TextIO.getInt();
+          *    lettre_l(c, hauteur, largeur);
+          *}
+          */
+
+    Lors de son exécution elle affiche les caractères suivants à l'écran:
+
+      ::
+
+          java lettre L
+          hauteur de la lettre
+          7
+          largeur de la lettre
+          5
+
+          X
+          X
+          X
+          X
+          X
+          X
+          XXXXX
+
+environment: java7
+limits:
+    memory: '100'
+    time: '20'
+    output: '2'
+name: 'Mission 3: Question de démarrage 4: Lettre L'
+problems:
+    q1:
+        language: java
+        name: ''
+        type: code
+        header: |-
+            Réécrivez la **la signature**, **et le corps** de la
+            méthode ``lettre_l`` utilisée par cet étudiant.
+weight: 1.0
