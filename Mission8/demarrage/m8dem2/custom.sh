@@ -1,3 +1,4 @@
+#!/bin/bash
 #   Copyright (c) 2015 Olivier Bonaventure, François Michel, Clémentine Munyabarenzi
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -14,7 +15,6 @@
 
 
 
-#! /bin/bash
 
 EXERCICE="M8Q9"
 TRICHE=$(cat student/M8Q8Stu.java | grep -v "import java.lang.StringBuffer;" | grep "StringBuffer")
