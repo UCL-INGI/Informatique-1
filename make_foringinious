@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Run this script to copy every task dir of this repo into inginious_dir
+
+if [ ! -d inginious_dir ];	then
+	mkdir inginious_dir
+fi
+
+for dir in `find -maxdepth 1 -name "Mission*" -type d -printf "%f\n"`
+do
+	for demdir in `find "${dir}/demarrage" -maxdepth 1 -mindepth 1 -type d -printf "%f\n"`
+	do
+		cp -r "${dir}/demarrage/${demdir}" "inginious_dir/"
+ 	done
+	for realdir in `find "${dir}/realisation" -maxdepth 1 -mindepth 1 -type d -printf "%f\n"`
+	do
+		cp -r "${dir}/realisation/${realdir}" "inginious_dir/"
+	done
+done
+
