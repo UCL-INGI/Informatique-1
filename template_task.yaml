@@ -1,0 +1,62 @@
+#   Copyright (c) 2015 Olivier Bonaventure, François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+# Écrivez votre nom derrière la balise "author"
+# Écrivez le nom de la tâche entre simples guillements ( ' )  derrière la balise "name"
+# Écrivez l'énoncé de l'exercice sous la balise "context". N'oubliez pas d'indenter tout votre texte par rapport à la balise.
+# Sous la balise "problems", écrivez une nouvelle balise "q1" qui corresond à votre sous-question, indentée par rapport à la balise "problems"
+# Sous la balise "q1", complétez les balises nécessaires ("name" correspond au titre de la sous-question, "header" à un court énoncé de celle-ci).  
+# Inutile de toucher aux autres balises.
+# Le texte de l'énoncé de l'exercice (sous la balise "context") est écrit en langage reStructuredText (rst) :
+# "::" permet d'afficher un bloc de code. Le code doit  être séparé de "::" par une ligne vide et être indenté par rapport à "::"
+# ".. code-block:: java correspond à "::" mais avec la précision qu'il doit le mettre en couleur en fonction de la syntaxe java
+
+
+
+accessible: true
+author: Votre nom
+context: |-
+    Comme dit précédemment, le type ``String`` est un type quelque peu particulier en Java. Pour faire des opérations sur des ``String``, on a très souvent besoin de leur longueur. En vous référant à l'API Java de la classe ``String`` (http://docs.oracle.com/javase/7/docs/api/java/lang/String.html), écrivez en une seule ligne le corps de la méthode ``showLength()``, qui affiche sur la sortie standard la longueur de l'argument ``s``. La méthode doit être implémenté de sorte que lorsqu'on l'appelle trois fois de suite avec comme argument ``"Popol"``, ``"Jeanjean"`` et ``"abc"``, de longueurs 5, 8 et 3, on retrouve la sortie standard dans cet état :
+    
+    ::
+
+        5
+        8
+        3
+
+    Voici la signature de la méthode ``showLength()``. Veillez à bien respecter les spécifications :
+    .. code-block:: java
+
+        /**
+         * @pre -
+         * @post affiche la longueur de s sur la sortie standard
+         *
+         */
+         public static void showLength(String s){
+             // à compléter
+         }
+environment: java7
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: 'Mission 4: Question de démarrage 3: Longueur d''un String'
+problems:
+    q1:
+        language: Java
+        name: Le corps de la méthode showLength
+        type: code
+        header: 'Écrivez ici le corps de la méthode showLength :'
+weight: 1.0
