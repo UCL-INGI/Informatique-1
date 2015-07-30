@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Run this script to copy every task dir of this repo into inginious_dir
+
 if [ ! -d inginious_dir ];	then
 	mkdir inginious_dir
 fi
