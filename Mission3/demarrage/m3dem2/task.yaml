@@ -1,0 +1,44 @@
+#   Copyright (c) 2015 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+accessible: true
+author: 'Clémentine Munyabarenzi (source : syllabus d''exercices LSINF1101)'
+context: |-
+    Ecrivez *la signature* et *le corps* d’une methode baptisée
+    ``afficheMax`` qui prend deux nombres entiers comme arguments et
+    affiche le plus grand de ces nombres. La spécification de cette
+    méthode est :
+
+
+    .. code-block :: java
+
+       /**
+        ∗ @pre -
+        ∗ @post affiche le maximum entre les nombres entiers a et b
+        ∗ /
+environment: java7
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: 'Mission 3 : Question de Démarrage 2 : Le Nombre Maximum'
+problems:
+    q1:
+        language: java
+        name: ''
+        type: code
+        header: Ecrivez-ci dessous la *signature* et le *corps* de la méthode ``afficheMax``.
+weight: 1.0

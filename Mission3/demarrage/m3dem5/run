@@ -66,16 +66,16 @@
 
 
 
-EXERCICE="M3Q5"
+EXERCICE="M3Q8"
 CUSTOMSCRIPT="sh custom.sh"
 CORR=1
 
 # EXECCUSTOM vaut 0 si on n'exécute pas de script "custom" pour faire des vérifications supplémentaires
-EXECCUSTOM=1
+EXECCUSTOM=0
 NEXERCICES=1
 CODELITTERAL=".. code-block:: java\n\n"
 JAVAC="javac -cp .:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar"
-JAVA="run_student --time 20 java -ea -cp .:./student:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar"
+JAVA=" java -ea -cp .:./student:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar"
 
 # On met la machine en UTF-8
 export LC_ALL=en_US.UTF-8
@@ -95,8 +95,8 @@ if [ $OUTCUSTOM -ne 0 ]; then
 fi
 
 # On compile la tâche et on récupère le résultat dans un fichier
-${JAVAC} student/${EXERCICE}.java 2>> logOther.out
-${JAVAC} student/${EXERCICE}Stu.java 2>> log.out
+${JAVAC} student/${EXERCICE}.java 2> logOther.out
+${JAVAC} student/${EXERCICE}Stu.java 2> log.out
 
 
 OUTPUT=$(cat log.out)

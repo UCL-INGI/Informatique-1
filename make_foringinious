@@ -8,13 +8,50 @@ fi
 
 for dir in `find -maxdepth 1 -name "Mission*" -type d -printf "%f\n"`
 do
-	for demdir in `find "${dir}/demarrage" -maxdepth 1 -mindepth 1 -type d -printf "%f\n"`
-	do
-		cp -r "${dir}/demarrage/${demdir}" "inginious_dir/"
- 	done
-	for realdir in `find "${dir}/realisation" -maxdepth 1 -mindepth 1 -type d -printf "%f\n"`
-	do
-		cp -r "${dir}/realisation/${realdir}" "inginious_dir/"
-	done
+
+	if [ -d "${dir}/demarrage" ];	then
+	
+		for demdir in `find "${dir}/demarrage" -maxdepth 1 -mindepth 1 -type d -printf "%f\n"`
+		do
+			cp -r "${dir}/demarrage/${demdir}" "inginious_dir/"
+ 		done
+
+	fi
+
+	if [ -d "${dir}/realisation" ];	then
+	
+		for realdir in `find "${dir}/realisation" -maxdepth 1 -mindepth 1 -type d -printf "%f\n"`
+		do
+			cp -r "${dir}/realisation/${realdir}" "inginious_dir/"
+		done
+	
+	fi
+
+	if [ -d "${dir}/QCM" ];	then
+
+		for qcmdir in `find "${dir}/QCM" -maxdepth 1 -mindepth 1 -type d -printf "%f\n"`
+		do
+			cp -r "${dir}/QCM/${qcmdir}" "inginious_dir/"
+		done
+	
+	fi
 done
+
+if [ -d "Revisions/QCM" ];	then
+
+	for qcmdir in `find "Revisions/QCM" -maxdepth 1 -mindepth 1 -type d -printf "%f\n"`
+	do
+		cp -r "Revisions/QCM/${qcmdir}" "inginious_dir/"
+	done
+
+fi
+
+if [ -d "Revisions/examen" ];	then
+
+	for examdir in `find "Revisions/examen" -maxdepth 1 -mindepth 1 -type d -printf "%f\n"`
+	do
+		cp -r "Revisions/examen/${examdir}" "inginious_dir/"
+	done
+	
+fi
 

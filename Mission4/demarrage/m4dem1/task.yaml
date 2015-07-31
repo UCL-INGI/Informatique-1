@@ -31,7 +31,7 @@ limits:
     memory: '100'
     output: '2'
     time: '30'
-name: 'Mission 4: Questions de démarrage 1: La casse Character'
+name: 'Mission 4: Questions de démarrage 1: La classe Character'
 problems:
     q1:
         name: ''

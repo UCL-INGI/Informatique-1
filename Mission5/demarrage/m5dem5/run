@@ -66,7 +66,7 @@
 
 
 
-EXERCICE="M5Q5"
+EXERCICE="M5Q9"
 CUSTOMSCRIPT="sh custom.sh"
 CORR=1
 
@@ -171,7 +171,7 @@ if [ "$OUTPUT" = "" ]; then
 			while [ $i -le $NEXERCICES ]
 			do
 				# On récupère un feedback par question dans le System.err, en suivant le format imposé par convention
-				OUTERRPARQUESTION=$(echo "$OUTERR" | sed -e "/Question $i :/,/Question [^\D1] :/!d" | grep -v -E "Question [0-9] :")
+				OUTERRPARQUESTION=$(echo "$OUTERR" | sed -e "/Question $i :/,/Question [^\D] :/!d" | grep -v -E "Question [0-9] :")
 				if [ "$OUTERRPARQUESTION" == "" ]; then
 					feedback -i q${i} -r success -f "Vous avez bien répondu à cette question"
 				else

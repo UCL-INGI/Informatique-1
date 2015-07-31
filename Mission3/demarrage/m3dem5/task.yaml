@@ -15,27 +15,29 @@
 
 
 accessible: true
-author: 'Clémentine Munyabarenzi - ressouce: syllabus d''exercices LSINF1101'
+author: 'Clémentine Zaninka (ressources : syllabus d''exercice LSINF1101)'
 context: |-
-    Ecrivez la signature et le corps d'une méthode baptisée ``impair`` qui prend comme argument un entier positif et retourne ``true`` si celui-ci est impair et ``false`` sinon. Pour rappel, si n est un entier positif ``n % 2`` vaut le reste de la division entière de n par 2. La spécification de cette méthode est:
+    La section *3.4.2* du livre présente un programme qui permet de calculer et d’afficher le nombre de diviseurs entiers d’un nombre entiers. Réutilisez ce code de façon à construire la méthode ``nDiv``
+    répondant à la spécification et la signature suivante :
+
 
     .. code-block :: java
 
         /**
-         ∗ @pre n>0
-         ∗ @post retourne true lorsque n est un nombre entier impair et false sinon.
-         ∗ /
+         * @pre n > 0
+         * @post retourne le nombre de diviseurs entiers du nombre entier n.
+         */
+         public static int nDiv(int n)
 environment: java7
 limits:
     memory: '100'
-    time: '20'
+    time: '30'
     output: '2'
-name: 'Mission 3: Question de Démarrage 3: Nombres pairs'
+name: 'Mission 3: Question de Démarage 5: Diviseurs Entiers'
 problems:
     q1:
         language: java
         name: ''
         type: code
-        header: Ecrivez ici la *signature* (sur une seule ligne) et le *corps* de
-            votre méthode.
+        header: Ecrivez ici le **corps** de la fonction.
 weight: 1.0

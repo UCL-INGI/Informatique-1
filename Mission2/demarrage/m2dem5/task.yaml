@@ -1,0 +1,38 @@
+#   Copyright (c) 2015 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+accessible: true
+author: François MICHEL
+context: |
+    Les nombres premiers sont un concept important en mathématiques. Un nombre premier est un nombre entier qui n'a pour diviseurs que 1 et lui-même. Notez que 0 et 1 ne sont pas des nombres premiers. En utilisant une boucle for, écrivez un petit bout de code permettant de vérifier si le nombre n est premier ou non. Vous devez stocker votre réponse dans la variable booléenne "prime" une fois la boucle terminée, déjà initialisée à "true" pour vous. Une fois votre programme terminé, prime vaudra "true" si n est premier, et "false" si n n'est pas premier.
+
+    .. code-block:: java
+
+        int n = /* n plus grand ou égal à zéro */;
+        boolean prime = true;
+environment: java7
+limits:
+    memory: '200'
+    time: '30'
+    output: '2'
+name: 'Mission 2: Question de démarrage 5 : Nombres premiers'
+problems:
+    q1:
+        language: Java
+        name: Nombres premiers
+        type: code
+        header: 'Écrivez ici le bout de programme :'
+weight: 1.0

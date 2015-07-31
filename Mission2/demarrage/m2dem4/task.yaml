@@ -1,0 +1,40 @@
+#   Copyright (c) 2015 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+accessible: true
+author: François MICHEL
+context: |
+    En programmation, il est souvent intéressant de connaitre le reste de la divison euclidienne de deux nombres, notamment pour savoir si un nombre est pair ou non. En java, pour connaitre le reste d'une division, on utilise l'instruction "modulo" (se note "%"), ainsi, 5 % 3 = 2. En sachant cela, utilisez une boucle for pour déterminer le plus grand diviseur entier de n (hormis lui-même). Pensez aux cas "border lines" : quand n vaut 0 ou 1, on attend une réponse égale à 0. La réponse finale doit-être stockée dans la variable "biggest".
+
+    .. code-block:: java
+
+        int n = /* n est plus grand ou égal à 0*/
+        int biggest = 0;
+environment: java7
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: 'Mission 2: Question de démarrage 4: Plus grand diviseur'
+order: 4
+problems:
+    q1:
+        language: Java
+        name: Plus grand diviseur
+        type: code
+        header: 'Écrivez ici le bout de programme permettant de calculer le plus grand
+            diviseur entier de n : '
+weight: 1.0

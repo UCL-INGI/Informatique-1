@@ -1,0 +1,59 @@
+#   Copyright (c) 2015 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+accessible: true
+author: 'Munyabarenzi Clémentine Zaninka (ressource : sources examen LFSAB1401 juin
+    2011)'
+context: |-
+    Prenez connaissance de l'énoncé de l'`examen de juin 2011`__.
+
+    .. _juin2011:  http://icampus.uclouvain.be/claroline/backends/download.php?url=Ly00LV9JbnRlcnJvc19ldF9FeGFtZW5zL0FuY2llbnNfZXhhbWVucy9qdW4xMS5wZGY%3D&cidReset=true&cidReq=FSAB1401
+
+    __ juin2011_
+
+    Répondez ici à la Question 4 : Ecrivez le corps de la méthode ``addProcess`` de la classe ``FullComputer``. Pensez à utiliser les méthodes de la classe ``Process`` définies à la question 3. :
+
+    .. code-block:: java
+
+       /**
+        * @pre p != null, p ne se trouve pas déjà sur cet ordinateur
+        * @post le processus p a été ajouté à cet ordinateur, si (1)le
+        * nombre de processus maximal n'est pas atteint et (2) la capacité de
+        * stockage nécessaire pour p est disponible. Retourne true si le
+        * processus a été ajouté, false sinon.
+        *
+        */
+        public boolean addProcess(Process p)
+
+        // À implémenter
+
+
+    **Comme l'examen est sur papier, il est préférable que vous rédigiez la réponse sur une feuille de papier et que vous la recopiiez ici une fois que vous êtes sûr de vous. INGInious vous permettra de vérifier si votre code est correct mais n'oubliez pas qu'à l'examen, vous n'aurez pas plusieurs essais. Il est donc important de s'entraîner à rédiger du code sur papier pour se mettre en situation d'examen et évaluer votre temps pour répondre.**
+
+    **Souvenez-vous qu'une réponse correcte sur INGInious ne correspond pas d'office à un 20 à l'examen.**
+environment: java7
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: 'Examen juin 2011: Question 4'
+problems:
+    q1:
+        language: java
+        name: Corps de la méthode addProcess
+        type: code
+        header: ''
+weight: 1.0

@@ -15,30 +15,56 @@
 
 
 accessible: true
-author: 'Clémentine Munyabarenzi (source : syllabus d''exercices LSINF1101)'
-context: |-
-    Ecrivez *la signature* et *le corps* d’une methode baptisée
-    ``afficheMax`` qui prendre deux nombres entiers comme arguments et
-    affiche le plus grand de ces nombres. La spécification de cette
-    méthode est :
-
+author: ''
+context: |+
+    Un étudiant montre à son tuteur la méthode main ci-dessous :
 
     .. code-block :: java
 
-       /**
-        ∗ @pre -
-        ∗ @post affiche le maximum entre les nombres entiers a et b
-        ∗ /
+         /**
+          *public static void main(String[] args){
+          *    int hauteur;
+          * int largeur;
+          *    char c = 'X';
+          *    System.out.println("Hauteur du L");
+          *    hauteur = TextIO.getInt();
+          *    System.out.println();
+          *    System.out.println("largeur du L ");
+          *    largeur = TextIO.getInt();
+          *    lettre_l(c, hauteur, largeur);
+          *}
+          */
+
+    Lors de son exécution elle affiche les caractères suivants à l'écran:
+
+      ::
+
+          java lettre L
+          hauteur de la lettre
+          7
+          largeur de la lettre
+          5
+
+          X
+          X
+          X
+          X
+          X
+          X
+          XXXXX
+
 environment: java7
 limits:
     memory: '100'
-    time: '30'
+    time: '20'
     output: '2'
-name: 'Mission 3 : Question de Démarrage 2 : Le Nombre Maximum'
+name: 'Mission 3: Question de démarrage 4: Lettre L'
 problems:
     q1:
         language: java
         name: ''
         type: code
-        header: Ecrivez-ci dessous la *signature* et le *corps* de la méthode ``afficheMax``.
+        header: |-
+            Réécrivez la **la signature**, **et le corps** de la
+            méthode ``lettre_l`` utilisée par cet étudiant.
 weight: 1.0

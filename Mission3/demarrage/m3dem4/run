@@ -66,7 +66,7 @@
 
 
 
-EXERCICE="M3Q4"
+EXERCICE="M3Q6"
 CUSTOMSCRIPT="sh custom.sh"
 CORR=1
 
@@ -75,7 +75,7 @@ EXECCUSTOM=1
 NEXERCICES=1
 CODELITTERAL=".. code-block:: java\n\n"
 JAVAC="javac -cp .:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar"
-JAVA="run_student --time 20 java -ea -cp .:./student:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar"
+JAVA="java -ea -cp .:./student:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar"
 
 # On met la machine en UTF-8
 export LC_ALL=en_US.UTF-8
@@ -141,11 +141,15 @@ if [ "$OUTPUT" = "" ]; then
 	OUTPUT=$(${JAVA} student/${EXERCICE} 2> err.txt)
 	RESULTAT=$?
 	echo $RESULTAT
+    echo $OUTPUT
 	OUTERR=$(cat err.txt)
 	# S'il y a des erreurs dans l'exécution du programme (écrites sur stderr)
 	if [ $RESULTAT -eq 127 ]; then
 		if [ $NEXERCICES -eq 1 ]; then
-			feedback -i q1 -r success -f "Bravo, votre code est correct !"
+         	# feedback n'aime pas les "\n", donc on contourne le probleme en l'écrivant 			dans un fichier puis en le lisant.
+			OUTPUT=$(echo "$OUTPUT" | sed -e 's/^/\t/' | sed 's/%/%%/g' )
+			FEED=$(printf "Bravo, votre code est correct !\n ${CODELITTERAL}$OUTPUT\n")
+			feedback -i q1 -r success -f "$FEED"
 		else
 			j=1
 			while [ $j -le $NEXERCICES ]
@@ -187,10 +191,7 @@ if [ "$OUTPUT" = "" ]; then
 
 	# On vérifie si la tâche s'est bien déroulée ou s'il y a eu un souci, et on fait un feedback de la tâche complète
 	if [ $ERREUR -eq 0 ]; then
-        OUTPUT=$(echo "Votre réponse correspond à la répons attendue.$OUTPUT" | sed -e 's/^/\t/' | sed 's/%/%%/g' )
-		FEED=$(printf "Bravo, votre code est correct !\n ${CODELITTERAL}$OUTPUT\n")
-		feedback -r success -f "$FEED"
-
+		feedback -r success -f "Bravo, votre code est correct !"
 	else
 		feedback -r failed -f "Vous n'avez pas réussi tous les exercices"
 	fi
