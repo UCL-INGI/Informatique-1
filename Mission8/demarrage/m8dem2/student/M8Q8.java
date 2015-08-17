@@ -42,11 +42,16 @@ public class M8Q8{
 	private static String str = "Il semble que votre méthode comporte des erreurs : ";
 	
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie que la méthode de l'étudiant retourne bien null lorsque s = null ou n = 0.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testSNull(){
 		try{
 			assertNull(str + "lorsque s = null, votre méthode doit retourner null, or, ce n'est pas le cas. ", M8Q8Stu.repeat(null, 10));
-			assertNull(str + "lorsque n = null, votre méthode doit retourner null, or, ce n'est pas le cas. ", M8Q8Stu.repeat("hello", 0)); 
+			assertNull(str + "lorsque n = 0, votre méthode doit retourner null, or, ce n'est pas le cas. ", M8Q8Stu.repeat("hello", 0)); 
 		}catch(ArithmeticException e){
 			fail(str+"Le code est incorrect : il est interdit de diviser par zéro.");
 			e.printStackTrace();
@@ -70,6 +75,11 @@ public class M8Q8{
 		}
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie que la réponse de l'étudiant correspond aux spécificatons (s est bien répété n fois).
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testCorrect(){
 		Random r = new Random();

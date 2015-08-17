@@ -29,7 +29,12 @@ import org.junit.runner.notification.Failure;
 
 public class M4Q11{
 	
-	private String str = "Question 1 :\nIl semblerait que votre code comporte des erreurs : ";
+	private String str = "Il semblerait que votre code comporte des erreurs : ";
+	
+	/**
+	 * 	@pre	-
+	 * 	@post	Génère un String aléatoirement, de longueur length.
+	 */
 	public static String generateString(int length){
 		String s = "";
 		Random r = new Random();
@@ -39,6 +44,11 @@ public class M4Q11{
 		return s;
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Génère un String aléatoirement de longueur length, qui ne contient pas les 
+	 * 			caractères dans le String excepted.
+	 */
 	public static String generateString(int length, String excepted){
 		String s = "";
 		Random r = new Random();
@@ -61,6 +71,12 @@ public class M4Q11{
 		return s;
 	}
 	
+	
+	/**
+	 * 	@pre	-
+	 * 	@post	Génère un string aléatoirement, qui contient les caractères dans toContain
+	 * 			et dont la longueur, sans les caractères dans toContain, vaut length.
+	 */
 	public static String createContainer(String toContain, int cLength){
 		String s = generateString(cLength);
 		s = insertInto(toContain, s);
@@ -68,7 +84,8 @@ public class M4Q11{
 	}
 	
 	/**
-	 * 	@pre s.length() > toInsert.length()
+	 * 	@pre	s.length() > toInsert.length()
+	 * 	@post	Insère les caractères contenus dans le String toInsert à l'intérieur du String s.
 	 */
 	public static String insertInto(String toInsert, String s){
 		if(s.length() == 0)	return toInsert;
@@ -80,6 +97,12 @@ public class M4Q11{
 		return s;
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Teste le code de l'étudiant. La méthode de l'étudiant doit renvoyer true quand les caractères de s se retrouvent dans c.
+	 * 			Dans tous les tests, la méthode de l'étudiant doit renvoyer true.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testContains(){
 		Random r = new Random();
@@ -133,6 +156,13 @@ public class M4Q11{
 	}
 	
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Teste le code de l'étudiant. La méthode de l'étudiant doit renvoyer false si
+	 * 			tous les caracrtères de s ne sont pas contenus dans c. Dans ces tests, la méthode de l'étudiant
+	 * 			devrait toujours renvoyer false.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testNotContains(){
 		Random r = new Random();
@@ -142,12 +172,15 @@ public class M4Q11{
 			boolean res;
 			for(int i = 1 ; i < 8; i++){
 				for(int j = 0 ; j < 100 ; j++){
+					// On génère un String aléatoire
 					s = generateString(i);
+					// On génère un String aléatoire qui ne contient aucun caractère se trouvant dans le premier.
 					c = generateString(r.nextInt(8) + 1, s);
 					res = M4Q11Stu.containsChar(s, c);
 					assertFalse(str + "la chaine \""+c+"\" ne contient pas tous les caractères contenus dans \""+s+"\", or, votre méthode renvoie true. ", res);
 				}
 			}
+			// On teste des cas où c contient certains caractères de s, mais pas tous.
 			s = "abcd";
 			c = "abclmksf";
 			res = M4Q11Stu.containsChar(s, c);

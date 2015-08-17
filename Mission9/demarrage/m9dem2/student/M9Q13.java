@@ -43,6 +43,11 @@ public class M9Q13{
 		return s;
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie si le code de l'étudiant gère bien le cas d'une IOException et si -1 est bien retourné dans ce cas.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testIOException(){
 		Random r = new Random();
@@ -84,6 +89,11 @@ public class M9Q13{
 		}
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie si le code de l'étudiant écrit la bonne réponse sur l'output Standard (System.out)
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testCorrectOutput(){
 		Random r = new Random();

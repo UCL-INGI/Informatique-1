@@ -36,6 +36,11 @@ public class M6Q9{
 	private String q2 = "Question 2 :\n";
 	
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie la condition de la boucle while (Question 2). Cette dernière doit permettre de lire le fichier en entier.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testAllFileRead(){
 		try{
@@ -62,23 +67,28 @@ public class M6Q9{
 	}
 	
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie si toutes les lignes du fichier ont bien été lues (aucune n'a été passée, etc)
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void outputCorrect(){
 		try{
 			ArrayList<M6Q9Stu> l = (ArrayList<M6Q9Stu>) M6Q9Stu.lireCotes();
-			assertEquals(q1 + "Le fichier student/cotes.txt n'est pas lu correctement. Vérifiez la condition de boucle !", l.get(0),
+			assertEquals(q2 + "Le fichier student/cotes.txt n'est pas lu correctement. Vérifiez la condition de boucle !", l.get(0),
 																                                                   new M6Q9Stu("Charles", 
 																															   "Pecheur",
 																															    12));
-			assertEquals(q1 + "Le fichier student/cotes.txt n'est pas lu correctement. Vérifiez la condition de boucle !", l.get(1),
+			assertEquals(q2 + "Le fichier student/cotes.txt n'est pas lu correctement. Vérifiez la condition de boucle !", l.get(1),
 																                                                   new M6Q9Stu("Olivier", 
 																															   "Bonaventure",
 																															    15));
-			assertEquals(q1 + "Le fichier student/cotes.txt n'est pas lu correctement. Vérifiez la condition de boucle !", l.get(2),
+			assertEquals(q2 + "Le fichier student/cotes.txt n'est pas lu correctement. Vérifiez la condition de boucle !", l.get(2),
 																                                                   new M6Q9Stu("Jean-Pierre", 
 																															   "Kof",
 																															    19));
-			assertEquals(q1 + "Le fichier student/cotes.txt n'est pas lu correctement. Vérifiez la condition de boucle !", l.get(3),
+			assertEquals(q2 + "Le fichier student/cotes.txt n'est pas lu correctement. Vérifiez la condition de boucle !", l.get(3),
 																                                                   new M6Q9Stu("Johnny", 
 																															   "Hallyday",
 																															    3));

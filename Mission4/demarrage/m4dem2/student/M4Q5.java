@@ -30,6 +30,10 @@ import java.util.Random;
 import org.junit.runner.notification.Failure;
 public class M4Q5{
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Génère un String aléatoirement, de taille length
+	 */
 	public static String generateString(int length){
 		String s = "";
 		Random r = new Random();
@@ -38,14 +42,19 @@ public class M4Q5{
 		}
 		return s;
 	}
-	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie que la valeur renvoyée ar l'étudiant ne vaut pas null.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testIsNull(){
 		String q1 = "Question 1 :\n";
 		String str = "Il semble que votre code comporte un problème : ";
 		try{
 			String res = M4Q5Stu.cat("ding", "dong");
-			assertNotNull(str + "lorsque l'on donne s1 = \"ding\" et s2 \"dong\".\n", res);
+			assertNotNull(str + "un String null est renvoyé lorsque l'on donne s1 = \"ding\" et s2 \"dong\".\n", res);
+			assertNotNull(str + "un String null est renvoyé lorsque l'on donne s1 = \"\" et s2 \"\".\n", M4Q5Stu.cat("",""));
 		}catch(ArithmeticException e){
 			fail(q1+"Le code est incorrect : il est interdit de diviser par zéro.");
 			e.printStackTrace();
@@ -65,7 +74,11 @@ public class M4Q5{
 	}
 	
 	
-	
+	/**
+	 * 	@pre	-
+	 * 	@post	Teste le code rédigé par l'étudiant lorsqu'il faut concaténer dux strings de taille aléatoire générés aléatoirement.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testConcat(){
 		String q1 = "Question 1 :\n";
@@ -75,13 +88,17 @@ public class M4Q5{
 			String s1 = null;
 			String s2 = generateString(r.nextInt(20));
 			String res;
-			for(int i = 0 ; i < 1000 ; i++){
+			String exp;
+			for(int i = 0 ; i < 100 ; i++){
 				s1 = generateString(r.nextInt(20));
 				s2 = generateString(r.nextInt(20));
-				String exp = s1+s2;
+				exp = s1+s2;
 				res = M4Q5Stu.cat(s1, s2);
 				assertEquals(str + "lorsque s1 = \""+s1+"\" et s2 = \""+s2+"\", votre méthode devrait renvoyer \""+exp+"\", or, elle renvoie \""+res+"\".\n", exp, res);
 			}
+			res = M4Q5Stu.cat("", "");
+			exp = "";
+			assertEquals(str + "lorsque s1 = \"\" et s2 = \"\", votre méthode devrait renvoyer \"\", or, elle renvoie \""+res+"\".\n", exp, res);
 		}catch(ArithmeticException e){
 			fail(q1+"Le code est incorrect : il est interdit de diviser par zéro.");
 			e.printStackTrace();
@@ -101,6 +118,11 @@ public class M4Q5{
 		
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Teste le code de l'étudiant en regard de la question 2 (concaténer un string et un char.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testConcatChar(){
 		String q2 = "Question 2 : \n";
@@ -116,6 +138,10 @@ public class M4Q5{
 				res = M4Q5Stu.cat(s1, c);
 				assertEquals(str + "lorsque s1 = \""+s1+"\" et c = '"+c+"', votre méthode devrait renvoyer \""+exp+"\", or, elle renvoie \""+res+"\".\n", exp, res);
 			}
+			s1 = "";
+			c = (char) ((r.nextInt('z' - 'a') + 'a'));
+			res = M4Q5Stu.cat(s1, c);
+			assertEquals(str + "lorsque s1 = \""+s1+"\" et c = '"+c+"', votre méthode devrait renvoyer \""+c+"\", or, elle renvoie \""+res+"\".\n", ""+c, res);
 		}catch(ArithmeticException e){
 			fail(q2+"Le code est incorrect : il est interdit de diviser par zéro.");
 			e.printStackTrace();

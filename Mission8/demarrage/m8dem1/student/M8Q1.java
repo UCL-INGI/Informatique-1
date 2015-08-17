@@ -32,7 +32,13 @@ public class M8Q1{
 	private String q1 = "Question 1 :\n";
 	private String q2 = "Question 2 :\n";
 	private String str = "Il semblerait que votre code comporte des erreurs : ";
-		
+	
+	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie que la valeur du drapeau a bien été mise à jour lorsque l'argument est un booléen.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */	
 	@Test
 	public void testSetBool(){
 		try{
@@ -63,6 +69,11 @@ public class M8Q1{
 		}
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie que la valeur du drapeau a bien été mise à jour lorsque l'argument est un caractère (char)
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testSetChar(){
 		try{

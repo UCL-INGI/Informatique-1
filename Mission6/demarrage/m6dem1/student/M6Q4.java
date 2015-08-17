@@ -30,6 +30,11 @@ import org.junit.runner.notification.Failure;
 public class M6Q4{
 	
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie que le code de l'étudiant ne renvoie pas un objet null
+	 * 			Lance une AssertionError lorsque l'objet retourné est l'objet appelant.
+	 */
 	@Test
 	public void pairTesterNotNull(){
 		String str = "Il semblerait que votre méthode renvoie un objet null : ";
@@ -62,6 +67,12 @@ public class M6Q4{
 	}
 	
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie que le code de l'étudiant renvoie le réponse attendue. (Un objet différent, 
+	 * 			avec des attributs opposés à l'objet appelant)
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void pairTester(){
 		String str = "Il semblerait que votre méthode renvoie un résultat incorrect : ";
@@ -98,6 +109,11 @@ public class M6Q4{
 		}
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie que le code de l'étudiant n'a pas altéré l'objet appelant la méthode.
+	 * 			Lance une AssertionError lorsqu'il a été modifié.
+	 */
 	@Test
 	public void pairTesterHasChanged(){
 		String str = "Votre méthode semble modifier les variables d'instance de l'instance appelante : ";

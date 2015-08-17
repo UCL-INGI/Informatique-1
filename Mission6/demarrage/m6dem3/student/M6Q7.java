@@ -30,6 +30,11 @@ import org.junit.runner.notification.Failure;
 public class M6Q7{
 	
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Teste le codede l'étudiant lorsque l'argument est null.
+	 * 			Lance une AssertionError lorsque la réponse est incorrecte.
+	 */
 	@Test
 	public void testSameNull(){
 		String str = "Il semble que votre méthode same contienne des erreurs : ";
@@ -63,6 +68,11 @@ public class M6Q7{
 	}
 	
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Teste le code de l'étudiant : vérifie si la valeur de retour est correcte.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testSame(){
 		String str = "Il semble que votre méthode same contienne des erreurs : ";

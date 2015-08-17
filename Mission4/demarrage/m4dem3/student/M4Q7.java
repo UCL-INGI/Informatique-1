@@ -17,7 +17,7 @@
 
 package student;
 /**
- *  @author FranÃ§ois MICHEL
+ *  @author François MICHEL
  */
 
 import static org.junit.Assert.*;
@@ -41,6 +41,13 @@ public class M4Q7{
 	}
 	
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Cette méthode redirige le flux de sortie standard (System.out) vers un fichier pour ensuite le lire
+	 *			et vérifier que l'output est correct et dans le bon format. System.out est remis sur la sortie de départ 
+	 * 			à la fin de la méthode.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testShowLength(){
 		String str = "Votre code semble comporter des erreurs : ";
@@ -48,7 +55,7 @@ public class M4Q7{
 		BufferedReader br = null;
 		// On sauvegarde System.out
 		PrintStream out = System.out;
-		// On s'apprÃªte Ã  rÃ©cupÃ©rer une AssertionError si l'une d'elle est lancÃ©e.
+		// On s'apprête à récupérer une AssertionError si l'une d'elle est lancée.
 		AssertionError a_err = null;
 		try{
 			ps = new PrintStream(new FileOutputStream("student/reponse1.out"), true);
@@ -62,34 +69,34 @@ public class M4Q7{
 				M4Q7Stu.showLength(s);
 				ps.println("");
 				line = br.readLine();
-				assertNotNull(str + "lorsque qu'on appelle la mÃ©thode avec l'argument \""+s+"\", rien n'est affichÃ© sur la sortie standard.", line);
+				assertNotNull(str + "lorsque qu'on appelle la méthode avec l'argument \""+s+"\", rien n'est affiché sur la sortie standard.", line);
 				assertNotNull(str + "votre programme n'affiche pas un nombre par ligne quand s = \""+s+"\". ", br.readLine());
-				// On enlÃ¨ve les espaces Ã©ventuels
+				// On enlève les espaces éventuels
 				line = line.trim();
 				assertEquals(str + "avec \""+s+"\" comme argument, votre programme devrait afficher \""+i+"\", or, il affiche \""+line+"\".", i+"", line);
 			}
 		}catch(FileNotFoundException e){
-			a_err = new AssertionError("Il semble qu'une erreur s'est produite avec l'Ã©criture sur la sortie standard. "+e.getMessage());
+			a_err = new AssertionError("Il semble qu'une erreur s'est produite avec l'écriture sur la sortie standard. "+e.getMessage());
 			System.setOut(out);
 		}catch(IOException e){
-			a_err = new AssertionError("Il semble qu'une erreur s'est produite avec l'Ã©criture sur la sortie standard. "+e.getMessage());
+			a_err = new AssertionError("Il semble qu'une erreur s'est produite avec l'écriture sur la sortie standard. "+e.getMessage());
 		}catch(AssertionError ae){
 			// S'il faut lancer une AssertionError, on s'assure d'abord de fermer les flux et de tout remettre en ordre avant de la lancer en tant qu'erreur du programme/
 			System.setOut(out);
 			a_err = ae;
 		}catch(ArithmeticException e){
-			a_err = new AssertionError(str+"Le code est incorrect : il est interdit de diviser par zÃ©ro.");
+			a_err = new AssertionError(str+"Le code est incorrect : il est interdit de diviser par zéro.");
 		}catch(ClassCastException e){
-			a_err = new AssertionError(str+"Attention, certaines variables ont Ã©tÃ© mal castÃ©es	!");
+			a_err = new AssertionError(str+"Attention, certaines variables ont été mal castées	!");
 		}catch(StringIndexOutOfBoundsException e){
 			a_err = new AssertionError(str+"Attention, vous tentez de lire en dehors des limites d'un String ! (StringIndexOutOfBoundsException)");
 		}catch(NullPointerException e){
-			a_err = new AssertionError(str+"Attention, vous faites une opÃ©ration sur un objet qui vaut null !");
+			a_err = new AssertionError(str+"Attention, vous faites une opération sur un objet qui vaut null !");
 		}catch(Exception e){
 			fail(str + "\n" + e.getMessage());
 			e.printStackTrace();
 		}
-		// Fermer les flux et lancer l'AssertionError si elle a Ã©tÃ© dÃ©tectÃ©e
+		// Fermer les flux et lancer l'AssertionError si elle a été détectée
 		finally{
 			try{
 				System.setOut(out);
@@ -113,7 +120,7 @@ public class M4Q7{
 			System.err.println(failure.toString());
 		}
 		if(result.wasSuccessful()){
-			System.out.println("Tous les tests se sont passÃ©s sans encombre");
+			System.out.println("Tous les tests se sont passés sans encombre");
 			System.exit(127);
 		}
 	}

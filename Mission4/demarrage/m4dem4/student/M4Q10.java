@@ -29,6 +29,10 @@ import org.junit.runner.notification.Failure;
 
 public class M4Q10{
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Génère un String aléatoirement, de taille length.
+	 */
 	public static String generateString(int length){
 		String s = "";
 		Random r = new Random();
@@ -38,6 +42,13 @@ public class M4Q10{
 		return s;
 	}
 
+	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie le code de l'étudiant : sa méthode doit retourner le String s
+	 * 			en version majuscules. (compare avec s.toUpperCase())
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testToUpper(){
 		String str = "Il semble que votre code comporte des erreurs : ";

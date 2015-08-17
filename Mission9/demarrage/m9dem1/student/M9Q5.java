@@ -30,6 +30,11 @@ import java.io.*;
 
 public class M9Q5 {
 
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie si la méthode compareTo() retourne bien une valeur correcte.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testCompareTo() {
 		String str = "Votre code semble comporter des erreurs : ";

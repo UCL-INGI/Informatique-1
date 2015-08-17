@@ -41,6 +41,11 @@ public class M10Q4{
 		return s;
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie que le code de l'étudiant gère bien les NumberFormatExceptions.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testNumberFormat(){
 		String str = "Votre code semble comporter des erreurs : ";
@@ -59,7 +64,7 @@ public class M10Q4{
 			System.setErr(ps);
 			String line = null;
 			int res;
-			for(int i = 0 ; i < 100 ; i++){
+			for(int i = 0 ; i < 10 ; i++){
 				t = arrayOfStrings(r.nextInt(13) + 2, 12);
 				res = M10Q4Stu.RevisedRatio.div(t);
 				line = br.readLine();
@@ -137,6 +142,11 @@ public class M10Q4{
 		return tab;
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie que le code de l'étudiant gère bien le cas d'une ArithmeticException.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testArithmetic(){
 		String str = "Votre code semble comporter des erreurs : ";
@@ -208,6 +218,11 @@ public class M10Q4{
 		}
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie que le code de l'étudiant écrit les bonnes réponses sur la sortie standard. (System.out)
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testCorrectOutput(){
 		String str = "Votre code semble comporter des erreurs : ";

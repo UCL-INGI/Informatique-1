@@ -30,6 +30,11 @@ import org.junit.runner.notification.Failure;
 public class M6Q5{
 	private static String str = "Votre code semble produire des erreurs : ";
 
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie le code de l'étudiant en regard de la question 1 (méthode setA()). On vérifie la valeur de la variable ordered.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testOrderedA(){
 		Random r = new Random();
@@ -38,9 +43,11 @@ public class M6Q5{
 			int b = r.nextInt(Integer.MAX_VALUE);
 			int a = r.nextInt(Integer.MAX_VALUE);
 			boolean ordered = (a <= b);
-			for(int i = 0 ; i < 10000 ; i++){
+			for(int i = 0 ; i < 100 ; i++){
 				p.setA(a);
 				ordered = (p.getA() <= p.getB());
+				//	On met ici "Question 1 : " devant le message d'erreur pour que le script exécutant les tests
+				//	Puisse associer le message d'erreur à la question désirée.
 				assertEquals("Question 1 :\n"+str + "après l'appel à setA("+a+"), lorsque a = "+p.getA()+" et b = "+p.getB()+", ordered devrait valoir "+ordered+" car "
 						+Math.min(p.getA(), p.getB())+" <= "+Math.max(p.getA(), p.getB())+", or, ce n'est pas le cas.",ordered, p.getOrdered());
 				p.setA(-a);
@@ -73,6 +80,11 @@ public class M6Q5{
 		}
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie le code de l'étudiant en regard de la question 2 (setB()). On vérifie ici la valeur de la variable ordered.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testOrderedB(){
 		Random r = new Random();
@@ -116,6 +128,11 @@ public class M6Q5{
 		}
 	}
 
+	/**
+	 * 	@pre	-
+	 * 	@post	Teste le code de l'étudiant en regard de la question 1 (setA()) : On vérifie si la variable a bien été mise à jour.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testSetA(){
 		Random r = new Random();
@@ -166,6 +183,12 @@ public class M6Q5{
 		}
 	}
 
+
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie le code de l'éudiant en regard de la question2 (setB()). On vérifie ici si la variable a bien été mise à jour.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testSetB(){
 		Random r = new Random();

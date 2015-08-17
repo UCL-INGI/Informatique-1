@@ -30,9 +30,15 @@ import org.junit.*;
 import org.junit.runner.notification.Failure;
 public class M4Q2 {
 	
-	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie la réponse à la question 1 (si un char correspond à un chiffre ou non).
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	 @Test 
-	public void testIsDigit(){
+	public void testIsDigit(){ 
+		// Cette chaine de caractères est obligatoire devant chaque message d'erreur pour que le message d'erreur soit attaché
+		// à la question voulue.
 		String str = "Question 1 :\n";
 		try{
 			for(int i = 0 ; i < 10 ; i++){
@@ -62,6 +68,11 @@ public class M4Q2 {
 		}
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie le code de l'étudiant en regard de la question 2. (Méthode toUpper)
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	 @Test 
 	public void testToUpper(){
 		String str = "Question 2 :\n";

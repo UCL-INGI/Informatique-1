@@ -41,6 +41,11 @@ public class M10Q10{
 		return s;
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie que le code de l'étudiant gère bien les erreurs d'IO et retourne la bonne valeur (-1)
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testIOException(){
 		Random r = new Random();
@@ -82,6 +87,11 @@ public class M10Q10{
 		}
 	}
 	
+	/**
+	 * 	@pre	-
+	 * 	@post	Vérifie que la méthode de l'étudiant écrit bien le bon output dans le bon fichier et retourne la bonne valeur.
+	 * 			Lance une AssertionError lorsqu'une réponse est incorrecte.
+	 */
 	@Test
 	public void testOutputCorrect(){
 		Random r = new Random();
@@ -164,3 +174,4 @@ public class M10Q10{
 	}
 	
 }
+
