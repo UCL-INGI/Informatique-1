@@ -1,0 +1,85 @@
+#   Copyright (c) 2015 Sébastien Combéfis, Virginie Van den Schrieck
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+author: Sébastien Combéfis
+context: |+
+    .. raw:: html
+
+        <p>
+          Un étudiant a écrit le programme Java suivant qui permet de compter le nombre de chiffres de la représentation décimale d'un nombre naturel donné.
+        </p>
+        <pre class="code">
+        public static void main (String[] args)
+        {
+           int n = 0;
+           while (n != -1)
+           {
+              System.out.print ("Entrez un nombre (-1 pour arrêter) :");
+              n = TextIO.getlnInt();
+              if (n != -1)
+              {
+                 System.out.print (n);
+                 if (chiffresPairs (n))
+                 {
+                    System.out.println (" a un nombre pair de chiffres dans sa représentation décimale");
+                 }
+                 else
+                 {
+                    System.out.println (" a un nombre impair de chiffres dans sa représentation décimale");
+                 }
+              }
+           }
+        }
+        </pre>
+        <p>
+          Vous devez définir la méthode <code>chiffresPairs</code> qui renvoie <code>true</code> si le nombre de chiffres de son paramètre est pair et <code>false</code> sinon. N'hésitez pas à décomposer le problème en sous-problèmes et de définir des méthodes privées complémentaires.
+        </p>
+
+responseIsHTML: true
+order: 4
+name: 'Mission 3: Question de Bilan Final'
+problems:
+    q1:
+        header: |+
+            .. raw:: html
+
+                <p class='lead'></p>
+                <p>
+                  Complétez ici le corps de la méthode <code>chiffresPairs</code> dont la spécification est donnée dans l'énoncé.
+                </p>public static boolean chiffresPairs (int n)
+
+        type: code
+        multiple: true
+        language: java
+    subproblems:
+        header: |+
+            .. raw:: html
+
+                <p class='lead'></p>
+                <p>
+                  Déclarez ici les méthodes privées que vous souhaitez utiliser pour décomposer le problème en sous-problèmes. Attention, veillez à n'utiliser que des méthodes de classe (<code>static</code>).
+                </p>
+
+        type: code
+        multiple: true
+        language: java
+limits:
+    language: java
+    time: 30
+    memory: 32
+    disk: 50
+    output: 5210
+environment: pythia0compat

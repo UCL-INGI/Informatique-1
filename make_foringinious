@@ -55,3 +55,12 @@ if [ -d "Revisions/examen" ];	then
 	
 fi
 
+if [ -d "old_pythia" ];	then
+
+	for pythiadir in `find "old_pythia" -maxdepth 1 -mindepth 1 -type d -printf "%f\n"`
+	do
+		cp -r "old_pythia/${pythiadir}" "inginious_dir/"
+	done
+	
+fi
+

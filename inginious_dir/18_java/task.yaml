@@ -1,0 +1,62 @@
+#   Copyright (c) 2015 Sébastien Combéfis, Virginie Van den Schrieck
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+author: Sébastien Combéfis
+context: |+
+    .. raw:: html
+
+        <p>
+          La <em>suite de Syracuse</em> est une suite de naturels, définie de la manière suivante. Le premier naturel de la suite est n'importe quel naturel non-nul, que nous noterons <i>s<sub>0</sub></i>. On peut ensuite calculer les éléments suivants de la suite en appliquant la formule suivante :
+        </p>
+        <div class="center">
+          <img src="syracuse-serie-definition.png" alt="Définition récursive des éléments de la suite de Syracuse">
+        </div>
+        <p>
+          Par exemple, en partant de 11, on obtient : 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1 4 2...
+        </p>
+        <p>
+          Remarquez qu'une fois que le nombre 1 est atteint, la suite 1 4 2 1 4 2... se répète indéfiniment. La <em>conjecture de Collatz</em> est l'hypothèse mathématique selon laquelle toutes les suites de Syracuse atteignent toujours 1, peu importe le naturel initial <i>s<sub>0</sub></i> choisi. Il s'agit actuellement d’un conjecture, c’est-à-dire qu’aucune preuve mathématique n’a pu être élaborée. Tous les tests effectués actuellement n'ont néanmoins pas permis de trouver un <i>s<sub>0</sub></i> tel que la suite de Syracuse en découlant n'atteigne pas 1.
+        </p>
+        <p>
+          Afin d'aider les mathématiciens à éventuellement trouver un contre-exemple, écrivez un programme Java qui permet de calculer la suite de Syracuse pour n’importe quel naturel non-nul <i>s<sub>0</sub></i>. Le programme s'arrête bien entendu lorsque le naturel 1 est atteint.
+        </p>
+        <p>
+          Vous devez afficher chaque élément de la suite sur la sortie standard, avec <code>System.out.println</code>. La valeur de départ vous est déjà fournie et se trouve dans une variable de type <code>int</code> nommées <code>s0</code>.
+        </p>
+
+responseIsHTML: true
+order: 2
+name: 'Mission 1: Question de Bilan Final'
+problems:
+    q1:
+        header: |+
+            .. raw:: html
+
+                <p class='lead'></p>
+                <p>
+                  Écrivez ici directement le code de la méthode <code>main</code>. Vous ne devez pas déclarer, ni initialiser la variable <code>s0</code>.
+                </p>
+
+        type: code
+        multiple: true
+        language: java
+limits:
+    language: java
+    time: 30
+    memory: 32
+    disk: 50
+    output: 5210
+environment: pythia0compat

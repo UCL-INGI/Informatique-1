@@ -1,0 +1,58 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+# A modifier : 
+# - La liste expectedFiles, mettre les fichiers attendus dans l'archive zip.
+# - La variable deadline
+
+from os import listdir, system
+import zipfile 
+import inginiousUtils
+import time
+import os
+
+os.environ['TZ'] = 'Europe/Brussels'
+
+# Variable to modify. Contains the deadline after which the script has to deliver the results of the complete test of the mission.
+# Before the deadline, the script will only verify if the right files are in the ZIP archive.
+
+# Variable à modifier. Contient la deadline après laquelle le script doit fournir les résultats du test complet de la mission.
+# Avant cette deadline, le script vérifiera uniquement si les bons fichiers sont présents dans l'archive ZIP.
+
+#           jj/mm/aaaa HH:MM
+deadline = "01/04/1995 05:30"
+
+temps_deadline = time.strptime(deadline, "%d/%m/%Y %H:%M")
+
+# Verify the file content
+system('getinput "q1" > basicSubmission.zip')
+
+#totalPoints = 0
+#maxPoints = 5
+
+output = ".. role:: bash(code)\n\t:language: bash\n\n"
+
+title1 = "Testing content of archive"
+output += inginiousUtils.get_rst_title(title1) + "\n\n"
+
+expectedFiles = ['Dico.java', 'Dictionary.java', 'Word.java', 'README.TXT']
+
+unzipOutput = inginiousUtils.extract_zip_content('basicSubmission.zip', expectedFiles)
+
+if (unzipOutput):
+    output += unzipOutput
+    output += "\n**Archive Content: 0/1**"
+    system('archive -a build.manifest')
+    system('feedback --result failed --feedback "' + output + '"')
+    exit(0)
+else:
+    output += "Votre archive contient les bons fichiers. Si vous resoumettez votre travail après le "+deadline+", vous aurez un feedback complet.\n"
+    # Si la deadline n'est pas encore dépassée
+    if (temps_deadline > time.localtime()):
+        # On n'affiche qu'un feedback partiel (contenu de l'archive)
+        system('feedback --result success --feedback "' + output + '"')
+        exit(0)
+    # Si la deadline est dépassée
+    else:
+        # On lance le feedback complet
+        system('sh run.sh')
