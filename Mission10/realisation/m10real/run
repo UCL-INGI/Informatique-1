@@ -6,6 +6,9 @@
 from os import listdir, system
 import zipfile
 import inginiousUtils
+import os
+
+os.environ['TZ'] = 'Europe/Brussels'
 
 # Verify the file content
 system('getinput "q1" > basicSubmission.zip')
