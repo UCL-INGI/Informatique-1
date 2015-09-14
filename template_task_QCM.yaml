@@ -28,7 +28,7 @@
 # "::" permet d'afficher un bloc de code. Le code doit  être séparé de "::" par une ligne vide et être indenté par rapport à "::"
 # ".. code-block:: java correspond à "::" mais avec la précision qu'il doit le mettre en couleur en fonction de la syntaxe java
 
-accessible: false
+accessible: true
 author: votre nom
 context: 
     Voici quelques questions QCM pour vérifier votre compréhension de la Mission
