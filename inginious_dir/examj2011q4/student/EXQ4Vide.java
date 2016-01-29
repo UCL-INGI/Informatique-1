@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 2015 François Michel, Clémentine Munyabarenzi
+ *  Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
@@ -96,10 +96,10 @@ public class EXQ4Stu {
 				fail("L'ajout d'un processus à l'ordinateur provoque l'exception suivante: "+e.toString());
 			}
 			//asserts
-			assertEquals("L'ajout réussi d'un processus à l'ordinateur devrait renvoyer true", true, res);
+			assertEquals("L'ajout réussi d'un processus à l'ordinateur devrait renvoyer true. ", true, res);
 			assertEquals("Le nombre de processus d'un ordinateur après l'ajout d'un processus"
 					+ " devrait être de incrémenté de 1", oldCount +1 ,fc.count );
-			assertTrue("L'odinateur devrait avoir accès"
+			assertTrue("L'ordinateur devrait avoir accès"
 						+ " à un processus qui lui a été ajouté: "+p.toString()+"versus"+fc.procs[fc.count-1].toString(),
 						p.equals(fc.procs[fc.count-1]));
 			assertEquals("La capacité de stockage de l'ordinateur après ajout d'un processus plus petit"
@@ -114,9 +114,9 @@ public class EXQ4Stu {
 			catch(Throwable e){
 				fail("L'ajout d'un processus \"trop grand\" à l'ordinateur provoque l'exception suivante: "+e.toString());
 			}
-			assertEquals("L'ajout non réussi d'un processus à l'ordinateur devrait renvoyer false ", false, res );
+			assertEquals("L'ajout non réussi d'un processus à l'ordinateur devrait renvoyer false. ", false, res );
 			assertEquals("Le nombre de processus d'un ordinateur après une tentative "
-					+ "d'ajout d'un processus \"trop grand\" est incorrecte"
+					+ "d'ajout d'un processus \"trop grand\" est incorrecte. "
 					, oldCount ,fc.count );
 			assertFalse("L'odinateur ne devrait pas avoir accès"
 						+ " à un processus qui ne lui a pas été ajouté.",

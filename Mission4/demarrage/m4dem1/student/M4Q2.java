@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 2015 François Michel, Clémentine Munyabarenzi
+ *  Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
@@ -43,12 +43,12 @@ public class M4Q2 {
 		try{
 			for(int i = 0 ; i < 10 ; i++){
 				assertEquals(str+"le caractère '"+i+"' est un chiffre, pourtant, votre code ne le considère pas comme tel.\n", 
-							true, M4Q2Stu.isDigit(Character.forDigit(i, 10)));
+							true, M4Q2Stu.isDigitStudent(Character.forDigit(i, 10)));
 			}
 			for(int i = 0 ; i < Character.MAX_VALUE ; i++){
 				boolean exp = Character.isDigit((char) i);
 				assertEquals(str + "quand c = '"+(char) i + "', b devrait valoir "+exp+", or, il vaut "+!exp+".\n", 
-							exp, M4Q2Stu.isDigit((char) i));
+							exp, M4Q2Stu.isDigitStudent((char) i));
 			}
 		}catch(ArithmeticException e){
 			fail(str + "Le code est incorrect : il est interdit de diviser par zéro.");

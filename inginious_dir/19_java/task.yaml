@@ -1,4 +1,4 @@
-#   Copyright (c) 2015 Sébastien Combéfis, Virginie Van den Schrieck
+#   Copyright (c) 2015, 2016 Sébastien Combéfis, Virginie Van den Schrieck
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as published by
 #   the Free Software Foundation, either version 3 of the License, or
@@ -14,6 +14,7 @@
 
 
 
+accessible: true
 author: Sébastien Combéfis
 context: |+
     .. raw:: html
@@ -40,11 +41,18 @@ context: |+
           Votre programme doit afficher son résultat exactement comme présenté dans l'exemple ci-dessus. Vous ne devez pas déclarer, ni initialiser la variable de type <code>int</code> nommée <code>n</code>, elle vous sera fournie.
         </p>
 
-responseIsHTML: true
-order: 3
+environment: pythia0compat
+groups: false
+limits:
+    memory: '333'
+    output: '5210'
+    time: '30'
 name: 'Mission 2: Question de Bilan Final'
+network_grading: false
+order: 12
 problems:
     q1:
+        name: ''
         header: |+
             .. raw:: html
 
@@ -53,13 +61,7 @@ problems:
                   Écrivez ici directement le code de la méthode <code>main</code>. Vous ne devez pas déclarer, ni initialiser la variable <code>n</code>.
                 </p>
 
-        type: code
-        multiple: true
         language: java
-limits:
-    language: java
-    time: 30
-    memory: 32
-    disk: 50
-    output: 5210
-environment: pythia0compat
+        type: code
+responseIsHTML: true
+weight: 1.0

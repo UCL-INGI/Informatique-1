@@ -7,6 +7,7 @@ from os import listdir, system
 import zipfile
 import inginiousUtils
 import os
+import subprocess
 
 os.environ['TZ'] = 'Europe/Brussels'
 
@@ -32,7 +33,19 @@ if (unzipOutput):
     system('feedback --result failed --feedback "' + output + '"')
     exit(0)
 else:
-    output += "Your archive has the correct content.\n"
-    output += "\n**Archive content: 1/1**"
-    system('feedback --result success --feedback "' + output + '"')
+    system('sh custom.sh')
+    outjavac = ""
+    try:
+    	subprocess.check_output("javac student/*.java", stderr = subprocess.STDOUT, shell = True)
+    	output += "Your archive has the correct content.\n"
+    	output += "\n**Archive content: 1/1**"
+    	system('feedback --result success --feedback "' + output + '"')
+    except subprocess.CalledProcessError, e:
+        output += "There are some compilation errors with your program :\n::\n\n"
+        system("echo \""+e.output+"\" > outjavac.log")
+    	output += subprocess.check_output("sed -e \'s/^/\\t/\' < outjavac.log", shell = True)
+    	system('feedback --result failed --feedback "' + output + '"')
+     
+    
     exit(0)
+

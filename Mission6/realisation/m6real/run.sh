@@ -113,7 +113,7 @@ else
 	feedback -r failed -f "$FEED"
 fi
 
-
+printf "$FEED" > feedback.out
 
 
 

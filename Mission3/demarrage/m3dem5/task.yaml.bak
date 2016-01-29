@@ -1,0 +1,28 @@
+accessible: true
+author: 'Clémentine Zaninka (ressources : syllabus d''exercice LSINF1101)'
+context: |-
+    La section *3.4.2* du livre présente un programme qui permet de calculer et d’afficher le nombre de diviseurs entiers d’un nombre entiers. Réutilisez ce code de façon à construire la méthode ``nDiv``
+    répondant à la spécification et la signature suivante :
+
+
+    .. code-block :: java
+
+        /**
+         * @pre n > 0
+         * @post retourne le nombre de diviseurs entiers du nombre entier n.
+         */
+         public static int nDiv(int n)
+environment: java7
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: 'Mission 3: Question de Démarage 5: Diviseurs Entiers'
+problems:
+    q1:
+        language: java
+        name: ''
+        type: code
+        header: Ecrivez ici le **corps** de la fonction.
+weight: 1.0
+order: 26

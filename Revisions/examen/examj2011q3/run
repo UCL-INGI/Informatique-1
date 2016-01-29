@@ -1,5 +1,5 @@
 #!/bin/bash
-#   Copyright (c) 2015 François Michel, Clémentine Munyabarenzi
+#   Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as published by
 #   the Free Software Foundation, either version 3 of the License, or
@@ -115,7 +115,7 @@ fi
 
 
 if [ $ERREURENSEIGNANT -ne 0 ];	then
-	FEED=$(printf "Le programme ne compile pas: \n ${CODELITTERAL}$MESSAGEENSEIGNANT\n")
+	FEED=$(printf "Le programme ne compile pas. Pensez à vérifier les signatures de vos méthodes, nous assumons qu'elles sont de la forme : ${CODELITTERAL}\tpublic String getName()\npublic int getPid()\npublic int getRequiredStorage()\npublic String getDescr()\n\nSi le code affiché dans l\'erreur de compilation n\'a pas été écrit par vous, assurez-vous que votre méthode a bien la signature requise. Voici les erreurs de compilation : \n ${CODELITTERAL}$MESSAGEENSEIGNANT\n")
 	feedback -r failed -f "$FEED"
 	exit
 fi
@@ -191,7 +191,7 @@ else
 	# feedback n'aime pas les "\n", donc on contourne le probleme en l'écrivant dans un fichier puis en le lisant.
 	# sed permet d'indenter chaque ligne de son input avec une tabulation
 	OUTPUT=$(echo "$OUTPUT" | sed -e 's/^/\t/' | sed 's/%/%%/g' )
-	FEED=$(printf "Votre programme ne compile pas: \n ${CODELITTERAL}$OUTPUT\n")
+	FEED=$(printf "Le programme ne compile pas. Pensez à vérifier les signatures de vos méthodes, nous assumons qu'elles sont de la forme :\n ${CODELITTERAL}\tpublic String getName()\n\tpublic int getPid()\n\tpublic int getRequiredStorage()\n\tpublic String getDescr()\n\nSi le code affiché dans l\'erreur de compilation n\'a pas été écrit par vous, assurez-vous que vos méthodes ont bien les signatures requises. Voici les erreurs de compilation : \n ${CODELITTERAL}$OUTPUT\n")
 	feedback -r failed -f "$FEED"
 fi
 

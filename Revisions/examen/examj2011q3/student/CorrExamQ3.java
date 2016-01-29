@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 2015 François Michel, Clémentine Munyabarenzi
+ *  Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
@@ -179,7 +179,7 @@ public class CorrExamQ3{
 				if(tab.length < 2){
 					fail(str + "le format de getDescr() doit être : \"nom requiredStorage\", or, getDescr() renvoie \""+desc+"\". ");
 				}
-				assertEquals(str + "getDescr() renvoie une mauvaise réponse. Au lieu de renvoyer \""+descExp+"\", getDescr() "
+				assertEquals(str + "getDescr() renvoie une mauvaise réponse pour le processus \"" + tab[0] + "\". Au lieu de renvoyer \""+descExp+"\", getDescr() "
 								 + "renvoie \""+desc+"\". ", descExp, desc);
 				
 			}

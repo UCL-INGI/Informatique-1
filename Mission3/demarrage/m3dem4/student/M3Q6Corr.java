@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 2015 François Michel, Clémentine Munyabarenzi
+ *  Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
@@ -64,21 +64,10 @@ public class M3Q6Corr {
 	 */
 
 static void lettre_l(char c, int hauteur, int largeur){
-
-		System.out.println("java lettre L");
-		System.out.println("hauteur de la lettre");
-		System.out.println(hauteur);
-		System.out.println("largeur de la lettre");
-		System.out.println(largeur);
-		System.out.println();
-
 		for(int i = 0; i != hauteur; i++){
 			for(int j = 0; j != largeur; j++){
 				if(i != (hauteur-1)){
-					if(j != (0)){
-						System.out.print(' ');
-					}
-					else{
+					if(j == 0) {
 						System.out.print(c);
 					}
 				}

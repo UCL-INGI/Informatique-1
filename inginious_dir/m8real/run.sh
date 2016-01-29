@@ -115,5 +115,6 @@ fi
 
 
 
+printf "$FEED" > feedback.out
 
 

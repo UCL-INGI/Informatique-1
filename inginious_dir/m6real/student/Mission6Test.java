@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 2015 Bastien Bodart, François Michel, Clémentine Munyabarenzi
+ *  Copyright (c) 2015, 2016 Bastien Bodart, François Michel, Clémentine Munyabarenzi
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
@@ -145,7 +145,7 @@ public class Mission6Test
 	@Test
 	public void temps_delta() throws Throwable
 	{
-		checkMethod(temps, int.class, "delta", temps);
+		checkMethod(temps, long.class, "delta", temps);
 		checkConstructor(temps, int.class, int.class, int.class);
 		String str = "La méthode delta comporte des erreurs : ";
 
@@ -153,15 +153,15 @@ public class Mission6Test
 			object1 = constructor.newInstance(0,0,0);
 			object2 = constructor.newInstance(0,0,0);
 			collector.checkThat(str + "avec un Temps initialisé à 0h, 0m, 0s et t initialisé à 0h, 0m, 0s, delta devrait retourner 0. ", 
-					(int) method.invoke(object1, object2), equalTo(0));
+					((int) (long) method.invoke(object1, object2)), equalTo(0));
 
 			object1 = constructor.newInstance(1,1,1);
 			collector.checkThat(str + "avec un Temps initialisé à 1h, 1m, 1s et t initialisé à 0h, 0m, 0s, delta devrait retourner 3661. ", 
-					(int) method.invoke(object1, object2), equalTo(3661));
+					((int) (long) method.invoke(object1, object2)), equalTo(3661));
 
 			object2 = constructor.newInstance(2,2,2);
 			collector.checkThat(str + "avec un Temps initialisé à 1h, 1m, 1s et t initialisé à 0h, 0m, 0s, delta devrait retourner -3661. ", 
-					(int) method.invoke(object1, object2), equalTo(-3661));
+					((int) (long) method.invoke(object1, object2)), equalTo(-3661));
 		}catch(InvocationTargetException e){
 			Throwable t = e.getCause();
             t.printStackTrace();
@@ -344,27 +344,27 @@ public class Mission6Test
 
 		try{
 			object1 = constructor.newInstance("", "", null);		
-			collector.checkThat(str + "lorsque le titre est \"\", l'auteur est \"\" et la duree veut null, getTitre devrait retourner \"\". ", 
+			collector.checkThat(str + "lorsque le titre est \"\", l'auteur est \"\" et la duree vaut null, getTitre devrait retourner \"\". ", 
 					(String) method.invoke(object1, new Object[]{}), equalTo(""));
 
 			object1 = constructor.newInstance("a", "", null);		
-			collector.checkThat(str + "lorsque le titre est \"a\", l'auteur est \"\" et la duree veut null, getTitre devrait retourner \"a\". ", 
+			collector.checkThat(str + "lorsque le titre est \"a\", l'auteur est \"\" et la duree vaut null, getTitre devrait retourner \"a\". ", 
 					(String) method.invoke(object1, new Object[]{}), equalTo("a"));
 
 			checkMethod(chanson, null, "getAuteur", new Class<?>[]{});
 
 			object1 = constructor.newInstance("", "", null);		
-			collector.checkThat(str + "lorsque le titre est \"\", l'auteur est \"\" et la duree veut null, getAuteur devrait retourner \"\". ", 
+			collector.checkThat(str + "lorsque le titre est \"\", l'auteur est \"\" et la duree vaut null, getAuteur devrait retourner \"\". ", 
 					(String) method.invoke(object1, new Object[]{}), equalTo(""));
 
 			object1 = constructor.newInstance("", "a", null);		
-			collector.checkThat(str + "lorsque le titre est \"\", l'auteur est \"a\" et la duree veut null, getAuteur devrait retourner \"a\". ", 
+			collector.checkThat(str + "lorsque le titre est \"\", l'auteur est \"a\" et la duree vaut null, getAuteur devrait retourner \"a\". ", 
 					(String) method.invoke(object1, new Object[]{}), equalTo("a"));
 
 			checkMethod(chanson, null, "getDuree", new Class<?>[]{});
 
 			object1 = constructor.newInstance("", "", null);		
-			collector.checkThat(str + "lorsque le titre est \"\", l'auteur est \"\" et la duree veut null, getDuree devrait retourner null. ", 
+			collector.checkThat(str + "lorsque le titre est \"\", l'auteur est \"\" et la duree vaut null, getDuree devrait retourner null. ", 
 					method.invoke(object1, new Object[]{}), equalTo(null));
 		}catch(InvocationTargetException e){
 			Throwable t = e.getCause();

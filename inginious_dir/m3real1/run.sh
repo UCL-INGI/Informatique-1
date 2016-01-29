@@ -30,7 +30,7 @@
 
 NMISSION=3
 CUSTOMSCRIPT="sh custom.sh"
-SOUMISSION="student/LibMath.java"
+SOUMISSION="student/*.java"
 # EXECCUSTOM vaut 0 si on n'exécute pas de script "custom" pour faire des vérifications supplémentaires
 EXECCUSTOM=1
 CODELITTERAL="::\n\n"
@@ -116,6 +116,7 @@ else
 	FEED=$(printf "Votre programme ne compile pas: \n ${CODELITTERAL}$OUTPUT\n")
 	feedback -r failed -f "$FEED"
 fi
+printf "$FEED" > feedback.out
 
 
 

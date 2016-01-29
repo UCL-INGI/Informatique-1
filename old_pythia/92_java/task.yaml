@@ -1,4 +1,4 @@
-#   Copyright (c) 2015 Sébastien Combéfis, Virginie Van den Schrieck
+#   Copyright (c) 2015, 2016 Sébastien Combéfis, Virginie Van den Schrieck
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as published by
 #   the Free Software Foundation, either version 3 of the License, or
@@ -14,19 +14,20 @@
 
 
 
+accessible: false
 author: Virginie Van den Schrieck
 context: |+
     .. raw:: html
 
         <p>
-          Écrivez une classe complète Employe dont les instances représentent un employé d’entreprise. Un employé est caractérisé par son nom (un string) et son salaire (un entier positif). Il doit être possible de créer un nouvel employé avec un nom et un salaire et d’effectuer les opérations suivantes sur un objet Employe :
+          Écrivez une classe complète Employe dont les instances représentent un employé d’entreprise. Un employé est caractérisé par son nom (un string) et son salaire (un entier positif). Il doit être possible de créer un nouvel employé avec un nom et un salaire et d’effectuer les opérations suivantes sur un objet Employe :
         </p>
         <ul>
-          <li>obtenir le nom de l’employé
+          <li>obtenir le nom de l’employé
           </li>
           <li>obtenir le salaire de l'employé
           </li>
-          <li>obtenir un texte descriptif représentant l’employé sous la forme <code>nom : salaire</code>
+          <li>obtenir un texte descriptif représentant l’employé sous la forme <code>nom : salaire</code>
           </li>
           <li>augmenter le salaire de l'employé d'un certain pourcentage
           </li>
@@ -57,10 +58,15 @@ context: |+
 
         </pre>
 
-responseIsHTML: true
-order: 7
-accessible: true
+environment: pythia0compat
+groups: false
+limits:
+    memory: '300'
+    output: '5210'
+    time: '30'
 name: 'Mission 6: Question de Bilan Final'
+network_grading: false
+order: 49
 problems:
     employe:
         header: |+
@@ -72,12 +78,7 @@ problems:
                 </p>public class Employe
 
         type: code
-        multiple: true
         language: java
-limits:
-    language: java
-    time: 30
-    memory: 32
-    disk: 50
-    output: 5210
-environment: pythia0compat
+        name: ''
+responseIsHTML: true
+weight: 1.0

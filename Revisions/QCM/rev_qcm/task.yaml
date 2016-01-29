@@ -1,17 +1,38 @@
-accessible: true
+#   Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+accessible: false
 author: Olivier BONAVENTURE
 context: |
     ========
     Revision
     ========
 environment: default
+groups: false
 limits:
     memory: '100'
     output: '2'
     time: '30'
 name: 'Révisions : QCM'
+network_grading: false
+order: 76
 problems:
     q1:
+        type: multiple-choice
+        name: Utilisation de méthodes
         choices:
         -   text: |4
 
@@ -22,8 +43,7 @@ problems:
                       return Math.min(m1,c);
                    }
             valid: true
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -31,6 +51,7 @@ problems:
                       double m=Math.min(b,c);
                       return Math.min(a,m);
                    }
+            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -65,11 +86,9 @@ problems:
                       Math.min(b,c);
                       Math.min(a,m);
                    }
-        name: Utilisation de méthodes
         header: |4
 
             Les méthodes implémentées dans la  librairie standard Java sont souvent très utile pour faciliter l'écriture de méthodes plus compliquées. Considérons l'implémentation d'une méthode permettant de calculer le minimum entre trois réels passés en argument. Une telle méthode peut s'écrire en utilisant une suite d'instructions conditionnelles, mais il est aussi possible de réutiliser la méthode ``Math.min`` qui retourne le minimum entre ses deux arguments. Laquelle des méthodes ci-dessous est un calcul correct du minimum entre trois nombres réels ?
-        type: multiple-choice
         limit: 3
     q2:
         choices:

@@ -1,18 +1,18 @@
-#! /bin/bash
-
-#   Copyright (c) 2015 François Michel, Clémentine Munyabarenzi
+#!/bin/bash
+#   Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
 #   This program is free software: you can redistribute it and/or modify
-#   it under the terms of the GNU General Public License as published by
+#   it under the terms of the GNU Affero General Public License as published by
 #   the Free Software Foundation, either version 3 of the License, or
 #   (at your option) any later version.
 #
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#   GNU General Public License for more details.
+#   GNU Affero General Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
+#   You should have received a copy of the GNU Affero General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 
@@ -35,9 +35,7 @@
 
 # Le fichier {EXERCICE}Corr.java est un fichier java optionnel, sensé contenir une résolution correcte de l'exercice dans le cas où il serait utile de comparer les réponses renvoyées par le code de l'étudiant avec celles renvoyées par la fonction correcte, pour le feedback.
 
-# Le fichier custom.sh est un fichier optionnel, qui contient un script sh pour par exemple procéder à des vérifications dans le code (comme détecter l'utilisation de Math.pow à un endroit on on ne pourrait pas l'utiliser). Ce script doit renvoyer 0 (avec echo, par exemple), 
-# lorsque l'exécution du script s'est bien déroulée. Il doit renvoyer une autre valeur quand un probème est survenu (par exemple, on a détecté l'utilisation de Math.pow alors que c'est interdit). Lorsqu'un problème est survenu, le script doit retourner un feedback négatif 
-# pour la question en cours ainsi qu'un feedback négatif pour la tâche. Lorsqu'une erreur est survenue dans custom.sh, ce script-ci arrêtera automatiquement sa propre exécution directement avec exit, une fois custom.sh terminé.
+# Le fichiers custom.sh est un fichier optionnel, qui contient un script sh pour par exemple procéder à des vérifications dans le code (comme détecter l'utilisation de Math.pow à un endroit on on ne pourrait pas l'utiliser). Ce script doit renvoyer 0 (avec echo, par exemple), lorsque l'exécution du script s'est bien déroulée. Il doit renvoyer une autre valeur quand un probème est survenu (par exemple, on a détecté l'utilisation de Math.pow alors que c'est interdit). Lorsqu'un problème est survenu, le script doit retourner un feedback négatif pour la question en cours ainsi qu'un feedback négatif pour la tâche. Lorsqu'une erreur est survenue dans custom.sh, ce script-ci arrêtera automatiquement sa propre exécution directement avec exit, une fois custom.sh terminé.
 
 # Pour utiliser ce script pour corriger plusieurs exercices en une seule tâche, il faut respecter des conventions. Tout d'abord, le premier exercice doit s'appeler q1, le second doit s'appeler q2, le ième doit s'appeler qi.
 # Pour pourvoir faire un feedback spécialisé par exercice de la tâche, il faut impérativement que les erreurs (lorsque le code n'est pas correct) soient afficheées sur System.err avec comme première ligne une ligne qui comprend "Question i :" (pour le ième exercice). Par exemple :
@@ -173,7 +171,7 @@ if [ "$OUTPUT" = "" ]; then
 			while [ $i -le $NEXERCICES ]
 			do
 				# On récupère un feedback par question dans le System.err, en suivant le format imposé par convention
-				OUTERRPARQUESTION=$(echo "$OUTERR" | sed -e "/Question $i :/,/Question [^\D] :/!d" | grep -v -E "Question [0-9] :")
+				OUTERRPARQUESTION=$(echo "$OUTERR" | sed -e "/Question $i :/,/Question [^\D1] :/!d" | grep -v -E "Question [0-9] :")
 				if [ "$OUTERRPARQUESTION" == "" ]; then
 					feedback -i q${i} -r success -f "Vous avez bien répondu à cette question"
 				else
@@ -200,7 +198,6 @@ else
 	FEED=$(printf "Votre programme ne compile pas: \n ${CODELITTERAL}$OUTPUT\n")
 	feedback -r failed -f "$FEED"
 fi
-
 
 
 

@@ -76,7 +76,7 @@ if [ $EXECCUSTOM -ne 0 ]; then
 	OUTCUSTOM=$($CUSTOMSCRIPT)
 fi
 
-if [ $OUTCUSTOM -ne 0 ]; then
+if [ "$OUTCUSTOM" != "0" ]; then
 	exit
 fi
 
@@ -113,7 +113,7 @@ else
 	feedback -r failed -f "$FEED"
 fi
 
-
+printf "$FEED" > feedback.out
 
 
 

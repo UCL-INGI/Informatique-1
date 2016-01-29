@@ -1,4 +1,4 @@
-#   Copyright (c) 2015 Sébastien Combéfis, Virginie Van den Schrieck
+#   Copyright (c) 2015, 2016 Sébastien Combéfis, Virginie Van den Schrieck
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as published by
 #   the Free Software Foundation, either version 3 of the License, or
@@ -14,6 +14,7 @@
 
 
 
+accessible: false
 author: Sébastien Combéfis
 context: |+
     .. raw:: html
@@ -70,12 +71,18 @@ context: |+
           Remarquez que chaque <code>Item</code> possède un serial qui est un numéro de série unique propre à l’objet (pour pouvoir différencier plusieurs exemplaires du même livre par exemple). Il doit être généré automatiquement et être supérieur à 100000 pour un CD.
         </p>
 
-responseIsHTML: true
-order: 8
-accessible: true
+environment: pythia0compat
+groups: false
+limits:
+    memory: '300'
+    output: '5210'
+    time: '30'
 name: 'Mission 7: Question de Bilan Final'
+network_grading: false
+order: 55
 problems:
     q1:
+        name: ''
         header: |+
             .. raw:: html
 
@@ -84,10 +91,12 @@ problems:
                   Complétez ici le corps de la méthode <code>toString</code> de la classe <code>Item</code> dont la spécification est donnée dans l'énoncé.
                 </p>public String toString()
 
-        type: code
-        multiple: true
         language: java
+        type: code
     q2:
+        name: ''
+        type: code
+        language: java
         header: |+
             .. raw:: html
 
@@ -96,13 +105,5 @@ problems:
                   Complétez ici le corps de la classe <code>CD</code>.
                 </p>public class CD extends Item
 
-        type: code
-        multiple: true
-        language: java
-limits:
-    language: java
-    time: 30
-    memory: 32
-    disk: 50
-    output: 5210
-environment: pythia0compat
+responseIsHTML: true
+weight: 1.0

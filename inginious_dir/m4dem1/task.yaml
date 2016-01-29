@@ -1,3 +1,19 @@
+#   Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
 accessible: true
 author: François MICHEL
 context: |
@@ -11,16 +27,19 @@ context: |
         boolean b;     // à assigner dans la Question 1
         char e;        // à assigner dans la Question 2
 environment: java7
+groups: false
 limits:
     memory: '100'
     output: '2'
     time: '30'
 name: 'Mission 4: Questions de démarrage 1: La classe Character'
+network_grading: false
+order: 25
 problems:
     q1:
         name: ''
         header: |
-            En utilisant l'API Java de la classe Character, assignez à la variable booléenne b la valeur true si la variable c contient un caractère représentant un chiffre, et la valeur false sinon. Répondez à cette réponse en une seule ligne.
+            En utilisant l'API Java de la classe Character, assignez à la variable booléenne b la valeur true si la variable c contient un caractère représentant un chiffre, et la valeur false sinon. Répondez à cette question en une seule ligne.
         language: Java
         type: code-single-line
     q2:

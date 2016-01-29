@@ -1,0 +1,69 @@
+author: Sébastien Combéfis
+context: |+
+    .. raw:: html
+
+        <p>
+          Un étudiant a écrit le programme Java suivant qui permet de compter le nombre de chiffres de la représentation décimale d'un nombre naturel donné.
+        </p>
+        <pre class="code">
+        public static void main (String[] args)
+        {
+           int n = 0;
+           while (n != -1)
+           {
+              System.out.print ("Entrez un nombre (-1 pour arrêter) :");
+              n = TextIO.getlnInt();
+              if (n != -1)
+              {
+                 System.out.print (n);
+                 if (chiffresPairs (n))
+                 {
+                    System.out.println (" a un nombre pair de chiffres dans sa représentation décimale");
+                 }
+                 else
+                 {
+                    System.out.println (" a un nombre impair de chiffres dans sa représentation décimale");
+                 }
+              }
+           }
+        }
+        </pre>
+        <p>
+          Vous devez définir la méthode <code>chiffresPairs</code> qui renvoie <code>true</code> si le nombre de chiffres de son paramètre est pair et <code>false</code> sinon. N'hésitez pas à décomposer le problème en sous-problèmes et de définir des méthodes privées complémentaires.
+        </p>
+
+responseIsHTML: true
+order: 73
+name: 'Mission 3: Question de Bilan Final'
+problems:
+    q1:
+        header: |+
+            .. raw:: html
+
+                <p class='lead'></p>
+                <p>
+                  Complétez ici le corps de la méthode <code>chiffresPairs</code> dont la spécification est donnée dans l'énoncé.
+                </p>public static boolean chiffresPairs (int n)
+
+        type: code
+        multiple: true
+        language: java
+    subproblems:
+        header: |+
+            .. raw:: html
+
+                <p class='lead'></p>
+                <p>
+                  Déclarez ici les méthodes privées que vous souhaitez utiliser pour décomposer le problème en sous-problèmes. Attention, veillez à n'utiliser que des méthodes de classe (<code>static</code>).
+                </p>
+
+        type: code
+        multiple: true
+        language: java
+limits:
+    language: java
+    time: 30
+    memory: 32
+    disk: 50
+    output: 5210
+environment: pythia0compat

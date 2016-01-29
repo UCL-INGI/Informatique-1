@@ -1,3 +1,19 @@
+#   Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
 accessible: true
 author: 'Munyabarenzi Clémentine Zaninka (ressource : syllabus d''exercices SINF1101)'
 context: |-
@@ -5,16 +21,19 @@ context: |-
 
     **Attention, vous devez soumettre la classe DList entière avec exactement les mêmes attributs et les mêmes méthodes. Seul le corps des méthodes et les valeurs des attributs peuvent être différents.**
 environment: java7
+groups: false
 limits:
     memory: '100'
     time: '30'
     output: '2'
 name: 'Mission 11 : Question de Démarrage 3 : JUnit (partie3) une DList correcte'
+network_grading: false
+order: 73
 problems:
     q1:
         language: java
-        name: ''
         type: code
+        name: ''
         header: |
             Rappel de la classe ``DList`` à corriger:
 

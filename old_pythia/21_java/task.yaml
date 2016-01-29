@@ -1,4 +1,4 @@
-#   Copyright (c) 2015 Sébastien Combéfis, Virginie Van den Schrieck
+#   Copyright (c) 2015, 2016 Sébastien Combéfis, Virginie Van den Schrieck
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as published by
 #   the Free Software Foundation, either version 3 of the License, or
@@ -14,6 +14,7 @@
 
 
 
+accessible: true
 author: Sébastien Combéfis
 context: |+
     .. raw:: html
@@ -47,12 +48,18 @@ context: |+
           N'oubliez pas d'éviter la duplication de code, et d'éventuellement réutiliser l'une des deux méthodes dans l'autre.
         </p>
 
-responseIsHTML: true
-order: 6
-accessible: true
+environment: pythia0compat
+groups: false
+limits:
+    memory: '500'
+    output: '5210'
+    time: '30'
 name: 'Mission 5(a): Question de Bilan Final'
+network_grading: false
+order: 41
 problems:
     q1:
+        name: ''
         header: |+
             .. raw:: html
 
@@ -61,10 +68,12 @@ problems:
                   Complétez ici le corps de la méthode <code>rotateRightOne</code> dont la spécification est donnée dans l'énoncé.
                 </p>public static void rotateRightOne (int[] tab)
 
-        type: code
-        multiple: true
         language: java
+        type: code
     q2:
+        name: ''
+        type: code
+        language: java
         header: |+
             .. raw:: html
 
@@ -73,13 +82,5 @@ problems:
                   Complétez ici le corps de la méthode <code>rotateRight</code> dont la spécification est donnée dans l'énoncé.
                 </p>public static void rotateRight (int[] tab, int n)
 
-        type: code
-        multiple: true
-        language: java
-limits:
-    language: java
-    time: 30
-    memory: 32
-    disk: 50
-    output: 5210
-environment: pythia0compat
+responseIsHTML: true
+weight: 1.0

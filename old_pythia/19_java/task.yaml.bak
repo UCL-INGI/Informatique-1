@@ -1,0 +1,49 @@
+author: Sébastien Combéfis
+context: |+
+    .. raw:: html
+
+        <p>
+          Soit un naturel non-nul <i>x</i>, le naturel non-nul <i>d</i> est un <em>diviseur propre</em> de <i>x</i> s'il est compris entre <i>1</i> (inclus) et <i>x</i> (exclus) et qu'il divise <i>x</i>.
+        </p>
+        <p>
+          Ce qui va nous intéresser dans le cadre de cette question de bilan final, c'est le nombre de diviseurs propres. Vous devez écrire un programme qui va, étant donné un naturel non-nul <code>n</code>, afficher à l'écran le nombre de diviseurs propres que possède chacun des naturels compris entre <i>1</i> et <i>n</i> (tous les deux inclus).
+        </p>
+        <p>
+          Par exemple, si la variable <code>n</code> vaut <i>7</i>, votre programme doit afficher sur la sortie standard, grâce à <code>System.out.println</code>, ceci :
+        </p>
+        <pre class="code">
+        1:0
+        2:1
+        3:1
+        4:2
+        5:1
+        6:3
+        7:1
+        </pre>
+        <p>
+          Votre programme doit afficher son résultat exactement comme présenté dans l'exemple ci-dessus. Vous ne devez pas déclarer, ni initialiser la variable de type <code>int</code> nommée <code>n</code>, elle vous sera fournie.
+        </p>
+
+responseIsHTML: true
+order: 66
+name: 'Mission 2: Question de Bilan Final'
+problems:
+    q1:
+        header: |+
+            .. raw:: html
+
+                <p class='lead'></p>
+                <p>
+                  Écrivez ici directement le code de la méthode <code>main</code>. Vous ne devez pas déclarer, ni initialiser la variable <code>n</code>.
+                </p>
+
+        type: code
+        multiple: true
+        language: java
+limits:
+    language: java
+    time: 30
+    memory: 32
+    disk: 50
+    output: 5210
+environment: pythia0compat

@@ -1,5 +1,5 @@
 #!/bin/bash
-#   Copyright (c) 2015 François Michel, Clémentine Munyabarenzi
+#   Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as published by
 #   the Free Software Foundation, either version 3 of the License, or
@@ -127,7 +127,7 @@ if [ "$OUTOTHER" != "" ];	then
 fi
 
 if [ $ERREURENSEIGNANT -ne 0 ];	then
-	FEED=$(printf "Le programme ne compile pas: \n ${CODELITTERAL}$MESSAGEENSEIGNANT\n")
+	FEED=$(printf "Le programme ne compile pas. Pensez à vérifier la signature de votre constructeur, nous assumons qu'elle est de la forme (vérifiez l'ordre des arguments) : ${CODELITTERAL}\tpublic FullComputer(String name, int n, int storage)\n\nSi le code affiché dans l\'erreur de compilation n\'a pas été écrit par vous, assurez-vous que votre constructeur a bien la signature requise. Voici les erreurs de compilation : \n ${CODELITTERAL}$MESSAGEENSEIGNANT\n")
 	feedback -r failed -f "$FEED"
 	exit
 fi
@@ -178,7 +178,7 @@ if [ "$OUTPUT" = "" ]; then
 		if [ $NEXERCICES -eq 1 ]; then
 			# feedback n'aime pas les "\n", donc on contourne le probleme en l'écrivant dans un fichier puis en le lisant.
 			OUTERR=$(printf "$OUTERR" | sed -e 's/^/\t/')
-			FEED=$(printf "Il semble que vous ayiez fait des erreurs dans votre code...\n ${CODELITTERAL}$OUTERR\n")
+			FEED=$(printf "Il semble que vous ayiez fait des erreurs dans votre code... \n ${CODELITTERAL}$OUTERR\n")
 			feedback -i q1 -r failed -f "$FEED"
 			ERREUR=1
 		else
@@ -210,7 +210,7 @@ else
 	# feedback n'aime pas les "\n", donc on contourne le probleme en l'écrivant dans un fichier puis en le lisant.
 	# sed permet d'indenter chaque ligne de son input avec une tabulation
 	OUTPUT=$(printf "$OUTPUT" | sed -e 's/^/\t/')
-	FEED=$(printf "Votre programme ne compile pas: \n ${CODELITTERAL}$OUTPUT\n")
+	FEED=$(printf "Le programme ne compile pas. Pensez à vérifier la signature de votre constructeur, nous assumons qu'elle est de la forme :\n ${CODELITTERAL}\tpublic String getName()\n\tpublic int getPid()\n\tpublic int getRequiredStorage()\n\tpublic String getDescr()\n\nSi le code affiché dans l\'erreur de compilation n\'a pas été écrit par vous, assurez-vous que votre constructeur a bien la signature requise. Voici les erreurs de compilation : \n ${CODELITTERAL}$OUTPUT\n")
 	feedback -r failed -f "$FEED"
 fi
 

@@ -1,3 +1,19 @@
+#   Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
 accessible: true
 author: François MICHEL
 context: |-
@@ -13,32 +29,23 @@ context: |-
          *            En cas d'erreur d'I/O, retourne -1. Retourne 0 si tout
          *            s'est bien déroulé.
          */
-        public static int write(int n, String filename){
-            try{
-                PrintWriter pw = new PrintWriter(new FileWriter(filename));
-                for(int i = 1 ; i <= n ; i++){
-                    pw.println(i);
-                }
-                pw.close();
-                return 0;
-            }catch(IOException e){
-                System.err.println("Erreur d'IO");
-                return -1;
-            }
-        }
+        public static int write(int n, String filename)
 
     Faites bien attention à gérer les erreurs d'I/O.
 environment: java7
+groups: false
 limits:
     memory: '100'
     time: '30'
     output: '2'
 name: 'Mission 10: Question de démarrage 2: Écriture dans des fichiers'
+network_grading: false
+order: 67
 problems:
     q1:
         language: Java
-        name: La méthode write
         type: code
+        name: La méthode write
         header: Écrivez ici le corps de la méthode write. Veillez bien à n'écrire
             que le corps de la méthode, ne recopiez pas sa signature. Respectez bien
             les spécifications.

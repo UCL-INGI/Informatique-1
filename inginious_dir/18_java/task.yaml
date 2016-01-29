@@ -1,4 +1,4 @@
-#   Copyright (c) 2015 Sébastien Combéfis, Virginie Van den Schrieck
+#   Copyright (c) 2015, 2016 Sébastien Combéfis, Virginie Van den Schrieck
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as published by
 #   the Free Software Foundation, either version 3 of the License, or
@@ -14,6 +14,7 @@
 
 
 
+accessible: true
 author: Sébastien Combéfis
 context: |+
     .. raw:: html
@@ -37,11 +38,18 @@ context: |+
           Vous devez afficher chaque élément de la suite sur la sortie standard, avec <code>System.out.println</code>. La valeur de départ vous est déjà fournie et se trouve dans une variable de type <code>int</code> nommées <code>s0</code>.
         </p>
 
-responseIsHTML: true
-order: 2
+environment: pythia0compat
+groups: false
+limits:
+    memory: '200'
+    output: '5210'
+    time: '30'
 name: 'Mission 1: Question de Bilan Final'
+network_grading: false
+order: 2
 problems:
     q1:
+        name: ''
         header: |+
             .. raw:: html
 
@@ -50,13 +58,7 @@ problems:
                   Écrivez ici directement le code de la méthode <code>main</code>. Vous ne devez pas déclarer, ni initialiser la variable <code>s0</code>.
                 </p>
 
-        type: code
-        multiple: true
         language: java
-limits:
-    language: java
-    time: 30
-    memory: 32
-    disk: 50
-    output: 5210
-environment: pythia0compat
+        type: code
+responseIsHTML: true
+weight: 1.0

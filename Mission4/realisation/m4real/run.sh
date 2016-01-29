@@ -112,6 +112,7 @@ else
 	FEED=$(printf "Votre programme ne compile pas: \n ${CODELITTERAL}$OUTPUT\n")
 	feedback -r failed -f "$FEED"
 fi
+printf "$FEED" > feedback.out
 
 
 

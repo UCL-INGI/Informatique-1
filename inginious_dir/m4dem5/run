@@ -1,4 +1,20 @@
-#! /bin/bash
+#!/bin/bash
+#   Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
 
 #	@author: François MICHEL
 
@@ -56,7 +72,7 @@ CORR=0
 
 # EXECCUSTOM vaut 0 si on n'exécute pas de script "custom" pour faire des vérifications supplémentaires
 EXECCUSTOM=0
-NEXERCICES=2
+NEXERCICES=1
 CODELITTERAL="::\n\n"
 JAVAC="javac -cp .:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar"
 JAVA="run_student --time 20 java -ea -cp .:./student:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar"
@@ -126,6 +142,7 @@ if [ "$OUTPUT" = "" ]; then
 	RESULTAT=$?
 	echo $RESULTAT
 	OUTERR=$(cat err.txt)
+    printf "$OUTERR"
 	# S'il y a des erreurs dans l'exécution du programme (écrites sur stderr)
 	if [ $RESULTAT -eq 127 ]; then
 		if [ $NEXERCICES -eq 1 ]; then
@@ -143,6 +160,7 @@ if [ "$OUTPUT" = "" ]; then
 		feedback -r timeout -f "La limite de temps d'exécution de votre programme est dépassée"
 		exit
 	else
+    	echo "HELLOOO"
 		# Sinon c'est que les tests ont échoué, le programme possède des erreurs.
 		if [ $NEXERCICES -eq 1 ]; then
 			# feedback n'aime pas les "\n", donc on contourne le probleme en l'écrivant dans un fichier puis en le lisant.

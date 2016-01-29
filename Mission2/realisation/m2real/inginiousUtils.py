@@ -5,8 +5,8 @@ import zipfile
 
 def listDiff(a, b):
     """Returns a list containing the elements in a but not in b"""
-    b = set(b)
-    return [aa for aa in a if aa not in b]
+    b = {bb.lower() for bb in b}
+    return [aa for aa in a if aa.lower() not in b]
 
 def get_rst_title(title):
     """Returns a title formatted for restructured text

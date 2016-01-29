@@ -1,0 +1,39 @@
+accessible: false
+author: ''
+context: |-
+    Répondez aux questions simples suivantes au sujet de la syntaxe des tableaux. Vous *devez* respecter les noms de variables suggérés.
+    (Nous utilisons le type ``int`` pour les entiers et le type ``double`` pour les réels.)
+environment: java7
+groups: false
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: 'Mission 5: Question de démarrage 1: Syntaxe et Tableaux'
+network_grading: false
+order: 3
+problems:
+    q1:
+        type: code-single-line
+        name: ''
+        header: Déclarez un tableau  *v*  pouvant contenir *n* entiers (la variable
+            *n* est déjà déclarée).
+        language: java
+    q2:
+        language: java
+        name: ''
+        type: code-single-line
+        header: Déclarer un matrice  *m*  rectangulaire de  *k*  colonnes et  *l*  lignes
+            pouvant contenir des réels ( *l* et *k* sont déjà déclarées).
+    q3:
+        name: ''
+        language: java
+        header: Considérant la matrice de la question 2 récupérez le nombre de lignes  *l*.
+        type: code-single-line
+    q4:
+        type: code-single-line
+        language: java
+        name: ''
+        header: Considérant la matrice de la question 2 récupérez le nombre de colones
+            *k*.
+weight: 1.0

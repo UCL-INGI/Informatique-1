@@ -1,4 +1,4 @@
-#   Copyright (c) 2015 Sébastien Combéfis, Virginie Van den Schrieck
+#   Copyright (c) 2015, 2016 Sébastien Combéfis, Virginie Van den Schrieck
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as published by
 #   the Free Software Foundation, either version 3 of the License, or
@@ -14,6 +14,7 @@
 
 
 
+accessible: false
 author: Sébastien Combéfis
 context: |+
     .. raw:: html
@@ -44,12 +45,18 @@ context: |+
          */
         </pre>
 
-responseIsHTML: true
-order: 10
-accessible: true
+environment: pythia0compat
+groups: false
+limits:
+    memory: '300'
+    output: '5210'
+    time: '30'
 name: 'Mission 9: Question de Bilan Final'
+network_grading: false
+order: 65
 problems:
     q1:
+        name: ''
         header: |+
             .. raw:: html
 
@@ -58,13 +65,7 @@ problems:
                   Complétez ici le corps de la méthode <code>getMax</code> dont la spécification est donnée dans l'énoncé.
                 </p>public static double getMax (String filename)
 
-        type: code
-        multiple: true
         language: java
-limits:
-    language: java
-    time: 30
-    memory: 32
-    disk: 50
-    output: 5210
-environment: pythia0compat
+        type: code
+responseIsHTML: true
+weight: 1.0

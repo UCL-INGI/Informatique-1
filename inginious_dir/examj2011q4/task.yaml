@@ -1,10 +1,26 @@
+#   Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
 accessible: true
 author: 'Munyabarenzi Clémentine Zaninka (ressource : sources examen LFSAB1401 juin
     2011)'
 context: |-
     Prenez connaissance de l'énoncé de l'`examen de juin 2011`__.
 
-    .. _juin2011:  http://icampus.uclouvain.be/claroline/backends/download.php?url=Ly00LV9JbnRlcnJvc19ldF9FeGFtZW5zL0FuY2llbnNfZXhhbWVucy9qdW4xMS5wZGY%3D&cidReset=true&cidReq=FSAB1401
+    .. _juin2011:  https://inginious.info.ucl.ac.be/course/LSINF1101/examj2011q1/jun11.pdf
 
     __ juin2011_
 
@@ -27,17 +43,21 @@ context: |-
 
     **Comme l'examen est sur papier, il est préférable que vous rédigiez la réponse sur une feuille de papier et que vous la recopiiez ici une fois que vous êtes sûr de vous. INGInious vous permettra de vérifier si votre code est correct mais n'oubliez pas qu'à l'examen, vous n'aurez pas plusieurs essais. Il est donc important de s'entraîner à rédiger du code sur papier pour se mettre en situation d'examen et évaluer votre temps pour répondre.**
 
-    **Souvenez-vous qu'une réponse correcte sur INGInious ne correspond pas d'office à un 20 à l'examen.**
+    **Souvenez-vous qu'une réponse correcte sur INGInious ne correspond pas d'office à un 20 à l'examen (la clarté, la simplicité du code, les spécifications sont aussi des critères importants non vérifiés par INGInious).**
 environment: java7
+groups: false
 limits:
     memory: '100'
     time: '30'
     output: '2'
 name: 'Examen juin 2011: Question 4'
+network_grading: false
+order: 80
 problems:
     q1:
         language: java
-        name: Corps de la méthode addProcess
         type: code
-        header: ''
+        name: Corps de la méthode addProcess
+        header: Veillez à n'implémenter que le corps de la méthode, ne réécrivez pas
+            la signature.
 weight: 1.0

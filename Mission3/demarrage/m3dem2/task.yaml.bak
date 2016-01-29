@@ -1,0 +1,29 @@
+accessible: true
+author: 'Clémentine Munyabarenzi (source : syllabus d''exercices LSINF1101)'
+context: |-
+    Ecrivez *la signature* et *le corps* d’une methode baptisée
+    ``afficheMax`` qui prend deux nombres entiers comme arguments et
+    affiche le plus grand de ces nombres. La spécification de cette
+    méthode est :
+
+
+    .. code-block :: java
+
+       /**
+        ∗ @pre -
+        ∗ @post affiche le maximum entre les nombres entiers a et b
+        ∗ /
+environment: java7
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: 'Mission 3 : Question de Démarrage 2 : Le Nombre Maximum'
+problems:
+    q1:
+        language: java
+        name: ''
+        type: code
+        header: Ecrivez-ci dessous la *signature* et le *corps* de la méthode ``afficheMax``.
+weight: 1.0
+order: 23

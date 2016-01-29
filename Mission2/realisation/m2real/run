@@ -5,7 +5,13 @@
 
 from os import listdir, system
 import zipfile
+import subprocess
 import inginiousUtils
+
+
+system('export LC_ALL=en_US.UTF-8')
+system('export LANG=en_US.UTF-8')
+system('export LANGUAGE=en_US.UTF-8')
 
 # Verify the file content
 system('getinput "q1" > basicSubmission.zip')
@@ -29,7 +35,18 @@ if (unzipOutput):
     system('feedback --result failed --feedback "' + output + '"')
     exit(0)
 else:
-    output += "Your archive has the correct content.\n"
-    output += "\n**Archive content: 1/1**"
-    system('feedback --result success --feedback "' + output + '"')
+    system('sh custom.sh')
+    outjavac = ""
+    try:
+    	subprocess.check_output("javac student/*.java", stderr = subprocess.STDOUT, shell = True)
+    	output += "Your archive has the correct content.\n"
+    	output += "\n**Archive content: 1/1**"
+    	system('feedback --result success --feedback "' + output + '"')
+    except subprocess.CalledProcessError, e:
+        output += "There are some compilation errors with your program :\n::\n\n"
+        system("echo \""+e.output+"\" > outjavac.log")
+    	output += subprocess.check_output("sed -e \'s/^/\\t/\' < outjavac.log", shell = True)
+    	system('feedback --result failed --feedback "' + output + '"')
+     
+    
     exit(0)

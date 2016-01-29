@@ -1,4 +1,4 @@
-#   Copyright (c) 2015 Sébastien Combéfis, Virginie Van den Schrieck
+#   Copyright (c) 2015, 2016 Sébastien Combéfis, Virginie Van den Schrieck
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as published by
 #   the Free Software Foundation, either version 3 of the License, or
@@ -14,6 +14,7 @@
 
 
 
+accessible: false
 author: Virginie Van den Schrieck
 context: |+
     .. raw:: html
@@ -22,11 +23,18 @@ context: |+
           Complétez les champs ci-dessous conformément à l'énoncé de la phase de réalisation de la mission 3.
         </p>
 
-responseIsHTML: true
-order: 4
+environment: pythia0compat
+groups: false
+limits:
+    memory: '32'
+    output: '5210'
+    time: '30'
 name: 'Mission 3 : Phase de réalisation'
+network_grading: false
+order: 21
 problems:
     average:
+        type: code
         header: |+
             .. raw:: html
 
@@ -35,10 +43,12 @@ problems:
                   Ecrivez ici le code de la méthode average
                 </p>public static double average(double a, double b, double c)
 
-        type: code
-        multiple: true
+        name: ''
         language: java
     minimum:
+        type: code
+        language: java
+        name: ''
         header: |+
             .. raw:: html
 
@@ -47,9 +57,6 @@ problems:
                   Ecrivez ici le code de la méthode minimum
                 </p>public static double minimum(double a, double b, double c)
 
-        type: code
-        multiple: true
-        language: java
     maximum:
         header: |+
             .. raw:: html
@@ -60,7 +67,7 @@ problems:
                 </p>public static double maximum(double a, double b, double c)
 
         type: code
-        multiple: true
+        name: ''
         language: java
     median:
         header: |+
@@ -72,7 +79,7 @@ problems:
                 </p>public static double median(double a, double b, double c)
 
         type: code
-        multiple: true
+        name: ''
         language: java
     sublime:
         header: |+
@@ -83,10 +90,13 @@ problems:
                   Ecrivez ici le code de la méthode sublime
                 </p>public static boolean sublime(int n)
 
+        name: ''
         type: code
-        multiple: true
         language: java
     sub_help:
+        name: ''
+        language: java
+        type: code
         header: |+
             .. raw:: html
 
@@ -95,13 +105,5 @@ problems:
                   Si vous souhaitez ajouter des méthodes résolvant des sous-problèmes, écrivez-les ici
                 </p>
 
-        type: code
-        multiple: true
-        language: java
-limits:
-    language: java
-    time: 30
-    memory: 32
-    disk: 50
-    output: 5210
-environment: pythia0compat
+responseIsHTML: true
+weight: 1.0

@@ -1,4 +1,20 @@
-accessible: false
+#   Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+accessible: true
 author: François MICHEL
 context: |-
     Vous pouvez soumettre ici ou via BlueJ votre phase de réalisation pour la Mission 6.
@@ -12,16 +28,19 @@ context: |-
     - Programme.java
     - README.txt
 environment: java7
+groups: false
 limits:
     memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
 name: 'Mission 6: Phase de réalisation: Soumission'
+network_grading: false
+order: 48
 problems:
     q1:
+        name: Phase de réalisation de la Mission 6
+        header: Soumettez ici l'archive zip ou faites-le directement via BlueJ.
         allowed_exts:
         - .zip
-        name: Phase de réalisation de la Mission 6
         type: code-file
-        header: Soumettez ici l'archive zip ou faites-le directement via BlueJ.
 weight: 1.0

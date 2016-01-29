@@ -1,4 +1,4 @@
-#   Copyright (c) 2015 Sébastien Combéfis, Virginie Van den Schrieck
+#   Copyright (c) 2015, 2016 Sébastien Combéfis, Virginie Van den Schrieck
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as published by
 #   the Free Software Foundation, either version 3 of the License, or
@@ -14,6 +14,7 @@
 
 
 
+accessible: true
 author: Sébastien Combéfis
 context: |+
     .. raw:: html
@@ -54,11 +55,20 @@ context: |+
           Pour résoudre ce problème, pensez à la découper en sous-problèmes et n’hésitez pas à utiliser une ou plusieurs méthodes privées supplémentaires.
         </p>
 
-responseIsHTML: true
-order: 5
+environment: pythia0compat
+groups: false
+limits:
+    memory: '300'
+    output: '5210'
+    time: '30'
 name: 'Mission 4: Question de bilan final'
+network_grading: false
+order: 33
 problems:
     q1:
+        type: code
+        name: ''
+        language: java
         header: |+
             .. raw:: html
 
@@ -67,10 +77,9 @@ problems:
                   Complétez ici le corps de la méthode <code>count</code> dont la spécification est donnée dans l'énoncé.
                 </p>public static int count (String p, String s)
 
-        type: code
-        multiple: true
-        language: java
     subproblems:
+        type: code
+        name: ''
         header: |+
             .. raw:: html
 
@@ -79,13 +88,6 @@ problems:
                   Déclarez ici les méthodes privées que vous souhaitez utiliser pour décomposer le problème en sous-problèmes. Attention, veillez à n'utiliser que des méthodes de classe (<code>static</code>).
                 </p>
 
-        type: code
-        multiple: true
         language: java
-limits:
-    language: java
-    time: 30
-    memory: 32
-    disk: 50
-    output: 5210
-environment: pythia0compat
+responseIsHTML: true
+weight: 1.0

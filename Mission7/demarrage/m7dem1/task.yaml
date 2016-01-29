@@ -1,3 +1,19 @@
+#   Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
 accessible: true
 author: ''
 context: |+
@@ -30,16 +46,19 @@ context: |+
     .. _Object: http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 
 environment: java7
+groups: false
 limits:
     memory: '100'
     time: '30'
     output: '2'
 name: 'Mission 7: Question de Démarrage 1: Paire d''entiers'
+network_grading: false
+order: 51
 problems:
     q1:
         language: java
-        name: ''
         type: code
+        name: ''
         header: |-
             Ecrivez ici **la signature et le corps** de la méthode ``equals``.
             N'utilisez pas de commentaires.

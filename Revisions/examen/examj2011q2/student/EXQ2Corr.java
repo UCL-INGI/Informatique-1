@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 2015 François Michel, Clémentine Munyabarenzi
+ *  Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
@@ -71,7 +71,6 @@ public class EXQ2Corr {
 		 */
 		@Test
 		public void testFullComputerConstructer(){
-			
 			String name = "Eniac";
 			int numProc = 10;
 			int maxStorage  =  4096;
@@ -85,18 +84,18 @@ public class EXQ2Corr {
 			}
 			try{
 			assertEquals("Un objet FullComputer est créé avec "
-					+ "un nombre de processus supportés incorrect", numProc, fc.procs.length);
+					+ "lolun nombre de processus supportés incorrect", numProc, fc.procs.length);
 			}
 			catch(NullPointerException e){
 				fail("Un objet FullComputer est créé avec "
-						+ "un nombre de processus supportés incorrect: "+e.toString());
+						+ "lolun nombre de processus supportés incorrect: "+e.toString()+". Vérifiez que vous initialisez bien toutes les variables d'instance.");
 			}
 			assertEquals("Un objet FullComputer est créé avec "
 					+ "une capacité maximale de stockage incorrecte", maxStorage, fc.storage);
 			assertEquals("Un objet est créé avec "
 					+ "une capacité de stockage disponible in correcte", maxStorage, fc.availStorage);
 			assertEquals("Un objet FullComputer est créé avec "
-					+ "un nombre de processus présents incorrect", 0, fc.count);
+					+ "lolun nombre de processus présents incorrect", 0, fc.count);
 		}
 	}
 }

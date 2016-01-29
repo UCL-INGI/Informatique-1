@@ -1,4 +1,4 @@
-#   Copyright (c) 2015 Sébastien Combéfis, Virginie Van den Schrieck
+#   Copyright (c) 2015, 2016 Sébastien Combéfis, Virginie Van den Schrieck
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as published by
 #   the Free Software Foundation, either version 3 of the License, or
@@ -14,6 +14,7 @@
 
 
 
+accessible: false
 author: Virginie Van den Schrieck
 context: |+
     .. raw:: html
@@ -22,9 +23,15 @@ context: |+
           Complétez la classe BioInfo conformément à l'énoncé de la phase de réalisation de la mission 4.
         </p>
 
-responseIsHTML: true
-order: 5
+environment: pythia0compat
+groups: false
+limits:
+    memory: '32'
+    output: '5210'
+    time: '30'
 name: 'Mission 4 : Phase de réalisation'
+network_grading: false
+order: 31
 problems:
     bioinfo:
         header: |+
@@ -35,13 +42,8 @@ problems:
                   Ecrivez ici le code de la classe BioInfo
                 </p>Classe BioInfo.java :
 
-        type: code
-        multiple: true
+        name: ''
         language: java
-limits:
-    language: java
-    time: 30
-    memory: 32
-    disk: 50
-    output: 5210
-environment: pythia0compat
+        type: code
+responseIsHTML: true
+weight: 1.0

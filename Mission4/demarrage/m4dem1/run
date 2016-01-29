@@ -1,4 +1,20 @@
-#! /bin/bash
+#!/bin/bash
+#   Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
 
 #	@author: François MICHEL
 
@@ -80,7 +96,7 @@ fi
 
 # On compile la tâche et on récupère le résultat dans un fichier
 ${JAVAC} student/${EXERCICE}.java 2> logOther.out
-${JAVAC} student/${EXERCICE}Stu.java 2> log.out
+${JAVAC} student/${EXERCICE}Stu.java 2>&1 > log.out
 
 
 OUTPUT=$(cat log.out)
@@ -176,6 +192,7 @@ if [ "$OUTPUT" = "" ]; then
 		feedback -r failed -f "Vous n'avez pas réussi tous les exercices"
 	fi
 else
+	echo "HELLOOO"
 	# feedback n'aime pas les "\n", donc on contourne le probleme en l'écrivant dans un fichier puis en le lisant.
 	# sed permet d'indenter chaque ligne de son input avec une tabulation
 	OUTPUT=$(echo "$OUTPUT" | sed -e 's/^/\t/' | sed 's/%/%%/g' )

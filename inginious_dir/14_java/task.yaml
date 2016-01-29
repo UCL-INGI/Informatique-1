@@ -1,4 +1,4 @@
-#   Copyright (c) 2015 Sébastien Combéfis, Virginie Van den Schrieck
+#   Copyright (c) 2015, 2016 Sébastien Combéfis, Virginie Van den Schrieck
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as published by
 #   the Free Software Foundation, either version 3 of the License, or
@@ -64,8 +64,8 @@ context: |+
         </pre>
 
 responseIsHTML: true
-order: 12
-accessible: true
+order: 74
+accessible: false
 name: 'Mission 11: Structures chainées'
 problems:
     q1:

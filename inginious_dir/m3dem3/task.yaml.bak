@@ -1,0 +1,26 @@
+accessible: true
+author: 'Clémentine Munyabarenzi - ressouce: syllabus d''exercices LSINF1101'
+context: |-
+    Ecrivez la signature et le corps d'une méthode baptisée ``impair`` qui prend comme argument un entier positif et retourne ``true`` si celui-ci est impair et ``false`` sinon. Pour rappel, si n est un entier positif ``n % 2`` vaut le reste de la division entière de n par 2. La spécification de cette méthode est:
+
+    .. code-block :: java
+
+        /**
+         ∗ @pre n>0
+         ∗ @post retourne true lorsque n est un nombre entier impair et false sinon.
+         ∗ /
+environment: java7
+limits:
+    memory: '100'
+    time: '20'
+    output: '2'
+name: 'Mission 3: Question de Démarrage 3: Nombres pairs'
+problems:
+    q1:
+        language: java
+        name: ''
+        type: code
+        header: Ecrivez ici la *signature* (sur une seule ligne) et le *corps* de
+            votre méthode.
+weight: 1.0
+order: 24

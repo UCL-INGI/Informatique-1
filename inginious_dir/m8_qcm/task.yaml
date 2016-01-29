@@ -1,19 +1,28 @@
-# This file has been generated automatically with java a program made by François MICHEL.
+#   Copyright (c) 2015, 2016 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
 accessible: true
 author: Olivier BONAVENTURE
-environment: default
-limits:
-    memory: '100'
-    output: '2'
-    time: '30'
-name: 'Mission 8: QCM'
 context: |
     =====================
     Mission 8. Interfaces
     =====================
 
 
-    Ces questions supposent que vous avez lu les sections suivantes du livre de référence |jn|_ 
+    Ces questions supposent que vous avez lu les sections suivantes du livre de référence |jn|_
 
         - |jn4.5|_
             - |jn4.5.1|_
@@ -21,16 +30,16 @@ context: |
             - |jn4.5.3|_
             - |jn4.5.4|_
         - |jn5.3|_
-            - |jn5.3.1|_        
-            - |jn5.3.2|_        
-            - |jn5.3.3|_        
-            - |jn5.3.4|_        
+            - |jn5.3.1|_
+            - |jn5.3.2|_
+            - |jn5.3.3|_
+            - |jn5.3.4|_
         - |jn5.5|_
-            - |jn5.5.5|_        
-        - |jn5.7|_    
+            - |jn5.5.5|_
+        - |jn5.7|_
             - |jn5.7.1|_
             - |jn5.7.2|_
-     
+
     .. _jn: http://math.hws.edu/javanotes/
     .. |jn| replace:: JavaNotes
 
@@ -78,392 +87,434 @@ context: |
 
     .. _jn5.7.2 : http://math.hws.edu/javanotes/c5/s7.html#OOP.7.2
     .. |jn5.7.2| replace:: `5.7.2 : Nested Classes`
-
-
+environment: default
+groups: false
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: 'Mission 8: QCM'
+network_grading: false
+order: 56
 problems:
     q1:
+        name: Packages
+        choices:
+        -   text: |
+                .. code-block:: java
+
+                   import java.util.List;
+                   public Class MyList implements List {
+                       private List l;
+                       public MyList() {
+                           l = new java.util.ArrayList();
+                       }
+                       // ... autres méthodes de l'interface List
+                   }
+            valid: true
+        -   text: |
+                .. code-block:: java
+
+                   import java.util.*;
+                   public Class MyList implements List {
+                       private List l;
+                       public MyList() {
+                           l = new ArrayList();
+                       }
+                       // ... autres méthodes de l'interface List
+                   }
+            valid: true
+        -   valid: true
+            text: |
+                .. code-block:: java
+
+                   public Class MyList implements java.util.List {
+                       private java.util.List l;
+                       public MyList() {
+                           l = new java.util.ArrayList();
+                       }
+                       // ... autres méthodes de l'interface List
+                   }
+        -   text: |
+                .. code-block:: java
+
+                   import java.util.List;
+                   public Class MyList implements List {
+                       private List l;
+                       public MyList() {
+                           l = new ArrayList();
+                       }
+                       // ... autres méthodes de l'interface List
+                   }
+            feedback: |4
+
+                Il faut soit importer ``ArrayList``, soit mettre ``java.util.ArrayList`` dans le constructeur.
+        -   text: |
+                .. code-block:: java
+
+                   import java.util.ArrayList;
+                   public Class MyList implements List {
+                       private List l;
+                       public MyList() {
+                           l = new java.util.ArrayList();
+                       }
+                       // ... autres méthodes de l'interface List
+                   }
+            feedback: |4
+
+                Il faut importer ``List`` et non ``ArrayList``.
+        -   text: |+
+                .. code-block:: java
+
+                   import java.*;
+                   public Class MyList implements List {
+                       private List l;
+                       public MyList() {
+                           l = new ArrayList();
+                       }
+                       // ... autres méthodes de l'interface List
+                   }
+
+            feedback: |4
+
+                ``import java.*`` importe les classes (inexistantes) du package ``java`` , pas celles de ``java.util``.
+        -   feedback: |4
+
+                Il faut soit importer ``List``, soit mettre ``java.util.List`` dans la déclaration de classe.
+            text: |
+                .. code-block:: java
+
+                   public Class MyList implements List {
+                       private java.util.List l;
+                       public MyList() {
+                           l = new java.util.ArrayList();
+                       }
+                       // ... autres méthodes de l'interface List
+                   }
+        -   feedback: |4
+
+                Il faut importer ``List`` et ``ArrayList``.
+            text: |
+                .. code-block:: java
+
+                   public Class MyList implements List {
+                       private List l;
+                       public MyList() {
+                           l = new ArrayList();
+                       }
+                       // ... autres méthodes de l'interface List
+                   }
+        -   feedback: |4
+
+                Il faut soit importer ``List``, soit mettre ``java.util.List`` dans la déclaration de la variable ``l``.
+            text: |
+                .. code-block:: java
+
+                   public Class MyList implements java.util.List {
+                       private List l;
+                       public MyList() {
+                           l = new java.util.ArrayList();
+                       }
+                       // ... autres méthodes de l'interface List
+                   }
         limit: 3
-        name: "Packages"
         type: multiple-choice
-        header: |
-            
+        header: |4
+
             Le package ``java.util`` définit (entre autres) l'interface ``List`` et une classe ``ArrayList`` qui implémente ``List``.  Sachant cela, parmi les fragments de programmes suivants, lequel est correct pour le compilateur Java ?
-            
-            
-
-        choices:
-        -   valid: true
-            text: |
-               .. code-block:: java
-
-                  import java.util.List;
-                  public Class MyList implements List {
-                      private List l;
-                      public MyList() {
-                          l = new java.util.ArrayList();
-                      }
-                      // ... autres méthodes de l'interface List
-                  }
-
-
-
-        -   valid: true
-            text: |
-               .. code-block:: java
-
-                  import java.util.*;
-                  public Class MyList implements List {
-                      private List l;
-                      public MyList() {
-                          l = new ArrayList();
-                      }
-                      // ... autres méthodes de l'interface List
-                  }
-
-
-
-        -   valid: true
-            text: |
-               .. code-block:: java
-
-                  public Class MyList implements java.util.List {
-                      private java.util.List l;
-                      public MyList() {
-                          l = new java.util.ArrayList();
-                      }
-                      // ... autres méthodes de l'interface List
-                  }
-            
-
-
-
-        -   text: |
-               .. code-block:: java
-
-                  import java.util.List;
-                  public Class MyList implements List {
-                      private List l;
-                      public MyList() {
-                          l = new ArrayList();
-                      }
-                      // ... autres méthodes de l'interface List
-                  }
-
-            feedback: |
-            
-                  Il faut soit importer ``ArrayList``, soit mettre ``java.util.ArrayList`` dans le constructeur.
-
-
-
-
-        -   text: |
-               .. code-block:: java
-
-                  import java.util.ArrayList;
-                  public Class MyList implements List {
-                      private List l;
-                      public MyList() {
-                          l = new java.util.ArrayList();
-                      }
-                      // ... autres méthodes de l'interface List
-                  }
-
-            feedback: |
-            
-                  Il faut importer ``List`` et non ``ArrayList``.
-
-
-
-
-        -   text: |
-               .. code-block:: java
-
-                  import java.*;
-                  public Class MyList implements List {
-                      private List l;
-                      public MyList() {
-                          l = new ArrayList();
-                      }
-                      // ... autres méthodes de l'interface List
-                  }
-                
-            feedback: |
-
-                  ``import java.*`` importe les classes (inexistantes) du package ``java`` , pas celles de ``java.util``.
-            
-
-
-
-        -   text: |
-               .. code-block:: java
-
-                  public Class MyList implements List {
-                      private java.util.List l;
-                      public MyList() {
-                          l = new java.util.ArrayList();
-                      }
-                      // ... autres méthodes de l'interface List
-                  }
-
-            feedback: |
-          
-                  Il faut soit importer ``List``, soit mettre ``java.util.List`` dans la déclaration de classe.
-              
-
-
-
-        -   text: |
-               .. code-block:: java
-
-                  public Class MyList implements List {
-                      private List l;
-                      public MyList() {
-                          l = new ArrayList();
-                      }
-                      // ... autres méthodes de l'interface List
-                  }
-
-            feedback: |
-          
-                  Il faut importer ``List`` et ``ArrayList``.
-            
-
-
-
-        -   text: |
-               .. code-block:: java
-
-                  public Class MyList implements java.util.List {
-                      private List l;
-                      public MyList() {
-                          l = new java.util.ArrayList();
-                      }
-                      // ... autres méthodes de l'interface List
-                  }
-
-            feedback: |
-          
-                  Il faut soit importer ``List``, soit mettre ``java.util.List`` dans la déclaration de la variable ``l``.
-            
-
-
-
     q2:
-        limit: 3
-        name: "Extension et implémentation"
+        name: Extension et implémentation
+        choices:
+        -   text: |4
+
+
+                - Une classe ne peut étendre qu'une seule classe.
+                - Une classe peut implémenter plusieurs interfaces.
+            valid: true
+        -   feedback: |4
+
+                Une classe ne peut pas étendre plusieurs classes.
+            text: |4
+
+
+                - Une classe peut étendre plusieurs classes.
+                - Une classe peut implémenter plusieurs interfaces.
+        -   feedback: |4
+
+                Une classe peut implémenter plusieurs interfaces.
+            text: |4
+
+
+                - Une classe ne peut étendre qu'une seule classe.
+                - Une classe ne peut implémenter qu'une seule interface.
+        -   text: |4
+
+
+                - Une classe peut implémenter plusieurs interfaces.
+                - Une interface peut implémenter une autre interface.
+            feedback: |4
+
+                Une interface ne peut rien implémenter.
+        -   feedback: |4+
+
+                Une interface ne peut pas étendre une classe.
+
+
+            text: |4
+
+
+                - Une classe peut implémenter plusieurs interfaces.
+                - Une interface peut étendre une classe.
         type: multiple-choice
-        header: |
-            
+        header: |4
+
             Parmi les ensembles d'affirmations suivantes, lequel est correct ?
-            
-            
-
-        choices:
-        -   valid: true
-            text: |
-
-
-                  - Une classe ne peut étendre qu'une seule classe.
-                  - Une classe peut implémenter plusieurs interfaces.
-
-
-
-
-        -   text: |
-
-
-                  - Une classe peut étendre plusieurs classes.
-                  - Une classe peut implémenter plusieurs interfaces.
-
-            feedback: |
-            
-                  Une classe ne peut pas étendre plusieurs classes.
-            
-
-
-
-        -   text: |
-
-
-                  - Une classe ne peut étendre qu'une seule classe.
-                  - Une classe ne peut implémenter qu'une seule interface.
-
-            feedback: |
-            
-                  Une classe peut implémenter plusieurs interfaces.
-
-
-
-
-        -   text: |
-
-
-                  - Une classe peut implémenter plusieurs interfaces.
-                  - Une interface peut implémenter une autre interface.
-
-            feedback: |
-            
-                  Une interface ne peut rien implémenter.
-
-
-
-
-        -   text: |
-
-
-                  - Une classe peut implémenter plusieurs interfaces.
-                  - Une interface peut étendre une classe.
-
-            feedback: |
-            
-                  Une interface ne peut pas étendre une classe.
-
-                    
-
-
-
+        limit: 3
     q3:
-        limit: 3
-        name: "Interface"
-        type: multiple-choice
-        header: |
-            
-            Parmi les définitions de l'interface ``Direction`` ci-dessous, laquelle est correcte pour le compilateur Java?
-            
-            
-
         choices:
         -   valid: true
             text: |
-               .. code-block:: java
+                .. code-block:: java
 
-                  public interface Direction {        
-                      /** ... */
-                      public int value();
-                 
-                      /** ... */
-                      public void pivote(int angle);
-                  }
+                   public interface Direction {
+                       /** ... */
+                       public int value();
 
-
-
-
+                       /** ... */
+                       public void pivote(int angle);
+                   }
         -   text: |
-               .. code-block:: java
+                .. code-block:: java
 
-                  public interface Direction {        
-                      /** ... */
-                      value();
-                 
-                      /** ... */
-                      pivote(int angle);
-                  }
+                   public interface Direction {
+                       /** ... */
+                       value();
 
-            feedback: |
-          
-                  Une interface contient des signatures de méthodes, pas uniquement des noms.
+                       /** ... */
+                       pivote(int angle);
+                   }
+            feedback: |4
 
+                Une interface contient des signatures de méthodes, pas uniquement des noms.
+        -   feedback: |4
 
+                Une interface ne contient pas de variables d'instance.
+            text: |
+                .. code-block:: java
 
+                   public interface Direction {
+                       private int value;  // la direction courante
 
+                       /** ... */
+                       public int value();
+
+                       /** ... */
+                       public void pivote(int angle);
+                   }
+        -   feedback: |4
+
+                Une interface ne contient pas de constructeur.
+            text: |
+                .. code-block:: java
+
+                   public interface Direction {
+                       /** ... */
+                       public Direction(int val);
+
+                       /** ... */
+                       public int value();
+
+                       /** ... */
+                       public void pivote(int angle);
+                   }
         -   text: |
-               .. code-block:: java
+                .. code-block:: java
 
-                  public interface Direction {        
-                      private int value;  // la direction courante
-                
-                      /** ... */
-                      public int value();
-                 
-                      /** ... */
-                      public void pivote(int angle);
-                  }
+                   public interface Direction {
+                       /** ... */
+                       public int value() {
+                           return 0;
+                       }
 
-            feedback: |
-          
-                  Une interface ne contient pas de variables d'instance.
+                       /** ... */
+                       public void pivote(int angle) {
+                           // rien
+                       }
+                   }
+            feedback: |4
 
-
-
-
+                Une interface ne contient que des signatures, pas de corps de méthodes.
         -   text: |
-               .. code-block:: java
+                .. code-block:: java
 
-                  public interface Direction {        
-                      /** ... */
-                      public Direction(int val);
+                   public interface Direction {
+                       private int value;  // la direction courante
 
-                      /** ... */
-                      public int value();
-                 
-                      /** ... */
-                      public void pivote(int angle);
-                  }
+                       /** ... */
+                       public Direction(int val);
 
-            feedback: |
-          
-                  Une interface ne contient pas de constructeur.
+                       /** ... */
+                       public int value();
 
+                       /** ... */
+                       public void pivote(int angle);
+                   }
+            feedback: |4
 
+                Une interface ne contient in variable d'instance, ni constructeur.
+        name: Interface
+        header: |4
 
-
-        -   text: |
-               .. code-block:: java
-
-                  public interface Direction {        
-                      /** ... */
-                      public int value() {
-                          return 0;
-                      }
-                 
-                      /** ... */
-                      public void pivote(int angle) {
-                          // rien
-                      }
-                  }
-
-            feedback: |
-          
-                  Une interface ne contient que des signatures, pas de corps de méthodes.
-
-
-
-
-        -   text: |
-               .. code-block:: java
-
-                  public interface Direction {        
-                      private int value;  // la direction courante
-
-                      /** ... */
-                      public Direction(int val);
-
-                      /** ... */
-                      public int value();
-                 
-                      /** ... */
-                      public void pivote(int angle);
-                  }
-
-            feedback: |
-          
-                  Une interface ne contient in variable d'instance, ni constructeur.
-            
-
-           
-
-
-
-    q4:
+            Parmi les définitions de l'interface ``Direction`` ci-dessous, laquelle est correcte pour le compilateur Java?
         limit: 3
-        name: "Interface et implémentation"
         type: multiple-choice
-        header: |
-            
-            On considère l'interface ``Prix`` définie comme suit 
+    q4:
+        choices:
+        -   valid: true
+            text: |
+                .. code-block:: java
+
+                   public class MyPrix implements Prix {
+                       private it val;  // montant du prix
+                       public MyPrix(int v) {
+                           val = v;
+                       }
+                       public int getVal() {
+                           return val;
+                       }
+                       public int getVal(double tax) {
+                           return (int) (val * (1 + tax));
+                       }
+                       public void setVal(int x) {
+                           val = x;
+                       }
+                       public void setVal(double x) {
+                           val = (int) x;
+                       }
+                   }
+        -   text: |
+                .. code-block:: java
+
+                   public class MyPrix implements Prix {
+                       private it val;  // montant du prix
+                       public MyPrix(int v) {
+                           val = v;
+                       }
+                       public int getVal() {
+                           return val;
+                       }
+                       public void setVal(int x) {
+                           val = x;
+                       }
+                   }
+            valid: true
+        -   feedback: |4
+
+                Il manque la clausse ``implements`` dans l'en-tête de classe.
+            text: |
+                .. code-block:: java
+
+                   public class MyPrix {
+                       private it val;  // montant du prix
+                       public MyPrix(int v) {
+                           val = v;
+                       }
+                       public int getVal() {
+                           return val;
+                       }
+                       public void setVal(int x) {
+                           val = x;
+                       }
+                   }
+        -   text: |
+                .. code-block:: java
+
+                   public class MyPrix implements Prix {
+                       private it val;  // montant du prix
+                       public MyPrix(int v) {
+                           val = v;
+                       }
+                       public int getVal() {
+                           return val;
+                       }
+                       public int getVal(double tax) {
+                           return (int) (val * (1 + tax));
+                       }
+                       public void setVal(double x) {
+                           val = (int) x;
+                       }
+                   }
+            feedback: |4
+
+                La méthode ``void setVal(int x)`` n'est pas implémentée, attention à la signature!
+        -   text: |
+                .. code-block:: java
+
+
+                   public class MyPrix implements Prix {
+                       private it val;  // montant du prix
+                       public MyPrix(int v) {
+                           val = v;
+                       }
+                       public int getVal(double tax) {
+                           return (int) (val * (1 + tax));
+                       }
+                       public void setVal(int x) {
+                           val = x;
+                       }
+                   }
+            feedback: |4
+
+                La méthode ``int getVal()`` n'est pas implémentée, attention à la signature!
+        -   text: |
+                .. code-block:: java
+
+
+                   public class Prix implements MyPrix {
+                       private it val;  // montant du prix
+                       public MyPrix(int v) {
+                           val = v;
+                       }
+                       public int getVal() {
+                           return val;
+                       }
+                       public void setVal(int x) {
+                           val = x;
+                       }
+                   }
+            feedback: |4
+
+                C'est ``MyPrix`` qui implémente ``Prix`` et non l'inverse.
+        -   text: |
+                .. code-block:: java
+
+                   public class MyPrix implements Prix {
+                       private it val;  // montant du prix
+                       public MyPrix(int v) {
+                           val = v;
+                       }
+                       public int getVal() {
+                           return val;
+                       }
+                       public int getVal(double tax) {
+                           return (int) (val * (1 + tax));
+                       }
+                       public int setVal(int x) {
+                           val = x;
+                           return x;
+                       }
+                   }
+            feedback: |4
+
+                La signature de ``setVal`` ne correspond pas à celle de l'interface.
+        limit: 3
+        name: Interface et implémentation
+        header: |4
+
+            On considère l'interface ``Prix`` définie comme suit
 
             .. code-block:: java
-            
+
                 public interface Prix {
                     /**
                      * @pre  -
@@ -476,295 +527,88 @@ problems:
                      */
                     public void setVal(int x);
                 }
-                
+
             Parmi les classes suivantes, laquelle est une implémentation correcte de ``Prix`` ?
-            
-            
-
-        choices:
-        -   valid: true
-            text: |
-               .. code-block:: java
-
-                  public class MyPrix implements Prix {
-                      private it val;  // montant du prix
-                      public MyPrix(int v) {
-                          val = v;     
-                      }
-                      public int getVal() {
-                          return val;
-                      }
-                      public int getVal(double tax) {
-                          return (int) (val * (1 + tax));
-                      }
-                      public void setVal(int x) {
-                          val = x;
-                      }
-                      public void setVal(double x) {
-                          val = (int) x;
-                      }
-                  }
-
-
-
-        -   valid: true
-            text: |
-               .. code-block:: java
-
-                  public class MyPrix implements Prix {
-                      private it val;  // montant du prix
-                      public MyPrix(int v) {
-                          val = v;     
-                      }
-                      public int getVal() {
-                          return val;
-                      }
-                      public void setVal(int x) {
-                          val = x;
-                      }
-                  }
-            
-
-
-
-        -   text: |
-               .. code-block:: java
-
-                  public class MyPrix {
-                      private it val;  // montant du prix
-                      public MyPrix(int v) {
-                          val = v;     
-                      }
-                      public int getVal() {
-                          return val;
-                      }
-                      public void setVal(int x) {
-                          val = x;
-                      }
-                  }
-            
-            feedback: |
-          
-                  Il manque la clausse ``implements`` dans l'en-tête de classe.
-            
-
-
-
-
-        -   text: |
-               .. code-block:: java
-
-                  public class MyPrix implements Prix {
-                      private it val;  // montant du prix
-                      public MyPrix(int v) {
-                          val = v;     
-                      }
-                      public int getVal() {
-                          return val;
-                      }
-                      public int getVal(double tax) {
-                          return (int) (val * (1 + tax));
-                      }
-                      public void setVal(double x) {
-                          val = (int) x;
-                      }
-                  }
-            
-            feedback: |
-          
-                  La méthode ``void setVal(int x)`` n'est pas implémentée, attention à la signature!
-            
-
-
-
-        -   text: |
-               .. code-block:: java
-
-
-                  public class MyPrix implements Prix {
-                      private it val;  // montant du prix
-                      public MyPrix(int v) {
-                          val = v;     
-                      }
-                      public int getVal(double tax) {
-                          return (int) (val * (1 + tax));
-                      }
-                      public void setVal(int x) {
-                          val = x;
-                      }
-                  }
-            
-            feedback: |
-          
-                  La méthode ``int getVal()`` n'est pas implémentée, attention à la signature!
-
-
-
-
-        -   text: |
-               .. code-block:: java
-
-
-                  public class Prix implements MyPrix {
-                      private it val;  // montant du prix
-                      public MyPrix(int v) {
-                          val = v;     
-                      }
-                      public int getVal() {
-                          return val;
-                      }
-                      public void setVal(int x) {
-                          val = x;
-                      }
-                  }
-            
-            feedback: |
-          
-                  C'est ``MyPrix`` qui implémente ``Prix`` et non l'inverse.
-            
-
-
-
-        -   text: |
-               .. code-block:: java
-
-                  public class MyPrix implements Prix {
-                      private it val;  // montant du prix
-                      public MyPrix(int v) {
-                          val = v;     
-                      }
-                      public int getVal() {
-                          return val;
-                      }
-                      public int getVal(double tax) {
-                          return (int) (val * (1 + tax));
-                      }
-                      public int setVal(int x) {
-                          val = x;
-                          return x;
-                      }
-                  }
-            
-            feedback: |
-          
-                  La signature de ``setVal`` ne correspond pas à celle de l'interface.
-
-
-
-
-    q5:
-        limit: 3
-        name: " Interfaces et types"
         type: multiple-choice
-        header: |
-            
-            
-            Soit l'interface ``I1`` et les classes ``C2`` et ``C3`` définies comme suit 
+    q5:
+        choices:
+        -   text: |
+                .. code-block:: java
+
+                   C2 obj2 = new C2();
+                   C3 obj3 = new C3();
+                   I1 ojb1 = obj2;
+            valid: true
+        -   text: |
+                .. code-block:: java
+
+                   C3 obj3 = new C3();
+                   I1 obj1 = new C3();
+                   C2 obj2 = new C2();
+            valid: true
+        -   feedback: |4
+
+                ``C2 obj2`` ne peut pas recevoir une expression de type ``I1``.
+            text: |
+                .. code-block:: java
+
+                   I1 ojb1 = new C2();
+                   C2 obj2 = obj1;
+                   C3 obj3 = new C3();
+        -   text: |
+                .. code-block:: java
+
+                   C3 obj3 = new C2();
+                   I1 obj1 = new C2();
+                   C2 obj2 = obj3;
+            feedback: |4
+
+                ``I1 obj1`` ne peut pas recevoir une expression de type ``C2``.
+        -   feedback: |4
+
+                ``C3 obj3`` ne peut pas recevoir une expression de type ``I2``.
+            text: |
+                .. code-block:: java
+
+                   C2 obj2 = new C2();
+                   I1 ojb1 = obj2;
+                   C3 obj3 = obj2;
+        -   text: |
+                .. code-block:: java
+
+                   C3 obj3 = new C3();
+                   I1 obj1 = new C2();
+                   C2 obj2 = obj1;
+            feedback: |4
+
+                ``C2 obj2`` ne peut pas recevoir une expression de type ``I1``.
+        type: multiple-choice
+        limit: 3
+        name: ' Interfaces et types'
+        header: |4
+
+
+            Soit l'interface ``I1`` et les classes ``C2`` et ``C3`` définies comme suit
 
             .. code-block:: java
-            
+
                 public interface I1 {
                     // ...
                 }
-            
+
                 public class C2 implements I1 {
                     public C2() {
                         // ...
                     }
                     // ...
                 }
-            
+
                 public class C3 extends C2 {
                     public C3() {
                         // ...
                     }
                     // ...
                 }
-            
+
             Parmi les portions de code suivantes, laquelle est valide pour le compilateur Java ?
-            
-            
-
-        choices:
-        -   valid: true
-            text: |
-               .. code-block:: java
-
-                  C2 obj2 = new C2();
-                  C3 obj3 = new C3();
-                  I1 ojb1 = obj2;
-            
-            
-
-
-        -   valid: true
-            text: |
-               .. code-block:: java
-
-                  C3 obj3 = new C3();    
-                  I1 obj1 = new C3();
-                  C2 obj2 = new C2();
-            
-
-
-
-        -   text: |
-               .. code-block:: java
-
-                  I1 ojb1 = new C2();
-                  C2 obj2 = obj1;
-                  C3 obj3 = new C3();
-         
-            feedback: |
-          
-                  ``C2 obj2`` ne peut pas recevoir une expression de type ``I1``.
-
-
-
-
-        -   text: |
-               .. code-block:: java
-
-                  C3 obj3 = new C2();
-                  I1 obj1 = new C2();
-                  C2 obj2 = obj3;
-
-            feedback: |
-          
-                  ``I1 obj1`` ne peut pas recevoir une expression de type ``C2``.
-
-
-
-
-        -   text: |
-               .. code-block:: java
-
-                  C2 obj2 = new C2();
-                  I1 ojb1 = obj2;
-                  C3 obj3 = obj2;
-
-            feedback: |
-          
-                  ``C3 obj3`` ne peut pas recevoir une expression de type ``I2``.
-
-
-
-
-        -   text: |
-               .. code-block:: java
-
-                  C3 obj3 = new C3();
-                  I1 obj1 = new C2();
-                  C2 obj2 = obj1;
-
-            feedback: |
-          
-                  ``C2 obj2`` ne peut pas recevoir une expression de type ``I1``.
-
-              
-              
-
-
-
-
 weight: 1.0
