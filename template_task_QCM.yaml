@@ -1,0 +1,146 @@
+#   Copyright (c) 2015 François Michel, Clémentine Munyabarenzi
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Affero General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Affero General Public License for more details.
+#
+#   You should have received a copy of the GNU Affero General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+# Écrivez votre nom derrière la balise "author"
+# Écrivez le nom de la tâche entre simples guillements ( ' )  derrière la balise "name"
+# Écrivez l'énoncé de l'exercice sous la balise "context". N'oubliez pas d'indenter tout votre texte par rapport à la balise.
+# Sous la balise "problems", écrivez une nouvelle balise "q1" qui corresond à votre sous-question, indentée par rapport à la balise "problems"
+# Sous la balise "q1", complétez les balises nécessaires ("name" correspond au titre de la sous-question, "header" à un court énoncé de celle-ci, "limit" permet de  
+#  limiter le nombre de propositions affichées).
+# Idem pour d'éventuelles balises "q2", "q3" ...
+# Sous "choices" introduisez chaque poposition de réponse par "-   text: |" et ajoutez la ligne "valid: true" en desous de la proposition correcte comme illustré ci- 
+#  dessous.
+# Vous pouvez joindre un commentaire explicatif aux propositions en dessous d'une balise "feedback: |".
+# Inutile de toucher aux autres balises.
+# Le texte de l'énoncé de l'exercice (sous la balise "context") est écrit en langage reStructuredText (rst) :
+# "::" permet d'afficher un bloc de code. Le code doit  être séparé de "::" par une ligne vide et être indenté par rapport à "::"
+# ".. code-block:: java correspond à "::" mais avec la précision qu'il doit le mettre en couleur en fonction de la syntaxe java
+
+accessible: true
+author: votre nom
+context: 
+    Voici quelques questions QCM pour vérifier votre compréhension de la Mission
+    2 du cours, après lecture du livre de référence.
+environment: java7
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: 'Mission 2: Question de démarrage 1: Les bases'
+problems:
+    q1:
+        name: Choix multiple
+        choices:
+        -   text: |
+
+                la bonne réponse...
+
+            valid: true
+
+        -   text: |
+
+                une proposition de réponse...
+
+            feedback: |
+
+                mettre ici un commentaire/une explication qui apparaîtra lorsque cette fausse réponse sera choisie
+
+        -   text: |
+
+                une proposition de réponse...
+
+        -   text: |
+
+                une proposition de réponse...
+        -   text: |
+
+                une proposition de réponse...
+        -   text: |
+
+                une proposition de réponse...
+
+        type: multiple-choice
+        limit: mettre ici le nombre de propositions qui seront visibles à la fois, par exemple 3
+        header: mettre ici l'énoncé de la question
+    q2:
+        name: Choix multiple
+        header: Selon vous, quelle portion de code correspond le mieux à une boucle
+            en Java ?
+        choices:
+        -   text: |
+                .. code-block:: java
+
+                    int a = 1;
+                    int b = 2;
+                    int c = 3;
+                    a = c;
+                    b = a;
+                    c = b;
+                    a = c;
+                    // ...
+        -   text: |
+
+                .. code-block:: java
+
+                    int a = 1;
+                    while(a < 10){
+                        // do something
+                        a++;
+                    }
+            valid: true
+
+        -   text: |
+
+                .. code-block:: java
+
+                    int a = 1;
+                    while(a < 10) do {
+                        // do something
+                        a++;
+                    }
+        -   text: |
+
+                .. code-block:: java
+
+                    for(int i = 0 ; i < 37 ; i++){
+                        // do something iterative
+                    }
+            valid: true
+
+        -   text: |
+                .. code-block:: bash
+
+                    for i in 1..15
+                    do
+                        # do something in bash
+                    done
+            feedback: Cette boucle n'est pas écrite en Java
+
+        -   text: |
+
+                .. code-block:: java
+
+                    int a = 1;
+                    if(a < 10){
+                        // do something conditionnaly
+                    }
+                    else{
+                        // do something otherwise
+                    }
+            feedback: Ce n'est pas une boucle mais un branchement ``if``
+
+        limit: 3
+        type: multiple-choice
+weight: 1.0
