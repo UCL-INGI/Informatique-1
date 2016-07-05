@@ -14,7 +14,7 @@
 
 
 
-accessible: true
+accessible: false
 author: François MICHEL
 context: |
     La classe ``Character`` de l'API Java (https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html) contient un bon nombre de méthodes qui pourront vous être utiles pour manipuler des caratères. Avec ces exercices, vous serez un peu plus familiers avec certaines méthodes qui vous seront certainement utiles dans le futur.
