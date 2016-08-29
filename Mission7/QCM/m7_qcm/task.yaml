@@ -107,7 +107,8 @@ context: |
 
     .. _jn5.7.4 : http://math.hws.edu/javanotes/c5/s7.html#OOP.7.4
     .. |jn5.7.4| replace:: `5.7.4 : Mixing Static and Non-static`
-environment: default
+environment: mcq
+evaluate: best
 groups: false
 limits:
     memory: '100'
@@ -118,7 +119,6 @@ network_grading: false
 order: 50
 problems:
     q1:
-        name: 'Héritage : vocabulaire'
         choices:
         -   text: |4
 
@@ -134,51 +134,51 @@ problems:
                 - ``C2`` est la classe-mère de ``C3``
                 - Toute instance de ``C2`` est une instance de ``C1``
             valid: true
-        -   text: |4
+        -   feedback: |4
+
+                ``C1`` n'est pas une sous-classe de ``C3``.
+            text: |4
 
 
                 - ``C1`` est une sous-classe de ``C3``
                 - ``C2`` est une classe-fille de ``C1``
                 - Toute instance de ``C2`` est une instance de ``C1``
-            feedback: |4
+        -   feedback: |4
 
-                ``C1`` n'est pas une sous-classe de ``C3``.
-        -   text: |4
+                ``C2`` n'est pas une classe-fille de ``C3``.
+            text: |4
 
 
                 - ``C1`` est une super-classe de ``C3``
                 - ``C2`` est une classe-fille de ``C3``
                 - Toute instance de ``C3`` est une instance de ``C1``
-            feedback: |4
+        -   feedback: |4
 
-                ``C2`` n'est pas une classe-fille de ``C3``.
-        -   text: |4
+                Toute instance de ``C1`` n'est pas une instance de ``C3``.
+            text: |4
 
 
                 - ``C2`` est une classe-fille de ``C1``
                 - Toute instance de ``C1`` est une instance de ``C3``
                 - ``C3`` est une sous-classe de ``C2``
-            feedback: |4
+        -   feedback: |4
 
-                Toute instance de ``C1`` n'est pas une instance de ``C3``.
-        -   text: |4
+                ``C1`` n'est pas une sous-classe de ``C2``
+            text: |4
 
 
                 - ``C2`` est une classe-fille de ``C1``
                 - Toute instance de ``C3`` est une instance de ``C1``
                 - ``C1`` est une sous-classe de ``C2``
-            feedback: |4
-
-                ``C1`` n'est pas une sous-classe de ``C2``
-        -   feedback: |4
-
-                ``C2`` n'est pas la classe-fille de ``C3``
-            text: |4
+        -   text: |4
 
 
                 - ``C1`` est une super-classe de ``C3``
                 - ``C2`` est la classe-fille de ``C3``
                 - Toute instance de ``C2`` est une instance de ``C1``
+            feedback: |4
+
+                ``C2`` n'est pas la classe-fille de ``C3``
         -   text: |4
 
 
@@ -188,12 +188,14 @@ problems:
             feedback: |4
 
                 Toute instance de ``C2`` n'est pas une instance de ``C3``
-        type: multiple-choice
         header: |4
 
             Si la classe ``C3`` étend la classe ``C2``, qui étend elle-même la classe ``C1``, quel groupe d'affirmations est correct ?
         limit: 3
+        type: multiple-choice
+        name: 'Héritage : vocabulaire'
     q2:
+        name: Extension de classe
         choices:
         -   text: |
                 .. code-block:: java
@@ -225,10 +227,7 @@ problems:
                            return C2.m() + n2 * n2;
                        }
                    }
-        -   feedback: |4
-
-                La déclaration ne mentionne pas que ``C2`` étend ``C1``.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    public class C2 {
@@ -241,7 +240,13 @@ problems:
                            return super.m() + n2 * n2;
                        }
                    }
-        -   text: |
+            feedback: |4
+
+                La déclaration ne mentionne pas que ``C2`` étend ``C1``.
+        -   feedback: |4
+
+                Dans la signature de ``m``, le ``override`` est incorrect et inutile (il existe une annotation ``@override`` mais elle n'est pas indispensable).
+            text: |
                 .. code-block:: java
 
                    public class C2 extends C1 {
@@ -254,9 +259,6 @@ problems:
                            return super.m() + n2 * n2;
                        }
                    }
-            feedback: |4
-
-                Dans la signature de ``m``, le ``override`` est incorrect et inutile (il existe une annotation ``@override`` mais elle n'est pas indispensable).
         -   feedback: |4
 
                 Dans le corps de ``m``, la variable ``n`` de ``C1`` n'est pas accessible (``private``).
@@ -273,7 +275,10 @@ problems:
                            return n1 * n1 + n2 * n2;
                        }
                    }
-        -   text: |
+        -   feedback: |4
+
+                Dans le constructeur de ``C2``, il faut appeler le constructeur de ``C1`` pour initialiser les variables de ``C1``.
+            text: |
                 .. code-block:: java
 
                    public class C2 extends C1 {
@@ -287,9 +292,6 @@ problems:
                            return super.m() + n2 * n2;
                        }
                    }
-            feedback: |4
-
-                Dans le constructeur de ``C2``, il faut appeler le constructeur de ``C1`` pour initialiser les variables de ``C1``.
         -   feedback: |4
 
                 Dans le constructeur, l'appel au constructeur de ``C1`` doit venir en premier lieu.
@@ -306,8 +308,8 @@ problems:
                            return super.m() + n2 * n2;
                        }
                    }
-        name: Extension de classe
         type: multiple-choice
+        limit: 3
         header: |4
 
             Soit la classe ``C1`` définie comme suit
@@ -327,87 +329,7 @@ problems:
                 }
 
             Laquelle des définitions suivantes définit correctement une extension de ``C1`` ?
-        limit: 3
     q3:
-        choices:
-        -   valid: true
-            text: |
-                .. code-block:: java
-
-                   C3 obj3 = new C3();
-                   C2 obj2 = new C3();
-                   C4 obj4 = new C4();
-                   C1 obj1 = obj3;
-        -   text: |
-                .. code-block:: java
-
-                   C4 obj4 = new C4();
-                   C2 obj2 = obj4;
-                   C1 obj1 = new C2();
-                   C3 obj3 = null;
-            valid: true
-        -   feedback: |4
-
-                ``C3 obj3`` ne peut pas recevoir une expression de type ``C2``.
-            text: |
-                .. code-block:: java
-
-                   C4 obj4 = new C4();
-                   C3 obj3 = new C2();
-                   C2 obj2 = new C3();
-                   C1 obj1 = obj3;
-        -   feedback: |4
-
-                ``C4 obj4`` ne peut pas recevoir une expression de type ``C2``.
-            text: |
-                .. code-block:: java
-
-                   C3 obj3 = new C3();
-                   C2 obj2 = new C3();
-                   C1 obj1 = obj3;
-                   C4 obj4 = obj2;
-        -   text: |
-                .. code-block:: java
-
-                   C4 obj4 = new C4();
-                   C3 obj3 = new C3();
-                   C1 obj1 = obj3;
-                   C2 obj2 = obj1;
-            feedback: |4
-
-                ``C2 obj2`` ne peut pas recevoir une expression de type ``C1`` (même si l'objet qu'elle désigne est en fait de type ``C3``).
-        -   text: |
-                .. code-block:: java
-
-                   C3 obj3 = null;
-                   C2 obj2 = obj4;
-                   C4 obj4 = obj3;
-                   C1 obj1 = new C2();
-            feedback: |4
-
-                ``C4 obj4`` ne peut pas recevoir une expression de type ``C3`` (même si elle produit la référence ``null``).
-        -   feedback: |4
-
-                ``C3 obj3`` ne peut pas recevoir une expression de type ``C1``.
-            text: |
-                .. code-block:: java
-
-                   C4 obj4 = new C4();
-                   C2 obj2 = obj4;
-                   C3 obj3 = new C1();
-                   C1 obj1 = new C2();
-        -   text: |
-                .. code-block:: java
-
-                   C2 obj2 = new C3();
-                   C1 obj1 = new C2();
-                   C3 obj3 = obj2;
-                   C4 obj4 = new C4();
-            feedback: |4
-
-                ``C3 obj3`` ne peut pas recevoir une expression de type ``C3`` (même si l'objet qu'elle désigne est en fait de type ``C3``).
-        name: Extension et types
-        limit: 3
         header: |4
 
             Soit les classes ``C1``, ``C2``, ``C3`` et ``C4`` définies comme suit
@@ -443,11 +365,89 @@ problems:
                 }
 
             Parmi les portions de code suivantes, laquelle est valide pour le compilateur Java ?
-        type: multiple-choice
-    q4:
         choices:
         -   valid: true
             text: |
+                .. code-block:: java
+
+                   C3 obj3 = new C3();
+                   C2 obj2 = new C3();
+                   C4 obj4 = new C4();
+                   C1 obj1 = obj3;
+        -   valid: true
+            text: |
+                .. code-block:: java
+
+                   C4 obj4 = new C4();
+                   C2 obj2 = obj4;
+                   C1 obj1 = new C2();
+                   C3 obj3 = null;
+        -   text: |
+                .. code-block:: java
+
+                   C4 obj4 = new C4();
+                   C3 obj3 = new C2();
+                   C2 obj2 = new C3();
+                   C1 obj1 = obj3;
+            feedback: |4
+
+                ``C3 obj3`` ne peut pas recevoir une expression de type ``C2``.
+        -   text: |
+                .. code-block:: java
+
+                   C3 obj3 = new C3();
+                   C2 obj2 = new C3();
+                   C1 obj1 = obj3;
+                   C4 obj4 = obj2;
+            feedback: |4
+
+                ``C4 obj4`` ne peut pas recevoir une expression de type ``C2``.
+        -   feedback: |4
+
+                ``C2 obj2`` ne peut pas recevoir une expression de type ``C1`` (même si l'objet qu'elle désigne est en fait de type ``C3``).
+            text: |
+                .. code-block:: java
+
+                   C4 obj4 = new C4();
+                   C3 obj3 = new C3();
+                   C1 obj1 = obj3;
+                   C2 obj2 = obj1;
+        -   feedback: |4
+
+                ``C4 obj4`` ne peut pas recevoir une expression de type ``C3`` (même si elle produit la référence ``null``).
+            text: |
+                .. code-block:: java
+
+                   C3 obj3 = null;
+                   C2 obj2 = obj4;
+                   C4 obj4 = obj3;
+                   C1 obj1 = new C2();
+        -   text: |
+                .. code-block:: java
+
+                   C4 obj4 = new C4();
+                   C2 obj2 = obj4;
+                   C3 obj3 = new C1();
+                   C1 obj1 = new C2();
+            feedback: |4
+
+                ``C3 obj3`` ne peut pas recevoir une expression de type ``C1``.
+        -   feedback: |4
+
+                ``C3 obj3`` ne peut pas recevoir une expression de type ``C3`` (même si l'objet qu'elle désigne est en fait de type ``C3``).
+            text: |
+                .. code-block:: java
+
+                   C2 obj2 = new C3();
+                   C1 obj1 = new C2();
+                   C3 obj3 = obj2;
+                   C4 obj4 = new C4();
+        limit: 3
+        type: multiple-choice
+        name: Extension et types
+    q4:
+        choices:
+        -   text: |
                 .. code-block:: java
 
                    C2 conv12 = obj1;       // => erreur à la compilation
@@ -456,7 +456,11 @@ problems:
                    C2 cast12 = (C2) obj1;  // => erreur à l'exécution
                    C1 cast21 = (C1) obj2;  // => OK mais type-cast inutile
                    C2 cast32 = (C2) obj3;  // => OK
-        -   text: |
+            valid: true
+        -   feedback: |4
+
+                La variable ``obj3`` est de type ``C1`` : erreur de compilation à la ligne 3.
+            text: |
                 .. code-block:: java
 
                    C2 conv12 = obj1;       // => erreur à la compilation
@@ -465,9 +469,6 @@ problems:
                    C2 cast12 = (C2) obj1;  // => erreur à l'exécution
                    C1 cast21 = (C1) obj2;  // => OK mais type-cast inutile
                    C2 cast32 = (C2) obj3;  // => OK
-            feedback: |4
-
-                La variable ``obj3`` est de type ``C1`` : erreur de compilation à la ligne 3.
         -   feedback: |4
 
                 ``obj1`` réfère à une instance de ``C1`` : erreur de type-cast à l'exécution à la ligne 4.
@@ -492,10 +493,7 @@ problems:
                    C2 cast12 = (C2) obj1;  // => erreur à l'exécution
                    C1 cast21 = (C1) obj2;  // => OK mais type-cast inutile
                    C2 cast32 = (C2) obj3;  // => erreur à l'exécution
-        -   feedback: |4
-
-                La ligne 4 est correcte du point de vue des types mais causera erreur de type-cast à l'exécution.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    C2 conv12 = obj1;       // => erreur à la compilation
@@ -504,6 +502,9 @@ problems:
                    C2 cast12 = (C2) obj1;  // => erreur à la compilation
                    C1 cast21 = (C1) obj2;  // => OK mais type-cast inutile
                    C2 cast32 = (C2) obj3;  // => OK
+            feedback: |4
+
+                La ligne 4 est correcte du point de vue des types mais causera erreur de type-cast à l'exécution.
         -   text: |
                 .. code-block:: java
 
@@ -516,7 +517,10 @@ problems:
             feedback: |4
 
                 La variable ``obj2`` est de type ``C2`` qui est une sous-classe de ``C1`` : pas d'erreur à la ligne 2.
-        -   text: |
+        -   feedback: |4
+
+                ``obj2`` réfère à une instance de ``C2`` qui est bien une sous-classe de ``C1`` : pas d'erreur à la ligne 5.
+            text: |
                 .. code-block:: java
 
                    C2 conv12 = obj1;       // => erreur à la compilation
@@ -525,10 +529,6 @@ problems:
                    C2 cast12 = (C2) obj1;  // => erreur à l'exécution
                    C1 cast21 = (C1) obj2;  // => erreur à l'exécution
                    C2 cast32 = (C2) obj3;  // => OK
-            feedback: |4
-
-                ``obj2`` réfère à une instance de ``C2`` qui est bien une sous-classe de ``C1`` : pas d'erreur à la ligne 5.
-        limit: 3
         name: Conversions de type
         header: |4
 
@@ -566,6 +566,7 @@ problems:
                 C2 cast32 = (C2) obj3;
 
             Parmi ces instructions, certaines causent une erreur à le compilation ou à l'exécution.  Parmi les propositions ci-dessous, laquelle identifie correctement ces erreurs ?
+        limit: 3
         type: multiple-choice
     q5:
         choices:
@@ -579,52 +580,49 @@ problems:
         -   feedback: |4
 
                 Les paramètres peuvent avoir un nom différent, pour autant que types correspondent exactement.
+            valid: true
             text: |
                 .. code-block:: java
 
                        public int m1(String x, int i) {
                            return super.m1(x, i * 2) + 10;
                        }
-            valid: true
-        -   feedback: |4
-
-                Les paramètres doivent être dans le même ordre.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                        public int m1(int n, String s) {
                            return super.m1(s, n * 2) + 10;
                        }
-        -   text: |
+            feedback: |4
+
+                Les paramètres doivent être dans le même ordre.
+        -   feedback: |4
+
+                Le type de résultat doit être le même.
+            text: |
                 .. code-block:: java
 
                        public double m1(String s, int n) {
                            return super.m1(s, n * 2) + 10.0;
                        }
-            feedback: |4
-
-                Le type de résultat doit être le même.
-        -   feedback: |4
-
-                Erreur de syntaxe : utiliser ``super.m1`` pour appeler la méthode ``m1`` de la classe-mère.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                        public int m1(String s, int n) {
                            return super(s, n * 2) + 10;
                        }
-        -   text: |
+            feedback: |4
+
+                Erreur de syntaxe : utiliser ``super.m1`` pour appeler la méthode ``m1`` de la classe-mère.
+        -   feedback: |4
+
+                Il faut conserver le même nombre de paramètres.
+            text: |
                 .. code-block:: java
 
                        public int m1(String s, int n, int n2) {
                            return super.m1(s, n * 2) + n2;
                        }
-            feedback: |4
-
-                Il faut conserver le même nombre de paramètres.
-        type: multiple-choice
-        limit: 3
-        name: Re-définition et surcharge
         header: |4
 
 
@@ -644,6 +642,9 @@ problems:
                 }
 
             Parmi les définitions suivantes dans ``C2``, laquelle constitue une *re-définition* (overriding) correcte de la méthode ``m1`` de la classe ``C1`` et non une *surcharge* (overloading) ?
+        type: multiple-choice
+        name: Re-définition et surcharge
+        limit: 3
     q6:
         choices:
         -   text: |4
@@ -678,15 +679,15 @@ problems:
             feedback: |4
 
                 ``prot`` a la visibilité ``protected``, elle peut être appelée dans la classe ``C2`` qui étend ``C1``.
-        -   feedback: |4
-
-                ``priv`` a la visibilité ``private``, elle peut être appelée uniquement dans sa propre classe ``C1``.
-            text: |4
+        -   text: |4
 
 
                 - ``priv`` peut être appelée dans le corps de ``m2``.
                 - ``publ`` peut être appelée dans le corps de ``m2``.
                 - ``prot`` NE peut PAS être appelée dans le corps de ``m3``.
+            feedback: |4
+
+                ``priv`` a la visibilité ``private``, elle peut être appelée uniquement dans sa propre classe ``C1``.
         -   feedback: |4
 
                 ``publ`` a la visibilité ``public``, elle peut être appelée partout.
@@ -715,8 +716,6 @@ problems:
                 - ``prot`` peut être appelée dans le corps de ``m2``.
                 - ``priv`` NE peut PAS être appelée dans le corps de ``m1``.
         type: multiple-choice
-        limit: 3
-        name: Modificateurs de visibilité
         header: |4
 
             Considérez les classes ``C1``, ``C2``, ``C3`` définies comme suit
@@ -742,41 +741,43 @@ problems:
                 }
 
             Parmi les groupes d'affirmation suivants, lequel est correct ?
+        limit: 3
+        name: Modificateurs de visibilité
     q7:
+        limit: 3
         choices:
-        -   feedback: |4
+        -   valid: true
+            feedback: |4
 
                 Une méthode de classe (``static``) ne peut pas accéder à la variable d'instance ``var``.
             text: |
                 La méthode ``m3``
-            valid: true
-        -   feedback: |4
+        -   text: |
+                Les méthodes ``m2`` et ``m3``
+            feedback: |4
 
                 ``m2`` peut parfaitement accéder à la variable de classe ``svar``.
-            text: |
-                Les méthodes ``m2`` et ``m3``
         -   feedback: |4
 
                 ``m4`` est parfaitement valide.
             text: |
                 Les méthodes ``m3`` et ``m4``
-        -   feedback: |4
+        -   text: |
+                La méthode ``m2``
+            feedback: |4
 
                 ``m2`` peut parfaitement accéder à la variable de classe ``svar``.
-            text: |
-                La méthode ``m2``
-        -   feedback: |4
+        -   text: |
+                La méthode ``m4``
+            feedback: |4
 
                 ``m4`` est parfaitement valide.
-            text: |
-                La méthode ``m4``
         -   feedback: |4
 
                 La méthode de classe (``static``) ``m3`` ne peut pas accéder à la variable d'instance ``var``.
             text: |
                 Aucune
-        limit: 3
-        type: multiple-choice
+        name: Variables et méthodes de classe
         header: |4
 
             On considère le code suivant
@@ -794,13 +795,11 @@ problems:
                 }
 
             Parmi ces définitions de méthode, lesquelles produisent une erreur de compilation ?
-        name: Variables et méthodes de classe
+        type: multiple-choice
     q8:
+        type: multiple-choice
         choices:
         -   valid: true
-            feedback: |4
-
-                ``m1`` affecte des variables d'instance distinctes de ``c1`` et ``c2`` tandis que ``m2`` affecte une variable de classe commune.
             text: |
                 .. code-block:: java
 
@@ -808,16 +807,19 @@ problems:
                    10
                    1
                    20
-        -   feedback: |4
+            feedback: |4
 
-                ``m2`` affecte une variable de classe commune.
-            text: |
+                ``m1`` affecte des variables d'instance distinctes de ``c1`` et ``c2`` tandis que ``m2`` affecte une variable de classe commune.
+        -   text: |
                 .. code-block:: java
 
                    1
                    10
                    1
                    10
+            feedback: |4
+
+                ``m2`` affecte une variable de classe commune.
         -   feedback: |4
 
                 ``m1`` affecte des variables d'instance distinctes de ``c1`` et ``c2``.
@@ -848,8 +850,6 @@ problems:
                    2
                    1
                    2
-        limit: 3
-        type: multiple-choice
         header: |4
 
             On considère la classe ``C`` suivante
@@ -888,7 +888,25 @@ problems:
 
             Quel est le résultat affiché ?
         name: Variables de classe et d'instance
+        limit: 3
     q9:
+        header: |4
+
+            Soit la classe ``Point`` définie comme suit
+
+            .. code-block:: java
+
+                public class Point {
+                    private int x;
+                    private int y;
+                    public C1(int x, int y) {
+                        this.x = x;
+                        this.y = y;
+                    }
+                    // ...
+                }
+
+            Dans cette classe, laquelle des définitions suivantes re-définirait correctement la méthode ``equals`` de la classe ``Object`` ?
         choices:
         -   valid: true
             text: |
@@ -902,10 +920,7 @@ problems:
                            return false;
                        }
                    }
-        -   feedback: |4
-
-                ``other`` est de type ``Object``, ``other.x`` n'est pas correct.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    public boolean equals(Object other) {
@@ -915,6 +930,9 @@ problems:
                            return false;
                        }
                    }
+            feedback: |4
+
+                ``other`` est de type ``Object``, ``other.x`` n'est pas correct.
         -   text: |
                 .. code-block:: java
 
@@ -938,34 +956,21 @@ problems:
             feedback: |4
 
                 Ceci fonctionne mais ne correspond pas à la méthode ``equals`` de ``Object``.  Le paramètre doit être de type ``Object``.
-        -   text: |
+        -   feedback: |4
+
+                Ceci produira une erreur à l'exécution si ``other`` est ``null`` ou n'est pas de type ``Point``.
+            text: |
                 .. code-block:: java
 
                    public boolean equals(Object other) {
                        Point p = (Point) other;
                        return ((this.x == p.x) && (this.y == p.y));
                    }
-            feedback: |4
-
-                Ceci produira une erreur à l'exécution si ``other`` est ``null`` ou n'est pas de type ``Point``.
-        type: multiple-choice
-        header: |4
-
-            Soit la classe ``Point`` définie comme suit
-
-            .. code-block:: java
-
-                public class Point {
-                    private int x;
-                    private int y;
-                    public C1(int x, int y) {
-                        this.x = x;
-                        this.y = y;
-                    }
-                    // ...
-                }
-
-            Dans cette classe, laquelle des définitions suivantes re-définirait correctement la méthode ``equals`` de la classe ``Object`` ?
-        name: La méthode equals
         limit: 3
+        name: La méthode equals
+        type: multiple-choice
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
 weight: 1.0

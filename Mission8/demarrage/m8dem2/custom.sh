@@ -5,7 +5,7 @@ TRICHE=$(cat student/M8Q8Stu.java | grep -v "import java.lang.StringBuffer;" | g
 if [ "$TRICHE" = "" ];	then
 	feedback -r failed -f "Vous n'avez pas bien répondu à au moins une question"
 	feedback -i q1 -r failed -f "Vous devez utilisez un StringBuffer"
-	echo 1
+	exit 1
 else
-	echo 0
+	exit 0
 fi

@@ -14,4 +14,4 @@ for file in student/*.java; do
 		rm abc.out
 	fi
 done
-echo 0
+exit 0

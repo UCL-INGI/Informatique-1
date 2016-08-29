@@ -31,11 +31,11 @@ if [ "$GREPED" != "" ]; then
     #clean files
     $(echo "" > logOther.out)
     
-    echo 1
+    exit 1
 else
     #clean files
     $(echo "" > logOther.out)
 
-	echo 0
+	exit 0
 fi
 

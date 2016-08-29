@@ -65,7 +65,8 @@ context: |
 
     .. _jn4.7.3 : http://math.hws.edu/javanotes/c4/s7.html#subroutines.7.3
     .. |jn4.7.3| replace:: `4.7.3 : Naming and Scope Rules`
-environment: default
+environment: mcq
+evaluate: best
 groups: false
 limits:
     memory: '100'
@@ -76,9 +77,10 @@ network_grading: false
 order: 24
 problems:
     q1:
-        name: Portée des variables
+        limit: 3
         choices:
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -86,8 +88,8 @@ problems:
                   System.out.print(r); // ligne c
                   System.out.print(b); // ligne e
                   System.out.print(j); // ligne f
-            valid: true
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -95,7 +97,6 @@ problems:
                   System.out.print(y); // ligne c
                   System.out.print(b); // ligne e
                   System.out.print(a); // ligne f
-            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -107,7 +108,10 @@ problems:
             feedback: |4
 
                 La variable ``i`` n'est utilisable qu'à l'intérieur de la boucle ``for``. Elle ne peut pas être utilisée en dehors de cette boucle.
-        -   text: |4
+        -   feedback: |4
+
+                La variable ``i`` n'est utilisable qu'à l'intérieur de la boucle ``for``. Elle ne peut pas être utilisée en dehors de cette boucle.
+            text: |4
 
                 .. code-block:: java
 
@@ -115,10 +119,10 @@ problems:
                   System.out.print(y); // ligne c
                   System.out.print(b); // ligne e
                   System.out.print(i); // ligne f
-            feedback: |4
+        -   feedback: |4
 
-                La variable ``i`` n'est utilisable qu'à l'intérieur de la boucle ``for``. Elle ne peut pas être utilisée en dehors de cette boucle.
-        -   text: |4
+                La variable ``y`` n'est utilisable qu'après sa déclaration dans le bloc ``for``. En dehors de ce bloc, elle ne peut pas être utilisée.
+            text: |4
 
                 .. code-block:: java
 
@@ -126,10 +130,8 @@ problems:
                   System.out.print(i); // ligne c
                   System.out.print(r); // ligne e
                   System.out.print(y); // ligne f
-            feedback: |4
-
-                La variable ``y`` n'est utilisable qu'après sa déclaration dans le bloc ``for``. En dehors de ce bloc, elle ne peut pas être utilisée.
         type: multiple-choice
+        name: Portée des variables
         header: |4
 
 
@@ -155,10 +157,13 @@ problems:
 
 
             Les propositions ci-dessous sont relatives à des instructions placées à certains lignes identifiées ci-dessus. Laquelle de ces propositions est-elle correcte ?
-        limit: 3
     q2:
         choices:
-        -   text: |4
+        -   valid: true
+            feedback: |4
+
+                Dans cette méthode, ``b`` vaut ``1`` et donc le bloc ``else`` est exécuté et la valeur de ``i`` est incrémentée.
+            text: |4
 
                 .. code-block:: java
 
@@ -175,13 +180,9 @@ problems:
                     System.out.println(i);
 
                   }
-            valid: true
-            feedback: |4
-
-                Dans cette méthode, ``b`` vaut ``1`` et donc le bloc ``else`` est exécuté et la valeur de ``i`` est incrémentée.
-        -   feedback: |
+        -   valid: true
+            feedback: |
                 Notez que la variable ``i`` déclarée dans la méthode ``f`` est différente de la variable ``i`` déclarée dans la méthode ``main``.
-            valid: true
             text: |4
 
                 .. code-block:: java
@@ -202,10 +203,7 @@ problems:
                     System.out.println(i);
 
                   }
-        -   feedback: |4
-
-                ``javac`` refuse de compiler ce code car on cherche à déclarer deux fois la variable ``i`` ce qui est interdit dans la même méthode.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -222,7 +220,13 @@ problems:
                     System.out.println(i);
 
                   }
-        -   text: |4
+            feedback: |4
+
+                ``javac`` refuse de compiler ce code car on cherche à déclarer deux fois la variable ``i`` ce qui est interdit dans la même méthode.
+        -   feedback: |4
+
+                Cette méthode ``main`` modifie la valeur de la variable ``i`` dans la boucle ``for``. La valeur affichée est ``10``.
+            text: |4
 
                 .. code-block:: java
 
@@ -236,9 +240,6 @@ problems:
                     System.out.println(i);
 
                   }
-            feedback: |4
-
-                Cette méthode ``main`` modifie la valeur de la variable ``i`` dans la boucle ``for``. La valeur affichée est ``10``.
         -   feedback: |4
 
                 Cette méthode ``main`` met à jour la variable i dans le bloc ``while``. C'est donc 2013 qui est affiché.
@@ -257,7 +258,10 @@ problems:
                     System.out.println(i);
 
                   }
-        -   text: |4
+        -   feedback: |4
+
+                Cette méthode ``main`` met à jour la variable i dans le bloc ``if``. C'est donc 2013 qui est affiché.
+            text: |4
 
                 .. code-block:: java
 
@@ -276,19 +280,15 @@ problems:
                     System.out.println(i);
 
                   }
-            feedback: |4
-
-                Cette méthode ``main`` met à jour la variable i dans le bloc ``if``. C'est donc 2013 qui est affiché.
-        name: Portée des variables
-        type: multiple-choice
         header: |4
 
             Parmi les définitions de méthodes ci-dessous, quelle est celle qui affichera correctement ``2012`` à l'écran ?
         limit: 3
+        name: Portée des variables
+        type: multiple-choice
     q3:
         choices:
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -296,7 +296,9 @@ problems:
                   affiche("abc",3.23);
                   affiche(0,0);
                   affiche("3.12",false);
-        -   text: |4
+            valid: true
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -304,7 +306,6 @@ problems:
                   affiche("3.12",3.23);
                   affiche(-1,1);
                   affiche("abc",false);
-            valid: true
         -   feedback: |4
 
                 La dernière ligne appelle une méthode qui prend comme arguments deux ``String`` et non un ``String`` et un ``boolean``
@@ -316,10 +317,7 @@ problems:
                   affiche("abc",3.23);
                   affiche(2,8);
                   affiche("abc","true");
-        -   feedback: |4
-
-                La deuxième ligne appelle une méthode qui prend comme arguments deux ``double`` et non un ``String`` et un ``double``.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -327,6 +325,9 @@ problems:
                   affiche(3.12,3.231);
                   affiche(3,-12);
                   affiche("3.1",false);
+            feedback: |4
+
+                La deuxième ligne appelle une méthode qui prend comme arguments deux ``double`` et non un ``String`` et un ``double``.
         -   text: |4
 
                 .. code-block:: java
@@ -338,7 +339,10 @@ problems:
             feedback: |4
 
                 La première ligne appelle une méthode qui prend comme arguments un ``String`` et un ``int`` et non un caractère et un ``int``.
-        -   text: |4
+        -   feedback: |4
+
+                La troisième ligne appelle une méthode qui prend comme arguments un ``int`` et un ``String`` et non deux ``int``.
+            text: |4
 
                 .. code-block:: java
 
@@ -346,11 +350,8 @@ problems:
                   affiche("3.12",3.231);
                   affiche(6,"-2");
                   affiche("false",true);
-            feedback: |4
-
-                La troisième ligne appelle une méthode qui prend comme arguments un ``int`` et un ``String`` et non deux ``int``.
-        name: Surcharge de méthodes
         limit: 3
+        name: Surcharge de méthodes
         type: multiple-choice
         header: |4
 
@@ -385,52 +386,6 @@ problems:
               int, int
               String, boolean
     q4:
-        choices:
-        -   feedback: |4
-
-                En Java, ``(int) p`` permet de convertir le contenu de la variable ``p`` en une valeur entière.
-            valid: true
-            text: |4
-
-                .. code-block:: java
-
-                    System.out.println((int) p);
-        -   text: |4
-
-                .. code-block:: java
-
-                   System.out.println(Math.round(p));
-            feedback: |4
-
-                La méthode ``Math.round`` retourne la valeur arrondie. Dans ce cas, le résultat est ``4``. Voir http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html#round(double)
-        -   feedback: |4
-
-                Cette instruction affiche la valeur de ``p``, c'est-à-dire ``3.84``.
-            text: |4
-
-                .. code-block:: java
-
-                   System.out.println(p);
-        -   feedback: |4
-
-                La méthode  ``Math.ceil`` retourne un ``double`` et non un entier. L'instruction affiche ``4.0`` à l'écran. Voir http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html#ceil(double)
-            text: |4
-
-                .. code-block:: java
-
-                   System.out.println(Math.ceil(p));
-        -   feedback: |4
-
-                La méthode ``Math.floor`` retourne un ``double`` et non un entier. L'instruction affiche ``3.0`` à l'écran. Voir http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html#floor(double)
-            text: |4+
-
-                .. code-block:: java
-
-                   System.out.println(Math.floor(p));
-
-
-        limit: 3
-        name: Conversion de types
         header: |4
 
             En Java, il existe différentes solutions pour convertir un nombre réel en un nombre entier. Considérons la variable ``p`` déclarée comme suit
@@ -441,20 +396,67 @@ problems:
                 double p=3.84;
 
             Laquelle des instructions ci-dessous affiche-t-elle ``3`` à l'écran ?
+        choices:
+        -   valid: true
+            feedback: |4
+
+                En Java, ``(int) p`` permet de convertir le contenu de la variable ``p`` en une valeur entière.
+            text: |4
+
+                .. code-block:: java
+
+                    System.out.println((int) p);
+        -   feedback: |4
+
+                La méthode ``Math.round`` retourne la valeur arrondie. Dans ce cas, le résultat est ``4``. Voir http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html#round(double)
+            text: |4
+
+                .. code-block:: java
+
+                   System.out.println(Math.round(p));
+        -   text: |4
+
+                .. code-block:: java
+
+                   System.out.println(p);
+            feedback: |4
+
+                Cette instruction affiche la valeur de ``p``, c'est-à-dire ``3.84``.
+        -   text: |4
+
+                .. code-block:: java
+
+                   System.out.println(Math.ceil(p));
+            feedback: |4
+
+                La méthode  ``Math.ceil`` retourne un ``double`` et non un entier. L'instruction affiche ``4.0`` à l'écran. Voir http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html#ceil(double)
+        -   feedback: |4
+
+                La méthode ``Math.floor`` retourne un ``double`` et non un entier. L'instruction affiche ``3.0`` à l'écran. Voir http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html#floor(double)
+            text: |4+
+
+                .. code-block:: java
+
+                   System.out.println(Math.floor(p));
+
+
         type: multiple-choice
+        limit: 3
+        name: Conversion de types
     q5:
+        limit: 3
         choices:
         -   feedback: |4
 
                 Dans cette expression, le dénominateur est une somme de nombres entiers, c'est donc lui-même un entier. Le numérateur est un entier également. Donc, l'opération de division est une division *entière*. Le résultat de cette division entière est ``2`` qui est automatiquement converti par Java en la valeur réelle ``2.0``.  Pour Java, cette assignation équivaut en fait à .. code-block:: java
 
                  f=(double) (125/(40+10));
+            valid: true
             text: |4
 
                 .. code-block:: java
 
                   f=125/(40+10);
-            valid: true
         -   feedback: |4
 
                 Dans cette assignation, Java effectue une conversion de type implicite. Le dénominateur devient automatiquement de type ``double`` et le calcul est une division de réels.  Pour Java, cette assignation équivaut en fait à .. code-block:: java
@@ -481,9 +483,6 @@ problems:
             feedback: |4
 
                 Dans cette assignation, le numérateur et le dénominateur sont de type ``double``. La division est donc une division entre nombres réels.
-        type: multiple-choice
-        limit: 3
-        name: Conversion de types
         header: |4
 
             Comme décrit dans la section |jn2.5.6|_ du livre de référence, il est possible en Java de réaliser des conversions entre les nombres réels et les nombres entiers. Certaines de ces conversions sont explicites, d'autres sont implicites. Considérons le fragment de code ci-dessous
@@ -499,9 +498,14 @@ problems:
 
             .. _jn2.5.6: http://math.hws.edu/javanotes/c2/s5.html#basics.5.6
             .. |jn2.5.6| replace:: `2.5.6 : Assignment Operators and Type-Casts`
+        type: multiple-choice
+        name: Conversion de types
     q6:
         choices:
-        -   text: |4
+        -   feedback: |4
+
+                Voir http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#charAt(int) pour la documentation de la méthode ``charAt``.
+            text: |4
 
                 .. code-block:: java
 
@@ -509,9 +513,6 @@ problems:
                   if(c=='f') {
                      System.out.println("OK");
                   }
-            feedback: |4
-
-                Voir http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#charAt(int) pour la documentation de la méthode ``charAt``.
             valid: true
         -   valid: true
             text: |4
@@ -525,11 +526,7 @@ problems:
             feedback: |4
 
                 Voir http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#charAt(int) pour la documentation de la méthode ``charAt``.
-        -   feedback: |4
-
-                Voir http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#charAt(int) pour la documentation de la méthode ``charAt``.
-            valid: true
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -537,7 +534,14 @@ problems:
                   if(c=='z') {
                      System.out.println("OK");
                   }
-        -   text: |4
+            valid: true
+            feedback: |4
+
+                Voir http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#charAt(int) pour la documentation de la méthode ``charAt``.
+        -   feedback: |4
+
+                En Java, les caractères d'un chaîne de caractères sont numérotés à partir de l'indice ``0``. L'indice ``4`` de la chaîne de caractères ``s1`` correspond donc au caractère ``e``. Voir http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#charAt(int) pour la documentation de la méthode ``charAt``.
+            text: |4
 
                 .. code-block:: java
 
@@ -545,9 +549,6 @@ problems:
                   if(c=='f') {
                      System.out.println("OK");
                   }
-            feedback: |4
-
-                En Java, les caractères d'un chaîne de caractères sont numérotés à partir de l'indice ``0``. L'indice ``4`` de la chaîne de caractères ``s1`` correspond donc au caractère ``e``. Voir http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#charAt(int) pour la documentation de la méthode ``charAt``.
         -   feedback: |4
 
                 En Java, les caractères d'un chaîne de caractères sont numérotés à partir de l'indice ``0``. L'indice ``6`` de la chaîne de caractères ``s1`` correspond donc au caractère ``g``. Voir http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#charAt(int) pour la documentation de la méthode ``charAt``.
@@ -559,10 +560,7 @@ problems:
                   if(c=='f') {
                      System.out.println("OK");
                   }
-        -   feedback: |4
-
-                En Java, les caractères d'un chaîne de caractères sont numérotés à partir de l'indice ``0``. L'indice ``1`` de la chaîne de caractères ``s1`` correspond donc au caractère ``b``. Voir http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#charAt(int) pour la documentation de la méthode ``charAt``.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -570,6 +568,9 @@ problems:
                   if(c=='a') {
                      System.out.println("OK");
                   }
+            feedback: |4
+
+                En Java, les caractères d'un chaîne de caractères sont numérotés à partir de l'indice ``0``. L'indice ``1`` de la chaîne de caractères ``s1`` correspond donc au caractère ``b``. Voir http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#charAt(int) pour la documentation de la méthode ``charAt``.
         -   feedback: |4
 
                 En Java, les caractères d'un chaîne de caractères sont numérotés à partir de l'indice ``0``. ``s1.length()`` est le nombre de caractères dans la chaîne ``s1``.  Le dernier caractère de cette chaîne a donc l'indice ``s1.length()-1``. Il n'y a pas de caractère à la position ``s1.length()``. Voir http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#charAt(int) pour la documentation de la méthode ``charAt``.
@@ -581,9 +582,6 @@ problems:
                   if(c=='z') {
                      System.out.println("OK");
                   }
-        type: multiple-choice
-        limit: 3
-        name: Chaînes de caractères
         header: |4
 
             Considérons le code Java ci-dessous qui déclare et initialise des chaînes de caractères.
@@ -593,9 +591,13 @@ problems:
              String s1="abcdefghijklmnopqrstuvwxyz";
 
             Laquelle des séquences d'instructions ci-dessous affiche-t-elle ``OK`` à l'écran ?
+        type: multiple-choice
+        limit: 3
+        name: Chaînes de caractères
     q7:
         choices:
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -603,7 +605,6 @@ problems:
                   String s2="KKKK";
                   String s3=s1+s2;
                   System.out.println(s3.substring(3,5));
-            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -612,10 +613,7 @@ problems:
                   String s3=s1+s1;
                   System.out.println(s3.substring(5,7));
             valid: true
-        -   feedback: |4
-
-                La chaîne de caractère ``s1`` ne contient que ``OOOO``. Il n'existe pas de caractère à l'indice ``4`` dans cette chaîne.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -623,6 +621,9 @@ problems:
                   String s2="KKKK";
                   String s3=s1+s2;
                   System.out.println(s1.substring(4,2));
+            feedback: |4
+
+                La chaîne de caractère ``s1`` ne contient que ``OOOO``. Il n'existe pas de caractère à l'indice ``4`` dans cette chaîne.
         -   feedback: |4
 
                 La chaîne ``s3`` contient ``OKOKOOKOKO``. La chaîne de caractères extraite est donc ``OO``.
@@ -634,22 +635,22 @@ problems:
                   String s2="OKOKO";
                   String s3=s1+s2;
                   System.out.println(s3.substring(4,2));
-        limit: 3
+        name: Extraction de chaînes de caractères
         header: |4
 
             Dans la classe ``String``, la méthode ``substring`` est une méthode efficace pour extraire une sous-chaîne d'une chaîne de caractères. En vous basant sur la description de ``substring`` dans le livre et dans la documentation Java http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html, lequel des fragments de code ci-dessous affiche-t-il la chaîne ``OK`` à l'écran ?
         type: multiple-choice
-        name: Extraction de chaînes de caractères
+        limit: 3
     q8:
         choices:
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
                   if(s3.indexOf(s2)>=0) {
                      System.out.println("OK");
                   }
+            valid: true
         -   valid: true
             text: |4
 
@@ -658,16 +659,16 @@ problems:
                   if(s3.indexOf(s1)>=0) {
                      System.out.println("OK");
                   }
-        -   feedback: |4
-
-                Dans ce code, la méthode ``indexOf`` est appliquée à la chaîne de caractères ``s1`` et prend comme argument la chaîne de caractères ``s2``. Elle détermine donc si la chaîne ``s2`` est une sous-chaîne de ``s1``. Comme ce n'est pas le cas, elle retourne donc ``-1``.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
                   if(s1.indexOf(s2)>=0) {
                      System.out.println("OK");
                   }
+            feedback: |4
+
+                Dans ce code, la méthode ``indexOf`` est appliquée à la chaîne de caractères ``s1`` et prend comme argument la chaîne de caractères ``s2``. Elle détermine donc si la chaîne ``s2`` est une sous-chaîne de ``s1``. Comme ce n'est pas le cas, elle retourne donc ``-1``.
         -   text: |4
 
                 .. code-block:: java
@@ -688,8 +689,6 @@ problems:
                   if(s2.indexOf(s3)>=0) {
                      System.out.println("OK");
                   }
-        limit: 3
-        type: multiple-choice
         header: |4
 
             En Java, la méthode ``indexOf`` peut être utilisée pour déterminer si une chaîne de caractères est comprise dans une autre chaîne de caractères. Considérons les déclarations suivantes
@@ -701,31 +700,34 @@ problems:
              String s3="abcdefijklmnopqrstuvwxyz";
 
             Laquelle des séquences d'instructions ci-dessous affiche ``OK`` à l'écran ?
+        type: multiple-choice
+        limit: 3
         name: Méthode indexOf
     q9:
         choices:
         -   valid: true
             text: |
                 ``s1.equalsIgnoreCase(s2)`` est un booléen, ``s1.charAt(2)`` est un caractère et ``s3.indexOf(s2)`` est un entier
-        -   text: |
+        -   valid: true
+            text: |
                 ``s1.equalsIgnoreCase(s2)`` est un booléen, ``s2.length()`` est un entier et ``s1.substring(1,2)`` est une chaîne de caractères
-            valid: true
-        -   text: |
-                ``s2.equalsIgnoreCase(s3)`` est un booléen, ``s3.length()`` est un caractère et ``s2.indexOf(s3)`` est un entier
-            feedback: |4
+        -   feedback: |4
 
                 La méthode ``length`` retourne la longueur de la chaîne de caractère sur laquelle elle s'applique. Cette valeur est un entier.
+            text: |
+                ``s2.equalsIgnoreCase(s3)`` est un booléen, ``s3.length()`` est un caractère et ``s2.indexOf(s3)`` est un entier
         -   text: |
                 ``s2.equalsIgnoreCase(s2)`` est un booléen, ``s3.indexOf(s2)`` est un caractère et ``s2.substring(1,2)`` une chaîne de caractères
             feedback: |4
 
                 La méthode ``indexOf`` retourne un entier et non un caractère.
-        -   text: |
-                ``s1.equalsIgnoreCase(s2)`` affiche ``true`` ou ``false``, ``s3.indexOf(s2)`` est entier et ``s2.substring(1,2)`` une chaîne de caractères
-            feedback: |4
+        -   feedback: |4
 
                 La méthode ``equalsIgnoreCase`` retourne un booléen, elle n'affiche rien.
+            text: |
+                ``s1.equalsIgnoreCase(s2)`` affiche ``true`` ou ``false``, ``s3.indexOf(s2)`` est entier et ``s2.substring(1,2)`` une chaîne de caractères
         type: multiple-choice
+        name: Méthodes de la classe String
         header: |4
 
             La classe ``String`` contient de nombreuses méthodes utiles de manipulation des chaînes de caractères. Certains retournent un booléen, d'autres retournent un caractère, d'autres encore retourne un ``String``. En considérant les déclarations ci-dessous, quelle est la suite d'affirmations ci-dessous qui est vraie ?
@@ -735,12 +737,10 @@ problems:
              String s1="abcdef";
              String s2="mnopq";
              String s3="abcdefijklmnopqrstuvwxyz";
-        name: Méthodes de la classe String
         limit: 3
     q10:
         choices:
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -752,6 +752,7 @@ problems:
                    }
                    return false;
                   }
+            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -765,7 +766,10 @@ problems:
                    return false;
                   }
             valid: true
-        -   text: |4
+        -   feedback: |4
+
+                Cette méthode retourne ``false`` dès qu'un caractère diffère du caractère passé en argument, mais elle ne teste pas toute la chaîne de caractères.
+            text: |4
 
                 .. code-block:: java
 
@@ -777,10 +781,10 @@ problems:
                    }
                    return true;
                   }
-            feedback: |4
+        -   feedback: |4
 
-                Cette méthode retourne ``false`` dès qu'un caractère diffère du caractère passé en argument, mais elle ne teste pas toute la chaîne de caractères.
-        -   text: |4
+                Cette méthode commence par essayer d'accéder au caractère à l'indice ``s.length()``, mais celui-ci n'existe pas puisque les indices des caractères d'une chaînes démarrent à ``0``.
+            text: |4
 
                 .. code-block:: java
 
@@ -792,9 +796,6 @@ problems:
                    }
                    return false;
                   }
-            feedback: |4
-
-                Cette méthode commence par essayer d'accéder au caractère à l'indice ``s.length()``, mais celui-ci n'existe pas puisque les indices des caractères d'une chaînes démarrent à ``0``.
         -   text: |4
 
                 .. code-block:: java
@@ -825,7 +826,10 @@ problems:
                    }
                    return false;
                   }
-        -   text: |4
+        -   feedback: |4
+
+                Cette méthode teste uniquement la valeur du premier caractère. Voyez-vous pourquoi ?
+            text: |4
 
                 .. code-block:: java
 
@@ -840,11 +844,8 @@ problems:
                    }
 
                   }
-            feedback: |4
-
-                Cette méthode teste uniquement la valeur du premier caractère. Voyez-vous pourquoi ?
-        limit: 3
         name: Méthode contains
+        limit: 3
         header: |4
 
 
@@ -859,4 +860,8 @@ problems:
 
              public static boolean contains(String s, char c)
         type: multiple-choice
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
 weight: 1.0

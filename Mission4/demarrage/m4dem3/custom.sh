@@ -5,4 +5,4 @@ for file in student/*.java; do
 	iconv -f ${CHARSET} -t utf-8 "$file" -o "abc.out"
     cat abc.out > "$file"
 done
-echo 0
+exit 0

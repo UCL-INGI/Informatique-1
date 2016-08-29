@@ -103,35 +103,35 @@ context: |
 
     .. _jn3.1: http://math.hws.edu/javanotes/c3/s1.html
     .. |jn3.1| replace:: `3.1 : Blocks, Loops, and Branches`
-environment: default
+environment: mcq
+evaluate: best
 groups: false
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: 'Mission 1: QCM'
 network_grading: false
 order: 0
 problems:
     q1:
-        name: Initialisation de variables
+        limit: 3
         choices:
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code:: java
 
                    int a=12;
                    int b= 42352;
-            valid: true
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code:: java
 
                    int var1=-12;
                    int var2=42352;
-            valid: true
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code:: java
 
@@ -140,6 +140,7 @@ problems:
             feedback: |4
 
                 En Java, une variable est initialisée en utilisant une constante ou une expression qui s'évalue avec le type de la variable.
+            valid: true
         -   text: |4
 
                 .. code:: java
@@ -147,33 +148,33 @@ problems:
                    int var_1=-12100;
                    int var_2=42352;
             valid: true
-        -   text: |4
+        -   feedback: |4
+
+                En Java, un nom de variable ne peut jamais contenir d'espace.
+            text: |4
 
                 .. code:: java
 
                    int var=1;
                    int ma variable=2;
-            feedback: |4
+        -   feedback: |4
 
-                En Java, un nom de variable ne peut jamais contenir d'espace.
-        -   text: |4
+                En Java, l'expression ``1.2`` est un nombre réel et non un nombre entier.
+            text: |4
 
                 .. code:: java
 
                    int var=1.2;
                    int d=2;
-            feedback: |4
-
-                En Java, l'expression ``1.2`` est un nombre réel et non un nombre entier.
-        -   feedback: |4
-
-                En Java, l'expression ``\`1\``` correspond au caractère ``1``. Ce n'est donc pas un nombre entier.
-            text: |4
+        -   text: |4
 
                 .. code:: java
 
                    int var1='1';
                    int var2=2;
+            feedback: |4
+
+                En Java, l'expression ``\`1\``` correspond au caractère ``1``. Ce n'est donc pas un nombre entier.
         -   text: |4
 
                 .. code:: java
@@ -184,10 +185,10 @@ problems:
 
                 En Java, les entiers ne peuvent représenter que les nombres entre ``-2147483648`` et ``2147483647``. Le nombre ``123456789123456789123456789`` est trop grand. Il ne peut être représenté que sous la forme d'un ``long``.
         type: multiple-choice
+        name: Initialisation de variables
         header: |4
 
             Parmi les fragments de code Java suivants, quels sont ceux qui correspondent à des initialisations correctes de variables entières ?
-        limit: 3
     q2:
         choices:
         -   text: |4
@@ -200,7 +201,8 @@ problems:
                    boolean b=false;
                    long l=-1;
             valid: true
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code:: java
 
@@ -209,11 +211,7 @@ problems:
                    char c='9';
                    boolean b=true;
                    long l=-1;
-            valid: true
-        -   feedback: |4
-
-                Le type ``int`` ne peut être utilisé que pour stocker des nombres entiers.
-            text: |4
+        -   text: |4
 
                 .. code:: java
 
@@ -222,7 +220,13 @@ problems:
                    char c='0';
                    boolean b=false;
                    long l=-1234;
-        -   text: |4
+            feedback: |4
+
+                Le type ``int`` ne peut être utilisé que pour stocker des nombres entiers.
+        -   feedback: |4
+
+                Le type ``char`` ne peut être utilisé que pour stocker un (et un seul) caractère. ``'12'`` n'est pas un caractère valide. ``char c='2';`` serait une déclaration valide.
+            text: |4
 
                 .. code:: java
 
@@ -231,9 +235,6 @@ problems:
                    char c='12';
                    boolean b=true;
                    long l=678;
-            feedback: |4
-
-                Le type ``char`` ne peut être utilisé que pour stocker un (et un seul) caractère. ``'12'`` n'est pas un caractère valide. ``char c='2';`` serait une déclaration valide.
         -   feedback: |4
 
                 Le type ``char`` ne peut être utilisé que pour stocker un (et un seul) caractère. En java, une expression entre guillemets comme ``"9"`` est une *chaîne de caractères* (un ``String``)  et non un caractère. ``char c='9';`` (notez l'utilisation des apostrophes au lieu des guillemets) serait une déclaration valide.
@@ -246,7 +247,10 @@ problems:
                    char c="9";
                    boolean b=true;
                    long l=678;
-        -   text: |4
+        -   feedback: |4
+
+                Le type ``double`` ne peut être utilisé que pour stocker un nombre réel. ``'8'`` est le caractère qui correspond au chiffre huit et non un nombre réel. Cette initialisation n'est donc pas valide. Notez que la ligne ``int i=2/3;`` est tout à fait valide. L'initialisation d'une variable peut être faite en utilisant n'importe quelle expression qui retourne une variable de ce type. Cependant, comme ``i`` est une variable de type ``int``, sa valeur sera ``0`` puisque la division ``2/3`` est une division entière.
+            text: |4
 
                 .. code:: java
 
@@ -255,13 +259,7 @@ problems:
                    char c='a';
                    boolean b=false;
                    long l=-1;
-            feedback: |4
-
-                Le type ``double`` ne peut être utilisé que pour stocker un nombre réel. ``'8'`` est le caractère qui correspond au chiffre huit et non un nombre réel. Cette initialisation n'est donc pas valide. Notez que la ligne ``int i=2/3;`` est tout à fait valide. L'initialisation d'une variable peut être faite en utilisant n'importe quelle expression qui retourne une variable de ce type. Cependant, comme ``i`` est une variable de type ``int``, sa valeur sera ``0`` puisque la division ``2/3`` est une division entière.
-        -   feedback: |4
-
-                Le type ``boolean`` ne peut être utilisé que pour stocker une valeur booléenne contrairement à d'autres langages tels que C. Il peut s'agir de ``true``, ``false`` ou n'importe quelle expression qui donne une valeur booléenne. Ainsi, l'expression ``i==9`` est une expression booléenne qui a la valeur ``false``. Cette expression aurait pu aussi être utilisée pour initialiser la variable booléenne ``b``.
-            text: |4
+        -   text: |4
 
                 .. code:: java
 
@@ -270,12 +268,15 @@ problems:
                    char c='z';
                    boolean b=0;
                    long l=-1;
-        name: Initialisation de variables
+            feedback: |4
+
+                Le type ``boolean`` ne peut être utilisé que pour stocker une valeur booléenne contrairement à d'autres langages tels que C. Il peut s'agir de ``true``, ``false`` ou n'importe quelle expression qui donne une valeur booléenne. Ainsi, l'expression ``i==9`` est une expression booléenne qui a la valeur ``false``. Cette expression aurait pu aussi être utilisée pour initialiser la variable booléenne ``b``.
         type: multiple-choice
         header: |4
 
             Parmi les fragments de programmes Java ci-dessous, quels sont ceux qui respectent la syntaxe du langage ?
         limit: 3
+        name: Initialisation de variables
     q3:
         choices:
         -   valid: true
@@ -293,7 +294,11 @@ problems:
                    if(count>3) {
                       n=count;
                    }
-        -   text: |4
+        -   valid: true
+            feedback: |4
+
+                Un ligne de commentaire est une ligne ignorée par le compilateur Java. Certains programmeurs mettent en commentaire des lignes inutiles comme ci-dessus. Cela peut être utile durant l'écriture de programmes, mais évitez de rendre un programme finalisé avec des lignes de code en commentaires.
+            text: |4
 
                 .. code:: java
 
@@ -307,14 +312,11 @@ problems:
                    if(count>3) {
                       n=count;
                    }
-            feedback: |4
-
-                Un ligne de commentaire est une ligne ignorée par le compilateur Java. Certains programmeurs mettent en commentaire des lignes inutiles comme ci-dessus. Cela peut être utile durant l'écriture de programmes, mais évitez de rendre un programme finalisé avec des lignes de code en commentaires.
-            valid: true
         -   feedback: |4
 
 
                 Ce fragment de code est correct, mais en général on préfère utiliser ``//`` et non ``/* ... */``  pour un commentaire sur une ligne. Inversement, on préfère utiliser ``/* ... */`` pour un commentaire qui prend plusieurs lignes et non mettre ``//`` au début de chaque ligne de commentaire.
+            valid: true
             text: |4
 
                 .. code:: java
@@ -329,11 +331,7 @@ problems:
                    if(count>3) {
                       n=count;
                    }
-            valid: true
-        -   feedback: |4
-
-                Dans ce fragment de code, la ligne ``/* test`` marque le début d'un commentaire sur plusieurs lignes. Ce commentaire doit se terminer avec ``*/``, ce qui n'est pas le cas dans le code ci-dessus.
-            text: |4
+        -   text: |4
 
                 .. code:: java
 
@@ -347,6 +345,9 @@ problems:
                    if(count>3) {
                       n=count;
                    }
+            feedback: |4
+
+                Dans ce fragment de code, la ligne ``/* test`` marque le début d'un commentaire sur plusieurs lignes. Ce commentaire doit se terminer avec ``*/``, ce qui n'est pas le cas dans le code ci-dessus.
         -   text: |4
 
                 .. code:: java
@@ -388,6 +389,10 @@ problems:
 
             Afin de faciliter la compréhension des programmes écrits dans un langage de programmation tel que Java, il est important de bien le documenter en utilisant des commentaires. Parmi les fragments de code Java ci-dessous, lequel est syntaxiquement correct ?
     q4:
+        header: |4
+
+
+            Un langage de programmation tel que Java utilise une syntaxe bien précise. Il est important que vous sachiez reconnaître rapidement des erreurs de syntaxe dans un programme Java pour éviter de les commettre vous-même. Les programmes ci-dessous ont été écrits par des étudiants pour afficher le message ``Hello, world!`` à l'écran. Chaque programme est stocké dans le fichier ``Hello.java``. Un seul de ces programmes est acceptable par le compilateur Java. Lequel ?
         choices:
         -   valid: true
             text: |4
@@ -412,10 +417,7 @@ problems:
                       System.out.println(world!");
                     }
                    }
-        -   feedback: |4
-
-                En Java, le fichier ``Hello.java`` doit toujours contenir une classe dont le nom est ``Hello``.
-            text: |4
+        -   text: |4
 
                 .. code:: java
 
@@ -425,6 +427,9 @@ problems:
                       System.out.println("Hello, world!");
                     }
                    }
+            feedback: |4
+
+                En Java, le fichier ``Hello.java`` doit toujours contenir une classe dont le nom est ``Hello``.
         -   text: |4
 
                 .. code:: java
@@ -464,23 +469,19 @@ problems:
             feedback: |4
 
                 En Java, la ligne ``System.out.println("Hello, world!")`` doit nécessairement se terminer par un ``;``
-        limit: 3
-        header: |4
-
-
-            Un langage de programmation tel que Java utilise une syntaxe bien précise. Il est important que vous sachiez reconnaître rapidement des erreurs de syntaxe dans un programme Java pour éviter de les commettre vous-même. Les programmes ci-dessous ont été écrits par des étudiants pour afficher le message ``Hello, world!`` à l'écran. Chaque programme est stocké dans le fichier ``Hello.java``. Un seul de ces programmes est acceptable par le compilateur Java. Lequel ?
         name: Syntaxe de Java
         type: multiple-choice
+        limit: 3
     q5:
         choices:
-        -   text: |4
+        -   feedback: |4
+
+                Cette instruction place dans la variable ``a`` le contenu de la variable ``b`` mais pas l'inverse.
+            text: |4
 
                 .. code:: java
 
                    a=b;
-            feedback: |4
-
-                Cette instruction place dans la variable ``a`` le contenu de la variable ``b`` mais pas l'inverse.
         -   feedback: |4
 
                 Ce n'est pas une instruction valide en langage Java. Ne confondez-pas ``==`` et ``=``.
@@ -531,7 +532,7 @@ problems:
                     c=b;
                     b=a;
                     a=c;
-        type: multiple-choice
+        limit: 3
         header: |4
 
             Dans un langage de programmation comme Java, il est souvent nécessaire d'échanger le contenu de deux variables. Considérons le programme ci-dessous dans lequel deux variables sont initialisées :
@@ -542,7 +543,7 @@ problems:
                int b=1101;
 
             Parmi les fragments de Java ci-dessous, lequel permet de correctement échanger le contenu de la variable ``a`` avec le contenu de la variable ``b`` ?
-        limit: 3
+        type: multiple-choice
         name: Echange du contenu de variables
     q6:
         choices:
@@ -559,8 +560,7 @@ problems:
                      min=a;
                    }
             valid: true
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code:: java
 
@@ -572,8 +572,8 @@ problems:
                    {
                      min=b;
                    }
-        -   valid: true
-            text: |4
+            valid: true
+        -   text: |4
 
                 .. code:: java
 
@@ -585,7 +585,11 @@ problems:
                    {
                      min=b;
                    }
-        -   text: |4
+            valid: true
+        -   feedback: |4
+
+                Ce code ne fonctionne pas et le problème est assez subtil. En redéfinissant la variable ``min`` à l'intérieur de chaque bloc, on définit une variable qui est considérée par le compilateur comme étant différente de la variable min qui a été définie avec les variables ``a`` et ``b``. La nouvelle variable ``min`` est mise à jour à l'intérieur du bloc mais n'est pas accessible en dehors de ce bloc.
+            text: |4
 
                 .. code:: java
 
@@ -599,9 +603,6 @@ problems:
                      double min;
                      min=b;
                    }
-            feedback: |4
-
-                Ce code ne fonctionne pas et le problème est assez subtil. En redéfinissant la variable ``min`` à l'intérieur de chaque bloc, on définit une variable qui est considérée par le compilateur comme étant différente de la variable min qui a été définie avec les variables ``a`` et ``b``. La nouvelle variable ``min`` est mise à jour à l'intérieur du bloc mais n'est pas accessible en dehors de ce bloc.
         -   feedback: |4
 
                 Ne confondez pas ``!=`` et ``<=``
@@ -617,10 +618,7 @@ problems:
                    {
                      min=b;
                    }
-        -   feedback: |4
-
-                Ce programme place la valeur maximale dans la variable ``min``.
-            text: |4
+        -   text: |4
 
                 .. code:: java
 
@@ -632,6 +630,9 @@ problems:
                    {
                      min=b;
                    }
+            feedback: |4
+
+                Ce programme place la valeur maximale dans la variable ``min``.
         -   feedback: |4
 
                 Lorsque la valeur de la variable ``a`` est supérieure ou égale à la valeur de la variable ``b``, la variable ``min`` n'est pas initialisée.
@@ -644,8 +645,6 @@ problems:
                  min=a;
                    }
         type: multiple-choice
-        limit: 3
-        name: Calcul du minimum
         header: |4
 
             Considérons un programme Java qui manipule deux variables : ``a`` et ``b``. Parmi les fragments de code ci-dessous, lequel place correctement dans la variable ``min`` le minimum entre les contenus de ``a`` et ``b`` ?
@@ -655,9 +654,12 @@ problems:
                double a;
                double b;
                double min;
+        limit: 3
+        name: Calcul du minimum
     q7:
         choices:
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code:: java
 
@@ -668,7 +670,6 @@ problems:
                    else {
                      abs=x;
                    }
-            valid: true
         -   text: |4
 
                 .. code:: java
@@ -701,10 +702,7 @@ problems:
                    if( x>=0 ) {
                      abs=x;
                    }
-        -   feedback: |4
-
-                Ne confondez pas ``!=`` et ``>=``.
-            text: |4
+        -   text: |4
 
                 .. code:: java
 
@@ -715,16 +713,18 @@ problems:
                    else {
                       abs=-x;
                    }
-        limit: 3
+            feedback: |4
+
+                Ne confondez pas ``!=`` et ``>=``.
         name: Valeur absolue
+        type: multiple-choice
+        limit: 3
         header: |4
 
             Si ``x`` est une variable de type ``double``, lequel de ces fragments de code place dans la variable ``abs`` la valeur absolue de ``x``?
-        type: multiple-choice
     q8:
         choices:
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code:: java
 
@@ -733,6 +733,7 @@ problems:
                         System.out.println("vrai");
                     }
                    }
+            valid: true
         -   valid: true
             text: |4
 
@@ -743,14 +744,14 @@ problems:
                         System.out.println("vrai");
                     }
                    }
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code:: java
 
                    if( (x<b) && (x>=a) ){
                      System.out.println("vrai");
                    }
+            valid: true
         -   valid: true
             text: |4
 
@@ -801,10 +802,7 @@ problems:
             feedback: |4
 
                 Affiche-t-elle "vrai" lorsque ``x==a``?
-        -   feedback: |4
-
-                Qu'affiche ce fragment de code lorsque ``x==b`` ?
-            text: |4
+        -   text: |4
 
                 .. code:: java
 
@@ -813,9 +811,12 @@ problems:
                         System.out.println("vrai");
                     }
                    }
-        limit: 3
-        name: Intervalles
+            feedback: |4
+
+                Qu'affiche ce fragment de code lorsque ``x==b`` ?
         type: multiple-choice
+        name: Intervalles
+        limit: 3
         header: |4
 
             En mathématiques, on définit des intervalles, fermés, ouverts et semi-ouverts. L'intervalle semi-ouvert :math:`[3,7[` comprend l'ensemble des nombres réels qui sont supérieurs ou égaux à `3` et strictement inférieurs à 7. Sachant que ``a``, ``b`` et ``x`` sont des variables de type ``double``, lequel des fragments de code suivants affiche ``vrai`` sur sa sortie standard si et seulement si ``x`` appartient à l'intervalle :math:`[a,b[` ? On supposera pour cette question que la valeur stockée dans la variable ``a`` est strictement inférieure à celle stockée dans la variable ``b``.
@@ -832,7 +833,8 @@ problems:
                    if(k==0) {
                       System.out.println("ok");
                    }
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code:: java
 
@@ -842,8 +844,10 @@ problems:
                    if(c!=0.0) {
                       System.out.println("ok");
                    }
-            valid: true
-        -   text: |4
+        -   feedback: |4
+
+                Dans ce fragment de code, les variables sont de type ``int``. En arithmétique entière, la division ``6/7`` donne comme résultat ``0`` avec un reste de ``6``.
+            text: |4
 
                 .. code:: java
 
@@ -853,10 +857,10 @@ problems:
                    if(k!=0) {
                       System.out.println("ok");
                    }
-            feedback: |4
+        -   feedback: |4
 
-                Dans ce fragment de code, les variables sont de type ``int``. En arithmétique entière, la division ``6/7`` donne comme résultat ``0`` avec un reste de ``6``.
-        -   text: |4
+                Dans ce fragment de code, les variables ``a`` et ``b`` sont de type ``double``. Elles permettent donc de stocker un nombre réel. Le résultat de ``a/b`` est ``0.33333`` qui est différent de ``0.0``.
+            text: |4
 
                 .. code:: java
 
@@ -866,10 +870,10 @@ problems:
                    if(c==0.0) {
                       System.out.println("ok");
                    }
-            feedback: |4
+        -   feedback: |4
 
-                Dans ce fragment de code, les variables ``a`` et ``b`` sont de type ``double``. Elles permettent donc de stocker un nombre réel. Le résultat de ``a/b`` est ``0.33333`` qui est différent de ``0.0``.
-        -   text: |4
+                Dans ce fragment de code, les variables sont de type ``int``. En arithmétique entière, la division ``8/7`` donne comme résultat ``1`` avec un reste de ``1``.
+            text: |4
 
                 .. code:: java
 
@@ -879,9 +883,6 @@ problems:
                    if(k==0) {
                       System.out.println("ok");
                    }
-            feedback: |4
-
-                Dans ce fragment de code, les variables sont de type ``int``. En arithmétique entière, la division ``8/7`` donne comme résultat ``1`` avec un reste de ``1``.
         -   text: |4
 
                 .. code:: java
@@ -895,16 +896,15 @@ problems:
             feedback: |4
 
                 Dans ce fragment de code, les variables ``a`` et ``b`` sont de type ``double``. Elles permettent donc de stocker un nombre réel. Le résultat de ``a/b`` est différent de ``0.0``.
-        type: multiple-choice
+        name: Opérations arithmétiques
         header: |4
 
             Un seul des fragments de programmes ci-dessous affiche "ok" à l'écran ? Pouvez-vous trouver lequel ?
-        name: Opérations arithmétiques
+        type: multiple-choice
         limit: 3
     q10:
         choices:
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code:: java
 
@@ -917,6 +917,7 @@ problems:
                    }
                    // la variable sum contient la somme des
                    // n premiers entiers positifs
+            valid: true
         -   text: |4
 
                 .. code:: java
@@ -931,7 +932,10 @@ problems:
                    // la variable sum contient la somme des
                    // n premiers entiers positifs
             valid: true
-        -   text: |4
+        -   feedback: |4
+
+                Cette boucle ne se termine pas.
+            text: |4
 
                 .. code:: java
 
@@ -944,9 +948,6 @@ problems:
                    }
                    // la variable sum contient la somme des
                    // n premiers entiers positifs
-            feedback: |4
-
-                Cette boucle ne se termine pas.
         -   feedback: |4
 
                 Quelle est la somme calculée par cette boucle ``while`` ?
@@ -960,7 +961,10 @@ problems:
                       sum=sum+n;
                       n=n-1;
                    }
-        -   text: |4
+        -   feedback: |4
+
+                L'expression qui sert de garde à une boucle ``while`` doit être une expression booléenne. ``sum=sum+n`` n'est pas une expression booléenne et ce programme n'est pas syntaxiquement valide.
+            text: |4
 
                 .. code:: java
 
@@ -971,10 +975,19 @@ problems:
                    }
                    // la variable sum contient la somme des
                    // n premiers entiers positifs
-            feedback: |4
+        -   text: |4
 
-                L'expression qui sert de garde à une boucle ``while`` doit être une expression booléenne. ``sum=sum+n`` n'est pas une expression booléenne et ce programme n'est pas syntaxiquement valide.
-        -   feedback: |4
+                .. code:: java
+
+                   int n=...;  // >0 à initialiser correctement
+                   int count=n;
+                   int sum=0; // la somme
+                   while(count>0)
+                      sum=sum+count;
+                      count=count-1;
+                   // la variable sum contient la somme des
+                   // n premiers entiers positifs
+            feedback: |4
 
                 Ce programme illustre une subtilité de l'utilisation des blocs avec le langage Java. Sans accolades, la boucle ``while`` porte uniquement sur l'instruction qui la suit. Ce code est donc équivalent au code ci-dessous :
 
@@ -989,31 +1002,7 @@ problems:
                    count=count-1;
 
                 Dans ce fragment de code, la variable ``count`` n'est pas décrémentée dans le corps de la boucle et celle-ci ne se termine done jamais. Pour éviter ce genre de problèmes, il est préférable de *toujours* utiliser des accolades pour délimiter le bloc d'une boucle ``while``.
-            text: |4
-
-                .. code:: java
-
-                   int n=...;  // >0 à initialiser correctement
-                   int count=n;
-                   int sum=0; // la somme
-                   while(count>0)
-                      sum=sum+count;
-                      count=count-1;
-                   // la variable sum contient la somme des
-                   // n premiers entiers positifs
-        -   text: |4
-
-                .. code:: java
-
-                   int n=...;  // >0 à initialiser correctement
-                   int count=0;
-                   int sum=0; // la somme
-                   while(count<n)
-                      sum=sum+count;
-                      count=count+1;
-                   // la variable sum contient la somme des
-                   // n premiers entiers positifs
-            feedback: |4
+        -   feedback: |4
 
                 Ce programme illustre une subtilité de l'utilisation des blocs avec le langage Java. Sans accolades, la boucle ``while`` porte uniquement sur l'instruction qui la suit. Ce code est donc équivalent au code ci-dessous :
 
@@ -1028,12 +1017,24 @@ problems:
                    count=count+1;
 
                 Dans ce fragment de code, la variable ``count`` n'est pas incrémentée dans le corps de la boucle et celle-ci ne se termine done jamais. Pour éviter ce genre de problèmes, il est préférable de *toujours* utiliser des accolades pour délimiter le bloc d'une boucle ``while``.
+            text: |4
+
+                .. code:: java
+
+                   int n=...;  // >0 à initialiser correctement
+                   int count=0;
+                   int sum=0; // la somme
+                   while(count<n)
+                      sum=sum+count;
+                      count=count+1;
+                   // la variable sum contient la somme des
+                   // n premiers entiers positifs
         name: Boucles while
+        type: multiple-choice
         limit: 3
         header: |4
 
             Lequel des fragments de code Java ci-dessous permet de calculer la somme des :math:`n` premiers entiers positifs ?
-        type: multiple-choice
     q11:
         choices:
         -   valid: true
@@ -1048,7 +1049,8 @@ problems:
                       fact=fact*count;
                       count=count-1;
                    }
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code:: java
 
@@ -1059,7 +1061,6 @@ problems:
                       fact=fact*count;
                       count=count+1;
                    }
-            valid: true
         -   feedback: |4
 
                 Quel est le résultat de :math:`0 \times n`?
@@ -1088,10 +1089,7 @@ problems:
                       fact=fact*count;
                       count=count+1;
                    }
-        -   feedback: |4
-
-                Cette boucle ne fait que placer la valeur ``count`` dans ``fact`` à chaque itération.
-            text: |4
+        -   text: |4
 
                 .. code:: java
 
@@ -1102,6 +1100,9 @@ problems:
                       fact=count;
                       count=count-1;
                    }
+            feedback: |4
+
+                Cette boucle ne fait que placer la valeur ``count`` dans ``fact`` à chaque itération.
         -   feedback: |4
 
                 Cette boucle ne calcule pas la factorielle demandée. Que calcule-t-elle ?
@@ -1116,10 +1117,14 @@ problems:
                       count=count+1;
                       fact=fact*count;
                    }
+        type: multiple-choice
+        name: Boucles while
         header: |4
 
             Les boucles ``while`` sont utiles lorsque l'on doit répéter des opérations similaires à de multiples reprises. En arithmétique, la factorielle d'un entier positif (``n``) et supérieur à ``1`` est définie comme étant le produit de tous les entiers inférieurs ou égaux à ``n``. La factorielle de ``n`` se note :math:`n!`. Ainsi :math:`4!=24`. Parmi les boucles ``while`` ci-dessous, laquelle permet de calculer correctement :math:`n!` ?
-        type: multiple-choice
-        name: Boucles while
         limit: 3
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
 weight: 1.0

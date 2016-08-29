@@ -129,7 +129,8 @@ context: |
 
     .. _jn8.4.1 : http://math.hws.edu/javanotes/c8/s4.html#robustness.4.1
     .. |jn8.4.1| replace:: `8.4.1 : Assertions`
-environment: default
+environment: mcq
+evaluate: best
 groups: false
 limits:
     memory: '100'
@@ -140,25 +141,24 @@ network_grading: false
 order: 34
 problems:
     q1:
-        name: Déclaration de tableaux
         choices:
-        -   text: |
+        -   valid: true
+            text: |
                 .. code-block:: java
 
                    int[] tab=new int[5];
-            valid: true
             feedback: |4
 
                 C'est la déclaration la plus courante pour un tableau d'entiers. Notez que cette ligne combine une déclaration (``int[] tab`` et la création du tableau correspondant permettant de stocker 5 éléments de type ``int``.
-        -   text: |
+        -   valid: true
+            feedback: |4
+
+                La première ligne déclare que ``tab`` est une référence vers un tableau d'entiers. La deuxième ligne associe cette référence à un tableau permettant de stocker 5 entiers.
+            text: |
                 .. code-block:: java
 
                    int[] tab;
                    tab=new int[5];
-            feedback: |4
-
-                La première ligne déclare que ``tab`` est une référence vers un tableau d'entiers. La deuxième ligne associe cette référence à un tableau permettant de stocker 5 entiers.
-            valid: true
         -   text: |
                 .. code-block:: java
 
@@ -179,17 +179,17 @@ problems:
 
                  .. _jn7.1.3 : http://math.hws.edu/javanotes/c7/s1.html#arrays.1.3
                  .. |jn7.1.3| replace:: `7.1.3 : Array Initialization`
-        -   text: |
-                .. code-block:: java
-
-
-                    int[] tab=new int[];
-            feedback: |4
+        -   feedback: |4
 
                 Cette ligne est incorrecte. Lorsque l'on initialise un tableau, il faut spécifier le nombre d'éléments du tableau entre [] dans le membre de droite. En Java, les tableaux ont une taille fixe qui est définie à leur création. Relisez |jn7.1.3|_
 
                  .. _jn7.1.3 : http://math.hws.edu/javanotes/c7/s1.html#arrays.1.3
                  .. |jn7.1.3| replace:: `7.1.3 : Array Initialization`
+            text: |
+                .. code-block:: java
+
+
+                    int[] tab=new int[];
         -   text: |
                 .. code-block:: java
 
@@ -200,7 +200,11 @@ problems:
 
                  .. _jn7.1.3 : http://math.hws.edu/javanotes/c7/s1.html#arrays.1.3
                  .. |jn7.1.3| replace:: `7.1.3 : Array Initialization`
-        -   feedback: |4
+        -   text: |
+                .. code-block:: java
+
+                    int tab[5]=new int[];
+            feedback: |4
 
                 Cette ligne est incorrecte. Lorsque l'on initialise un tableau, il faut spécifier le nombre d'éléments du tableau entre [] dans le membre de droite. Relisez |jn7.1.3|_
 
@@ -208,15 +212,12 @@ problems:
 
                  .. _jn7.1.3 : http://math.hws.edu/javanotes/c7/s1.html#arrays.1.3
                  .. |jn7.1.3| replace:: `7.1.3 : Array Initialization`
-            text: |
-                .. code-block:: java
-
-                    int tab[5]=new int[];
+        type: multiple-choice
+        name: Déclaration de tableaux
+        limit: 3
         header: |4
 
             Parmi les déclarations suivantes, quelle est celle qui permet de déclarer correctement un tableau dont la référence est dénommée ``tab`` et qui peut contenir 5 nombres entiers ?
-        type: multiple-choice
-        limit: 3
     q2:
         choices:
         -   valid: true
@@ -227,35 +228,35 @@ problems:
             feedback: |4
 
                 Cette ligne est correcte. Le livre la préfère à la ligne ``double[] t= { -1.0, 0.0, 1.0};`` même si les deux sont équivalentes pour Java.
-        -   text: |
-                .. code-block:: java
-
-                    double[] t= { -1.0, 0.0, 1.0};
+        -   valid: true
             feedback: |4
 
                 Cette ligne est correcte. Le livre préfère la ligne ``double[] t=new double[] { -1.0, 0.0, 1.0};`` qui est plus explicite même si les deux sont équivalentes pour Java.
-            valid: true
-        -   feedback: |4
+            text: |
+                .. code-block:: java
+
+                    double[] t= { -1.0, 0.0, 1.0};
+        -   text: |
+                .. code-block:: java
+
+                   double[3] t= {-1.0, 0.0, 1.0};
+            feedback: |4
 
                 En Java, il n'existe pas de type ``double[3]`` pouvant être mis dans une déclaration. Relisez |jn7.1.3|_
 
                   .. _jn7.1.3 : http://math.hws.edu/javanotes/c7/s1.html#arrays.1.3
                   .. |jn7.1.3| replace:: `7.1.3 : Array Initialization`
-            text: |
-                .. code-block:: java
-
-                   double[3] t= {-1.0, 0.0, 1.0};
-        -   text: |
-                .. code-block:: java
-
-                   double t= {-1.0, 0.0, 1.0};
-            feedback: |4
+        -   feedback: |4
 
                 En Java, ``double t`` déclare un réel et non un tableau de réels. Relisez |jn7.1.3|_
 
 
                   .. _jn7.1.3 : http://math.hws.edu/javanotes/c7/s1.html#arrays.1.3
                   .. |jn7.1.3| replace:: `7.1.3 : Array Initialization`
+            text: |
+                .. code-block:: java
+
+                   double t= {-1.0, 0.0, 1.0};
         -   feedback: |4
 
                 Cette ligne n'est pas syntaxiquement correcte, relisez |jn7.1.3|_
@@ -266,21 +267,9 @@ problems:
                 .. code-block:: java
 
                    double[] t= new double[-1.0, 0.0,1.0];
-        -   text: |
-                .. code-block:: java
-
-                   double[] t= new double{-1.0,0.0,1.0};
-            feedback: |4
-
-                Cette ligne n'est pas syntaxiquement correcte, relisez |jn7.1.3|_
-
-
-                 .. _jn7.1.3 : http://math.hws.edu/javanotes/c7/s1.html#arrays.1.3
-                 .. |jn7.1.3| replace:: `7.1.3 : Array Initialization`
         -   feedback: |4
 
-                Cette ligne n'est pas syntaxiquement correcte. Ne confondez pas ``{`` et ``[``. Relisez |jn7.1.3|_
-
+                Cette ligne n'est pas syntaxiquement correcte, relisez |jn7.1.3|_
 
 
                  .. _jn7.1.3 : http://math.hws.edu/javanotes/c7/s1.html#arrays.1.3
@@ -288,7 +277,19 @@ problems:
             text: |
                 .. code-block:: java
 
+                   double[] t= new double{-1.0,0.0,1.0};
+        -   text: |
+                .. code-block:: java
+
                    double[] t= [-1.0, 0.0, 1.0];
+            feedback: |4
+
+                Cette ligne n'est pas syntaxiquement correcte. Ne confondez pas ``{`` et ``[``. Relisez |jn7.1.3|_
+
+
+
+                 .. _jn7.1.3 : http://math.hws.edu/javanotes/c7/s1.html#arrays.1.3
+                 .. |jn7.1.3| replace:: `7.1.3 : Array Initialization`
         name: Initialisation de tableaux
         type: multiple-choice
         header: |4
@@ -302,17 +303,17 @@ problems:
                 .. code-block:: java
 
                    System.out.println(tab.length);
-        -   text: |
-                .. code-block:: java
-
-                   System.out.println(tab.length());
-            feedback: |4
+        -   feedback: |4
 
                 En Java, la syntaxe ``tab.length()`` correspond à l'exécution de la méthode ``length()`` sur l'objet dont la référence est ``tab``. Les tableaux Java ne sont pas des objets ayant des méthodes que l'on peut appeler. Relisez |jn7.1.2|_
 
 
                  .. _jn7.1.2 : http://math.hws.edu/javanotes/c7/s1.html#arrays.1.2
                  .. |jn7.1.2| replace:: `7.1.2 : Using Arrays`
+            text: |
+                .. code-block:: java
+
+                   System.out.println(tab.length());
         -   feedback: |4
 
                 ``tab.size`` n'existe pas. Relisez |jn7.1.2|_
@@ -323,16 +324,16 @@ problems:
                 .. code-block:: java
 
                    System.out.println(tab.size);
-        -   feedback: |4
+        -   text: |
+                .. code-block:: java
+
+                   System.out.println(tab[0]);
+            feedback: |4
 
                 ``tab[0]`` est le premier élément du tableau ``tab`` et non le nombre d'éléments présents dans le tableau. Relisez |jn7.1.2|_
 
                  .. _jn7.1.2 : http://math.hws.edu/javanotes/c7/s1.html#arrays.1.2
                  .. |jn7.1.2| replace:: `7.1.2 : Using Arrays`
-            text: |
-                .. code-block:: java
-
-                   System.out.println(tab[0]);
         -   text: |
                 .. code-block:: java
 
@@ -350,55 +351,62 @@ problems:
 
             Une fois qu'un tableau a été déclaré et initialisé, il faut parfois pouvoir connaître le nombre d'éléments se trouvant dans le tableau. Lequel des codes ci-dessous affiche-t-il le nombre d'entiers dans le tableau ``tab`` déclaré via ``int[] tab=new int[]{1,2,7,9,3,99,-12,78,119}`` ?
     q4:
+        header: |4
+
+            Outre les tableaux à une dimension décrit dans |jn7.1|_, Java supporte également des tableaux à plusieurs dimensions. Laquelle des déclarations ci-dessous est-elle un tableau à plusieurs dimensions qui permet de stocker exactement 24 nombres entiers ?
+
+
+            .. _jn7.1 : http://math.hws.edu/javanotes/c7/s1.html
+            .. |jn7.1| replace:: `7.1 : Creating and Using Arrays`
         choices:
-        -   feedback: |4
+        -   valid: true
+            feedback: |4
 
                 Ce tableau à deux dimensions comprend 4 lignes et 6 colonnes.
-            valid: true
             text: |
                 .. code-block:: java
 
                    int[][] t=new int[4][6];
-        -   text: |
+        -   feedback: |4
+
+                Ce tableau à deux dimensions comprend 3 lignes et 8 colonnes.
+            valid: true
+            text: |
                 .. code-block:: java
 
                    int[][] t=new int[3][8];
-            valid: true
-            feedback: |4
+        -   text: |
+                .. code-block:: java
 
-                Ce tableau à deux dimensions comprend 3 lignes et 8 colonnes.
-        -   feedback: |4
+                   int[][] t=new int[2][4];
+            feedback: |4
 
                 Ce tableau à deux dimensions comprend 2 lignes et 4 colonnes. Relisez |jn7.5.1|_
 
 
                  .. _jn7.5.1 : http://math.hws.edu/javanotes/c7/s5.html#arrays.5.1
                  .. |jn7.5.1| replace:: `7.5.1 : Creating Two-dimensional Arrays`
-            text: |
+        -   text: |
                 .. code-block:: java
 
-                   int[][] t=new int[2][4];
-        -   feedback: |4
+                   int[][] t=new int[24];
+            feedback: |4
 
                 Cette ligne est erronée. La référence déclarée à gauche est vers un tableau de tableaux alors que seul un tableau d'entiers est créé dans le membre de droite. Relisez |jn7.5.1|_
 
                  .. _jn7.5.1 : http://math.hws.edu/javanotes/c7/s5.html#arrays.5.1
                  .. |jn7.5.1| replace:: `7.5.1 : Creating Two-dimensional Arrays`
-            text: |
+        -   text: |
                 .. code-block:: java
 
-                   int[][] t=new int[24];
-        -   feedback: |4
+                   int[] t=new int[3][8];
+            feedback: |4
 
                 Cette ligne est erronée. La référence déclarée à gauche est vers un tableau alors qu'un tableau de tableaux d'entiers est créé dans le membre de droite. Relisez |jn7.5.1|_
 
 
                  .. _jn7.5.1 : http://math.hws.edu/javanotes/c7/s5.html#arrays.5.1
                  .. |jn7.5.1| replace:: `7.5.1 : Creating Two-dimensional Arrays`
-            text: |
-                .. code-block:: java
-
-                   int[] t=new int[3][8];
         -   text: |
                 .. code-block:: java
 
@@ -411,19 +419,13 @@ problems:
 
                  .. _jn7.5.1 : http://math.hws.edu/javanotes/c7/s5.html#arrays.5.1
                  .. |jn7.5.1| replace:: `7.5.1 : Creating Two-dimensional Arrays`
-        limit: 3
-        header: |4
-
-            Outre les tableaux à une dimension décrit dans |jn7.1|_, Java supporte également des tableaux à plusieurs dimensions. Laquelle des déclarations ci-dessous est-elle un tableau à plusieurs dimensions qui permet de stocker exactement 24 nombres entiers ?
-
-
-            .. _jn7.1 : http://math.hws.edu/javanotes/c7/s1.html
-            .. |jn7.1| replace:: `7.1 : Creating and Using Arrays`
         name: Tableaux à plusieurs dimensions
         type: multiple-choice
+        limit: 3
     q5:
         choices:
-        -   text: |
+        -   valid: true
+            text: |
                 .. code-block:: java
 
                    if(t.length==1) {
@@ -435,7 +437,6 @@ problems:
                      }
                    }
                    return true;
-            valid: true
         -   text: |
                 .. code-block:: java
 
@@ -479,10 +480,7 @@ problems:
             feedback: |4
 
                 Que se passe-t-il lors du premier passage dans la boucle ``for`` avec un tableau ``t`` contenant ``{ 1.0, 2.0 }`` ? ``i`` vaut ``t.length``, quel est la valeur de ``t[i]`` ?
-        -   feedback: |4
-
-                Cette méthode teste-t-elle vraiment l'entièreté du tableau ? Combien de fois passe-t-elle dans la boucle ``for`` ?
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    if(t.length==1) {
@@ -497,6 +495,9 @@ problems:
                      }
                    }
                    return true;
+            feedback: |4
+
+                Cette méthode teste-t-elle vraiment l'entièreté du tableau ? Combien de fois passe-t-elle dans la boucle ``for`` ?
         -   text: |
                 .. code-block:: java
 
@@ -515,7 +516,7 @@ problems:
             feedback: |4
 
                 Cette méthode teste-t-elle vraiment l'entièreté du tableau ? Combien de fois passe-t-elle dans la boucle ``for`` ?
-        type: multiple-choice
+        limit: 3
         header: |4
 
             Laquelle des suites d'instructions ci-dessous est une implémentation correcte de la spécification suivante :
@@ -531,7 +532,7 @@ problems:
               {
                 // corps à inclure
               }
-        limit: 3
+        type: multiple-choice
         name: Tableaux ordonnés
     q6:
         choices:
@@ -540,11 +541,11 @@ problems:
 
                     (tab[0].length==3) && (tab[1][1]==5)
             valid: true
-        -   valid: true
-            text: |
+        -   text: |
                 .. code-block:: java
 
                     (tab.length==2) && (tab[0][2]==3)
+            valid: true
         -   text: |
                 .. code-block:: java
 
@@ -558,11 +559,7 @@ problems:
 
                  .. _jn7.5.2 : http://math.hws.edu/javanotes/c7/s5.html#arrays.5.2
                  .. |jn7.5.2| replace:: `7.5.2 : Using Two-dimensional Arrays`
-        -   text: |
-                .. code-block:: java
-
-                   (tab[1].length==3) && (tab[0][1]==2)
-            feedback: |4
+        -   feedback: |4
 
                 ``tab[1].length`` est le nombre de colonnes de la ligne ``1`` du tableau, c'est-à-dire ``2``.  Relisez |jn7.5.1|_ et |jn7.5.2|_
 
@@ -572,6 +569,10 @@ problems:
 
                  .. _jn7.5.2 : http://math.hws.edu/javanotes/c7/s5.html#arrays.5.2
                  .. |jn7.5.2| replace:: `7.5.2 : Using Two-dimensional Arrays`
+            text: |
+                .. code-block:: java
+
+                   (tab[1].length==3) && (tab[0][1]==2)
         -   feedback: |4
 
                 L'élément ``tab[0][2]`` a comme valeur ``3`` et non ``2``.
@@ -580,8 +581,6 @@ problems:
 
                    (tab[0][2]==2) && (tab[1][0]==4)
         type: multiple-choice
-        limit: 3
-        name: Initialisation de tableaux à deux dimensions
         header: |4
 
             Considérons un tableau à deux dimensions initialisé comme suit :
@@ -593,6 +592,8 @@ problems:
                       } ;
 
             Laquelle des expressions booléennes ci-dessous est-elle vraie ?
+        limit: 3
+        name: Initialisation de tableaux à deux dimensions
     q7:
         choices:
         -   valid: true
@@ -619,22 +620,23 @@ problems:
                 .. code-block:: java
 
                     ( m[li][c]==li*ci)
-        -   feedback: |4
-
-                ``count`` étant initialisé à ``1``, l'élément ``m[0][0]`` est initialisé à la valeur ``1``.
-            text: |
-                .. code-block:: java
-
-                    (m[0][0]==0) && (m[0][c-1]==c)
         -   text: |
                 .. code-block:: java
 
-                     ( m[0][1]==1) && (m[0][c-1]==c)
+                    (m[0][0]==0) && (m[0][c-1]==c)
             feedback: |4
 
+                ``count`` étant initialisé à ``1``, l'élément ``m[0][0]`` est initialisé à la valeur ``1``.
+        -   feedback: |4
+
                 ``m[0][1]`` vaut ``2``
-        limit: 3
+            text: |
+                .. code-block:: java
+
+                     ( m[0][1]==1) && (m[0][c-1]==c)
         name: 'Manipulation de tableau à deux dimensions '
+        type: multiple-choice
+        limit: 3
         header: |4
 
             Considérons la matrice ``m`` de ``li`` lignes et ``c`` colonnes qui a été initialisée par les instructions ci-dessous :
@@ -652,11 +654,9 @@ problems:
                }
 
             Laquelle des expressions booléennes ci-dessous est-elle vraie ?
-        type: multiple-choice
     q8:
         choices:
-        -   valid: true
-            text: |
+        -   text: |
                 .. code-block:: java
 
                   double sum=0.0;
@@ -664,6 +664,7 @@ problems:
                     sum=sum+t[i];
                   }
                   return sum;
+            valid: true
         -   valid: true
             text: |
                 .. code-block:: java
@@ -673,10 +674,7 @@ problems:
                     sum=sum+t[i];
                   }
                   return sum;
-        -   feedback: |4
-
-                Ce code est utilisable pour calculer la somme des éléments d'un tableau à deux dimensions, mais le tableau ``t`` qui est passé comme paramètre effectif à la méthode est un tableau à une seule dimension. Ce code ne compilera pas dans la méthode ``sumTab``.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                   double sum=0.0;
@@ -686,6 +684,9 @@ problems:
                    }
                   }
                   return sum;
+            feedback: |4
+
+                Ce code est utilisable pour calculer la somme des éléments d'un tableau à deux dimensions, mais le tableau ``t`` qui est passé comme paramètre effectif à la méthode est un tableau à une seule dimension. Ce code ne compilera pas dans la méthode ``sumTab``.
         -   text: |
                 .. code-block:: java
 
@@ -711,6 +712,7 @@ problems:
                    }
                    return sum;
         type: multiple-choice
+        name: Somme des éléments d'un tableau
         limit: 3
         header: |4
 
@@ -724,8 +726,8 @@ problems:
                * @post retourne la somme des valeurs stockées dans le tableau
                */
               public static double sumTab(double[] t)
-        name: Somme des éléments d'un tableau
     q9:
+        name: Assertions
         choices:
         -   feedback: |4
 
@@ -736,9 +738,7 @@ problems:
 
                    assert a>0 : "a doit être strictement positif";
                    assert ( (b>2*a) && (b%2)==0 ) : "b invalide";
-        -   feedback: |4
-
-                Il est intéressant d'utiliser des commentaires pour indiquer quelle précondition n'est pas vérifiée.
+        -   valid: true
             text: |
                 .. code-block:: java
 
@@ -746,15 +746,17 @@ problems:
                    assert (b>2*a) : "b trop petit";
                    int reste=b%2;
                    assert reste==0 : "b n'est pas pair";
-            valid: true
-        -   text: |
+            feedback: |4
+
+                Il est intéressant d'utiliser des commentaires pour indiquer quelle précondition n'est pas vérifiée.
+        -   feedback: |4
+
+                La première assertion est incorrecte. Elle est vraie lorsque ``a<=0`` or la précondition de la méthode est ``a>0``.
+            text: |
                 .. code-block:: java
 
                    assert a<=0;
                    assert ( (b>2*a) && (b%2)==0 ) : "b invalide";
-            feedback: |4
-
-                La première assertion est incorrecte. Elle est vraie lorsque ``a<=0`` or la précondition de la méthode est ``a>0``.
         -   text: |
                 .. code-block:: java
 
@@ -765,15 +767,14 @@ problems:
             feedback: |4
 
                 En Java, ``assert`` permet de vérifier qu'une précondition est remplie. Si c'est le cas, l'instruction ``assert`` n'a aucun effet. Sinon, l'instruction ``assert`` affiche le message qui suit ``:`` et provoque une erreur. Lorsque l'on utilise ``assert`` pour vérifier les préconditions, on souhaite que l'exécution du programme s'arrête et que le message d'erreur soit afficher lorsqu'une précondition n'est pas vérifiée. Pour cela, l'expression booléenne contenu dans l'assertion doit être la précondition à vérifier.
-        -   text: |
+        -   feedback: |4
+
+                Notez qu'en Java l'expression ``(b%2)`` est une expression entière. Elle peut donc apparaître à gauche d'un signe ``==``. En Java, ``assert`` permet de vérifier qu'une précondition est remplie. Si c'est le cas, l'instruction ``assert`` n'a aucun effet. Sinon, l'instruction ``assert`` affiche le message qui suit ``:`` et provoque une erreur. Lorsque l'on utilise ``assert`` pour vérifier les préconditions, on souhaite que l'exécution du programme s'arrête et que le message d'erreur soit afficher lorsqu'une précondition n'est pas vérifiée. Pour cela, l'expression booléenne contenu dans l'assertion doit être la précondition à vérifier.
+            text: |
                 .. code-block:: java
 
                    assert a<=0 : "a doit être strictement positif";
                    assert ( (b<=2*a) && (b%2)!=0 ) : "b invalide";
-            feedback: |4
-
-                Notez qu'en Java l'expression ``(b%2)`` est une expression entière. Elle peut donc apparaître à gauche d'un signe ``==``. En Java, ``assert`` permet de vérifier qu'une précondition est remplie. Si c'est le cas, l'instruction ``assert`` n'a aucun effet. Sinon, l'instruction ``assert`` affiche le message qui suit ``:`` et provoque une erreur. Lorsque l'on utilise ``assert`` pour vérifier les préconditions, on souhaite que l'exécution du programme s'arrête et que le message d'erreur soit afficher lorsqu'une précondition n'est pas vérifiée. Pour cela, l'expression booléenne contenu dans l'assertion doit être la précondition à vérifier.
-        type: multiple-choice
         header: |4
 
             En Java, les assertions peuvent être utilisées pour vérifier explicitement les préconditions et les postconditions d'une méthode. En programmation défensive, on utilise des ``assert`` pour vérifier explicitement les préconditions de chaque méthode. Considérons la méthode dont la spécification est reprise ci-dessous :
@@ -787,17 +788,17 @@ problems:
              private void methode(int a, int b)
 
             Laquelle des séquences d'instructions ci-dessous vérifie explicitement les préconditions de cette méthode ?
-        name: Assertions
+        type: multiple-choice
         limit: 3
     q10:
         choices:
-        -   valid: true
-            text: |
+        -   text: |
                 .. code-block:: java
 
                     for(int i=0; i<a.length;i++) {
                      s[i]=a[i]+b[i];
                     }
+            valid: true
         -   text: |
                 .. code-block:: java
 
@@ -819,43 +820,44 @@ problems:
                 .. code-block:: java
 
                     s[]=a[]+b[];
-        -   feedback: |4
-
-                Cette boucle va provoquer une erreur à l'exécution lorsque ``i`` vaut ``a.length``. Voyez-vous pourquoi ?
-            text: |
+        -   text: |
                 .. code-block:: java
 
                     for(int i=0; i<=a.length;i++) {
                      s[i]=a[i]+b[i];
                     }
-        -   feedback: |4
+            feedback: |4
 
-                Cette boucle va provoquer une erreur à l'exécution lorsque ``i`` vaut ``b.length``. Voyez-vous pourquoi ?
-            text: |
+                Cette boucle va provoquer une erreur à l'exécution lorsque ``i`` vaut ``a.length``. Voyez-vous pourquoi ?
+        -   text: |
                 .. code-block:: java
 
                     for(int i=0; i<=b.length;i++) {
                      s[i]=a[i]+b[i];
                     }
-        -   text: |
+            feedback: |4
+
+                Cette boucle va provoquer une erreur à l'exécution lorsque ``i`` vaut ``b.length``. Voyez-vous pourquoi ?
+        -   feedback: |4
+
+                Cette boucle ne calculera pas la valeur de ``s[0]``. Voyez-vous pourquoi ?
+            text: |
                 .. code-block:: java
 
                     for(int i=s.length-1; i>0;i=i-1) {
                      s[i]=a[i]+b[i];
                     }
-            feedback: |4
+        -   feedback: |4
 
-                Cette boucle ne calculera pas la valeur de ``s[0]``. Voyez-vous pourquoi ?
-        -   text: |
+                Cette boucle va provoquer une erreur à l'exécution lorsque ``i`` vaut ``s.length``. Voyez-vous pourquoi ?
+            text: |
                 .. code-block:: java
 
                     for(int i=s.length; i>=0;i=i-1) {
                      s[i]=a[i]+b[i];
                     }
-            feedback: |4
-
-                Cette boucle va provoquer une erreur à l'exécution lorsque ``i`` vaut ``s.length``. Voyez-vous pourquoi ?
         name: Somme de vecteurs
+        type: multiple-choice
         limit: 3
         header: |4
 
@@ -869,7 +871,6 @@ problems:
 
 
             Supposons que ces tableaux servent à stocker des vecteurs (au sens mathématique du terme). Laquelle des séquences d'instructions ci-dessous place-t-elle dans le vecteur ``s`` la somme des vecteurs ``a`` et ``b``?
-        type: multiple-choice
     q11:
         choices:
         -   valid: true
@@ -882,7 +883,8 @@ problems:
                      }
                    }
                    return false;
-        -   text: |
+        -   valid: true
+            text: |
                 .. code-block:: java
 
                    for(int i=s.length-1;i>=0;i=i-1) {
@@ -891,7 +893,6 @@ problems:
                      }
                    }
                    return false;
-            valid: true
         -   feedback: |4
 
                 Le nombre d'éléments dans le tableau de caractère ``s`` est ``s.length`` et non le résultat de l'application d'une méthode ``length()`` qui ne prend pas de paramètre.
@@ -917,10 +918,7 @@ problems:
                      }
                    }
                    return false;
-        -   feedback: |4
-
-                Que fait cette méthode après avoir comparé ``c`` avec l'élément ``s[0]`` ?
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    for(int i=0;i<s.length();i++) {
@@ -931,6 +929,11 @@ problems:
                         return false;
                      }
                    }
+            feedback: |4
+
+                Que fait cette méthode après avoir comparé ``c`` avec l'élément ``s[0]`` ?
+        type: multiple-choice
+        name: Tableaux de caractères
         header: |4
 
             La semaine passée, vous avez écrit une méthode ``count`` permettant de déterminer le nombre d'occurences d'un caractère dans un ``String``. Lequel des corps ci-dessous est une implémentation correcte de la méthode ``isIn`` dont la spécification est
@@ -943,8 +946,6 @@ problems:
               *       et false sinon
               */
              public static boolean isIn(char c, char[] s)
-        type: multiple-choice
-        name: Tableaux de caractères
         limit: 3
     q12:
         choices:
@@ -956,15 +957,11 @@ problems:
                       r[i]=s.charAt(i);
                    }
                    return r;
+            feedback: |4
+
+                Notez que la longueur d'une chaîne de caractères s'obtient en appliquant la méthode ``length()`` à une référence vers cette chaîne. La longueur du tableau de caractères ``r`` est ``r.length``.
             valid: true
-            feedback: |4
-
-                Notez que la longueur d'une chaîne de caractères s'obtient en appliquant la méthode ``length()`` à une référence vers cette chaîne. La longueur du tableau de caractères ``r`` est ``r.length``.
-        -   valid: true
-            feedback: |4
-
-                Notez que la longueur d'une chaîne de caractères s'obtient en appliquant la méthode ``length()`` à une référence vers cette chaîne. La longueur du tableau de caractères ``r`` est ``r.length``.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    char[] r=new char[s.length()];
@@ -972,10 +969,11 @@ problems:
                       r[i]=s.charAt(i);
                    }
                    return r;
-        -   feedback: |4
+            feedback: |4
 
-                Cette réponse contient deux erreurs. Tout d'abord, avant de pouvoir utiliser un tableau, il faut fixer sa longueur lors de son initialisation. Ensuite, pour retourner un tableau, il faut retourner une référence vers ce tableau. Si ``r`` est une référence de type ``char[]``, il suffit de
-            text: |
+                Notez que la longueur d'une chaîne de caractères s'obtient en appliquant la méthode ``length()`` à une référence vers cette chaîne. La longueur du tableau de caractères ``r`` est ``r.length``.
+            valid: true
+        -   text: |
                 .. code-block:: java
 
                   char[] r;
@@ -983,6 +981,9 @@ problems:
                       r[i]=s.charAt(i);
                   }
                   return r[];
+            feedback: |4
+
+                Cette réponse contient deux erreurs. Tout d'abord, avant de pouvoir utiliser un tableau, il faut fixer sa longueur lors de son initialisation. Ensuite, pour retourner un tableau, il faut retourner une référence vers ce tableau. Si ``r`` est une référence de type ``char[]``, il suffit de
         -   text: |
                 .. code-block:: java
 
@@ -991,7 +992,10 @@ problems:
             feedback: |4
 
                 En Java, ce genre de raccourci n'existe pas.
-        -   text: |
+        -   feedback: |4
+
+                En Java, la longueur d'une chaîne de caractères s'obtient via ``s.length()`` et non ``s.length``.
+            text: |
                 .. code-block:: java
 
                   char[] r=new char[s.length];
@@ -999,10 +1003,6 @@ problems:
                       r[i]=s.charAt(i);
                   }
                   return r;
-            feedback: |4
-
-                En Java, la longueur d'une chaîne de caractères s'obtient via ``s.length()`` et non ``s.length``.
-        limit: 3
         name: toCharArray
         header: |4
 
@@ -1020,4 +1020,9 @@ problems:
 
             Laquelle des séquences ci-dessous est une implémentation correcte de cette méthode ?
         type: multiple-choice
+        limit: 3
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
 weight: 1.0

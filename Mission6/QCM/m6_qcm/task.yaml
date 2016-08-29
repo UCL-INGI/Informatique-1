@@ -85,7 +85,8 @@ context: |
 
     .. _TextIO : http://math.hws.edu/eck/cs124/javanotes6/source/TextIO.java
     .. |TextIO| replace:: ``TextIO``
-environment: default
+environment: mcq
+evaluate: best
 groups: false
 limits:
     memory: '100'
@@ -96,7 +97,7 @@ network_grading: false
 order: 42
 problems:
     q1:
-        name: Classe, objets et instances
+        limit: 3
         choices:
         -   text: |4
 
@@ -104,12 +105,12 @@ problems:
                 * Chaque instance de ``PairOfDice`` a sa propre copie de ``die1``.
                 * ``roll()`` est une méthode d'instance de la classe ``PairOfDice``.
             valid: true
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 * Une instance de ``PairOfDice`` est un objet.
                 * ``die1`` est une variable d'instance de la classe ``PairOfDice``.
                 * L'effet de l'exécution de la méthode ``roll()`` dépend de l'instance à laquelle elle s'applique.
-            valid: true
         -   text: |4
 
                 * Ce code définit un objet ``PairOfDice``.
@@ -118,38 +119,38 @@ problems:
             feedback: |4
 
                 Ce code définit une *classe*, pas un objet.
-        -   text: |4
+        -   feedback: |4
+
+                ``die1`` est une variable d'instance, elle n'est pas partagée.
+            text: |4
 
                 * Une instance de ``PairOfDice`` est un objet.
                 * ``die1`` est une variable partagée entre les instances de ``PairOfDice``.
                 * ``roll()`` est une méthode d'instance de la classe ``PairOfDice``.
-            feedback: |4
+        -   feedback: |4
 
-                ``die1`` est une variable d'instance, elle n'est pas partagée.
-        -   text: |4
+                ``roll()`` est une méthode d'instance.
+            text: |4
 
                 * Une instance de ``PairOfDice`` est un objet.
                 * Chaque instance de ``PairOfDice`` a sa propre copie de ``die1``.
                 * ``roll()`` est une méthode de classe de la classe ``PairOfDice``.
-            feedback: |4
+        -   feedback: |4
 
-                ``roll()`` est une méthode d'instance.
-        -   text: |4
+                La notion d'instance s'applique aux classes et aux objets, pas aux variables.
+            text: |4
 
                 * Une instance de ``die1`` est un entier.
                 * Chaque instance de ``PairOfDice`` a sa propre copie de ``die1``.
                 * L'effet de l'exécution de la méthode ``roll()`` dépend de l'instance à laquelle elle s'applique.
-            feedback: |4
-
-                La notion d'instance s'applique aux classes et aux objets, pas aux variables.
-        -   feedback: |4
-
-                Une variable locale est définie à l'intérieur du corps d'une méthode.
-            text: |4
+        -   text: |4
 
                 * Ce code définit une classe ``PairOfDice``.
                 * ``die1`` est une variable locale de la classe ``PairOfDice``.
                 * L'effet de l'exécution de la méthode ``roll()`` dépend de l'instance à laquelle elle s'applique.
+            feedback: |4
+
+                Une variable locale est définie à l'intérieur du corps d'une méthode.
         -   feedback: |4
 
                 ``roll()`` est une méthode d'instance et utilise les variables d'instance de la classe.
@@ -159,6 +160,7 @@ problems:
                 * ``die1`` est une variable d'instance de la classe ``PairOfDice``.
                 * L'effet de l'exécution de la méthode ``roll()`` est indépendant de l'instance à laquelle elle s'applique.
         type: multiple-choice
+        name: Classe, objets et instances
         header: |4
 
             Soit le code Java suivant
@@ -193,10 +195,11 @@ problems:
                 } // end class PairOfDice
 
             Laquelle des propositions ci-dessous est correcte ?
-        limit: 3
     q2:
+        type: multiple-choice
         choices:
-        -   text: |
+        -   valid: true
+            text: |
                 .. code-block:: java
 
                    public class Fraction {
@@ -212,7 +215,6 @@ problems:
                            return ((double) num) / ((double) den);
                        }
                    }
-            valid: true
         -   feedback: |4
 
                 La méthode ``valeur`` doit être une méthode d'instance, pour avoir accès aux variables d'instance de chaque instance de ``Fraction``.
@@ -232,10 +234,7 @@ problems:
                            return ((double) num) / ((double) den);
                        }
                    }
-        -   feedback: |4
-
-                La signature du constructeur est incorrecte.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    public class Fraction {
@@ -251,6 +250,9 @@ problems:
                            return ((double) num) / ((double) den);
                        }
                    }
+            feedback: |4
+
+                La signature du constructeur est incorrecte.
         -   text: |
                 .. code-block:: java
 
@@ -290,8 +292,6 @@ problems:
                            return ((double) num) / ((double) den);
                        }
                    }
-        name: Définition de classe
-        type: multiple-choice
         header: |4
 
             Laquelle des définitions suivantes définit correctement une classe dont les instances représentent des fractions (num / den), telle que les instructions
@@ -303,6 +303,7 @@ problems:
 
             imprime le résultat ``0.75``  ?
         limit: 3
+        name: Définition de classe
     q3:
         choices:
         -   valid: true
@@ -311,14 +312,14 @@ problems:
                 1. Erreur à l'exécution: ``f`` est une référence nulle
                 2. Imprime "0.75"
                 3. Erreur à l'exécution: ``f`` est une référence nulle
-        -   text: |4
+        -   feedback: |4
+
+                Dans le cas 1, ``f`` n'est pas initialisé donc ne référencie aucun objet.
+            text: |4
 
                 1. Imprime "0.0"
                 2. Imprime "0.75"
                 3. Erreur à l'exécution: ``f`` est une référence nulle
-            feedback: |4
-
-                Dans le cas 1, ``f`` n'est pas initialisé donc ne référencie aucun objet.
         -   feedback: |4
 
                 La référence ``null`` ne référencie aucun objet, le cas 3 est identique au cas 1.
@@ -327,14 +328,14 @@ problems:
                 1. Erreur à l'exécution: ``f`` est une référence nulle
                 2. Imprime "0.75"
                 3. Imprime "0.0"
-        -   feedback: |4
-
-                Les trois sont corrects par rapport à la syntaxe et aux types, la compilation ne pose pas de problème.
-            text: |4
+        -   text: |4
 
                 1. Erreur de compilation
                 2. Imprime "0.75"
                 3. Erreur de compilation
+            feedback: |4
+
+                Les trois sont corrects par rapport à la syntaxe et aux types, la compilation ne pose pas de problème.
         -   text: |4
 
                 1. Imprime "0.0"
@@ -343,8 +344,8 @@ problems:
             feedback: |4
 
                 Dans les cas 1 et 3, ``f`` ne référencie aucun objet.
-        name: Initialisation d'objets
         limit: 3
+        name: Initialisation d'objets
         type: multiple-choice
         header: |4+
 
@@ -383,7 +384,10 @@ problems:
                    public void setNum(int n) {
                        num = n;
                    }
-        -   text: |
+        -   feedback: |4
+
+                Il s'agit de permettre au reste du programme de lire et modifier la variable, pas à l'utilisateur.
+            text: |
                 .. code-block:: java
 
                    public int getNum() {
@@ -392,13 +396,7 @@ problems:
                    public void setNum() {
                        num = TextIO.getInt();
                    }
-            feedback: |4
-
-                Il s'agit de permettre au reste du programme de lire et modifier la variable, pas à l'utilisateur.
-        -   feedback: |4
-
-                La méthode ``getNum()`` ne sert à rien tel que définie ici.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    public void getNum(int n) {
@@ -407,10 +405,10 @@ problems:
                    public void setNum(int n) {
                        num = n;
                    }
-        -   feedback: |4
+            feedback: |4
 
-                Dans ``setNum()``, pourquoi retourner la valeur modifiée?
-            text: |
+                La méthode ``getNum()`` ne sert à rien tel que définie ici.
+        -   text: |
                 .. code-block:: java
 
                    public int getNum() {
@@ -420,6 +418,9 @@ problems:
                        num = n;
                        return num;
                    }
+            feedback: |4
+
+                Dans ``setNum()``, pourquoi retourner la valeur modifiée?
         -   feedback: |4
 
                 Ceci peut fonctionner, mais pourquoi prendre des noms de méthode qui ne signifient rien et violent les conventions usuelles ?  La lisibilité du code est un facteur de qualité important.
@@ -432,8 +433,6 @@ problems:
                    public void f2(int n) {
                        num = n;
                    }
-        limit: 3
-        name: Accesseurs et mutateurs
         header: |4
 
             Comment définirait-on un accesseur (getter) et un mutateur (setter) pour la variable d'instance ``num`` de la classe ``Fraction`` à la question 2, tels qu'utilisés dans l'exemple suivant
@@ -444,10 +443,13 @@ problems:
               System.out.println(f.getNum());  // imprime "3"
               f.setNum(5);
               System.out.println(f.getNum());  // imprime "5"
+        name: Accesseurs et mutateurs
         type: multiple-choice
+        limit: 3
     q5:
         choices:
-        -   text: |
+        -   valid: true
+            text: |
                 .. code-block:: java
 
                    // un étudiant non-bisseur
@@ -455,7 +457,6 @@ problems:
                        nom = n;
                        matricule = m;
                    }
-            valid: true
         -   text: |
                 .. code-block:: java
 
@@ -490,10 +491,7 @@ problems:
             feedback: |4
 
                 Un constructeur ne peut pas être déclaré ``static``.
-        -   feedback: |4
-
-                La variable ``nom`` n'est pas initialisée.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    // un étudiant anonyme
@@ -501,10 +499,10 @@ problems:
                        matricule = m;
                        bisseur = false;
                    }
-        -   feedback: |4
+            feedback: |4
 
-                L'instruction ``return`` est superflue et interdite dans un constructeur.
-            text: |
+                La variable ``nom`` n'est pas initialisée.
+        -   text: |
                 .. code-block:: java
 
                    // un étudiant non-bisseur
@@ -513,9 +511,10 @@ problems:
                        matricule = m;
                        return;
                    }
+            feedback: |4
+
+                L'instruction ``return`` est superflue et interdite dans un constructeur.
         limit: 3
-        type: multiple-choice
-        name: Constructeurs
         header: |4
 
             Soit la classe suivante
@@ -531,54 +530,9 @@ problems:
                 }
 
             Parmi les définitions de constructeurs suivantes, laquelle est correcte ?
-    q6:
-        choices:
-        -   text: |
-                .. code-block:: java
-
-                   15,20
-                   40,40
-                   40,0
-            valid: true
-        -   text: |
-                .. code-block:: java
-
-                   15,20
-                   20,40
-                   20,0
-            feedback: |4
-
-                Après l'instruction ``c1 = c2``, ``c1`` et ``c2`` sont des références au même objet; ``c2.ajout(20)`` agit aussi sur l'objet référencé par ``c1``.
-        -   text: |
-                .. code-block:: java
-
-                   15,20
-                   40,40
-                   0,0
-            feedback: |4
-
-                Après ``c2 = new Compteur(0)``, seule ``c2`` réfère au nouvel objet créé; ``c1`` est inchangé.
-        -   text: |
-                .. code-block:: java
-
-                   15,20
-                   25,40
-                   25,0
-            feedback: |4
-
-                Attention à l'instruction ``c1 == c2``.
-        -   feedback: |4
-
-                Que fait la méthode ``ajout()`` ?
-            text: |
-                .. code-block:: java
-
-                   10,20
-                   20,20
-                   20,0
         type: multiple-choice
-        limit: 3
-        name: Références
+        name: Constructeurs
+    q6:
         header: |4
 
             Soit la classe ``Compteur`` suivante
@@ -615,9 +569,57 @@ problems:
                     System.out.println(c1.valeur() + "," + c2.valeur());
                     c2 = new Compteur(0);
                     System.out.println(c1.valeur() + "," + c2.valeur());
-    q7:
         choices:
         -   text: |
+                .. code-block:: java
+
+                   15,20
+                   40,40
+                   40,0
+            valid: true
+        -   text: |
+                .. code-block:: java
+
+                   15,20
+                   20,40
+                   20,0
+            feedback: |4
+
+                Après l'instruction ``c1 = c2``, ``c1`` et ``c2`` sont des références au même objet; ``c2.ajout(20)`` agit aussi sur l'objet référencé par ``c1``.
+        -   text: |
+                .. code-block:: java
+
+                   15,20
+                   40,40
+                   0,0
+            feedback: |4
+
+                Après ``c2 = new Compteur(0)``, seule ``c2`` réfère au nouvel objet créé; ``c1`` est inchangé.
+        -   feedback: |4
+
+                Attention à l'instruction ``c1 == c2``.
+            text: |
+                .. code-block:: java
+
+                   15,20
+                   25,40
+                   25,0
+        -   feedback: |4
+
+                Que fait la méthode ``ajout()`` ?
+            text: |
+                .. code-block:: java
+
+                   10,20
+                   20,20
+                   20,0
+        type: multiple-choice
+        limit: 3
+        name: Références
+    q7:
+        choices:
+        -   valid: true
+            text: |
                 .. code-block:: java
 
                        public String toString() {
@@ -629,7 +631,6 @@ problems:
                            }
                            return s;
                        }
-            valid: true
         -   feedback: |4
 
                 La méthode doit s'appeler ``toString`` pour pouvoir être appelée implicitement, par exemple dans ``System.out.println``.
@@ -702,8 +703,7 @@ problems:
                                s = s + " non-bisseur";
                            }
                        }
-        limit: 3
-        type: multiple-choice
+        name: toString()
         header: |4+
 
             Comment écrirait-on une méthode pour la classe ``Etudiant`` de la question 5, telle que le code suivant
@@ -717,17 +717,18 @@ problems:
 
                 ``John Doe (987612) non-bisseur``
 
-        name: toString()
+        type: multiple-choice
+        limit: 3
     q8:
         choices:
-        -   valid: true
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    TextIO.readFile("README");
                    while (!TextIO.eof()) {
                        System.out.println(TextIO.getln());
                    }
+            valid: true
         -   feedback: |4
 
                 Cette version produira une erreur à la fin du fichier.
@@ -738,15 +739,15 @@ problems:
                    while (true) {
                        System.out.println(TextIO.getln());
                    }
-        -   feedback: |4
-
-                L'utilisation de ``eof()`` et ``getln()`` ne correspond pas à leur signature documentée dans l'API.  Ce code donne donne une erreur de compilation.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    while (!TextIO.eof("README")) {
                        System.out.println(TextIO.getln("README"));
                    }
+            feedback: |4
+
+                L'utilisation de ``eof()`` et ``getln()`` ne correspond pas à leur signature documentée dans l'API.  Ce code donne donne une erreur de compilation.
         -   text: |
                 .. code-block:: java
 
@@ -779,10 +780,14 @@ problems:
             feedback: |4
 
                 Ce n'est pas ainsi qu'on utilise ``TextIO.eof()``.
-        limit: 3
-        type: multiple-choice
         header: |4
 
             Parmi les portions de programme suivantes, laquelle permet d'imprimer à la console le contenu du fichier ``README`` ?
+        type: multiple-choice
+        limit: 3
         name: ' TextIO'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
 weight: 1.0

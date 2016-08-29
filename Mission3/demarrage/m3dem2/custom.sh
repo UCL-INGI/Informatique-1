@@ -17,8 +17,7 @@ JAVAC="javac -cp .:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar"
 GREPED=$(grep -e "\s*void\s*afficheMax\s*(\s*int\s*a\s*,\s*int\s*b.*)" student/${EXERCICE}Stu.java)
 if [ "$GREPED" == "" ]; then
 	feedback -i q1 -r failed -f "La **signature** de votre méthode est **inexistante** ou **incorrecte.**"
-    echo 1
-	exit
+    exit 1
 fi
 
 # On compile la tâche et on récupère le résultat dans un fichier
@@ -40,12 +39,12 @@ if [ "$GREPED" != "" ]; then
     $(echo "" > logOther.out)
     $(echo "" > log.out)
     
-    echo 1
+    exit 1
 else
     #clean files
     $(echo "" > logOther.out)
   	$(echo "" > log.out)
 
-	echo 0
+	exit 0
 fi
 

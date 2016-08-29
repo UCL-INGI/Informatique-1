@@ -20,19 +20,18 @@ context: |
     ========
     Revision
     ========
-environment: default
+environment: mcq
+evaluate: best
 groups: false
 limits:
-    memory: '100'
     output: '2'
     time: '30'
+    memory: '100'
 name: 'Révisions : QCM'
 network_grading: false
 order: 76
 problems:
     q1:
-        type: multiple-choice
-        name: Utilisation de méthodes
         choices:
         -   text: |4
 
@@ -52,7 +51,10 @@ problems:
                       return Math.min(a,m);
                    }
             valid: true
-        -   text: |4
+        -   feedback: |4
+
+                Cette méthode ne se compile pas. Elle est déclarée comme retournant un ``double``, mais elle ne retourne rien du tout.
+            text: |4
 
                 .. code-block:: java
 
@@ -60,10 +62,10 @@ problems:
                       double m1=Math.min(a,b);
                       double min3=Math.min(m1,c);
                    }
-            feedback: |4
+        -   feedback: |4
 
-                Cette méthode ne se compile pas. Elle est déclarée comme retournant un ``double``, mais elle ne retourne rien du tout.
-        -   text: |4
+                Cette méthode ne se compile pas. Elle est déclarée comme retournant un ``double``, mais elle ne retourne rien du tout. Elle affiche le minimum à l'écran, mais ce n'est pas ce qui est demandé. Ne confondez pas une méthode qui affiche un résultat et une méthode qui retourne un résultat.
+            text: |4
 
                 .. code-block:: java
 
@@ -72,13 +74,7 @@ problems:
                       double min3=Math.min(m1,a);
                       System.out.println(min3);
                    }
-            feedback: |4
-
-                Cette méthode ne se compile pas. Elle est déclarée comme retournant un ``double``, mais elle ne retourne rien du tout. Elle affiche le minimum à l'écran, mais ce n'est pas ce qui est demandé. Ne confondez pas une méthode qui affiche un résultat et une méthode qui retourne un résultat.
-        -   feedback: |4
-
-                Cette méthode ne se compile pas pour plusieurs raisons. Tout d'abord, la méthode ``Math.min`` est une méthode qui retourne, lorsqu'elle est utilisée avec deux arguments de type ``double``, un ``double``. Or cette méthode utilise ``Math.min`` comme si il s'agissait d'une méthode de type ``void``. Ensuite, la méthode ``min3`` est déclarée comme retournant un ``double`` mais ne comprend aucune instruction ``return``.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -86,14 +82,18 @@ problems:
                       Math.min(b,c);
                       Math.min(a,m);
                    }
+            feedback: |4
+
+                Cette méthode ne se compile pas pour plusieurs raisons. Tout d'abord, la méthode ``Math.min`` est une méthode qui retourne, lorsqu'elle est utilisée avec deux arguments de type ``double``, un ``double``. Or cette méthode utilise ``Math.min`` comme si il s'agissait d'une méthode de type ``void``. Ensuite, la méthode ``min3`` est déclarée comme retournant un ``double`` mais ne comprend aucune instruction ``return``.
         header: |4
 
             Les méthodes implémentées dans la  librairie standard Java sont souvent très utile pour faciliter l'écriture de méthodes plus compliquées. Considérons l'implémentation d'une méthode permettant de calculer le minimum entre trois réels passés en argument. Une telle méthode peut s'écrire en utilisant une suite d'instructions conditionnelles, mais il est aussi possible de réutiliser la méthode ``Math.min`` qui retourne le minimum entre ses deux arguments. Laquelle des méthodes ci-dessous est un calcul correct du minimum entre trois nombres réels ?
+        name: Utilisation de méthodes
+        type: multiple-choice
         limit: 3
     q2:
         choices:
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -108,6 +108,7 @@ problems:
                       }
                       return n;
                    }
+            valid: true
         -   valid: true
             text: |4
 
@@ -142,10 +143,7 @@ problems:
             feedback: |4
 
                 Cette méthode retourne toujours la valeur ``0``. Voyez-vous pourquoi ?
-        -   feedback: |4
-
-                Cette méthode ne retourne pas le nombre de diviseurs. Elle retourne le premier diviseurs, c'est-à-dire ``1``.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -160,6 +158,9 @@ problems:
                       }
                       return n;
                    }
+            feedback: |4
+
+                Cette méthode ne retourne pas le nombre de diviseurs. Elle retourne le premier diviseurs, c'est-à-dire ``1``.
         -   text: |4
 
                 .. code-block:: java
@@ -179,15 +180,15 @@ problems:
 
                 Cette méthode ne retourne pas exactement le nombre de diviseurs entiers. Vérifiez les limites de la boucle ``for``.
         type: multiple-choice
+        name: Diviseurs entiers
+        limit: 3
         header: |4
 
             Parmi les méthodes ci-dessous, laquelle est-elle une implémentation correcte d'une méthode qui retourne le nombre de diviseurs entiers de l'entier (strictement positif) passé en argument ?
-        name: Diviseurs entiers
-        limit: 3
     q4:
+        name: Méthode count
         choices:
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -198,8 +199,8 @@ problems:
                    }
                  }
                  return count;
-        -   valid: true
-            text: |4
+            valid: true
+        -   text: |4
 
                 .. code-block:: java
 
@@ -210,6 +211,7 @@ problems:
                    }
                  }
                  return count;
+            valid: true
         -   valid: true
             text: |4
 
@@ -253,7 +255,10 @@ problems:
             feedback: |4
 
                 Cette solution ne fonctionne pas. Lors de son exécution, elle va tenter de lire le caractère à l'indice ``s.length()`` de la chaîne de caractère ``s``. Cela va provoquer une exception ``java.lang.StringIndexOutOfBoundsException``.
-        -   text: |4
+        -   feedback: |4
+
+                Cette solution ne fonctionne pas. Elle ne teste pas le premier caractère de la chaîne de caractères.
+            text: |4
 
                 .. code-block:: java
 
@@ -264,9 +269,6 @@ problems:
                    }
                  }
                  return count;
-            feedback: |4
-
-                Cette solution ne fonctionne pas. Elle ne teste pas le premier caractère de la chaîne de caractères.
         -   feedback: |4
 
                 Cette solution ne fonctionne pas. Lors de son exécution, elle va tenter de lire le caractère à l'indice ``s.length()`` de la chaîne de caractère ``s``. Cela va provoquer une exception ``java.lang.StringIndexOutOfBoundsException``.
@@ -282,7 +284,6 @@ problems:
                  }
                  return count;
         type: multiple-choice
-        name: Méthode count
         limit: 3
         header: |4
 
@@ -297,4 +298,8 @@ problems:
              public static int count(String s, char c) {
 
             Un seul des corps de méthode ci-dessous est une implémentation correcte. Lequel ?
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
 weight: 1.0

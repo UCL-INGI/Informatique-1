@@ -87,7 +87,8 @@ context: |
 
     .. _jn11.4.1 : http://math.hws.edu/javanotes/c11/s4.html#IO.4.1
     .. |jn11.4.1| replace:: `11.4.1 : URLs and URLConnections`
-environment: default
+environment: mcq
+evaluate: best
 groups: false
 limits:
     memory: '100'
@@ -98,22 +99,22 @@ network_grading: false
 order: 70
 problems:
     q1:
-        name: Instruction throw
+        limit: 3
         choices:
         -   text: |
                 .. code-block:: java
 
                    throw new IllegalArgumentException("nombre negatif");
             valid: true
-        -   text: |
+        -   valid: true
+            feedback: |4
+
+                L'exception ne doit pas nécessairement être créée dans l'instruction ``throw``.
+            text: |
                 .. code-block:: java
 
                    Exception e = new IllegalArgumentException("nombre negatif");
                    throw e;
-            feedback: |4
-
-                L'exception ne doit pas nécessairement être créée dans l'instruction ``throw``.
-            valid: true
         -   text: |
                 .. code-block:: java
 
@@ -121,14 +122,17 @@ problems:
             feedback: |4
 
                 ``IllegalArgumentException`` est un constructeur.
-        -   text: |
+        -   feedback: |4
+
+                Il ne s'agit pas de retourner un résultat mais de lancer une exception.
+            text: |
                 .. code-block:: java
 
                    return new IllegalArgumentException("nombre negatif");
-            feedback: |4
+        -   feedback: |4
 
-                Il ne s'agit pas de retourner un résultat mais de lancer une exception.
-        -   text: |
+                Il s'agit de lancer une exception, pas de l'intercepter.
+            text: |
                 .. code-block:: java
 
                    try {
@@ -136,10 +140,10 @@ problems:
                    } catch (IllegalArgumentException e) {
                        e.setMessage("nombre negatif");
                    }
-            feedback: |4
+        -   feedback: |4
 
                 Il s'agit de lancer une exception, pas de l'intercepter.
-        -   text: |
+            text: |
                 .. code-block:: java
 
                    try {
@@ -147,21 +151,18 @@ problems:
                    } catch (new IllegalArgumentException("nombre negatif")) {
                        System.out.println(e.getMessage());
                    }
-            feedback: |4
-
-                Il s'agit de lancer une exception, pas de l'intercepter.
-        -   feedback: |4
-
-                ``throws`` intervient dans les signatures, ce n'est pas la bonne instruction.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    throws new IllegalArgumentException("nombre negatif");
+            feedback: |4
+
+                ``throws`` intervient dans les signatures, ce n'est pas la bonne instruction.
         type: multiple-choice
+        name: Instruction throw
         header: |4
 
             Quelle est la manière correcte de lancer une exception de type ``IllegalArgumentException`` signalant un nombre négatif ?
-        limit: 3
     q2:
         choices:
         -   text: |
@@ -200,10 +201,7 @@ problems:
                    Fin de task2
                    Fin de main
                    java.lang.Exception: boum
-        -   feedback: |4
-
-                L'exécution de ``task3`` ne parvient pas à la fin, ``task3`` propage l'exception de ``task4``.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    Debut de main
@@ -218,6 +216,9 @@ problems:
                    Debut de task4
                    Fin de task3
                    java.lang.Exception: boum
+            feedback: |4
+
+                L'exécution de ``task3`` ne parvient pas à la fin, ``task3`` propage l'exception de ``task4``.
         -   text: |
                 .. code-block:: java
 
@@ -250,7 +251,10 @@ problems:
                    Debut de task3
                    Debut de task4
                    java.lang.Exception: boum
-        -   text: |
+        -   feedback: |4
+
+                L'exécution de ``main``, ``task2``, ``task3`` et ``task4`` ne parvient pas à la fin à cause de l'exception lancée dans ``task4``.
+            text: |
                 .. code-block:: java
 
                    Debut de main
@@ -269,10 +273,6 @@ problems:
                    Fin de task3
                    Fin de task2
                    Fin de main
-            feedback: |4
-
-                L'exécution de ``main``, ``task2``, ``task3`` et ``task4`` ne parvient pas à la fin à cause de l'exception lancée dans ``task4``.
-        name: Propagation d'exceptions
         type: multiple-choice
         header: |4+
 
@@ -316,10 +316,10 @@ problems:
                 }
 
         limit: 3
+        name: Propagation d'exceptions
     q3:
         choices:
-        -   valid: true
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    import java.io.*;
@@ -327,7 +327,11 @@ problems:
                    public String readName(Reader r) throws IOException {
                        ...
                    }
-        -   text: |
+            valid: true
+        -   feedback: |4
+
+                ``throws`` est suivi d'un nom de classe, pas d'une expression.
+            text: |
                 .. code-block:: java
 
                    import java.io.*;
@@ -335,9 +339,6 @@ problems:
                    public String readName(Reader r) throws new IOException() {
                        ...
                    }
-            feedback: |4
-
-                ``throws`` est suivi d'un nom de classe, pas d'une expression.
         -   feedback: |4
 
                 Il faut déclarer l'exception dans la signature et non la lancer dans le corps de la méthode.
@@ -350,10 +351,7 @@ problems:
                        throws new IOException();
                        ...
                    }
-        -   feedback: |4
-
-                ``throw`` est une instruction, ce n'est pas ce qu'il faut ici.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    import java.io.*;
@@ -361,6 +359,9 @@ problems:
                    public String readName(Reader r) throw IOException {
                        ...
                    }
+            feedback: |4
+
+                ``throw`` est une instruction, ce n'est pas ce qu'il faut ici.
         -   text: |
                 .. code-block:: java
 
@@ -373,7 +374,10 @@ problems:
             feedback: |4
 
                 ``throws`` doit intervenir dans la signature, pas juste en commentaire.
-        -   text: |
+        -   feedback: |4
+
+                ``readName`` peut lancer une ``IOException`` et non la retourner comme résultat.
+            text: |
                 .. code-block:: java
 
                    import java.io.*;
@@ -381,62 +385,13 @@ problems:
                    public IOException readName(Reader r) {
                        ...
                    }
-            feedback: |4
-
-                ``readName`` peut lancer une ``IOException`` et non la retourner comme résultat.
-        name: Déclaration throws
         limit: 3
+        name: Déclaration throws
         type: multiple-choice
         header: |4
 
             Quelle est la manière correcte de déclarer que la méthode ``readName`` peut causer une ``IOException`` ?
     q4:
-        choices:
-        -   valid: true
-            text: |
-                .. code-block:: java
-
-                   public static void main(String[] args)
-                   public static void processFile(String filename)
-                   public static String[] readFile(String filename) throws IOException
-        -   text: |
-                .. code-block:: java
-
-                   public static void main(String[] args)
-                   public static void processFile(String filename) throws IOException
-                   public static String[] readFile(String filename) throws IOException
-            feedback: |4
-
-                ``processFile`` intercepte ``IOException``, il ne la propage pas.
-        -   feedback: |4
-
-                ``processFile`` intercepte ``IOException``, il ne la propage pas et ``main`` non plus.
-            text: |
-                .. code-block:: java
-
-                   public static void main(String[] args) throws IOException
-                   public static void processFile(String filename) throws IOException
-                   public static String[] readFile(String filename) throws IOException
-        -   feedback: |4
-
-                C'est ``readFile`` et non ``processFile`` qui peut causer une ``IOException``, à cause de l'utilisation du ``BufferedReader``.
-            text: |
-                .. code-block:: java
-
-                   public static void main(String[] args)
-                   public static void processFile(String filename) throws IOException
-                   public static String[] readFile(String filename)
-        -   feedback: |4
-
-                Puisque ``processFile`` intercepte ``IOException``, il ne la propage pas à ``main``.
-            text: |
-                .. code-block:: java
-
-                   public static void main(String[] args) throws IOException
-                   public static void processFile(String filename)
-                   public static String[] readFile(String filename) throws IOException
-        limit: 3
-        name: Exceptions sous contrôle
         header: |4
 
             Considérons le programme suivant
@@ -470,10 +425,57 @@ problems:
                 }
 
             Comment doit-on compléter les signatures des trois méthodes pour avoir toutes les déclarations ``throws`` nécessaires, sans déclarations inutiles ?
+        name: Exceptions sous contrôle
         type: multiple-choice
+        limit: 3
+        choices:
+        -   valid: true
+            text: |
+                .. code-block:: java
+
+                   public static void main(String[] args)
+                   public static void processFile(String filename)
+                   public static String[] readFile(String filename) throws IOException
+        -   feedback: |4
+
+                ``processFile`` intercepte ``IOException``, il ne la propage pas.
+            text: |
+                .. code-block:: java
+
+                   public static void main(String[] args)
+                   public static void processFile(String filename) throws IOException
+                   public static String[] readFile(String filename) throws IOException
+        -   text: |
+                .. code-block:: java
+
+                   public static void main(String[] args) throws IOException
+                   public static void processFile(String filename) throws IOException
+                   public static String[] readFile(String filename) throws IOException
+            feedback: |4
+
+                ``processFile`` intercepte ``IOException``, il ne la propage pas et ``main`` non plus.
+        -   feedback: |4
+
+                C'est ``readFile`` et non ``processFile`` qui peut causer une ``IOException``, à cause de l'utilisation du ``BufferedReader``.
+            text: |
+                .. code-block:: java
+
+                   public static void main(String[] args)
+                   public static void processFile(String filename) throws IOException
+                   public static String[] readFile(String filename)
+        -   text: |
+                .. code-block:: java
+
+                   public static void main(String[] args) throws IOException
+                   public static void processFile(String filename)
+                   public static String[] readFile(String filename) throws IOException
+            feedback: |4
+
+                Puisque ``processFile`` intercepte ``IOException``, il ne la propage pas à ``main``.
     q5:
         choices:
-        -   text: |
+        -   valid: true
+            text: |
                 .. code-block:: java
 
                    public class GraveException extends RuntimeException {
@@ -481,7 +483,6 @@ problems:
                            super(msg);
                        }
                    }
-            valid: true
         -   feedback: |4
 
                 C'est syntaxiquement correct mais inadéquat; ``RuntimeException`` contient déjà un message.
@@ -516,10 +517,7 @@ problems:
             feedback: |4
 
                 Pour que ce soit une exception il faut définir une sous-classe de ``Throwable``.
-        -   feedback: |4
-
-                L'utilisation de ``throw`` n'a pas de sens ici.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    public class GraveException extends RuntimeException {
@@ -527,14 +525,16 @@ problems:
                            throw new GraveException(msg);
                        }
                    }
-        type: multiple-choice
+            feedback: |4
+
+                L'utilisation de ``throw`` n'a pas de sens ici.
         limit: 3
-        name: Définition d'exceptions
         header: |4
 
             Parmi les définitions suivantes, laquelle définit correctement une exception hors contrôle (unchecked) ?
-    q6:
         type: multiple-choice
+        name: Définition d'exceptions
+    q6:
         choices:
         -   text: |
                 ``List<T>`` est une interface qui représente une séquence ordonnée d'éléments de type ``T``.  ``ArrayList<T>`` et ``LinkedList<T>`` sont des implémentations de ``List<T>``, basées respectivement sur des tableaux et sur des structures chaînées.
@@ -544,29 +544,31 @@ problems:
             feedback: |4
 
                 ``List<T>`` est une interface.
-        -   feedback: |4
-
-                ``List<T>`` ne représente pas un ensemble mais une séquence ordonnée.
-            text: |
-                ``List<T>`` est une interface qui représente un ensemble d'éléments de type ``T``.  ``HashList<T>`` et ``LinkedList<T>`` sont des implémentations de ``List<T>``, basées respectivement sur des tables de hachage et sur des liens hypertexte.
         -   text: |
-                ``List<T>`` est une classe qui représente une séquence ordonnée d'``Object`` de taille ``T``.  ``ArrayList<T>`` et ``LinkedList<T>`` sont des extensions de ``List<T>``, basées respectivement sur des tableaux et sur des structures chaînées.
+                ``List<T>`` est une interface qui représente un ensemble d'éléments de type ``T``.  ``HashList<T>`` et ``LinkedList<T>`` sont des implémentations de ``List<T>``, basées respectivement sur des tables de hachage et sur des liens hypertexte.
             feedback: |4
 
+                ``List<T>`` ne représente pas un ensemble mais une séquence ordonnée.
+        -   feedback: |4
+
                 ``T`` est le type des éléments et non la taille de la séquence.
+            text: |
+                ``List<T>`` est une classe qui représente une séquence ordonnée d'``Object`` de taille ``T``.  ``ArrayList<T>`` et ``LinkedList<T>`` sont des extensions de ``List<T>``, basées respectivement sur des tableaux et sur des structures chaînées.
         -   feedback: |4
 
                 ``HashList<T>`` n'existe pas dans les collections Java.
             text: |
                 ``List<T>`` est une interface qui représente un ensemble d'éléments de type ``T``.  ``HashList<T>`` et ``LinkedList<T>`` sont des implémentations de ``List<T>``, basées respectivement sur des tables de hachage et sur des structures chaînées.
-        limit: 3
-        name: Les collections Java
         header: |4
 
             Quel groupe d'affirmations est correct ?
+        type: multiple-choice
+        limit: 3
+        name: Les collections Java
     q7:
         choices:
-        -   text: |
+        -   valid: true
+            text: |
                 .. code-block:: java
 
                    import java.util.*;
@@ -577,7 +579,6 @@ problems:
                    list.add(s1);
                    int i = list.indexOf("Hello");
                    String s2 = list.get(i);
-            valid: true
         -   feedback: |4
 
                 ``list.add(s1)`` provoque une erreur de type et le type-cast à la dernière ligne est incorrect.
@@ -634,16 +635,15 @@ problems:
                    add(list, s1);
                    int i = list.indexOf("Hello");
                    String s2 = list.get(i);
-        limit: 3
+        name: ArrayList<T>
         header: |4
 
             Parmi les fragments de progamme suivants, lequel utilise correctement la classe ``ArrayList<T>`` ?
         type: multiple-choice
-        name: ArrayList<T>
+        limit: 3
     q8:
         choices:
-        -   valid: true
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    List<Integer> list = makeList();  // crée la liste
@@ -652,6 +652,7 @@ problems:
                        Integer i = iter.next();
                        System.out.println(i);
                    }
+            valid: true
         -   feedback: |4
 
                 ``list`` n'est pas un itérateur.
@@ -663,10 +664,7 @@ problems:
                        Integer i = list.next();
                        System.out.println(i);
                    }
-        -   feedback: |4
-
-                Erreur de typage, utiliser un type générique pour ``iter``.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    List<Integer> list = makeList();  // crée la liste
@@ -675,6 +673,9 @@ problems:
                        Integer i = iter.next();
                        System.out.println(i);
                    }
+            feedback: |4
+
+                Erreur de typage, utiliser un type générique pour ``iter``.
         -   text: |
                 .. code-block:: java
 
@@ -711,10 +712,14 @@ problems:
             feedback: |4
 
                 Le test de boucle est incorrect.
-        limit: 3
-        type: multiple-choice
         header: |4
 
             Parmi les fragments suivants, lequel utilise correctement un itérateur ?
+        type: multiple-choice
         name: Itérateurs
+        limit: 3
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
 weight: 1.0

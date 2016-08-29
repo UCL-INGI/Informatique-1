@@ -112,7 +112,8 @@ context: |
 
     .. _jn4.6.1 : http://math.hws.edu/javanotes/c4/s6.html#subroutines.6.1
     .. |jn4.6.1| replace:: `4.6.1 : Preconditions and Postconditions`
-environment: default
+environment: mcq
+evaluate: best
 groups: false
 limits:
     memory: '100'
@@ -123,9 +124,10 @@ network_grading: false
 order: 13
 problems:
     q1:
-        name: Appel de méthodes de la classe Math
+        limit: 3
         choices:
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -137,8 +139,8 @@ problems:
                    double f=Math.exp(d);
                    double r=Math.rint(e);
                    double w=Math.random();
-            valid: true
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -150,7 +152,6 @@ problems:
                    double f=Math.exp(e);
                    double r=Math.rint(d);
                    double x=Math.random();
-            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -166,7 +167,10 @@ problems:
             feedback: |4
 
                 La méthode ``Math.rint`` prend comme argument un réel et retourne un réel (même si celui-ci a une valeur entière). Ceci vous est indiqué par le type retourné par la méthode ``Math.rint`` dans la documentation.
-        -   text: |4
+        -   feedback: |4
+
+                La méthode ``Math.exp`` prend comme argument un réel.
+            text: |4
 
                 .. code-block:: java
 
@@ -178,10 +182,10 @@ problems:
                    double f=Math.exp(i);
                    double r=Math.rint(e);
                    double w=Math.random();
-            feedback: |4
+        -   feedback: |4
 
-                La méthode ``Math.exp`` prend comme argument un réel.
-        -   text: |4
+                La méthode ``Math.random`` retourne toujours une valeur de type ``double``.
+            text: |4
 
                 .. code-block:: java
 
@@ -193,10 +197,10 @@ problems:
                    double f=Math.exp(d);
                    double r=Math.rint(e);
                    int w=Math.random();
-            feedback: |4
+        -   feedback: |4
 
-                La méthode ``Math.random`` retourne toujours une valeur de type ``double``.
-        -   text: |4
+                La méthode ``Math.random`` retourne toujours une valeur de type ``double``. Elle ne peut donc jamais être utilisée comme une méthode ``void``.
+            text: |4
 
                 .. code-block:: java
 
@@ -208,9 +212,6 @@ problems:
                    double h=Math.exp(e);
                    double r=Math.rint(d);
                    Math.random();
-            feedback: |4
-
-                La méthode ``Math.random`` retourne toujours une valeur de type ``double``. Elle ne peut donc jamais être utilisée comme une méthode ``void``.
         type: multiple-choice
         header: |4
 
@@ -219,17 +220,18 @@ problems:
 
             .. _jn2.3.1: http://math.hws.edu/javanotes/c2/s3.html#basics.3.1
             .. |jn2.3.1| replace:: `2.3.1 : Built-in Subroutines and Functions`
-        limit: 3
+        name: Appel de méthodes de la classe Math
     q2:
+        type: multiple-choice
         choices:
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
                    public static boolean f( double d, int i) {
                     // code non fourni
                    }
-            valid: true
         -   valid: true
             text: |4
 
@@ -238,28 +240,26 @@ problems:
                    public static boolean f( double a, int b) {
                     // code non fourni
                    }
-        -   feedback: |4
-
-                Pour pouvoir être utilisée dans une condition, la méthode ``f`` doit retourner une valeur de type ``boolean``. La déclaration ci-dessus retourne une valeur de type ``int``. En outre, le premier argument de la méthode ``f`` est un ``int`` alors que l'étudiant passe un ``double``.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
                    public static int f( int a, int b) {
                     // code non fourni
                    }
-        -   text: |4
+            feedback: |4
+
+                Pour pouvoir être utilisée dans une condition, la méthode ``f`` doit retourner une valeur de type ``boolean``. La déclaration ci-dessus retourne une valeur de type ``int``. En outre, le premier argument de la méthode ``f`` est un ``int`` alors que l'étudiant passe un ``double``.
+        -   feedback: |4
+
+                Pour pouvoir être utilisée dans une condition, la méthode ``f`` doit retourner une valeur de type ``boolean``. La déclaration ci-dessus retourne une valeur de type ``double``. En outre, le second argument de la méthode ``f`` est un ``double`` alors que l'étudiant passe un ``int``.
+            text: |4
 
                 .. code-block:: java
 
                    public static double f( double x, double y) {
                     // code non fourni
                    }
-            feedback: |4
-
-                Pour pouvoir être utilisée dans une condition, la méthode ``f`` doit retourner une valeur de type ``boolean``. La déclaration ci-dessus retourne une valeur de type ``double``. En outre, le second argument de la méthode ``f`` est un ``double`` alors que l'étudiant passe un ``int``.
-        name: Utilisation de méthodes
-        type: multiple-choice
         header: |4
 
             Un étudiant écrit dans un programme Java le code suivant :
@@ -274,10 +274,10 @@ problems:
 
             Quelle doit être la déclaration de la méthode ``f`` pour que ce fragment de programme soit valide ?
         limit: 3
+        name: Utilisation de méthodes
     q3:
         choices:
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -287,7 +287,9 @@ problems:
                       }
                       System.out.println();
                    }
-        -   text: |4
+            valid: true
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -297,8 +299,8 @@ problems:
                       }
                       System.out.println();
                    }
-            valid: true
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -308,11 +310,7 @@ problems:
                       }
                       System.out.println();
                    }
-            valid: true
-        -   feedback: |4
-
-                Cette méthode ne se compile pas. Elle est déclarée comme retournant un ``int`` et ne contient pas d'instruction ``return``.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -322,6 +320,9 @@ problems:
                       }
                       System.out.println();
                    }
+            feedback: |4
+
+                Cette méthode ne se compile pas. Elle est déclarée comme retournant un ``int`` et ne contient pas d'instruction ``return``.
         -   text: |4
 
                 .. code-block:: java
@@ -335,7 +336,10 @@ problems:
             feedback: |4
 
                 Cette méthode ne se compile pas. Le type de son premier argument n'est pas spécifié.
-        -   text: |4
+        -   feedback: |4
+
+                Ce méthode boucle indéfiniment. Pouvez-vous voir pourquoi ?
+            text: |4
 
                 .. code-block:: java
 
@@ -345,13 +349,7 @@ problems:
                       }
                       System.out.println();
                    }
-            feedback: |4
-
-                Ce méthode boucle indéfiniment. Pouvez-vous voir pourquoi ?
-        -   feedback: |4
-
-                Cette méthode boucle indéfiniment. Pouvez-vous voir pourquoi ?
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -361,8 +359,11 @@ problems:
                       }
                       System.out.println();
                    }
-        name: Méthodes permettant d'afficher
+            feedback: |4
+
+                Cette méthode boucle indéfiniment. Pouvez-vous voir pourquoi ?
         limit: 3
+        name: Méthodes permettant d'afficher
         type: multiple-choice
         header: |4
 
@@ -393,7 +394,6 @@ problems:
 
             Parmi les méthodes définies ci-dessous, laquelle est une implémentation (signature et corps) correct de cette méthode ``affiche`` ?
     q4:
-        limit: 3
         choices:
         -   valid: true
             text: |4
@@ -405,7 +405,11 @@ problems:
                       int somme=a+b;
                       System.out.println(somme);
                    }
-        -   text: |4
+        -   feedback: |4
+
+                L'expression ``x+y`` est une expression qui a comme valeur un entier. Elle peut donc bien être utilisée comme argument de la méthode ``System.out.println()``.
+            valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -413,14 +417,7 @@ problems:
                    {
                       System.out.println(x+y);
                    }
-            valid: true
-            feedback: |4
-
-                L'expression ``x+y`` est une expression qui a comme valeur un entier. Elle peut donc bien être utilisée comme argument de la méthode ``System.out.println()``.
-        -   feedback: |4
-
-                Lors de la déclaration d'une méthode, il est nécessaire de spécifier le type de chacun de ses arguments. Cette déclaration n'est pas valide.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -429,6 +426,9 @@ problems:
                       int s=a+b;
                       System.out.println(s);
                    }
+            feedback: |4
+
+                Lors de la déclaration d'une méthode, il est nécessaire de spécifier le type de chacun de ses arguments. Cette déclaration n'est pas valide.
         -   text: |4
 
                 .. code-block:: java
@@ -451,7 +451,6 @@ problems:
                    {
                       System.out.println(x+y);
                    }
-        name: Méthodes void
         header: |4
 
             En Java, les méthodes de type ``void`` sont souvent utilisées lorsqu'il faut exécuter une suite d'instructions qui ne doit pas retourner de valeur. On souhaite écrire une méthode ``afficheSomme`` qui affiche à l'écran la somme entre deux nombres entiers. Par exemple, en exécutant ``afficheSomme(3,4)``, la valeur ``7`` est affichée à l'écran. La spécification de cette méthode est
@@ -463,9 +462,12 @@ problems:
               * @post Affiche à l'écran la somme des deux entiers passés en arguments
               */
         type: multiple-choice
+        limit: 3
+        name: Méthodes void
     q5:
         choices:
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -473,7 +475,6 @@ problems:
                    int b=g(false);
                    int c=h();
                    w();
-            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -507,10 +508,7 @@ problems:
             feedback: |4
 
                 Ce fragment de code est valide. Notez que l'argument de la méthode ``g`` peut être n'importe quelle expression qui retourne une valeur de type ``boolean``. C'est bien le cas pour l'expression ``b==1``.
-        -   feedback: |4
-
-                Ce fragment de code contient deux erreurs. Relisez la définition des méthodes ``h`` et ``w``. La première (``h``) retourne une valeur entière. Elle ne peut donc être utilisée que dans une expression qui donne un résultat entier.  La seconde (``w``) est de type ``void``, elle ne retourne donc aucune valeur et ne peut pas être utilisée comme membre de droite d'une instruction d'affectation.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -518,6 +516,9 @@ problems:
                    int b=f(-2);
                    int c=w();
                    h();
+            feedback: |4
+
+                Ce fragment de code contient deux erreurs. Relisez la définition des méthodes ``h`` et ``w``. La première (``h``) retourne une valeur entière. Elle ne peut donc être utilisée que dans une expression qui donne un résultat entier.  La seconde (``w``) est de type ``void``, elle ne retourne donc aucune valeur et ne peut pas être utilisée comme membre de droite d'une instruction d'affectation.
         -   text: |4
 
                 .. code-block:: java
@@ -537,9 +538,7 @@ problems:
                    int b=f(7);
                    int c=h();
                    w();
-        type: multiple-choice
         limit: 3
-        name: Déclarations de méthodes
         header: |4
 
             En Java, la déclaration d'une méthode nous renseigne sur le type de valeur qui est retourné par cette méthode. Considérons les définitions de méthodes ci-dessous.
@@ -565,9 +564,14 @@ problems:
                }
 
             Une seule des séquences d'instructions ci-dessous est valide. Pourriez-vous indiquer laquelle ?
+        type: multiple-choice
+        name: Déclarations de méthodes
     q6:
         choices:
-        -   text: |4
+        -   feedback: |4
+
+                Cette implémentation est correct. Lorsque ``a<b``, la méthode se termine par ``return a;``. L'instruction ``return b;`` n'est exécutée que si ``b>=a``.
+            text: |4
 
                 .. code-block:: java
 
@@ -577,9 +581,6 @@ problems:
                      }
                      return b;
                    }
-            feedback: |4
-
-                Cette implémentation est correct. Lorsque ``a<b``, la méthode se termine par ``return a;``. L'instruction ``return b;`` n'est exécutée que si ``b>=a``.
             valid: true
         -   valid: true
             text: |4
@@ -607,7 +608,10 @@ problems:
                      }
                    }
             valid: true
-        -   text: |4
+        -   feedback: |4
+
+                Ne confondez pas une méthode qui "affiche" (en utilisant ``System.out.println``) avec une méthode qui retourne une valeur. Un méthode qui retourne une valeur doit toujours se termine par ``return``. ``javac`` n'acceptera pas de compiler cette méthode qui ne retourne pas de valeur.
+            text: |4
 
                 .. code-block:: java
 
@@ -619,10 +623,10 @@ problems:
                          System.out.println(a);
                      }
                    }
-            feedback: |4
+        -   feedback: |4
 
-                Ne confondez pas une méthode qui "affiche" (en utilisant ``System.out.println``) avec une méthode qui retourne une valeur. Un méthode qui retourne une valeur doit toujours se termine par ``return``. ``javac`` n'acceptera pas de compiler cette méthode qui ne retourne pas de valeur.
-        -   text: |4
+                Cette méthode ne se compile pas. En Java, une méthode ``double`` doit toujours retourner, via l'instruction ``return``, une valeur de type ``double``, quel que soit l'exécution de cette méthode. Cette version ne retourne de valeur que lorsque ``b<a``.
+            text: |4
 
                 .. code-block:: java
 
@@ -631,13 +635,7 @@ problems:
                          return b;
                      }
                    }
-            feedback: |4
-
-                Cette méthode ne se compile pas. En Java, une méthode ``double`` doit toujours retourner, via l'instruction ``return``, une valeur de type ``double``, quel que soit l'exécution de cette méthode. Cette version ne retourne de valeur que lorsque ``b<a``.
-        -   feedback: |4
-
-                Une méthode ``void`` ne retourne aucun résultat. Ce code ne correspond pas à ce qui est demandé.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -647,9 +645,9 @@ problems:
                      }
                      return a;
                    }
-        type: multiple-choice
-        limit: 3
-        name: Méthodes retournant un nombre
+            feedback: |4
+
+                Une méthode ``void`` ne retourne aucun résultat. Ce code ne correspond pas à ce qui est demandé.
         header: |4
 
 
@@ -662,9 +660,13 @@ problems:
               * @pre -
               * @post retourne le minimum entre les deux arguments
               */
+        type: multiple-choice
+        limit: 3
+        name: Méthodes retournant un nombre
     q7:
         choices:
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -672,7 +674,6 @@ problems:
                      int reste=n%2;
                      return (reste==0);
                    }
-            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -683,8 +684,7 @@ problems:
                      return pair;
                    }
             valid: true
-        -   valid: true
-            feedback: |4
+        -   feedback: |4
 
                 Ce code est correct, mais il est inutilement long. Sachant que l'instruction conditionnelle évalue une condition qui a déjà une valeur booléenne, il est préférable de retourner directement une telle expression. Comme dans le code ci-dessous .. code-block:: java
 
@@ -692,6 +692,7 @@ problems:
                     int reste=n%2;
                     return (reste==0);
                    }
+            valid: true
             text: |4
 
                 .. code-block:: java
@@ -716,10 +717,7 @@ problems:
                      int reste=n%2;
                      return (reste!=0);
                    }
-        -   feedback: |4
-
-                L'argument de la méthode doit nécessairement être de type ``int`` pour pouvoir utiliser le reste de la division euclidienne. En outre, ``reste=0`` est une affectation et non une expression booléenne que l'on peut passer comme argument à ``return``.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -727,6 +725,9 @@ problems:
                      int reste=n%2;
                      return (reste=0);
                    }
+            feedback: |4
+
+                L'argument de la méthode doit nécessairement être de type ``int`` pour pouvoir utiliser le reste de la division euclidienne. En outre, ``reste=0`` est une affectation et non une expression booléenne que l'on peut passer comme argument à ``return``.
         -   feedback: |4
 
                 Ce fragment de code est incorrect. La définition de la méthode spécifie qu'elle retourne une valeur booléenne. Or, ``reste`` est une variable de type ``int``.
@@ -751,8 +752,7 @@ problems:
                          return false;
                      }
                    }
-        limit: 3
-        type: multiple-choice
+        name: Méthodes retournant un booléen
         header: |4
 
 
@@ -764,12 +764,11 @@ problems:
               * @pre n>0
               * @post retourne true lorsque le nombre passé en argument est pair et false dans le cas contraire
               */
-        name: Méthodes retournant un booléen
-    q8:
         type: multiple-choice
+        limit: 3
+    q8:
         choices:
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -783,6 +782,7 @@ problems:
                         return b;
                      }
                    }
+            valid: true
         -   valid: true
             text: |4
 
@@ -798,11 +798,7 @@ problems:
                         return a;
                      }
                    }
-        -   valid: true
-            feedback: |4
-
-                Ce code est correct. Il est cependant un peu moins lisible qu'un programme dans lequel ``return a;`` se trouverait à l'intérieur d'un bloc ``else``.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -813,6 +809,10 @@ problems:
                      }
                      return a;
                    }
+            feedback: |4
+
+                Ce code est correct. Il est cependant un peu moins lisible qu'un programme dans lequel ``return a;`` se trouverait à l'intérieur d'un bloc ``else``.
+            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -868,7 +868,9 @@ problems:
                      }
                      return a;
                    }
+        type: multiple-choice
         limit: 3
+        name: Calcul du maximum
         header: |4
 
             La classe ``Math`` contient de nombreuses méthodes. Vous trouverez notamment la méthode ``Math.max(double a, double b)`` qui calcule le maximum entre les deux nombres passés en argument. Laquelle des méthodes ci-dessous est-elle une implémentation de la spécification suivante
@@ -879,7 +881,6 @@ problems:
               * @pre -
               * @post retourne le maxium entre les deux réels passés en arguments
               */
-        name: Calcul du maximum
     q9:
         choices:
         -   valid: true
@@ -894,7 +895,8 @@ problems:
                       }
                       return r;
                    }
-        -   text: |4+
+        -   valid: true
+            text: |4+
 
                 .. code-block:: java
 
@@ -906,8 +908,10 @@ problems:
                    }
 
 
-            valid: true
-        -   text: |4
+        -   feedback: |4
+
+                Le code utilisé par l'étudiant s'attend à recevoir un ``double``. La méthode doit également retourner un ``double`` et non un ``int`` comme ci-dessus.
+            text: |4
 
                 .. code-block:: java
 
@@ -917,9 +921,6 @@ problems:
                       }
                       return c;
                    }
-            feedback: |4
-
-                Le code utilisé par l'étudiant s'attend à recevoir un ``double``. La méthode doit également retourner un ``double`` et non un ``int`` comme ci-dessus.
         -   text: |4
 
                 .. code-block:: java
@@ -933,7 +934,10 @@ problems:
             feedback: |4
 
                 La méthode proposée prend comme argument un entier alors que l'étudiant fournit un réel.
-        -   text: |4
+        -   feedback: |4
+
+                Cette méthode ne compile pas. La variable ``r`` peut être utilisée sans avoir été initialisée. C'est le cas par exemple lorsque ``c>0``. Le compilateur Java refusera de compiler cette méthode.
+            text: |4
 
                 .. code-block:: java
 
@@ -944,9 +948,6 @@ problems:
                       }
                       return r;
                    }
-            feedback: |4
-
-                Cette méthode ne compile pas. La variable ``r`` peut être utilisée sans avoir été initialisée. C'est le cas par exemple lorsque ``c>0``. Le compilateur Java refusera de compiler cette méthode.
         -   text: |4
 
                 .. code-block:: java
@@ -961,6 +962,7 @@ problems:
 
                 Cette méthode ne compile pas. La première invocation de ``return`` ne retourne par de valeur tandis que la seconde retourne un réel.
         type: multiple-choice
+        name: Calcul de la valeur absolue
         header: |4
 
 
@@ -973,14 +975,10 @@ problems:
                 int i=1401;
                 double d=-112.4;
                 double j=d+abs(2*d);
-        name: Calcul de la valeur absolue
         limit: 3
     q10:
-        limit: 3
-        name: Les nombres amicaux
         choices:
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -989,6 +987,7 @@ problems:
                       int sdiv2=sdiv(b);
                       return (sdiv1==sdiv2);
                    }
+            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -997,7 +996,10 @@ problems:
                       return (sdiv(a)==sdiv(b));
                    }
             valid: true
-        -   text: |4
+        -   feedback: |4
+
+                Cette méthode est définie comme retournant un entier alors qu'elle retourne en fait un booléen. Elle ne se compile pas.
+            text: |4
 
                 .. code-block:: java
 
@@ -1006,9 +1008,6 @@ problems:
                       int sdiv2=sdiv(b);
                       return (sdiv1==sdiv2);
                    }
-            feedback: |4
-
-                Cette méthode est définie comme retournant un entier alors qu'elle retourne en fait un booléen. Elle ne se compile pas.
         -   feedback: |4
 
                 Cette méthode est définie comme retournant un booléen alors qu'elle retourne rien. Elle ne se compile pas.
@@ -1020,7 +1019,10 @@ problems:
                       int sdiv1=sdiv(a);
                       int sdiv2=sdiv(b);
                    }
-        -   text: |4
+        -   feedback: |4
+
+                Cette méthode ne se compile pas. Les variables ``sdiv1`` et ``sdiv2`` doivent être déclarées avant de pouvoir être utilisées.
+            text: |4
 
                 .. code-block:: java
 
@@ -1029,9 +1031,9 @@ problems:
                       sdiv2=sdiv(c);
                       return (sdiv1==sdiv2);
                    }
-            feedback: |4
-
-                Cette méthode ne se compile pas. Les variables ``sdiv1`` et ``sdiv2`` doivent être déclarées avant de pouvoir être utilisées.
+        name: Les nombres amicaux
+        type: multiple-choice
+        limit: 3
         header: |4
 
 
@@ -1050,5 +1052,8 @@ problems:
                 }
 
             Laquelle des méthodes ci-dessous retourne-t-elle ``true`` lorsque les deux nombres passés en argument sont amicaux et ``false``  sinon ?
-        type: multiple-choice
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
 weight: 1.0

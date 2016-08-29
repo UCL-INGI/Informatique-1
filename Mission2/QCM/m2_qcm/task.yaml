@@ -80,7 +80,8 @@ context: |
 
     .. _jn3.5 : http://math.hws.edu/javanotes/c3/s5.html
     .. |jn3.5| replace:: `3.5 : The if Statement`
-environment: default
+environment: mcq
+evaluate: best
 groups: false
 limits:
     memory: '100'
@@ -91,9 +92,9 @@ network_grading: false
 order: 3
 problems:
     q1:
-        name: Types de données primitifs
         choices:
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -103,8 +104,8 @@ problems:
                    double temp;
                    boolean present;
                    char caractere;
-            valid: true
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -114,7 +115,6 @@ problems:
                    float temp;
                    boolean present;
                    char caractere;
-            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -141,7 +141,10 @@ problems:
             feedback: |4
 
                 La présence d'un étudiant est typiquement une donnée dont la valeur peut être vraie ou fausse. C'est dans ce cas que l'on utilise un ``boolean``
-        -   text: |4
+        -   feedback: |4
+
+                Les américains utilisent des dollars et des cents. Vous devez donc pouvoir représenter un budget de 3.45$, ce que le type ``long`` ne permet pas.
+            text: |4
 
                 .. code-block:: java
 
@@ -151,9 +154,6 @@ problems:
                    float temp;
                    boolean present;
                    char caractere;
-            feedback: |4
-
-                Les américains utilisent des dollars et des cents. Vous devez donc pouvoir représenter un budget de 3.45$, ce que le type ``long`` ne permet pas.
         -   text: |4
 
                 .. code-block:: java
@@ -167,6 +167,8 @@ problems:
             feedback: |4
 
                 Les américains utilisent des dollars et des cents. Vous devez donc pouvoir représenter un budget de 3.45$, ce que le type ``int`` ne permet pas. De plus, le type ``int`` ne peut stocker que des nombres allant de ``-2147483648`` et ``2147483647``, ce qui est insuffisant pour le budget (et le déficit) américain.
+        limit: 3
+        name: Types de données primitifs
         type: multiple-choice
         header: |4
 
@@ -181,7 +183,6 @@ problems:
 
             Parmi les déclarations de variables suivantes, quelle est celle qu'il est préférable
             d'utiliser pour ces données ?
-        limit: 3
     q2:
         choices:
         -   text: |
@@ -191,13 +192,13 @@ problems:
                  La ligne ``6`` est une instruction conditionnelle
                  ``i==j`` est une expression qui a une valeur booléenne
             valid: true
-        -   text: |
+        -   valid: true
+            text: |
                 ``k`` est une variable de type ``double`` (réel)
                  La ligne ``1`` contient une déclaration de variable
                  La ligne ``4`` contient une affectation de la valeur d'une expression (``i``) à une variable
                  La ligne ``6`` est une instruction conditionnelle
                  ``k+1.0`` est une expression qui a une valeur réelle
-            valid: true
         -   text: |
                 ``j`` est une variable de type ``double`` (réelle)
                  La ligne ``1`` contient une déclaration de variable
@@ -222,7 +223,6 @@ problems:
                  La ligne ``6`` est une boucle
                  ``k+1.0`` est une expression qui a une valeur réelle
         name: Vocabulaire
-        type: multiple-choice
         header: |4
 
             Considérons le fragment de programme ci-dessous.
@@ -245,26 +245,27 @@ problems:
 
             Lesquelles des affirmations ci-dessous utilisent une terminologie correcte ?
         limit: 3
+        type: multiple-choice
     q3:
         choices:
+        -   text: |4
+
+                .. code-block:: java
+
+                   if( (x>=min) && (x<max) ) {   }
+            valid: true
         -   valid: true
             text: |4
 
                 .. code-block:: java
 
-                   if( (x>=min) && (x<max) ) {   }
-        -   text: |4
-
-                .. code-block:: java
-
                    if( (x<max) && (x>=min) ) {   }
-            valid: true
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
                    if( !(x<min) && !(x>=max) ) {   }
-            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -287,14 +288,14 @@ problems:
                 .. code-block:: java
 
                    if( (x<max) || (x>=min) ) {   }
-        -   feedback: |4
-
-                Ne confondez pas la conjonction logique (``&&``)  et la disjonction logique (``||``).
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
                    if( !(x<min) || !(x>=max) ) {   }
+            feedback: |4
+
+                Ne confondez pas la conjonction logique (``&&``)  et la disjonction logique (``||``).
         -   text: |4
 
                 .. code-block:: java
@@ -311,14 +312,14 @@ problems:
                 .. code-block:: java
 
                    if( (x<min) && (x<max) ) {   }
-        -   feedback: |4
-
-                Sachant que :math:`min<max`, cette condition est équivalente à une condition plus simple.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
                    if( (x>max) || (x>=min) ) {   }
+            feedback: |4
+
+                Sachant que :math:`min<max`, cette condition est équivalente à une condition plus simple.
         -   text: |4
 
                 .. code-block:: java
@@ -339,9 +340,45 @@ problems:
 
             Les instructions conditionnelles peuvent parfois comporter des conditions plus compliquées dans lesquelles des conditions simples sont combinées en utilisant la négation (``!``), la conjonction (``&&``) ou la disjonction logique (``||``). Parmi les instructions conditionnelles suivantes, quelle est celle dont la condition est vérifiée lorsque la valeur de la variable ``x`` se trouve dans l'intervalle :math:`[min,max[` ? On supposera que :math:`min<max`.
     q4:
+        header: |4
+
+            Dans un programme Java, il est parfois nécessaire d'avoir une instruction conditionnelle qui contient elle-même une ou plusieurs autres instructions conditionnelles. Laquelle des instructions conditionnelles suivantes affiche-t-elle le message ``ok`` à l'écran lorsque la valeur de la variable de type ``double`` ``x`` est comprise entre ``2.0`` et ``5.0`` ?
         choices:
         -   valid: true
             text: |4
+
+                .. code-block:: java
+
+                   if (x>=2.0) {
+                     if (x<=5.0) {
+                       System.out.println("ok");
+                     }
+                   }
+        -   valid: true
+            text: |4
+
+                .. code-block:: java
+
+                   if (x<=5.0) {
+                     if (x>=2.0) {
+                       System.out.println("ok");
+                     }
+                   }
+        -   valid: true
+            text: |4
+
+                .. code-block:: java
+
+                   if (x<2.0) {
+                    // vide
+                   } else {
+                     if (x<=5.0) {
+                       System.out.println("ok");
+                     }
+                   }
+            feedback: |4
+
+                Ce code est correct, mais il n'est pas très lisible. Mieux vaut éviter ce genre de code. Il est préférable d'écrire plutôt.
 
                 .. code-block:: java
 
@@ -354,45 +391,12 @@ problems:
 
                 .. code-block:: java
 
-                   if (x<=5.0) {
-                     if (x>=2.0) {
-                       System.out.println("ok");
-                     }
-                   }
-            valid: true
-        -   valid: true
-            feedback: |4
-
-                Ce code est correct, mais il n'est pas très lisible. Mieux vaut éviter ce genre de code. Il est préférable d'écrire plutôt.
-
-                .. code-block:: java
-
-                   if (x>=2.0) {
-                     if (x<=5.0) {
-                       System.out.println("ok");
-                     }
-                   }
-            text: |4
-
-                .. code-block:: java
-
-                   if (x<2.0) {
-                    // vide
-                   } else {
-                     if (x<=5.0) {
-                       System.out.println("ok");
-                     }
-                   }
-        -   feedback: |4
-
-                Ce code est incomplet.
-            text: |4
-
-                .. code-block:: java
-
                    if (x>=2.0) {
                      System.out.println("ok");
                    }
+            feedback: |4
+
+                Ce code est incomplet.
         -   feedback: |4
 
                 Ce code est incomplet.
@@ -421,15 +425,13 @@ problems:
                           System.out.println("ok");
                         }
                       }
-        limit: 3
         name: Instructions conditionnelles imbriquées
-        header: |4
-
-            Dans un programme Java, il est parfois nécessaire d'avoir une instruction conditionnelle qui contient elle-même une ou plusieurs autres instructions conditionnelles. Laquelle des instructions conditionnelles suivantes affiche-t-elle le message ``ok`` à l'écran lorsque la valeur de la variable de type ``double`` ``x`` est comprise entre ``2.0`` et ``5.0`` ?
         type: multiple-choice
+        limit: 3
     q5:
         choices:
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -437,7 +439,6 @@ problems:
                       System.out.print("*");
                   }
                   System.out.println();
-            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -456,8 +457,7 @@ problems:
                       System.out.print("*");
                   }
                   System.out.println();
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -465,10 +465,8 @@ problems:
                       System.out.print("*");
                   }
                   System.out.println();
-        -   feedback: |4
-
-                Cette boucle ``for`` commence à la valeur ``0`` et se termine à la valeur ``5``. Elle affiche donc six fois le caractère ``\*``.
-            text: |4
+            valid: true
+        -   text: |4
 
                 .. code-block:: java
 
@@ -476,6 +474,9 @@ problems:
                       System.out.print("*");
                   }
                   System.out.println();
+            feedback: |4
+
+                Cette boucle ``for`` commence à la valeur ``0`` et se termine à la valeur ``5``. Elle affiche donc six fois le caractère ``\*``.
         -   text: |4
 
                 .. code-block:: java
@@ -520,8 +521,8 @@ problems:
             feedback: |4
 
                 Cette boucle commence à la valeur ``0`` et se termine à la valeur
-        type: multiple-choice
         limit: 3
+        type: multiple-choice
         name: Boucles for
         header: |4
 
@@ -539,7 +540,8 @@ problems:
                      }
                   }
             valid: true
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -550,7 +552,6 @@ problems:
                         System.out.println(i);
                      }
                   }
-            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -565,7 +566,10 @@ problems:
                      }
                   }
             valid: true
-        -   text: |4
+        -   feedback: |4
+
+                La variable ``reste`` est de type ``int``. Elle ne peut donc pas être utilisée comme condition dans un ``if``.
+            text: |4
 
                 .. code-block:: java
 
@@ -575,9 +579,6 @@ problems:
                         System.out.println(i);
                      }
                   }
-            feedback: |4
-
-                La variable ``reste`` est de type ``int``. Elle ne peut donc pas être utilisée comme condition dans un ``if``.
         -   feedback: |4
 
                 Ne confondez pas le reste de la division entière (symbole ``%``) avec la division entière elle-même (symbole ``/``)
@@ -591,10 +592,7 @@ problems:
                         System.out.println(i);
                      }
                   }
-        -   feedback: |4
-
-                Un nombre entier est toujours divisible par 1.
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -605,6 +603,9 @@ problems:
                         System.out.println(i);
                      }
                   }
+            feedback: |4
+
+                Un nombre entier est toujours divisible par 1.
         -   feedback: |4
 
                 Ce programme affiche deux fois la valeur ``1``.
@@ -621,12 +622,12 @@ problems:
                         System.out.println(i);
                      }
                   }
-        type: multiple-choice
-        limit: 3
-        name: Boucles for
         header: |4
 
             Laquelle des boucles ``for`` ci-dessous affiche correctement tous les diviseurs entiers du nombre ``n`` (supposé strictement positif) ?
+        type: multiple-choice
+        limit: 3
+        name: Boucles for
     q7:
         choices:
         -   valid: true
@@ -646,16 +647,16 @@ problems:
                       System.out.println(carre);
                    }
             valid: true
-        -   text: |4
+        -   feedback: |4
+
+                Qu'affiche ce programme ? La valeur de ``n`` change-t-elle durant son exécution ?
+            text: |4
 
                 .. code-block:: java
 
                    for(int i=1;i<=n;i++) {
                       System.out.println(n*n);
                    }
-            feedback: |4
-
-                Qu'affiche ce programme ? La valeur de ``n`` change-t-elle durant son exécution ?
         -   feedback: |4
 
                 Combien de nombres sont-il affichés si la boucle démarre à ``1`` et se termine à ``n`` ?
@@ -667,32 +668,32 @@ problems:
                       int carre=i*i;
                       System.out.println(carre);
                    }
-        -   feedback: |4
-
-                Qu'affiche ce programme ? La boucle se termine-t-elle ?
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
                    for(int i=1;i<=n;n++) {
                       System.out.println(i*i);
                    }
-        -   text: |4
+            feedback: |4
+
+                Qu'affiche ce programme ? La boucle se termine-t-elle ?
+        -   feedback: |4
+
+                Combien de nombres sont affichés par ce fragment de programme. S'agit-il bien des carrés des ``n`` premiers entiers ?
+            text: |4
 
                 .. code-block:: java
 
                    for(int i=1; i<=n*n;i++) {
                       System.out.println(i);
                    }
-            feedback: |4
-
-                Combien de nombres sont affichés par ce fragment de programme. S'agit-il bien des carrés des ``n`` premiers entiers ?
-        limit: 3
         name: Boucles for
+        type: multiple-choice
+        limit: 3
         header: |4
 
             Laquelle des boucles ``for`` ci-dessous affiche correctement les carrés des n premiers entiers positifs ?
-        type: multiple-choice
     q8:
         choices:
         -   text: |4
@@ -717,8 +718,7 @@ problems:
                       }
                       System.out.println();
                    }
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -728,6 +728,7 @@ problems:
                       }
                       System.out.println();
                    }
+            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -766,6 +767,7 @@ problems:
                 Ce fragment de programme affiche 3 caractères par ligne et 3 lignes. Vérifiez les bornes de la boucle ``for``.
         type: multiple-choice
         limit: 3
+        name: Boucles for imbriquées
         header: |4
 
             Sachant que ``System.out.print("X");`` affiche le caractère ``X`` à l'écran et que ``System.out.println()`` force un retour à la ligne à l'écran, laquelle des boucles ci-dessous affiche-t-elle le carré de 4x4 ci-dessous
@@ -776,8 +778,8 @@ problems:
               XXXX
               XXXX
               XXXX
-        name: Boucles for imbriquées
     q9:
+        name: Boucles for imbriquées
         choices:
         -   valid: true
             text: |4
@@ -790,7 +792,8 @@ problems:
                       }
                       System.out.println();
                    }
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -800,8 +803,8 @@ problems:
                       }
                       System.out.println();
                    }
-            valid: true
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -811,7 +814,6 @@ problems:
                       }
                       System.out.println();
                    }
-            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -825,7 +827,10 @@ problems:
             feedback: |4
 
                 Quelle est la variable incrémentée dans la boucle imbriquée ?
-        -   text: |4
+        -   feedback: |4
+
+                Ce fragment de programme affiche d'abord ``XXXXX``, ensuite ``XXXX``, ...
+            text: |4
 
                 .. code-block:: java
 
@@ -835,13 +840,7 @@ problems:
                       }
                       System.out.println();
                    }
-            feedback: |4
-
-                Ce fragment de programme affiche d'abord ``XXXXX``, ensuite ``XXXX``, ...
-        -   feedback: |4
-
-                Ce fragment de programme affiche d'abord ``XXXXX``, ensuite ``XXXX``, ...
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -851,7 +850,9 @@ problems:
                       }
                       System.out.println();
                    }
-        type: multiple-choice
+            feedback: |4
+
+                Ce fragment de programme affiche d'abord ``XXXXX``, ensuite ``XXXX``, ...
         header: |4
 
             Il est souvent nécessaire dans des programmes informatiques de construire des boucles imbriquées, c'est-à-dire des boucles qui contiennent elles-même d'autres boucles. Laquelle des boucles ci-dessous affiche-t-elle à l'écran le texte suivant
@@ -863,14 +864,11 @@ problems:
               XXX
               XXXX
               XXXXX
-        name: Boucles for imbriquées
+        type: multiple-choice
         limit: 3
     q10:
-        name: Boucles for et while
-        limit: 3
         choices:
-        -   valid: true
-            text: |4
+        -   text: |4
 
                 .. code-block:: java
 
@@ -879,6 +877,7 @@ problems:
                     // faire quelque chose
                     i=i+2;
                    }
+            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -890,7 +889,10 @@ problems:
                     i=i+2;
                    }
             valid: true
-        -   text: |4
+        -   feedback: |4
+
+                Notez que dans ce cas, première itération de la boucle se fait avec ``2`` comme valeur pour la variable ``i``.
+            text: |4
 
                 .. code-block:: java
 
@@ -899,9 +901,6 @@ problems:
                     i=i+2;
                     // faire quelque chose
                    }
-            feedback: |4
-
-                Notez que dans ce cas, première itération de la boucle se fait avec ``2`` comme valeur pour la variable ``i``.
         -   feedback: |4
 
                 Que se passe-t-il si la variable ``n`` est impaire ?
@@ -927,6 +926,9 @@ problems:
             feedback: |4
 
                 Notez que dans ce cas, première itération de la boucle se fait avec ``2`` comme valeur pour la variable ``i``.
+        name: Boucles for et while
+        type: multiple-choice
+        limit: 3
         header: |4
 
             Java supporte à la fois les boucles ``for`` et les boucles ``while``. Souvent, on peut utiliser une boucle ``for`` à la place d'une boucle ``while`` et inversement. Considérons la boucle ``for`` ci-dessous :
@@ -940,7 +942,6 @@ problems:
                 }
 
             A laquelle des boucles ``while`` ci-dessous cette boucle est-elle équivalente ?
-        type: multiple-choice
     q11:
         choices:
         -   valid: true
@@ -956,7 +957,8 @@ problems:
                         System.out.println();
                       }
                    }
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
@@ -967,7 +969,6 @@ problems:
                       }
                       System.out.println();
                    }
-            valid: true
         -   feedback: |4
 
                 Dans quel ordre les caractères ``X`` sont-ils affichés ? Le rectangle a-t-il bien ``l`` lignes et ``c`` colonnes ?
@@ -995,6 +996,8 @@ problems:
                          System.out.print(c);
                       }
                    }
+        type: multiple-choice
+        name: Boucles imbriquées
         header: |4
 
             Laquelle des boucles ci-dessous permet d'afficher à l'écran un rectangle  composé de ``l`` lignes contenant chacune ``c`` caractères ? Par exemple, le rectangle ci-dessous est un rectangle de 3x7
@@ -1007,17 +1010,28 @@ problems:
 
 
             On supposera pour répondre à cette question que les variables ``l`` et ``c`` ont été correctement initialisées.
-        type: multiple-choice
-        name: Boucles imbriquées
         limit: 3
     q12:
+        name: Calcul de la somme des diviseurs premiers d'un nombre
         choices:
-        -   text: |4
+        -   valid: true
+            text: |4
 
                 .. code-block:: java
 
                    int sum=n+1;
                    for(int i=2;i<n;i=i+1) {
+                      int reste=n%i;
+                      if(reste==0) {
+                         sum=sum+i;
+                      }
+                   }
+        -   text: |4
+
+                .. code-block:: java
+
+                   int sum=0;
+                   for(int i=1;i<=n;i=i+1) {
                       int reste=n%i;
                       if(reste==0) {
                          sum=sum+i;
@@ -1030,24 +1044,12 @@ problems:
                 .. code-block:: java
 
                    int sum=0;
-                   for(int i=1;i<=n;i=i+1) {
-                      int reste=n%i;
-                      if(reste==0) {
-                         sum=sum+i;
-                      }
-                   }
-        -   text: |4
-
-                .. code-block:: java
-
-                   int sum=0;
                    for(int i=n;i>=1;i=i-1) {
                       int reste=n%i;
                       if(reste==0) {
                          sum=sum+i;
                       }
                    }
-            valid: true
         -   text: |4
 
                 .. code-block:: java
@@ -1101,10 +1103,13 @@ problems:
             feedback: |4
 
                 Ce programme calcule en fait le plus grand diviseur de ``n``. Voyez-vous pourquoi ?
-        limit: 3
-        name: Calcul de la somme des diviseurs premiers d'un nombre
-        type: multiple-choice
         header: |4
 
             En arithmétique, certaines propriétés sur les nombres entiers dépendent de la somme des diviseurs entiers de ce nombre. Ainsi, un nombre :math:`n` est dit `parfait <http://fr.wikipedia.org/wiki/Nombre_parfait>`_ si :math:`\sigma(n)=2n` où :math:`\sigma(n)` est la somme des diviseurs de ce nombre. Lequel des fragments de programmes ci-dessous place dans la variable ``sigma`` la somme des diviseurs de ``n`` ?
+        type: multiple-choice
+        limit: 3
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
 weight: 1.0

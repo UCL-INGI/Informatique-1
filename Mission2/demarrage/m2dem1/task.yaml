@@ -18,21 +18,21 @@ accessible: true
 author: François MICHEL
 context: Voici quelques questions QCM pour vérifier votre compréhension de la Mission
     2 du cours, après lecture du livre de référence.
-environment: java7
+environment: mcq
+evaluate: best
 groups: false
 limits:
-    memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
+    memory: '100'
 name: 'Mission 2: Question de démarrage 1: Les bases'
 network_grading: false
 order: 4
 problems:
     q1:
-        name: Choix multiple
         choices:
-        -   text: Une partie de la mémoire réservée pour contenir des données
-            valid: true
+        -   valid: true
+            text: Une partie de la mémoire réservée pour contenir des données
         -   text: Un morceau d'information qui peut être manipulé par un programme
         -   text: Un ensemble de valeurs contigues dans la mémoire auxquelles on peut
                 accéder en fonction de leur position dans la mémoire
@@ -42,26 +42,24 @@ problems:
                 suivante de la liste
         -   text: Une chaine de caractères, dans le code du programme, qui se situe
                 devant le caractère "="
+        name: Choix multiple
         type: multiple-choice
         limit: 3
         header: Quelle est la définition la plus appropriée pour une variable ?
     q2:
         choices:
         -   text: Une partie de la mémoire réservée pour contenir des données
-        -   valid: true
-            text: Un morceau d'information qui peut être manipulé par un programme
+        -   text: Un morceau d'information qui peut être manipulé par un programme
+            valid: true
         -   text: Une entité abstraite qui possède un ensemble d'attributs et d'opérations
                 qui lui sont propres.
         -   text: Une suite d'instructions exécutables ou non par un programme
         -   text: Un entier ou un caractère
-        name: Choix multiple
-        type: multiple-choice
-        header: Quelle est la définition la plus appropriée pour une valeur ?
         limit: 3
-    q3:
+        type: multiple-choice
         name: Choix multiple
-        header: Selon vous, quelle portion de code correspond le mieux à une boucle
-            en Java ?
+        header: Quelle est la définition la plus appropriée pour une valeur ?
+    q3:
         choices:
         -   text: |
                 .. code-block:: java
@@ -74,7 +72,8 @@ problems:
                     c = b;
                     a = c;
                     // ...
-        -   text: |-
+        -   valid: true
+            text: |-
                 .. code-block:: java
 
                     int a = 1;
@@ -82,7 +81,6 @@ problems:
                         // do something
                         a++;
                     }
-            valid: true
         -   feedback: '"while ... do" n''existe pas en Java. '
             text: |-
                 .. code-block:: java
@@ -107,7 +105,8 @@ problems:
                         # do something in bash
                     done
             feedback: Cette boucle n'est pas écrite en Java
-        -   text: |-
+        -   feedback: Ce n'est pas une boucle mais un branchement ``if``
+            text: |-
                 .. code-block:: java
 
                     int a = 1;
@@ -117,10 +116,14 @@ problems:
                     else{
                         // do something otherwise
                     }
-            feedback: Ce n'est pas une boucle mais un branchement ``if``
-        limit: 3
         type: multiple-choice
+        header: Selon vous, quelle portion de code correspond le mieux à une boucle
+            en Java ?
+        limit: 3
+        name: Choix multiple
     q4:
+        header: Lequel de ces bouts de programmes ne va causer aucune erreur de compilation
+            ?
         choices:
         -   feedback: La variable pi est de type ``int`` et ne peut contenir que des
                 entiers.
@@ -131,14 +134,14 @@ problems:
                     int rayon = 3;
                     int perimetre = 2*pi*r;
                     // ...
-        -   text: |-
+        -   feedback: Il faut utiliser ``System.out.println()`` et non ``println()``
+            text: |-
                 .. code-block:: java
 
                     for(int i = 0 ; i < 10 ; i++){
                         // affiche i à l'écran
                         println(i);
                     }
-            feedback: Il faut utiliser ``System.out.println()`` et non ``println()``
         -   feedback: Dans les parenthèses du ``for``, il faut mettre des ";" et non
                 des ",".
             text: |-
@@ -167,16 +170,17 @@ problems:
                         System.out.println(a-b);
                     }
             valid: true
-        -   text: |-
+        -   feedback: Correct. System.out.print permet d'afficher sans mettre un retour
+                à la ligne à la fin.
+            text: |-
                 .. code-block:: java
 
                     for(int i = 1 ; i <= 10 ; i++){
                         System.out.print(i);
                     }
             valid: true
-            feedback: Correct. System.out.print permet d'afficher sans mettre un retour
-                à la ligne à la fin.
-        -   text: |-
+        -   feedback: Ne compile pas car ``a`` n'est pas initialisée.
+            text: |-
                 .. code-block:: java
 
                     int a;
@@ -187,10 +191,11 @@ problems:
                     else{
                         System.out.println(a-b);
                     }
-            feedback: Ne compile pas car ``a`` n'est pas initialisée.
         limit: 3
         name: Choix multiple
-        header: Lequel de ces bouts de programmes ne va causer aucune erreur de compilation
-            ?
         type: multiple-choice
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
 weight: 1.0

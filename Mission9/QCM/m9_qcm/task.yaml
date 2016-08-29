@@ -104,39 +104,40 @@ context: |
 
     .. _Arrays : http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Arrays.html
     .. |Arrays| replace:: ``java.util.Arrays``
-environment: default
+environment: mcq
+evaluate: best
 groups: false
 limits:
+    output: '2'
     memory: '100'
     time: '30'
-    output: '2'
 name: 'Mission 9: QCM'
 network_grading: false
 order: 60
 problems:
     q1:
-        name: Erreurs arithmétiques
+        limit: 3
         choices:
         -   text: |
                 ``10 / 0`` produit une ``ArithmeticException``.
             valid: true
-        -   text: |
-                ``Integer.MAX_VALUE + 1`` retourne un entier négatif.
+        -   valid: true
             feedback: |4
 
                 Le plus petit entier, accessible via ``Integer.MIN_VALUE``.
-            valid: true
-        -   valid: true
             text: |
+                ``Integer.MAX_VALUE + 1`` retourne un entier négatif.
+        -   text: |
                 ``10.0 / 0.0`` retourne un nombre infini.
             feedback: |4
 
                 C'est une valeur spéciale, accessible via ``Double.POSITIVE_INFINITY``.
-        -   text: |
-                ``0.0 / 0.0`` retourne un nombre indéfini.
-            feedback: |4
+            valid: true
+        -   feedback: |4
 
                 C'est une valeur spéciale, accessible via ``Double.NaN`` (*Not a Number*).
+            text: |
+                ``0.0 / 0.0`` retourne un nombre indéfini.
             valid: true
         -   valid: true
             text: |
@@ -144,36 +145,36 @@ problems:
             feedback: |4
 
                 A cause de la précision arithmétique, ajouter ``1000`` ne change rien à ``1.0E100`` (= $10^{100}$).
-        -   text: |
-                ``10 / 0`` provoque toujours l'arrêt du programme.
-            feedback: |4
+        -   feedback: |4
 
                 Ceci cause une ``ArithmeticException`` que l'on peut intercepter et traiter.
+            text: |
+                ``10 / 0`` provoque toujours l'arrêt du programme.
         -   feedback: |4
 
                 Les entiers "rebouclent" vers les négatifs quand ils dépassent la valeur maximale.
             text: |
                 ``Integer.MAX_VALUE + 1`` produit une ``ArithmeticException``.
-        -   text: |
-                ``10.0 / 0.0`` produit une ``ArithmeticException``.
-            feedback: |4
-
-                Les réels utilisent une valeur spéciale ``Double.POSITIVE_INFINITY`` pour représenter l'infini.
         -   feedback: |4
 
-                Les réels utilisent une valeur spéciale ``Double.NaN`` (*Not a Number*) pour représenter un nombre indéfini.
+                Les réels utilisent une valeur spéciale ``Double.POSITIVE_INFINITY`` pour représenter l'infini.
             text: |
+                ``10.0 / 0.0`` produit une ``ArithmeticException``.
+        -   text: |
                 ``0.0 / 0.0`` produit une ``ArithmeticException``.
+            feedback: |4
+
+                Les réels utilisent une valeur spéciale ``Double.NaN`` (*Not a Number*) pour représenter un nombre indéfini.
         -   text: |
                 ``1.0E100 + 1000.0`` retourne un nombre strictement supérieur à ``1.0E100``.
             feedback: |4
 
                 A cause de la précision arithmétique, ajouter ``1000`` ne change rien à ``1.0E100`` (= :math:`10^{100}`).
         type: multiple-choice
+        name: Erreurs arithmétiques
         header: |4
 
             Parmi les affirmations suivantes, laquelle est correcte ?
-        limit: 3
     q2:
         choices:
         -   text: |+
@@ -188,11 +189,11 @@ problems:
                    }
 
             valid: true
-        -   feedback: |4+
+        -   valid: true
+            feedback: |4+
 
                 Après l'interception de l'exception, l'exécution se poursuit après le try-catch.
 
-            valid: true
             text: |+
                 .. code-block:: java
 
@@ -205,10 +206,7 @@ problems:
                        return n;
                    }
 
-        -   feedback: |4
-
-                Ceci ne traite pas l'exception.  Utiliser un try-catch.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    public static int toInt(String s) {
@@ -219,6 +217,9 @@ problems:
                            return n;
                        }
                    }
+            feedback: |4
+
+                Ceci ne traite pas l'exception.  Utiliser un try-catch.
         -   text: |+
                 .. code-block:: java
 
@@ -247,7 +248,10 @@ problems:
                        }
                    }
 
-        -   text: |+
+        -   feedback: |4
+
+                Il manque le bloc ``try``.
+            text: |+
                 .. code-block:: java
 
                    public static int toInt(String s) {
@@ -257,13 +261,7 @@ problems:
                        }
                    }
 
-            feedback: |4
-
-                Il manque le bloc ``try``.
-        -   feedback: |4
-
-                Erreur de syntaxe dans la partie ``catch``.
-            text: |+
+        -   text: |+
                 .. code-block:: java
 
                    public static int toInt(String s) {
@@ -274,28 +272,31 @@ problems:
                        }
                    }
 
-        name: Traitement des exceptions
-        type: multiple-choice
+            feedback: |4
+
+                Erreur de syntaxe dans la partie ``catch``.
         header: |4
 
             Quelle définition de la méthode ``toInt`` ci-dessous retourne ``0`` lorsque l'on passe ``"ABC"`` comme paramètre ?
         limit: 3
+        name: Traitement des exceptions
+        type: multiple-choice
     q3:
         choices:
-        -   valid: true
-            text: |4
+        -   text: |4
 
 
                 - ``m(10, 5)`` retourne ``2``
                 - ``m(10, 0)`` retourne ``10``
                 - ``m(-10, 0)`` retourne ``0``
-        -   text: |4
+            valid: true
+        -   valid: true
+            text: |4
 
 
                 - ``m(8, 3)`` retourne ``2``
                 - ``m(8, 0)`` retourne ``8``
                 - ``m(0, 0)`` retourne ``0``
-            valid: true
         -   feedback: |4
 
                 Pas d'exception à la première ligne.
@@ -305,15 +306,15 @@ problems:
                 - ``m(10, 5)`` retourne ``10``
                 - ``m(8, 0)`` retourne ``8``
                 - ``m(-10, 0)`` retourne ``0``
-        -   feedback: |4
-
-                Pas d'exception à la première ligne.
-            text: |4
+        -   text: |4
 
 
                 - ``m(8, 3)`` retourne ``3``
                 - ``m(10, 0)`` retourne ``10``
                 - ``m(0, 0)`` retourne ``0``
+            feedback: |4
+
+                Pas d'exception à la première ligne.
         -   text: |4
 
 
@@ -323,24 +324,24 @@ problems:
             feedback: |4
 
                 Retourne ``x`` à la deuxième ligne.
-        -   text: |4
+        -   feedback: |4
+
+                Retourne ``x`` à la deuxième ligne.
+            text: |4
 
 
                 - ``m(8, 3)`` retourne ``2``
                 - ``m(8, 0)`` retourne ``0``
                 - ``m(-10, 0)`` retourne ``0``
-            feedback: |4
-
-                Retourne ``x`` à la deuxième ligne.
-        -   feedback: |4
-
-                Retourne ``y`` à la troisième ligne.
-            text: |4
+        -   text: |4
 
 
                 - ``m(8, 3)`` retourne ``2``
                 - ``m(10, 0)`` retourne ``10``
                 - ``m(-10, 0)`` retourne ``-10``
+            feedback: |4
+
+                Retourne ``y`` à la troisième ligne.
         -   text: |4
 
 
@@ -350,8 +351,9 @@ problems:
             feedback: |4
 
                 Retourne ``y`` à la troisième ligne.
-        name: Traitement des exceptions
         limit: 3
+        name: Traitement des exceptions
+        type: multiple-choice
         header: |4
 
             Soit la méthode ``m`` suivante
@@ -371,8 +373,10 @@ problems:
                 }
 
             Parmi les ensembles d'affirmations suivantes, lequel est correct ?
-        type: multiple-choice
     q4:
+        header: |4
+
+            Quelles classes sont les plus appropriées pour lire du texte à partir de ``input.txt`` et écrire du texte vers ``output.txt`` ?
         choices:
         -   valid: true
             text: |
@@ -382,36 +386,36 @@ problems:
                    ...
                    BufferedReader inbuf = new BufferedReader(new FileReader("input.txt"));
                    PrintWriter outbuf = new PrintWriter(new FileWriter("output.txt"));
-        -   text: |
+        -   feedback: |4
+
+                Il n'y a pas de constructeur ``BufferedReader(String filename)``.
+            text: |
                 .. code-block:: java
 
                    import java.io.*;
                    ...
                    BufferedReader inbuf = new BufferedReader("input.txt");
                    PrintWriter outbuf = new PrintWriter("output.txt");
-            feedback: |4
-
-                Il n'y a pas de constructeur ``BufferedReader(String filename)``.
-        -   feedback: |4
-
-                ``BufferedWriter`` a des possibilités très limitées, ``PrintWriter`` est plus judicieux.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    import java.io.*;
                    ...
                    BufferedReader inbuf = new BufferedReader(new FileReader("input.txt"));
                    BufferedWriter outbuf = new BufferedWriter(new FileWriter("output.txt"));
-        -   feedback: |4
+            feedback: |4
 
-                ``PrintReader``` n'existe pas, utilisez ``BufferedReader``.
-            text: |
+                ``BufferedWriter`` a des possibilités très limitées, ``PrintWriter`` est plus judicieux.
+        -   text: |
                 .. code-block:: java
 
                    import java.io.*;
                    ...
                    PrintReader inbuf = new PrintReader(new FileReader("input.txt"));
                    PrintWriter outbuf = new PrintWriter(new FileWriter("output.txt"));
+            feedback: |4
+
+                ``PrintReader``` n'existe pas, utilisez ``BufferedReader``.
         -   feedback: |4
 
                 ``InputStream`` et ``OutputStream`` sont appropriés pour des données binaires plutôt que pour du texte.
@@ -432,15 +436,13 @@ problems:
             feedback: |4
 
                 ``Reader`` et ``Writer`` sont des classes abstraites, utilisez leurs extensions.
-        limit: 3
         name: Classes d'entrée-sortie
-        header: |4
-
-            Quelles classes sont les plus appropriées pour lire du texte à partir de ``input.txt`` et écrire du texte vers ``output.txt`` ?
         type: multiple-choice
+        limit: 3
     q5:
         choices:
-        -   text: |
+        -   valid: true
+            text: |
                 .. code-block:: java
 
                    import java.io.*;
@@ -459,7 +461,6 @@ problems:
                            System.err.println("Erreur: " + e);
                        }
                    }
-            valid: true
         -   feedback: |4
 
                 ``readLine`` et ``close`` sont des méthodes de ``buf``.
@@ -525,10 +526,7 @@ problems:
             feedback: |4
 
                 Le test de boucle est incorrect.
-        -   feedback: |4
-
-                Seule la première ligne du fichier est lue.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    import java.io.*;
@@ -546,6 +544,9 @@ problems:
                            System.err.println("Erreur: " + e);
                        }
                    }
+            feedback: |4
+
+                Seule la première ligne du fichier est lue.
         -   text: |
                 .. code-block:: java
 
@@ -564,7 +565,10 @@ problems:
             feedback: |4
 
                 Il manque la gestion des exceptions.
-        -   text: |
+        -   feedback: |4
+
+                La gestion de la variable ``line`` est incorrecte, la boucle ne sera jamais exécutée.
+            text: |
                 .. code-block:: java
 
                    import java.io.*;
@@ -583,17 +587,13 @@ problems:
                            System.err.println("Erreur: " + e);
                        }
                    }
-            feedback: |4
-
-                La gestion de la variable ``line`` est incorrecte, la boucle ne sera jamais exécutée.
-        type: multiple-choice
         limit: 3
-        name: Lecture de fichier
         header: |4
 
             Parmi les définitions de la méthode ``display`` suivantes, lequel affiche correctement le contenu d'un fichier sur ``System.out`` ?
-    q6:
         type: multiple-choice
+        name: Lecture de fichier
+    q6:
         choices:
         -   text: |
                 .. code-block:: java
@@ -633,10 +633,7 @@ problems:
                    } catch (IOException e) {
                        System.err.println("Erreur: " + e);
                    }
-        -   feedback: |4
-
-                Il n'y a pas de constructeur ``Scanner(String filename)``.  Utiliser un ``FileReader``.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    import java.util.Scanner;
@@ -653,7 +650,13 @@ problems:
                    } catch (IOException e) {
                        System.err.println("Erreur: " + e);
                    }
-        -   text: |
+            feedback: |4
+
+                Il n'y a pas de constructeur ``Scanner(String filename)``.  Utiliser un ``FileReader``.
+        -   feedback: |4
+
+                ``Scanner`` n'a pas de méthode ``eof``.  Utiliser ``hasNextInt``.
+            text: |
                 .. code-block:: java
 
                    import java.util.Scanner;
@@ -670,13 +673,7 @@ problems:
                    } catch (IOException e) {
                        System.err.println("Erreur: " + e);
                    }
-            feedback: |4
-
-                ``Scanner`` n'a pas de méthode ``eof``.  Utiliser ``hasNextInt``.
-        -   feedback: |4
-
-                ``hasNextInt`` et ``nextInt`` sont des méthodes de ``scan``.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    import java.util.Scanner;
@@ -693,8 +690,10 @@ problems:
                    } catch (IOException e) {
                        System.err.println("Erreur: " + e);
                    }
-        limit: 3
-        name: La classe Scanner
+            feedback: |4
+
+                ``hasNextInt`` et ``nextInt`` sont des méthodes de ``scan``.
+        type: multiple-choice
         header: |4
 
             Considérons un fichier ``numbers.txt`` qui contient des nombres entiers séparés par des espaces, par exemple
@@ -710,9 +709,12 @@ problems:
 
             .. _Scanner : http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Scanner.html
             .. |Scanner| replace:: ``java.util.Scanner``
+        limit: 3
+        name: La classe Scanner
     q7:
         choices:
-        -   text: |
+        -   valid: true
+            text: |
                 .. code-block:: java
 
                    public class Student implements Comparable {
@@ -720,7 +722,6 @@ problems:
                        public boolean equals(Object o) { ... }
                        public int compareTo(Object o) { ... }
                    }
-            valid: true
         -   feedback: |4
 
                 Il faut déclarer qu'on implémente l'interface ``Comparable``.
@@ -766,7 +767,7 @@ problems:
                        public boolean equals(Object o) { ... }
                        public int compareTo(Object o) { ... }
                    }
-        limit: 3
+        name: Méthodes de comparaison
         header: |4
 
             On désire trier et faire des recherches sur un tableau contenant des objets qui représentent des étudiants (``Student[]``) à l'aide des méthodes de la classe |Arrays|_.  Quelles interfaces et méthodes la classe ``Student`` doit-elle implémenter ?
@@ -775,11 +776,10 @@ problems:
             .. _Arrays : http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Arrays.html
             .. |Arrays| replace:: ``java.util.Arrays``
         type: multiple-choice
-        name: Méthodes de comparaison
+        limit: 3
     q8:
         choices:
-        -   valid: true
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    import java.util.Arrays;
@@ -789,6 +789,7 @@ problems:
                        int index = Arrays.binarySearch(groupe, stud);
                        return stud.equals(groupe[index]);
                    }
+            valid: true
         -   feedback: |4
 
                 ``sort`` et ``binarySearch`` sont des méthodes de classe de ``Arrays``.
@@ -802,10 +803,7 @@ problems:
                        int index = groupe.binarySearch(stud);
                        return stud.equals(groupe[index]);
                    }
-        -   feedback: |4
-
-                ``binarySearch`` ne retourne pas de résultat, elle modifie le tableau.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    import java.util.Arrays;
@@ -815,6 +813,9 @@ problems:
                        int index = Arrays.binarySearch(sorted, stud);
                        return stud.equals(groupe[index]);
                    }
+            feedback: |4
+
+                ``binarySearch`` ne retourne pas de résultat, elle modifie le tableau.
         -   text: |
                 .. code-block:: java
 
@@ -852,8 +853,6 @@ problems:
             feedback: |4
 
                 La comparaison dans le ``return`` ne convient pas, on compare des références.
-        limit: 3
-        type: multiple-choice
         header: |4
 
             Etant donné un tableau non-trié d'étudiants ``Student[] groupe`` et un étudiant ``Student stud``, comment vérifier si ``stud`` appartient à ``groupe`` en utilisant les méthodes de la classe |Arrays|_, en supposant que ``Student`` implémente les interfaces et méthodes mentionnées à la question 7 ?
@@ -861,5 +860,11 @@ problems:
 
             .. _Arrays : http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Arrays.html
             .. |Arrays| replace:: ``java.util.Arrays``
+        type: multiple-choice
         name: La classe Arrays
+        limit: 3
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
 weight: 1.0

@@ -87,20 +87,21 @@ context: |
 
     .. _jn5.7.2 : http://math.hws.edu/javanotes/c5/s7.html#OOP.7.2
     .. |jn5.7.2| replace:: `5.7.2 : Nested Classes`
-environment: default
+environment: mcq
+evaluate: best
 groups: false
 limits:
+    output: '2'
     memory: '100'
     time: '30'
-    output: '2'
 name: 'Mission 8: QCM'
 network_grading: false
 order: 56
 problems:
     q1:
-        name: Packages
         choices:
-        -   text: |
+        -   valid: true
+            text: |
                 .. code-block:: java
 
                    import java.util.List;
@@ -111,8 +112,8 @@ problems:
                        }
                        // ... autres méthodes de l'interface List
                    }
-            valid: true
-        -   text: |
+        -   valid: true
+            text: |
                 .. code-block:: java
 
                    import java.util.*;
@@ -123,9 +124,7 @@ problems:
                        }
                        // ... autres méthodes de l'interface List
                    }
-            valid: true
-        -   valid: true
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    public Class MyList implements java.util.List {
@@ -135,7 +134,11 @@ problems:
                        }
                        // ... autres méthodes de l'interface List
                    }
-        -   text: |
+            valid: true
+        -   feedback: |4
+
+                Il faut soit importer ``ArrayList``, soit mettre ``java.util.ArrayList`` dans le constructeur.
+            text: |
                 .. code-block:: java
 
                    import java.util.List;
@@ -146,10 +149,10 @@ problems:
                        }
                        // ... autres méthodes de l'interface List
                    }
-            feedback: |4
+        -   feedback: |4
 
-                Il faut soit importer ``ArrayList``, soit mettre ``java.util.ArrayList`` dans le constructeur.
-        -   text: |
+                Il faut importer ``List`` et non ``ArrayList``.
+            text: |
                 .. code-block:: java
 
                    import java.util.ArrayList;
@@ -160,10 +163,10 @@ problems:
                        }
                        // ... autres méthodes de l'interface List
                    }
-            feedback: |4
+        -   feedback: |4
 
-                Il faut importer ``List`` et non ``ArrayList``.
-        -   text: |+
+                ``import java.*`` importe les classes (inexistantes) du package ``java`` , pas celles de ``java.util``.
+            text: |+
                 .. code-block:: java
 
                    import java.*;
@@ -175,13 +178,7 @@ problems:
                        // ... autres méthodes de l'interface List
                    }
 
-            feedback: |4
-
-                ``import java.*`` importe les classes (inexistantes) du package ``java`` , pas celles de ``java.util``.
-        -   feedback: |4
-
-                Il faut soit importer ``List``, soit mettre ``java.util.List`` dans la déclaration de classe.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    public Class MyList implements List {
@@ -191,6 +188,9 @@ problems:
                        }
                        // ... autres méthodes de l'interface List
                    }
+            feedback: |4
+
+                Il faut soit importer ``List``, soit mettre ``java.util.List`` dans la déclaration de classe.
         -   feedback: |4
 
                 Il faut importer ``List`` et ``ArrayList``.
@@ -217,13 +217,13 @@ problems:
                        }
                        // ... autres méthodes de l'interface List
                    }
-        limit: 3
+        name: Packages
         type: multiple-choice
+        limit: 3
         header: |4
 
             Le package ``java.util`` définit (entre autres) l'interface ``List`` et une classe ``ArrayList`` qui implémente ``List``.  Sachant cela, parmi les fragments de programmes suivants, lequel est correct pour le compilateur Java ?
     q2:
-        name: Extension et implémentation
         choices:
         -   text: |4
 
@@ -239,14 +239,14 @@ problems:
 
                 - Une classe peut étendre plusieurs classes.
                 - Une classe peut implémenter plusieurs interfaces.
-        -   feedback: |4
-
-                Une classe peut implémenter plusieurs interfaces.
-            text: |4
+        -   text: |4
 
 
                 - Une classe ne peut étendre qu'une seule classe.
                 - Une classe ne peut implémenter qu'une seule interface.
+            feedback: |4
+
+                Une classe peut implémenter plusieurs interfaces.
         -   text: |4
 
 
@@ -265,12 +265,14 @@ problems:
 
                 - Une classe peut implémenter plusieurs interfaces.
                 - Une interface peut étendre une classe.
+        limit: 3
+        name: Extension et implémentation
         type: multiple-choice
         header: |4
 
             Parmi les ensembles d'affirmations suivantes, lequel est correct ?
-        limit: 3
     q3:
+        type: multiple-choice
         choices:
         -   valid: true
             text: |
@@ -283,7 +285,10 @@ problems:
                        /** ... */
                        public void pivote(int angle);
                    }
-        -   text: |
+        -   feedback: |4
+
+                Une interface contient des signatures de méthodes, pas uniquement des noms.
+            text: |
                 .. code-block:: java
 
                    public interface Direction {
@@ -293,9 +298,6 @@ problems:
                        /** ... */
                        pivote(int angle);
                    }
-            feedback: |4
-
-                Une interface contient des signatures de méthodes, pas uniquement des noms.
         -   feedback: |4
 
                 Une interface ne contient pas de variables d'instance.
@@ -311,10 +313,7 @@ problems:
                        /** ... */
                        public void pivote(int angle);
                    }
-        -   feedback: |4
-
-                Une interface ne contient pas de constructeur.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    public interface Direction {
@@ -327,6 +326,9 @@ problems:
                        /** ... */
                        public void pivote(int angle);
                    }
+            feedback: |4
+
+                Une interface ne contient pas de constructeur.
         -   text: |
                 .. code-block:: java
 
@@ -344,7 +346,10 @@ problems:
             feedback: |4
 
                 Une interface ne contient que des signatures, pas de corps de méthodes.
-        -   text: |
+        -   feedback: |4
+
+                Une interface ne contient in variable d'instance, ni constructeur.
+            text: |
                 .. code-block:: java
 
                    public interface Direction {
@@ -359,15 +364,11 @@ problems:
                        /** ... */
                        public void pivote(int angle);
                    }
-            feedback: |4
-
-                Une interface ne contient in variable d'instance, ni constructeur.
-        name: Interface
+        limit: 3
         header: |4
 
             Parmi les définitions de l'interface ``Direction`` ci-dessous, laquelle est correcte pour le compilateur Java?
-        limit: 3
-        type: multiple-choice
+        name: Interface
     q4:
         choices:
         -   valid: true
@@ -408,10 +409,7 @@ problems:
                        }
                    }
             valid: true
-        -   feedback: |4
-
-                Il manque la clausse ``implements`` dans l'en-tête de classe.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    public class MyPrix {
@@ -426,7 +424,13 @@ problems:
                            val = x;
                        }
                    }
-        -   text: |
+            feedback: |4
+
+                Il manque la clausse ``implements`` dans l'en-tête de classe.
+        -   feedback: |4
+
+                La méthode ``void setVal(int x)`` n'est pas implémentée, attention à la signature!
+            text: |
                 .. code-block:: java
 
                    public class MyPrix implements Prix {
@@ -444,10 +448,10 @@ problems:
                            val = (int) x;
                        }
                    }
-            feedback: |4
+        -   feedback: |4
 
-                La méthode ``void setVal(int x)`` n'est pas implémentée, attention à la signature!
-        -   text: |
+                La méthode ``int getVal()`` n'est pas implémentée, attention à la signature!
+            text: |
                 .. code-block:: java
 
 
@@ -463,10 +467,10 @@ problems:
                            val = x;
                        }
                    }
-            feedback: |4
+        -   feedback: |4
 
-                La méthode ``int getVal()`` n'est pas implémentée, attention à la signature!
-        -   text: |
+                C'est ``MyPrix`` qui implémente ``Prix`` et non l'inverse.
+            text: |
                 .. code-block:: java
 
 
@@ -482,10 +486,10 @@ problems:
                            val = x;
                        }
                    }
-            feedback: |4
+        -   feedback: |4
 
-                C'est ``MyPrix`` qui implémente ``Prix`` et non l'inverse.
-        -   text: |
+                La signature de ``setVal`` ne correspond pas à celle de l'interface.
+            text: |
                 .. code-block:: java
 
                    public class MyPrix implements Prix {
@@ -504,11 +508,6 @@ problems:
                            return x;
                        }
                    }
-            feedback: |4
-
-                La signature de ``setVal`` ne correspond pas à celle de l'interface.
-        limit: 3
-        name: Interface et implémentation
         header: |4
 
             On considère l'interface ``Prix`` définie comme suit
@@ -529,23 +528,25 @@ problems:
                 }
 
             Parmi les classes suivantes, laquelle est une implémentation correcte de ``Prix`` ?
+        name: Interface et implémentation
         type: multiple-choice
+        limit: 3
     q5:
         choices:
-        -   text: |
+        -   valid: true
+            text: |
                 .. code-block:: java
 
                    C2 obj2 = new C2();
                    C3 obj3 = new C3();
                    I1 ojb1 = obj2;
-            valid: true
-        -   text: |
+        -   valid: true
+            text: |
                 .. code-block:: java
 
                    C3 obj3 = new C3();
                    I1 obj1 = new C3();
                    C2 obj2 = new C2();
-            valid: true
         -   feedback: |4
 
                 ``C2 obj2`` ne peut pas recevoir une expression de type ``I1``.
@@ -564,15 +565,15 @@ problems:
             feedback: |4
 
                 ``I1 obj1`` ne peut pas recevoir une expression de type ``C2``.
-        -   feedback: |4
-
-                ``C3 obj3`` ne peut pas recevoir une expression de type ``I2``.
-            text: |
+        -   text: |
                 .. code-block:: java
 
                    C2 obj2 = new C2();
                    I1 ojb1 = obj2;
                    C3 obj3 = obj2;
+            feedback: |4
+
+                ``C3 obj3`` ne peut pas recevoir une expression de type ``I2``.
         -   text: |
                 .. code-block:: java
 
@@ -582,9 +583,8 @@ problems:
             feedback: |4
 
                 ``C2 obj2`` ne peut pas recevoir une expression de type ``I1``.
-        type: multiple-choice
-        limit: 3
         name: ' Interfaces et types'
+        limit: 3
         header: |4
 
 
@@ -611,4 +611,9 @@ problems:
                 }
 
             Parmi les portions de code suivantes, laquelle est valide pour le compilateur Java ?
+        type: multiple-choice
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
 weight: 1.0
