@@ -188,8 +188,9 @@ def run(exercice, customscript, corr, execcustom, nexercices, javac_args, java_a
                 i = 1
                 while i <= nexercices:
                     # On récupère un feedback par question dans le System.err, en suivant le format imposé par convention
-                    regex_question = re.findall('Question ' + str(i) + ' :\n(.*?)\n^(?:[^\n]*Question [^\D1] :)?',
-                                                outerr, re.DOTALL | re.MULTILINE)
+                    regex_question = re.findall('Question '+str(i)+' :\n(.*?)(?=Question \d+ :)', outerr, re.DOTALL | re.MULTILINE)
+                    if regex_question == []:
+                        regex_question = re.findall('Question '+str(i)+' :\n(.*)', outerr, re.DOTALL | re.MULTILINE)
                     if len(regex_question) == 0:
                         feedback.set_global_result('success')
                         feedback.set_problem_feedback("Vous avez bien répondu à cette question", "q" + str(i))
@@ -232,4 +233,3 @@ if __name__ == '__main__':
     javac_args = shlex.split(javac)
     java_args = shlex.split(java)
     run(code_litteral=code_litteral, javac_args=javac_args, java_args=java_args, **task_options)
-
